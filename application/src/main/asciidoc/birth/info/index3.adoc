@@ -1,0 +1,29 @@
+[[get_acknowledgement]]
+==== Acknowledgement
+
+Returns an acknowledgement of a unborn child declared earlier if any.
+
+===== Successful call
+
+When making a successful call to this API endpoint, the following request parameters and body can be expected.
+
+====== Request
+
+include::{snippets}/birth_info_acknowledgement1/http-request.adoc[]
+
+====== Response
+
+include::{snippets}/birth_info_acknowledgement1/http-response.adoc[]
+
+===== Successful call without acknowledgement
+
+When making a successful call to this API endpoint, the following request parameters and body can be expected.
+The response shows what to expect when no acknowledgement is found.
+
+====== Request
+
+include::{snippets}/birth_info_acknowledgement2/http-request.adoc[]
+
+====== Response
+
+include::{snippets}/birth_info_acknowledgement2/http-response.adoc[]

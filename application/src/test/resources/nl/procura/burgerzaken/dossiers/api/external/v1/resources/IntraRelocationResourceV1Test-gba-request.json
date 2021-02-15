@@ -1,0 +1,98 @@
+{
+  "zaak": {
+    "algemeen": {
+      "zaakId": null,
+      "meestRelevanteZaakId": null,
+      "type": "BINNENVERHUIZING",
+      "soort": null,
+      "omschrijving": null,
+      "status": "OPGENOMEN",
+      "bron": "test-application",
+      "leverancier": "test-customer",
+      "datumIngang": 20190101,
+      "datumInvoer": 0,
+      "tijdInvoer": 0,
+      "locatieInvoer": null,
+      "gebruikerInvoer": null,
+      "ids": [
+        {
+          "id": "intra-reloc-1234",
+          "systeem": "description"
+        }
+      ],
+      "statussen": null,
+      "extraAttributen": null,
+      "gekoppeldeZaken": null
+    },
+    "verhuizing": {
+      "type": "BINNENGEMEENTELIJK",
+      "bestemmmingHuidigeBewoners": "Destination current residents",
+      "aangever": {
+        "bsn": 999993653,
+        "contactgegevens": {
+          "email": "burgerzaken@procura.nl",
+          "telefoonThuis": "12345",
+          "telefoonWerk": null,
+          "telefoonMobiel": null,
+          "telefoonBuitenland": null
+        },
+        "ambtshalve": null,
+        "hoofdInstelling": null,
+        "toelichting": null
+      },
+      "hoofdbewoner": {
+        "bsn": 999993653
+      },
+      "inwoning": {
+        "sprakeVanInwoning": true,
+        "toestemminggever": {
+          "bsn": 999990639,
+          "anders": null
+        },
+        "aangifteStatus": "NIET_INGEVULD",
+        "toestemmingStatus": "NIET_INGEVULD"
+      },
+      "binnenverhuizing": {
+        "nieuwAdres": {
+          "postcode": "1234AA",
+          "straat": "Dorpstraat",
+          "hnr": 1,
+          "hnrL": "A",
+          "hnrT": "4",
+          "woonplaats": "Koedijk",
+          "gemeente": {
+            "waarde": "4567",
+            "omschrijving": "4567"
+          },
+          "locatie": "",
+          "functieAdres": "WOONADRES",
+          "aantalPersonen": 2
+        }
+      },
+      "buitenverhuizing": null,
+      "emigratie": null,
+      "hervestiging": null,
+      "verhuizers": [
+        {
+          "bsn": 999993653,
+          "aangifte": "INGESCHREVENE",
+          "verwerken": null
+        },
+        {
+          "bsn": 3116,
+          "aangifte": "GEZAGHOUDER",
+          "verwerken": null
+        },
+        {
+          "bsn": 2458,
+          "aangifte": "GEZAGHOUDER",
+          "verwerken": null
+        }
+      ]
+    },
+    "geboorte": null,
+    "erkenning": null,
+    "huwelijk": null,
+    "overlijden": null
+  }
+}

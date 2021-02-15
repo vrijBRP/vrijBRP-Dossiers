@@ -1,0 +1,20 @@
+[[birth_info_name_selection]]
+==== Name selection
+
+Checks if two people have joint children.
+It then returns the lastname, prefix and title.
+
+[[birth_info_name_selection_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[birth_info_name_selection_request]]
+====== Request
+
+include::{snippets}/birth_info_name_selection/http-request.adoc[]
+
+[[birth_info_name_selection_response]]
+====== Response
+
+include::{snippets}/birth_info_name_selection/http-response.adoc[]

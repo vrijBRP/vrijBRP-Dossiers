@@ -1,0 +1,16 @@
+[[commitment_cancel]]
+==== Cancel commitment
+
+This is an example of canceling a commitment.
+
+===== Successful call
+
+When making a successful call to this API endpoint, the following request parameters and body can be expected.
+
+====== Request
+
+include::{snippets}/cancel_commitment/http-request.adoc[]
+
+====== Response
+
+include::{snippets}/cancel_commitment/http-response.adoc[]

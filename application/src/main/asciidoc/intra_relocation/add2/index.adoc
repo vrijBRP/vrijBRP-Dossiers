@@ -1,0 +1,19 @@
+[[add_intra_reloc2]]
+==== Add new (minimal)
+
+This is an example of a minimal intra-municipal relocation without live-in situation and just the required fields.
+
+[[add_inter_reloc2_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[add_intra_reloc2_request]]
+====== Request
+
+include::{snippets}/add_intra_reloc2/http-request.adoc[]
+
+[[add_intra_reloc2_response]]
+====== Response
+
+include::{snippets}/add_intra_reloc2/http-response.adoc[]

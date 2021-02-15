@@ -1,0 +1,4413 @@
+{
+  "version": "",
+  "errors": [],
+  "personlists": [
+    {
+      "cats": [
+        {
+          "code": 1,
+          "descr": "Persoon",
+          "sets": [
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 110,
+                      "descr": "a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "1067207604",
+                        "val": "1067207604",
+                        "descr": "106.7207.604"
+                      }
+                    },
+                    {
+                      "code": 120,
+                      "descr": "burgerservicenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "48",
+                        "val": "48",
+                        "descr": "0000.00.048"
+                      }
+                    },
+                    {
+                      "code": 210,
+                      "descr": "voornamen",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "9448",
+                        "val": "Koene Dilhan Senecio",
+                        "descr": "Koene Dilhan Senecio"
+                      }
+                    },
+                    {
+                      "code": 220,
+                      "descr": "adellijke titel/predikaat",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 38,
+                        "descr": "Adellijke titel predikaten"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 230,
+                      "descr": "voorvoegsel geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 36,
+                        "descr": "Voorvoegsels"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 240,
+                      "descr": "geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "4778",
+                        "val": "Kusmierczyk",
+                        "descr": "Kusmierczyk"
+                      }
+                    },
+                    {
+                      "code": 310,
+                      "descr": "geboortedatum",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19310921",
+                        "val": "19310921",
+                        "descr": "21-09-1931"
+                      }
+                    },
+                    {
+                      "code": 320,
+                      "descr": "geboorteplaats",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "565",
+                        "val": "0565",
+                        "descr": "Naaldwijk"
+                      }
+                    },
+                    {
+                      "code": 330,
+                      "descr": "geboorteland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 410,
+                      "descr": "geslachtsaanduiding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 101,
+                        "descr": "Geslachtsaanduidingen"
+                      },
+                      "value": {
+                        "code": "M",
+                        "val": "M",
+                        "descr": "Man"
+                      }
+                    },
+                    {
+                      "code": 2010,
+                      "descr": "vorig a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 2020,
+                      "descr": "volgend a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 6110,
+                      "descr": "naamgebruik",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 109,
+                        "descr": "Aanduidingen naamgebruik"
+                      },
+                      "value": {
+                        "code": "E",
+                        "val": "E",
+                        "descr": "eigen geslachtsnaam"
+                      }
+                    },
+                    {
+                      "code": 8110,
+                      "descr": "registergemeente akte",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8120,
+                      "descr": "aktenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19900118",
+                        "val": "19900118",
+                        "descr": "18-01-1990"
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "PKA",
+                        "val": "PKA",
+                        "descr": "PKA"
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0",
+                        "val": "00000000",
+                        "descr": "00-00-0000"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19950918",
+                        "val": "19950918",
+                        "descr": "18-09-1995"
+                      }
+                    },
+                    {
+                      "code": 8810,
+                      "descr": "RNI deelnemer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 60,
+                        "descr": "RNI-deelnemers"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8820,
+                      "descr": "omschrijving verdrag",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": 2,
+          "descr": "Ouder 1",
+          "sets": [
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 110,
+                      "descr": "a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 120,
+                      "descr": "burgerservicenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 210,
+                      "descr": "voornamen",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "12229",
+                        "val": "Estelyn IJnske",
+                        "descr": "Estelyn IJnske"
+                      }
+                    },
+                    {
+                      "code": 220,
+                      "descr": "adellijke titel/predikaat",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 38,
+                        "descr": "Adellijke titel predikaten"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 230,
+                      "descr": "voorvoegsel geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 36,
+                        "descr": "Voorvoegsels"
+                      },
+                      "value": {
+                        "code": "van de",
+                        "val": "van de",
+                        "descr": "van de"
+                      }
+                    },
+                    {
+                      "code": 240,
+                      "descr": "geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "1475",
+                        "val": "Wařðt",
+                        "descr": "Wařðt"
+                      }
+                    },
+                    {
+                      "code": 310,
+                      "descr": "geboortedatum",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "18990312",
+                        "val": "18990312",
+                        "descr": "12-03-1899"
+                      }
+                    },
+                    {
+                      "code": 320,
+                      "descr": "geboorteplaats",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "1028",
+                        "val": "1028",
+                        "descr": "Breukelen-Nijenrode"
+                      }
+                    },
+                    {
+                      "code": 330,
+                      "descr": "geboorteland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 410,
+                      "descr": "geslachtsaanduiding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 101,
+                        "descr": "Geslachtsaanduidingen"
+                      },
+                      "value": {
+                        "code": "V",
+                        "val": "V",
+                        "descr": "Vrouw"
+                      }
+                    },
+                    {
+                      "code": 6210,
+                      "descr": "datum ingang familierechtelijke betrekking",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0",
+                        "val": "0",
+                        "descr": "00-00-0000"
+                      }
+                    },
+                    {
+                      "code": 8110,
+                      "descr": "registergemeente akte",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8120,
+                      "descr": "aktenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19900118",
+                        "val": "19900118",
+                        "descr": "18-01-1990"
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "PK",
+                        "val": "PK",
+                        "descr": "PK"
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0",
+                        "val": "00000000",
+                        "descr": "00-00-0000"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19900118",
+                        "val": "19900118",
+                        "descr": "18-01-1990"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": 3,
+          "descr": "Ouder 2",
+          "sets": [
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 110,
+                      "descr": "a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 120,
+                      "descr": "burgerservicenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 210,
+                      "descr": "voornamen",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "4298",
+                        "val": "Deavin Tugrul Riley Devlin Ceylan",
+                        "descr": "Deavin Tugrul Riley Devlin Ceylan"
+                      }
+                    },
+                    {
+                      "code": 220,
+                      "descr": "adellijke titel/predikaat",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 38,
+                        "descr": "Adellijke titel predikaten"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 230,
+                      "descr": "voorvoegsel geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 36,
+                        "descr": "Voorvoegsels"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 240,
+                      "descr": "geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "4778",
+                        "val": "Kusmierczyk",
+                        "descr": "Kusmierczyk"
+                      }
+                    },
+                    {
+                      "code": 310,
+                      "descr": "geboortedatum",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "18970209",
+                        "val": "18970209",
+                        "descr": "09-02-1897"
+                      }
+                    },
+                    {
+                      "code": 320,
+                      "descr": "geboorteplaats",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "565",
+                        "val": "0565",
+                        "descr": "Naaldwijk"
+                      }
+                    },
+                    {
+                      "code": 330,
+                      "descr": "geboorteland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 410,
+                      "descr": "geslachtsaanduiding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 101,
+                        "descr": "Geslachtsaanduidingen"
+                      },
+                      "value": {
+                        "code": "M",
+                        "val": "M",
+                        "descr": "Man"
+                      }
+                    },
+                    {
+                      "code": 6210,
+                      "descr": "datum ingang familierechtelijke betrekking",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0",
+                        "val": "0",
+                        "descr": "00-00-0000"
+                      }
+                    },
+                    {
+                      "code": 8110,
+                      "descr": "registergemeente akte",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8120,
+                      "descr": "aktenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19890617",
+                        "val": "19890617",
+                        "descr": "17-06-1989"
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "PK",
+                        "val": "PK",
+                        "descr": "PK"
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0",
+                        "val": "00000000",
+                        "descr": "00-00-0000"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19890617",
+                        "val": "19890617",
+                        "descr": "17-06-1989"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": 4,
+          "descr": "Nationaliteit",
+          "sets": [
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 510,
+                      "descr": "nationaliteit",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 32,
+                        "descr": "Nationaliteiten"
+                      },
+                      "value": {
+                        "code": "1",
+                        "val": "0001",
+                        "descr": "Nederlandse"
+                      }
+                    },
+                    {
+                      "code": 6310,
+                      "descr": "reden verkrijging Nederlanderschap",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 37,
+                        "descr": "Redenen opnemen / beëindigen nationaliteit"
+                      },
+                      "value": {
+                        "code": "1",
+                        "val": "001",
+                        "descr": "Wet op het Nederlanderschap 1892, art.1, lid 1a"
+                      }
+                    },
+                    {
+                      "code": 6410,
+                      "descr": "reden verlies Nederlanderschap",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 37,
+                        "descr": "Redenen opnemen / beëindigen nationaliteit"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 6510,
+                      "descr": "aanduiding bijzonder Nederlanderschap",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 110,
+                        "descr": "Aanduidingen bijzonder Nederlanderschap"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 7310,
+                      "descr": "EU-persoonsnummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0",
+                        "val": "00000000",
+                        "descr": "00-00-0000"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19890617",
+                        "val": "19890617",
+                        "descr": "17-06-1989"
+                      }
+                    },
+                    {
+                      "code": 8810,
+                      "descr": "RNI deelnemer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 60,
+                        "descr": "RNI-deelnemers"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8820,
+                      "descr": "omschrijving verdrag",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": 5,
+          "descr": "Huwelijk/GPS",
+          "sets": [
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": true,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 110,
+                      "descr": "a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "7197092695",
+                        "val": "7197092695",
+                        "descr": "719.7092.695"
+                      }
+                    },
+                    {
+                      "code": 120,
+                      "descr": "burgerservicenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "36",
+                        "val": "36",
+                        "descr": "0000.00.036"
+                      }
+                    },
+                    {
+                      "code": 210,
+                      "descr": "voornamen",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "9446",
+                        "val": "Bonita",
+                        "descr": "Bonita"
+                      }
+                    },
+                    {
+                      "code": 220,
+                      "descr": "adellijke titel/predikaat",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 38,
+                        "descr": "Adellijke titel predikaten"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 230,
+                      "descr": "voorvoegsel geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 36,
+                        "descr": "Voorvoegsels"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 240,
+                      "descr": "geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "4776",
+                        "val": "Heilijgers",
+                        "descr": "Heilijgers"
+                      }
+                    },
+                    {
+                      "code": 310,
+                      "descr": "geboortedatum",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19350120",
+                        "val": "19350120",
+                        "descr": "20-01-1935"
+                      }
+                    },
+                    {
+                      "code": 320,
+                      "descr": "geboorteplaats",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "630",
+                        "val": "0630",
+                        "descr": "Wateringen"
+                      }
+                    },
+                    {
+                      "code": 330,
+                      "descr": "geboorteland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 410,
+                      "descr": "geslachtsaanduiding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 101,
+                        "descr": "Geslachtsaanduidingen"
+                      },
+                      "value": {
+                        "code": "V",
+                        "val": "V",
+                        "descr": "Vrouw"
+                      }
+                    },
+                    {
+                      "code": 610,
+                      "descr": "datum huwelijkssluiting/aangaan GPS",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19590706",
+                        "val": "19590706",
+                        "descr": "06-07-1959"
+                      }
+                    },
+                    {
+                      "code": 620,
+                      "descr": "plaats huwelijkssluiting/aangaan GPS",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "630",
+                        "val": "0630",
+                        "descr": "Wateringen"
+                      }
+                    },
+                    {
+                      "code": 630,
+                      "descr": "land huwelijkssluiting/aangaan GPS",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 710,
+                      "descr": "datum ontbinding huwelijk/GPS",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20170131",
+                        "val": "20170131",
+                        "descr": "31-01-2017"
+                      }
+                    },
+                    {
+                      "code": 720,
+                      "descr": "plaats ontbinding huwelijk/GPS",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 730,
+                      "descr": "land ontbinding huwelijk/GPS",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 740,
+                      "descr": "reden ontbinding huwelijk/GPS",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 41,
+                        "descr": "Redenen ontbinding nietigverklaring huwelijk geregistreerd partnerschap"
+                      },
+                      "value": {
+                        "code": "O",
+                        "val": "O",
+                        "descr": "Overlijden echtgenoot/geregistreerd partner"
+                      }
+                    },
+                    {
+                      "code": 1510,
+                      "descr": "soort verbintenis",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 104,
+                        "descr": "Soorten verbintenis"
+                      },
+                      "value": {
+                        "code": "H",
+                        "val": "H",
+                        "descr": "Huwelijk"
+                      }
+                    },
+                    {
+                      "code": 8110,
+                      "descr": "registergemeente akte",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8120,
+                      "descr": "aktenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20A0061",
+                        "val": "20A0061",
+                        "descr": "20A0061"
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20170131",
+                        "val": "20170131",
+                        "descr": "31-01-2017"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20170203",
+                        "val": "20170203",
+                        "descr": "03-02-2017"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": 7,
+          "descr": "Inschrijving",
+          "sets": [
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 6610,
+                      "descr": "gemeente blokkering PL",
+                      "national": false,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 6620,
+                      "descr": "datum ingang blokkering PL",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 6710,
+                      "descr": "datum opschorting bijhouding",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 6720,
+                      "descr": "omschrijving reden opschorting bijhouding",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 111,
+                        "descr": "Omschrijvingen reden opschortingen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 6810,
+                      "descr": "datum eerste inschrijving GBA",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19930630",
+                        "val": "19930630",
+                        "descr": "30-06-1993"
+                      }
+                    },
+                    {
+                      "code": 6910,
+                      "descr": "gemeente waar de PK zich bevindt",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 7010,
+                      "descr": "indicatie geheim",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 112,
+                        "descr": "Indicaties geheim"
+                      },
+                      "value": {
+                        "code": "0",
+                        "val": "0",
+                        "descr": "geen beperking"
+                      }
+                    },
+                    {
+                      "code": 7110,
+                      "descr": "Datum verificatie",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 7120,
+                      "descr": "Omschrijving verificatie",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8010,
+                      "descr": "versienummer",
+                      "national": true,
+                      "tech": true,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "12",
+                        "val": "0012",
+                        "descr": "0012"
+                      }
+                    },
+                    {
+                      "code": 8020,
+                      "descr": "datumtijdstempel",
+                      "national": true,
+                      "tech": true,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20170206073002000",
+                        "val": "20170206073002000",
+                        "descr": "06-02-2017 07:30:02"
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0",
+                        "val": "00000000",
+                        "descr": "00-00-0000"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19930630",
+                        "val": "19930630",
+                        "descr": "30-06-1993"
+                      }
+                    },
+                    {
+                      "code": 8710,
+                      "descr": "PK-gegevens volledig meegeconverteerd",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 115,
+                        "descr": "PK gegevens"
+                      },
+                      "value": {
+                        "code": "P",
+                        "val": "P",
+                        "descr": "PK-gegevens volledig meegeconverteerd"
+                      }
+                    },
+                    {
+                      "code": 8810,
+                      "descr": "RNI deelnemer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 60,
+                        "descr": "RNI-deelnemers"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8820,
+                      "descr": "omschrijving verdrag",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": 8,
+          "descr": "Verblijfplaats",
+          "sets": [
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 910,
+                      "descr": "gemeente van inschrijving",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 911,
+                      "descr": "code gemeente van inschrijving",
+                      "national": false,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "0281"
+                      }
+                    },
+                    {
+                      "code": 920,
+                      "descr": "datum inschrijving",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19721016",
+                        "val": "19721016",
+                        "descr": "16-10-1972"
+                      }
+                    },
+                    {
+                      "code": 1010,
+                      "descr": "functie adres",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 102,
+                        "descr": "Functies adressen"
+                      },
+                      "value": {
+                        "code": "W",
+                        "val": "W",
+                        "descr": "Woonadres"
+                      }
+                    },
+                    {
+                      "code": 1020,
+                      "descr": "gemeentedeel",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 100,
+                        "descr": "Gemeentedelen"
+                      },
+                      "value": {
+                        "code": "1",
+                        "val": "Prulpark",
+                        "descr": "Prulpark"
+                      }
+                    },
+                    {
+                      "code": 1030,
+                      "descr": "datum aanvang adreshouding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19721016",
+                        "val": "19721016",
+                        "descr": "16-10-1972"
+                      }
+                    },
+                    {
+                      "code": 1110,
+                      "descr": "straatnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 120,
+                        "descr": "Straten"
+                      },
+                      "value": {
+                        "code": "407",
+                        "val": "Knapenveldsdijk",
+                        "descr": "Knapenveldsdijk"
+                      }
+                    },
+                    {
+                      "code": 1111,
+                      "descr": "straatnaam (officieel)",
+                      "national": false,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "407",
+                        "val": "Knapenveldsdijk",
+                        "descr": "Knapenveldsdijk"
+                      }
+                    },
+                    {
+                      "code": 1112,
+                      "descr": "straatnaam (NEN)",
+                      "national": false,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "407",
+                        "val": "Knapenveldsdijk",
+                        "descr": "Knapenveldsdijk"
+                      }
+                    },
+                    {
+                      "code": 1115,
+                      "descr": "openbare ruimte",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 122,
+                        "descr": "Openbare ruimtes"
+                      },
+                      "value": {
+                        "code": "736",
+                        "val": "Knapenveldsdijk",
+                        "descr": "Knapenveldsdijk"
+                      }
+                    },
+                    {
+                      "code": 1120,
+                      "descr": "huisnummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "421",
+                        "val": "421",
+                        "descr": "421"
+                      }
+                    },
+                    {
+                      "code": 1130,
+                      "descr": "huisletter",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1140,
+                      "descr": "huisnummertoevoeging",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1150,
+                      "descr": "aanduiding bij huisnummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 103,
+                        "descr": "Huisnummer aanduidingen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1160,
+                      "descr": "postcode",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "9950ZP",
+                        "val": "9950ZP",
+                        "descr": "9950 ZP"
+                      }
+                    },
+                    {
+                      "code": 1170,
+                      "descr": "woonplaatsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 93,
+                        "descr": "Woonplaatsen"
+                      },
+                      "value": {
+                        "code": "51",
+                        "val": "2557",
+                        "descr": "Prulpark"
+                      }
+                    },
+                    {
+                      "code": 1180,
+                      "descr": "identificatie verblijfplaats",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0281010000060329",
+                        "val": "0281010000060329",
+                        "descr": "0281010000060329"
+                      }
+                    },
+                    {
+                      "code": 1190,
+                      "descr": "identificatiecode nummeraanduiding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "0281200000060328",
+                        "val": "0281200000060328",
+                        "descr": "0281200000060328"
+                      }
+                    },
+                    {
+                      "code": 1210,
+                      "descr": "locatiebeschrijving",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 121,
+                        "descr": "Locaties"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1310,
+                      "descr": "land waarnaar vertrokken",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1320,
+                      "descr": "datum vertrek uit Nederland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1330,
+                      "descr": "adres buitenland waarnaar vertrokken 1",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1340,
+                      "descr": "adres buitenland waarnaar vertrokken 2",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1350,
+                      "descr": "adres buitenland waarnaar vertrokken 3",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1410,
+                      "descr": "land vanwaar ingeschreven",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 1420,
+                      "descr": "datum vestiging in Nederland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 7210,
+                      "descr": "omschrijving van de aangifte adreshouding",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 113,
+                        "descr": "Aangiftes adres"
+                      },
+                      "value": {
+                        "code": "T",
+                        "val": "T",
+                        "descr": "technische wijziging i.v.m. BAG"
+                      }
+                    },
+                    {
+                      "code": 7510,
+                      "descr": "indicatie document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 119,
+                        "descr": "Indicatie documenten"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20111014",
+                        "val": "20111014",
+                        "descr": "14-10-2011"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20111014",
+                        "val": "20111014",
+                        "descr": "14-10-2011"
+                      }
+                    },
+                    {
+                      "code": 8810,
+                      "descr": "RNI deelnemer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 60,
+                        "descr": "RNI-deelnemers"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8820,
+                      "descr": "omschrijving verdrag",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": 9,
+          "descr": "Kinderen",
+          "sets": [
+            {
+              "index": 3,
+              "internalIndex": 3,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 110,
+                      "descr": "a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "4394937367",
+                        "val": "4394937367",
+                        "descr": "439.4937.367"
+                      }
+                    },
+                    {
+                      "code": 120,
+                      "descr": "burgerservicenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "12",
+                        "val": "12",
+                        "descr": "0000.00.012"
+                      }
+                    },
+                    {
+                      "code": 210,
+                      "descr": "voornamen",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "12233",
+                        "val": "Shezai Pasa",
+                        "descr": "Shezai Pasa"
+                      }
+                    },
+                    {
+                      "code": 220,
+                      "descr": "adellijke titel/predikaat",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 38,
+                        "descr": "Adellijke titel predikaten"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 230,
+                      "descr": "voorvoegsel geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 36,
+                        "descr": "Voorvoegsels"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 240,
+                      "descr": "geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "4778",
+                        "val": "Kusmierczyk",
+                        "descr": "Kusmierczyk"
+                      }
+                    },
+                    {
+                      "code": 310,
+                      "descr": "geboortedatum",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19690130",
+                        "val": "19690130",
+                        "descr": "30-01-1969"
+                      }
+                    },
+                    {
+                      "code": 320,
+                      "descr": "geboorteplaats",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "344",
+                        "val": "0344",
+                        "descr": "Gansdorp"
+                      }
+                    },
+                    {
+                      "code": 330,
+                      "descr": "geboorteland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 410,
+                      "descr": "geslachtsaanduiding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 101,
+                        "descr": "Geslachtsaanduidingen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8110,
+                      "descr": "registergemeente akte",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8120,
+                      "descr": "aktenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19940713",
+                        "val": "19940713",
+                        "descr": "13-07-1994"
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "PK",
+                        "val": "PK",
+                        "descr": "PK"
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19690130",
+                        "val": "19690130",
+                        "descr": "30-01-1969"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19950918",
+                        "val": "19950918",
+                        "descr": "18-09-1995"
+                      }
+                    },
+                    {
+                      "code": 8910,
+                      "descr": "registratie betrekking",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "internalIndex": 2,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 110,
+                      "descr": "a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "2898356086",
+                        "val": "2898356086",
+                        "descr": "289.8356.086"
+                      }
+                    },
+                    {
+                      "code": 120,
+                      "descr": "burgerservicenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "24",
+                        "val": "24",
+                        "descr": "0000.00.024"
+                      }
+                    },
+                    {
+                      "code": 210,
+                      "descr": "voornamen",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "38424",
+                        "val": "Date",
+                        "descr": "Date"
+                      }
+                    },
+                    {
+                      "code": 220,
+                      "descr": "adellijke titel/predikaat",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 38,
+                        "descr": "Adellijke titel predikaten"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 230,
+                      "descr": "voorvoegsel geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 36,
+                        "descr": "Voorvoegsels"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 240,
+                      "descr": "geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "4778",
+                        "val": "Kusmierczyk",
+                        "descr": "Kusmierczyk"
+                      }
+                    },
+                    {
+                      "code": 310,
+                      "descr": "geboortedatum",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19640729",
+                        "val": "19640729",
+                        "descr": "29-07-1964"
+                      }
+                    },
+                    {
+                      "code": 320,
+                      "descr": "geboorteplaats",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "344",
+                        "val": "0344",
+                        "descr": "Gansdorp"
+                      }
+                    },
+                    {
+                      "code": 330,
+                      "descr": "geboorteland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 410,
+                      "descr": "geslachtsaanduiding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 101,
+                        "descr": "Geslachtsaanduidingen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8110,
+                      "descr": "registergemeente akte",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8120,
+                      "descr": "aktenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19940713",
+                        "val": "19940713",
+                        "descr": "13-07-1994"
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "PK",
+                        "val": "PK",
+                        "descr": "PK"
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19640729",
+                        "val": "19640729",
+                        "descr": "29-07-1964"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19950918",
+                        "val": "19950918",
+                        "descr": "18-09-1995"
+                      }
+                    },
+                    {
+                      "code": 8910,
+                      "descr": "registratie betrekking",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 110,
+                      "descr": "a-nummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 120,
+                      "descr": "burgerservicenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 210,
+                      "descr": "voornamen",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "2854",
+                        "val": "Stoffer Paroeq Steven",
+                        "descr": "Stoffer Paroeq Steven"
+                      }
+                    },
+                    {
+                      "code": 220,
+                      "descr": "adellijke titel/predikaat",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 38,
+                        "descr": "Adellijke titel predikaten"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 230,
+                      "descr": "voorvoegsel geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 36,
+                        "descr": "Voorvoegsels"
+                      },
+                      "value": {
+                        "code": " ",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 240,
+                      "descr": "geslachtsnaam",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "4778",
+                        "val": "Kusmierczyk",
+                        "descr": "Kusmierczyk"
+                      }
+                    },
+                    {
+                      "code": 310,
+                      "descr": "geboortedatum",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19600917",
+                        "val": "19600917",
+                        "descr": "17-09-1960"
+                      }
+                    },
+                    {
+                      "code": 320,
+                      "descr": "geboorteplaats",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "344",
+                        "val": "0344",
+                        "descr": "Gansdorp"
+                      }
+                    },
+                    {
+                      "code": 330,
+                      "descr": "geboorteland",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 34,
+                        "descr": "Landen"
+                      },
+                      "value": {
+                        "code": "6030",
+                        "val": "6030",
+                        "descr": "Nederland"
+                      }
+                    },
+                    {
+                      "code": 410,
+                      "descr": "geslachtsaanduiding",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 101,
+                        "descr": "Geslachtsaanduidingen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8110,
+                      "descr": "registergemeente akte",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8120,
+                      "descr": "aktenummer",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19940713",
+                        "val": "19940713",
+                        "descr": "13-07-1994"
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "PK",
+                        "val": "PK",
+                        "descr": "PK"
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19600917",
+                        "val": "19600917",
+                        "descr": "17-09-1960"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "19940713",
+                        "val": "19940713",
+                        "descr": "13-07-1994"
+                      }
+                    },
+                    {
+                      "code": 8910,
+                      "descr": "registratie betrekking",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": 12,
+          "descr": "Reisdocumenten",
+          "sets": [
+            {
+              "index": 2,
+              "internalIndex": 2,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 3510,
+                      "descr": "Nederlands reisdocument",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 48,
+                        "descr": "Nederlands reisdocumenten"
+                      },
+                      "value": {
+                        "code": "28",
+                        "val": "NI",
+                        "descr": "Nederlandse identiteitskaart"
+                      }
+                    },
+                    {
+                      "code": 3520,
+                      "descr": "nummer document",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "IN1B790R4",
+                        "val": "IN1B790R4",
+                        "descr": "IN1B790R4"
+                      }
+                    },
+                    {
+                      "code": 3530,
+                      "descr": "datum uitgifte",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20140724",
+                        "val": "20140724",
+                        "descr": "24-07-2014"
+                      }
+                    },
+                    {
+                      "code": 3540,
+                      "descr": "autoriteit van afgifte",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 49,
+                        "descr": "Autoriteiten van afgifte Nederlands reisdocument"
+                      },
+                      "value": {
+                        "code": "B0281",
+                        "val": "B0281",
+                        "descr": "Burgemeester van Duckstad"
+                      }
+                    },
+                    {
+                      "code": 3550,
+                      "descr": "datum einde geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20240724",
+                        "val": "20240724",
+                        "descr": "24-07-2024"
+                      }
+                    },
+                    {
+                      "code": 3560,
+                      "descr": "datum inhouding/vermissing",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 3570,
+                      "descr": "aanduiding inhouding/vermissing",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 107,
+                        "descr": "Aanduidingen inhouding"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 3580,
+                      "descr": "lengte houder",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "170",
+                        "val": "170",
+                        "descr": "170"
+                      }
+                    },
+                    {
+                      "code": 3610,
+                      "descr": "signalering met betrekking tot verstrekken NL reisdocument",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 117,
+                        "descr": "Signalering verstrekkingen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 3710,
+                      "descr": "buitenlands reisdocument",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 118,
+                        "descr": "Aanduidingen bezit buitenlands reisdocument"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20140724",
+                        "val": "20140724",
+                        "descr": "24-07-2014"
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "Reisdocumentendossier",
+                        "val": "Reisdocumentendossier",
+                        "descr": "Reisdocumentendossier"
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20140724",
+                        "val": "20140724",
+                        "descr": "24-07-2014"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20140731",
+                        "val": "20140731",
+                        "descr": "31-07-2014"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "index": 1,
+              "internalIndex": 1,
+              "mostRecentMarriage": null,
+              "records": [
+                {
+                  "index": 1,
+                  "status": {
+                    "code": 2,
+                    "descr": "Actueel"
+                  },
+                  "incorrect": false,
+                  "bagChange": false,
+                  "adminHist": false,
+                  "conflicting": false,
+                  "elems": [
+                    {
+                      "code": 3510,
+                      "descr": "Nederlands reisdocument",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 48,
+                        "descr": "Nederlands reisdocumenten"
+                      },
+                      "value": {
+                        "code": "28",
+                        "val": "NI",
+                        "descr": "Nederlandse identiteitskaart"
+                      }
+                    },
+                    {
+                      "code": 3520,
+                      "descr": "nummer document",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "ILF5KFLL4",
+                        "val": "ILF5KFLL4",
+                        "descr": "ILF5KFLL4"
+                      }
+                    },
+                    {
+                      "code": 3530,
+                      "descr": "datum uitgifte",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20080717",
+                        "val": "20080717",
+                        "descr": "17-07-2008"
+                      }
+                    },
+                    {
+                      "code": 3540,
+                      "descr": "autoriteit van afgifte",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 49,
+                        "descr": "Autoriteiten van afgifte Nederlands reisdocument"
+                      },
+                      "value": {
+                        "code": "B0281",
+                        "val": "B0281",
+                        "descr": "Burgemeester van Duckstad"
+                      }
+                    },
+                    {
+                      "code": 3550,
+                      "descr": "datum einde geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20130717",
+                        "val": "20130717",
+                        "descr": "17-07-2013"
+                      }
+                    },
+                    {
+                      "code": 3560,
+                      "descr": "datum inhouding/vermissing",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20140724",
+                        "val": "20140724",
+                        "descr": "24-07-2014"
+                      }
+                    },
+                    {
+                      "code": 3570,
+                      "descr": "aanduiding inhouding/vermissing",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 107,
+                        "descr": "Aanduidingen inhouding"
+                      },
+                      "value": {
+                        "code": "I",
+                        "val": "I",
+                        "descr": "Ingehouden, ingeleverd"
+                      }
+                    },
+                    {
+                      "code": 3580,
+                      "descr": "lengte houder",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "170",
+                        "val": "170",
+                        "descr": "170"
+                      }
+                    },
+                    {
+                      "code": 3610,
+                      "descr": "signalering met betrekking tot verstrekken NL reisdocument",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 117,
+                        "descr": "Signalering verstrekkingen"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 3710,
+                      "descr": "buitenlands reisdocument",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": {
+                        "code": 118,
+                        "descr": "Aanduidingen bezit buitenlands reisdocument"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8210,
+                      "descr": "gemeente document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 33,
+                        "descr": "Plaatsen"
+                      },
+                      "value": {
+                        "code": "281",
+                        "val": "0281",
+                        "descr": "Duckstad"
+                      }
+                    },
+                    {
+                      "code": 8220,
+                      "descr": "datum document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20080717",
+                        "val": "20080717",
+                        "descr": "17-07-2008"
+                      }
+                    },
+                    {
+                      "code": 8230,
+                      "descr": "beschrijving document",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "Reisdocumentendossier",
+                        "val": "Reisdocumentendossier",
+                        "descr": "Reisdocumentendossier"
+                      }
+                    },
+                    {
+                      "code": 8310,
+                      "descr": "aanduiding gegevens in onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8320,
+                      "descr": "datum ingang onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8330,
+                      "descr": "datum einde onderzoek",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8410,
+                      "descr": "indicatie onjuist",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": {
+                        "code": 114,
+                        "descr": "Indicaties onjuist"
+                      },
+                      "value": {
+                        "code": "",
+                        "val": "",
+                        "descr": ""
+                      }
+                    },
+                    {
+                      "code": 8510,
+                      "descr": "ingangsdatum geldigheid",
+                      "national": true,
+                      "tech": false,
+                      "admin": false,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20140724",
+                        "val": "20140724",
+                        "descr": "24-07-2014"
+                      }
+                    },
+                    {
+                      "code": 8610,
+                      "descr": "datum van opneming",
+                      "national": true,
+                      "tech": false,
+                      "admin": true,
+                      "allowed": true,
+                      "table": null,
+                      "value": {
+                        "code": "20140724",
+                        "val": "20140724",
+                        "descr": "24-07-2014"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

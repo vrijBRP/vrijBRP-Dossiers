@@ -1,0 +1,19 @@
+[[add_discovered_body]]
+==== Add new
+
+This is an example of a new discovered body case.
+
+[[add_discovered_body_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[add_discovered_body_request]]
+====== Request
+
+include::{snippets}/add_discovered_body/http-request.adoc[]
+
+[[add_discovered_body_response]]
+====== Response
+
+include::{snippets}/add_discovered_body/http-response.adoc[]

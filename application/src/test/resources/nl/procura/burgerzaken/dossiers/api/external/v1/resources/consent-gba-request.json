@@ -1,0 +1,12 @@
+{
+  "zaakId": "GYP-3J1",
+  "inwoning": {
+    "sprakeVanInwoning": true,
+    "toestemminggever": {
+      "bsn": 36,
+      "anders": null
+    },
+    "aangifteStatus": "GEACCEPTEERD",
+    "toestemmingStatus": "JA"
+  }
+}

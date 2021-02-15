@@ -1,0 +1,19 @@
+[[discovered_body_find_1]]
+==== Get one by dossier ID
+
+This is an example of a search for one discovered body case by dossierId
+
+[[discovered_body_find_1_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[discovered_body_find_1_request]]
+====== Request
+
+include::{snippets}/search_discovered_body/http-request.adoc[]
+
+[[discovered_body_find_1_response]]
+====== Response
+
+include::{snippets}/search_discovered_body/http-response.adoc[]

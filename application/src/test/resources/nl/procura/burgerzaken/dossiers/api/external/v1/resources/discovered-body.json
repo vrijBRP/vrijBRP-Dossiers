@@ -1,0 +1,101 @@
+{
+  "inhoud": {
+    "algemeen": {
+      "zaakId": "death-5678",
+      "meestRelevanteZaakId": null,
+      "type": "LIJKVINDING",
+      "soort": "van der Kaart",
+      "omschrijving": "Lijkvinding (van der Kaart)",
+      "status": "INCOMPLEET",
+      "bron": "SIM-APP",
+      "leverancier": "SIM",
+      "datumIngang": 20200816,
+      "datumInvoer": 20200428,
+      "tijdInvoer": 101112,
+      "locatieInvoer": null,
+      "gebruikerInvoer": null,
+      "ids": [
+        {
+          "id": "death-5678",
+          "systeem": "External system"
+        }
+      ],
+      "statussen": null,
+      "extraAttributen": null,
+      "gekoppeldeZaken": null
+    },
+    "overlijden": {
+      "lijkvinding": {
+        "overledene": {
+          "bsn": 36,
+          "voornamen": "Madonna",
+          "geslachtsnaam": "Kaart",
+          "voorvoegsel": "van der",
+          "titelPredikaat": "JV",
+          "geboortedatum": 19750307,
+          "geboorteplaats": {
+            "waarde": "0548",
+            "omschrijving": "Leidschendam"
+          },
+          "geboorteland": {
+            "waarde": "6030",
+            "omschrijving": "Nederland"
+          }
+        },
+        "aangifte": {
+          "schriftelijkeAangever": "OFFICIER_VAN_JUSTITIE",
+          "plaats": {
+            "waarde": "0398",
+            "omschrijving": "Heerhugowaard"
+          },
+          "datum": 20200816,
+          "tijd": 91000,
+          "toevoeging": "Gevonden thuis in een stoel",
+          "documentType": "NIET_NATUURLIJK_DOOD"
+        },
+        "lijkbezorging": {
+          "datum": 20201030,
+          "tijd": 132000,
+          "lijkbezorgingType": "BEGRAVING_CREMATIE",
+          "buitenBenelux": true,
+          "doodsoorzaakType": "NON_CONTAGIOUS_DISEASE",
+          "landVanBestemming": {
+            "waarde": "8045",
+            "omschrijving": "Antigua en Barbuda"
+          },
+          "plaatsVanBestemming": "Timboektoe",
+          "via": "Het vliegveld",
+          "vervoermiddel": "Vliegtuig"
+        },
+        "verzoek": {
+          "correspondentie": {
+            "type": "POST",
+            "organisatie": "Procura B.V.",
+            "afdeling": "Burgerzaken",
+            "naam": "Dhr. F. Janssen",
+            "email": "test@procura.nl",
+            "telefoon": "123456",
+            "straat": "Parelweg",
+            "hnr": 12,
+            "hnrL": "A",
+            "hnrT": "TO",
+            "postcode": "1821RS",
+            "plaats": "Alkmaar"
+          },
+          "uittreksels": [
+            {
+              "code": "akte1",
+              "omschrijving": "Document description 1",
+              "aantal": 1
+            },
+            {
+              "code": "akte1",
+              "omschrijving": "Document description 2",
+              "aantal": 2
+            }
+          ]
+        }
+      }
+    }
+  }
+}

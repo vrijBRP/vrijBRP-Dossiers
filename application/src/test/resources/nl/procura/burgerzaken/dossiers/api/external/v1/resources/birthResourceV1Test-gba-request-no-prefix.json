@@ -1,0 +1,154 @@
+{
+  "zaak": {
+    "algemeen": {
+      "zaakId": null,
+      "meestRelevanteZaakId": null,
+      "type": "GEBOORTE",
+      "soort": null,
+      "omschrijving": null,
+      "status": "OPGENOMEN",
+      "bron": "test-application",
+      "leverancier": "test-customer",
+      "datumIngang": 20200402,
+      "datumInvoer": 0,
+      "tijdInvoer": 0,
+      "locatieInvoer": null,
+      "gebruikerInvoer": null,
+      "ids": [
+        {
+          "id": "birth-1234",
+          "systeem": "External system"
+        }
+      ],
+      "statussen": null,
+      "extraAttributen": null,
+      "gekoppeldeZaken": null
+    },
+    "verhuizing": null,
+    "geboorte": {
+      "aangever": {
+        "bsn": 24,
+        "contactgegevens": {
+          "email": "burgerzaken@procura.nl",
+          "telefoonThuis": "12345",
+          "telefoonWerk": null,
+          "telefoonMobiel": null,
+          "telefoonBuitenland": null
+        },
+        "voornamen": null,
+        "geslachtsnaam": null,
+        "voorvoegsel": null,
+        "titelPredikaat": null,
+        "aktenaam": null,
+        "geslacht": null,
+        "adres": null,
+        "geboortedatum": null,
+        "geboorteplaats": null,
+        "geboorteplaatsOpAkte": null,
+        "geboorteland": null,
+        "geboortelandOpAkte": null,
+        "immigratieDatum": null,
+        "immigratieLand": null,
+        "overlijdensDatum": null,
+        "burgerlijkeStaat": null,
+        "burgerlijkeStaatDatum": null,
+        "verstrekkingsbeperking": null,
+        "verblijfstitel": null,
+        "toelichting": null,
+        "nationaliteiten": null
+      },
+      "moeder": {
+        "bsn": 36,
+        "contactgegevens": {
+          "email": "burgerzaken@procura.nl",
+          "telefoonThuis": "12345",
+          "telefoonWerk": null,
+          "telefoonMobiel": null,
+          "telefoonBuitenland": null
+        },
+        "voornamen": null,
+        "geslachtsnaam": null,
+        "voorvoegsel": null,
+        "titelPredikaat": null,
+        "aktenaam": null,
+        "geslacht": null,
+        "adres": null,
+        "geboortedatum": null,
+        "geboorteplaats": null,
+        "geboorteplaatsOpAkte": null,
+        "geboorteland": null,
+        "geboortelandOpAkte": null,
+        "immigratieDatum": null,
+        "immigratieLand": null,
+        "overlijdensDatum": null,
+        "burgerlijkeStaat": null,
+        "burgerlijkeStaatDatum": null,
+        "verstrekkingsbeperking": null,
+        "verblijfstitel": null,
+        "toelichting": null,
+        "nationaliteiten": null
+      },
+      "vaderOfDuoMoeder": null,
+      "kinderen": [
+        {
+          "voornamen": "John",
+          "geslacht": "MAN",
+          "geboortedatum": 20200403,
+          "geboortetijd": 111200
+        },
+        {
+          "voornamen": "Mary",
+          "geslacht": "VROUW",
+          "geboortedatum": 20200402,
+          "geboortetijd": 143000
+        }
+      ],
+      "aangifte": null,
+      "gezinssituatie": null,
+      "afstamming": null,
+      "namenrecht": null,
+      "erkenning": null,
+      "nationaliteiten": null,
+      "aktes": null,
+      "verzoek": {
+        "vaderOfDuoMoeder": {
+          "bsn": 48,
+          "contactgegevens": {
+            "email": "burgerzaken@procura.nl",
+            "telefoonThuis": "12345",
+            "telefoonWerk": null,
+            "telefoonMobiel": null,
+            "telefoonBuitenland": null
+          },
+          "voornamen": null,
+          "geslachtsnaam": null,
+          "voorvoegsel": null,
+          "titelPredikaat": null,
+          "aktenaam": null,
+          "geslacht": null,
+          "adres": null,
+          "geboortedatum": null,
+          "geboorteplaats": null,
+          "geboorteplaatsOpAkte": null,
+          "geboorteland": null,
+          "geboortelandOpAkte": null,
+          "immigratieDatum": null,
+          "immigratieLand": null,
+          "overlijdensDatum": null,
+          "burgerlijkeStaat": null,
+          "burgerlijkeStaatDatum": null,
+          "verstrekkingsbeperking": null,
+          "verblijfstitel": null,
+          "toelichting": null,
+          "nationaliteiten": null
+        },
+        "geslachtsnaam": "Vries",
+        "voorvoegsel": null,
+        "titelPredikaat": null
+      }
+    },
+    "erkenning": null,
+    "huwelijk": null,
+    "overlijden": null
+  }
+}

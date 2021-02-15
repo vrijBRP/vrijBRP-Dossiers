@@ -1,0 +1,230 @@
+{
+  "inhoud": {
+    "type": "gbaRestZaak",
+    "algemeen": {
+      "bron": "PROWEB Personen",
+      "datumIngang": 20200910,
+      "datumInvoer": 20200602,
+      "gebruikerInvoer": {
+        "omschrijving": "User 1",
+        "waarde": "202"
+      },
+      "ids": [
+        {
+          "id": "commitment-1234",
+          "systeem": "PROWEB-PERSONEN"
+        }
+      ],
+      "leverancier": "PROCURA",
+      "locatieInvoer": {
+        "omschrijving": "Balie 1 Burgerzaken",
+        "waarde": "Balie 1"
+      },
+      "meestRelevanteZaakId": "0300-e7a-s6o",
+      "omschrijving": "Huwelijk / GPS in gemeente (Jansen / de Vries / Onbekend)",
+      "soort": "Jansen / de Vries / Onbekend",
+      "status": "INCOMPLEET",
+      "statussen": [
+        {
+          "invoerDatum": 20200602,
+          "invoerGebruiker": {
+            "omschrijving": "User 1",
+            "waarde": "202"
+          },
+          "invoerTijd": 130155,
+          "opmerking": "Initiële status.",
+          "type": "INCOMPLEET",
+          "volgNr": 1
+        }
+      ],
+      "tijdInvoer": 130126,
+      "type": "HUWELIJK_GPS_GEMEENTE",
+      "zaakId": "marriage-1234"
+    },
+    "huwelijk": {
+      "ambtenaren": {
+        "voorkeuren": [
+          {
+            "aliassen": [
+              "alias1",
+              "alias2",
+              "alias3"
+            ],
+            "email": "name1@procura.nl",
+            "naam": "Name 1",
+            "telefoon": "1234"
+          }
+        ],
+        "toegekend": {
+          "aliassen": [
+            "alias4"
+          ],
+          "email": "name2@procura.nl",
+          "naam": "Name 2",
+          "telefoon": "3231231231"
+        }
+      },
+      "getuigen": {
+        "aantalGemeenteGetuigen": 2,
+        "eigenGetuigen": [
+          {
+            "persoon": {
+              "bsn": null,
+              "contactgegevens": null,
+              "voornamen": "Truus",
+              "geslachtsnaam": "Vries",
+              "voorvoegsel": "de",
+              "titelPredikaat": null,
+              "aktenaam": null,
+              "geslacht": null,
+              "adres": null,
+              "geboortedatum": 19900101,
+              "geboorteplaats": null,
+              "geboorteplaatsOpAkte": null,
+              "geboorteland": null,
+              "geboortelandOpAkte": null,
+              "immigratieDatum": null,
+              "immigratieLand": null,
+              "overlijdensDatum": null,
+              "burgerlijkeStaat": null,
+              "burgerlijkeStaatDatum": null,
+              "verstrekkingsbeperking": null,
+              "verblijfstitel": null,
+              "toelichting": "First witness!",
+              "nationaliteiten": null
+            }
+          },
+          {
+            "persoon": {
+              "bsn": 48,
+              "contactgegevens": null,
+              "voornamen": "Klaas",
+              "geslachtsnaam": "Jansen",
+              "voorvoegsel": null,
+              "titelPredikaat": null,
+              "aktenaam": null,
+              "geslacht": null,
+              "adres": null,
+              "geboortedatum": 19800503,
+              "geboorteplaats": null,
+              "geboorteplaatsOpAkte": null,
+              "geboorteland": null,
+              "geboortelandOpAkte": null,
+              "immigratieDatum": null,
+              "immigratieLand": null,
+              "overlijdensDatum": null,
+              "burgerlijkeStaat": null,
+              "burgerlijkeStaatDatum": null,
+              "verstrekkingsbeperking": null,
+              "verblijfstitel": null,
+              "toelichting": "Second witness!",
+              "nationaliteiten": null
+            }
+          }
+        ]
+      },
+      "locatie": {
+        "aliassen": [
+          "generaalshuis",
+          "gh"
+        ],
+        "naam": "Het Generaalshuis (Theater aan het Vrijthof)",
+        "opties": [
+          {
+            "aliassen": [
+              "taal_ceremonie"
+            ],
+            "naam": "Taalceremonie",
+            "omschrijving": "Taalceremonie",
+            "type": "TEKST",
+            "waarde": "Spaans"
+          },
+          {
+            "aliassen": [
+              "max_personen",
+              "max.aantal.personen"
+            ],
+            "naam": "Max. aantal personen",
+            "omschrijving": "Max. aantal personen (1 - 250)",
+            "type": "NUMMER",
+            "waarde": "75"
+          },
+          {
+            "aliassen": [
+              "trouwboekje"
+            ],
+            "naam": "Trouwboekje/Partnerschapsboekje",
+            "omschrijving": "Trouwboekje/Partnerschapsboekje",
+            "type": "BOOLEAN",
+            "waarde": "true"
+          }
+        ]
+      },
+      "partner1": {
+        "persoon": {
+          "bsn": 24,
+          "contactgegevens": {
+            "email": "burgerzaken@procura.nl",
+            "telefoonThuis": "06-54 32 23 45",
+            "telefoonWerk": null,
+            "telefoonMobiel": null,
+            "telefoonBuitenland": null
+          },
+          "voornamen": null,
+          "geslachtsnaam": null,
+          "voorvoegsel": null,
+          "titelPredikaat": null,
+          "aktenaam": null,
+          "geslacht": null,
+          "adres": null,
+          "geboortedatum": null,
+          "geboorteplaats": null,
+          "geboorteplaatsOpAkte": null,
+          "geboorteland": null,
+          "geboortelandOpAkte": null,
+          "immigratieDatum": null,
+          "immigratieLand": null,
+          "overlijdensDatum": null,
+          "burgerlijkeStaat": null,
+          "burgerlijkeStaatDatum": null,
+          "verstrekkingsbeperking": null,
+          "verblijfstitel": null,
+          "toelichting": null,
+          "nationaliteiten": null
+        },
+        "naamgebruik": {
+          "type": "N",
+          "geslachtsnaam": "Vries",
+          "titelPredikaat": "B",
+          "voorvoegsel": "de"
+        }
+      },
+      "partner2": {
+        "persoon": {
+          "bsn": 36,
+          "contactgegevens": {
+            "email": "burgerzaken@procura.nl",
+            "telefoonThuis": "0887708100",
+            "telefoonWerk": null,
+            "telefoonMobiel": null,
+            "telefoonBuitenland": null
+          }
+        },
+        "naamgebruik": {
+          "type": "V",
+          "geslachtsnaam": "Jansen",
+          "titelPredikaat": "JH",
+          "voorvoegsel": null
+        }
+      },
+      "planning": {
+        "datumVerbintenis": 20200910,
+        "datumVoornemen": 20200612,
+        "soort": "HUWELIJK",
+        "tijdVerbintenis": 111200,
+        "toelichting": "Het moet wel mooi weer zijn."
+      }
+    }
+  },
+  "succes": true
+}

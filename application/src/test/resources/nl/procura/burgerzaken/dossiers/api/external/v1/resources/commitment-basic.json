@@ -1,0 +1,72 @@
+{
+  "inhoud": {
+    "type": "gbaRestZaak",
+    "algemeen": {
+      "bron": "PROWEB Personen",
+      "datumIngang": 20200910,
+      "datumInvoer": 20200602,
+      "gebruikerInvoer": {
+        "omschrijving": "User 1",
+        "waarde": "202"
+      },
+      "ids": [
+        {
+          "id": "commitment-1234",
+          "systeem": "PROWEB-PERSONEN"
+        }
+      ],
+      "leverancier": "PROCURA",
+      "locatieInvoer": {
+        "omschrijving": "Balie 1 Burgerzaken",
+        "waarde": "Balie 1"
+      },
+      "meestRelevanteZaakId": "0300-e7a-s6o",
+      "omschrijving": "Huwelijk / GPS in gemeente (Jansen / de Vries / Onbekend)",
+      "soort": "Jansen / de Vries / Onbekend",
+      "status": "INCOMPLEET",
+      "statussen": [
+        {
+          "invoerDatum": 20200602,
+          "invoerGebruiker": {
+            "omschrijving": "User 1",
+            "waarde": "202"
+          },
+          "invoerTijd": 130155,
+          "opmerking": "Initiële status.",
+          "type": "INCOMPLEET",
+          "volgNr": 1
+        }
+      ],
+      "tijdInvoer": 130126,
+      "type": "HUWELIJK_GPS_GEMEENTE",
+      "zaakId": "marriage-1234"
+    },
+    "huwelijk": {
+      "ambtenaren": null,
+      "getuigen": null,
+      "locatie": null,
+      "partner1": {
+        "persoon": {
+          "bsn": 24,
+          "contactgegevens": null
+        },
+        "naamgebruik": null
+      },
+      "partner2": {
+        "persoon": {
+          "bsn": 36,
+          "contactgegevens": null
+        },
+        "naamgebruik": null
+      },
+      "planning": {
+        "soort": "HUWELIJK",
+        "datumVerbintenis": 20200910,
+        "tijdVerbintenis": 111200,
+        "datumVoornemen": null,
+        "toelichting": ""
+      }
+    }
+  },
+  "succes": true
+}

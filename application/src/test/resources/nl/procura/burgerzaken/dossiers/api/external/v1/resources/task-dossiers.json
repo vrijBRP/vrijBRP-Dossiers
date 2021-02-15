@@ -1,0 +1,39 @@
+{
+  "inhoud": {
+    "sleutels": null,
+    "zaken": [
+      {
+        "algemeen": {
+          "zaakId": "zaak-1234",
+          "meestRelevanteZaakId": "zaak-1234",
+          "type": "BINNENVERHUIZING",
+          "soort": "Binnengemeentelijk",
+          "omschrijving": "Verhuizing (Binnengemeentelijk, Dorpstraat 1 L T 1234 AA Oudorp)",
+          "status": "WACHTKAMER",
+          "bron": "SIM-APP",
+          "leverancier": "SIM",
+          "datumIngang": 20200201,
+          "datumInvoer": 20200507,
+          "tijdInvoer": 164549,
+          "locatieInvoer": {
+            "waarde": "",
+            "omschrijving": ""
+          },
+          "gebruikerInvoer": {
+            "waarde": "202",
+            "omschrijving": "Frits Janssen"
+          },
+          "ids": null,
+          "statussen": null,
+          "extraAttributen": null,
+          "gekoppeldeZaken": null
+        },
+        "verhuizing": null,
+        "geboorte": null
+      }
+    ],
+    "totaal": 1
+  },
+  "succes": true,
+  "foutmelding": null
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="7" author="">
+        <createTable tableName="birth">
+            <column name="doss_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name_selection_lastname" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name_selection_prefix" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name_selection_title" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="8" author="">
+        <createTable tableName="birth_child">
+            <column name="person_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="VARCHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_date" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_time" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="9" author="">
+        <addPrimaryKey columnNames="person_id" constraintName="birth_child_pkey" tableName="birth_child"/>
+        <addPrimaryKey columnNames="doss_id" constraintName="birth_pkey" tableName="birth"/>
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="birth_child"
+                                 constraintName="birth_child_person_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="person_id" referencedTableName="person"/>
+        <addForeignKeyConstraint baseColumnNames="doss_id" baseTableName="birth" constraintName="birth_doss_id_fkey"
+                                 deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="doss_id" referencedTableName="doss"/>
+    </changeSet>
+</databaseChangeLog>

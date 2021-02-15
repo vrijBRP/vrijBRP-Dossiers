@@ -1,0 +1,19 @@
+[[add_death_in_mun]]
+==== Add new
+
+This is an example of a new death in municipality.
+
+[[add_death_in_mun_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[add_death_in_mun_request]]
+====== Request
+
+include::{snippets}/add_death_in_mun/http-request.adoc[]
+
+[[add_death_in_mun_response]]
+====== Response
+
+include::{snippets}/add_death_in_mun/http-response.adoc[]

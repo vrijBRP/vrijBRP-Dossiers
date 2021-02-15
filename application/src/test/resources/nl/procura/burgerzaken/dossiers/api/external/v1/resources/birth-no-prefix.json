@@ -1,0 +1,71 @@
+{
+  "inhoud": {
+    "algemeen": {
+      "zaakId": "test-1234",
+      "meestRelevanteZaakId": null,
+      "type": "GEBOORTE",
+      "soort": null,
+      "omschrijving": "Geboorte",
+      "status": "OPGENOMEN",
+      "bron": "PROWEB Personen",
+      "leverancier": "PROCURA",
+      "datumIngang": 20200402,
+      "datumInvoer": 20200403,
+      "tijdInvoer": 101112,
+      "locatieInvoer": null,
+      "gebruikerInvoer": null,
+      "locatieInvoer": null,
+      "gebruikerInvoer": null,
+      "ids": [
+        {
+          "id": "birth-1234",
+          "systeem": "External system"
+        }
+      ],
+      "statussen": null,
+      "extraAttributen": null,
+      "gekoppeldeZaken": null
+    },
+    "geboorte": {
+      "aangever": {
+        "bsn": 24,
+        "contactgegevens": {
+          "email": "aangever@procura.nl",
+          "telefoonThuis": "555",
+          "telefoonWerk": "666",
+          "telefoonMobiel": "7777",
+          "telefoonBuitenland": {
+            "telefoon": "32312",
+            "landCode": 6047
+          }
+        }
+      },
+      "moeder": {
+        "bsn": 36
+      },
+      "vaderOfDuoMoeder": {
+        "bsn": 48
+      },
+      "kinderen": [
+        {
+          "voornamen": "John",
+          "geslacht": "MAN",
+          "geboortedatum": 20200403,
+          "geboortetijd": 111200
+        },
+        {
+          "voornamen": "Mary",
+          "geslacht": "VROUW",
+          "geboortedatum": 20200402,
+          "geboortetijd": 143000
+        }
+      ],
+      "verzoek": {
+        "vaderOfDuoMoeder": {
+          "bsn": 48
+        },
+        "geslachtsnaam": "Vries"
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+[[intra_reloc_flow]]
+==== Flow
+
+===== Add a new intra-municipal relocation
+
+image::add-intra-reloc-flow.png[Flow for a new intra-munipal relocation]
+
+[.lead]
+`1. Get relatives`
+
+Use this endpoint to retrieve the relatives of the declarant.
+This will return 1 or more people.
+A person has the following attributes:
+
+- relationship type: This shows the relation of the person to the registered.
+- declarationtype: Similar to relation type but has a distinction between underage and adult children.
+- suitableForRelocation: yes/no - Is the person suitable for relocation.
+This is yes if there are no obstructions.
+- obstructions: list of possible obstructions (unprocessed relocation, deceased, personlist suspended, etc).
+
+TIP: Check the API documentation for an up-to-date list of possible values.
+
+[.lead]
+`2. Post a relocation`
+
+Use this endpoint to add a new intra-municipal relocation.
+The client can choose to provide an reference ID or not.
+
+The response message will include a generated internal dossier ID along with the reference ID provided by the client.
+Both the generated dossier ID and client's reference ID can be used in calls to the search of consent API's.
+
+'''
+
+===== Adding consent by the main occupant to an existing intra-municipal relocation
+
+image::add-intra-consent-flow.png[Flow for adding consent to an existing intra-munipal relocation]
+
+[.lead]
+`1. Get tasks by BSN of the main occupant`
+
+Use this endpoint to retrieve the pending tasks of a specific person.
+This can be done by:
+
+- BSN
+- Task type (relocation_consent, etc)
+- Statusses (planned, in_progress, done)
+
+By calling this API with a BSN a 'relocation consent' task will be returned if that person is the main occupant and the relocation is currently awaiting consent.
+
+The response message will include the dossier-ID and dossier-type.
+That information can then be used to lookup the complete relocation by calling the specific search endpoint described below.
+
+```javascript
+
+relocationConsentIsRequired:boolean = (
+  bsn.includes('<bsn of main occupant>')
+  && dossierType == 'intra_mun_relocation'
+  && taskType == 'relocation_lodging_consent'
+  && status == 'planned'
+);
+```
+
+[.lead]
+`2. Get relocations by dossier ID`
+
+Use this endpoint to retrieve one complete intra-municipal relocation by a specific dossier ID.
+
+The response message will include the relocators, live-in situation and main occupant.
+These elements could be shown to the UI to the user.
+The elements 'status', 'liveInApplicable' and 'consent status' will determine if additional consent is required by the main occupant.
+
+If the relocation is not found then status 404: NOT FOUND is returned.
+
+```javascript
+
+# Optional check based on the relocation response
+
+relocationConsentIsRequired:boolean = (
+  status == 'incomplete'
+  && newAddress.liveIn.liveInApplicable == true
+  && newAddress.liveIn.consent == 'PENDING'
+);
+```
+
+[.lead]
+`3. Post lodging consent`
+
+Use this endpoint to update the lodging consent situation
+
+If the post is successful status 200:OK is return with an empty body.

@@ -1,0 +1,14 @@
+{
+  "document": {
+    "id": null,
+    "titel": "A title",
+    "bestandsnaam": "document.txt",
+    "documentType": null,
+    "vertrouwelijkheid": null,
+    "pad": null,
+    "invoerDatum": null,
+    "invoerTijd": null,
+    "invoerGebruiker": null
+  },
+  "inhoud": "dGV4dA=="
+}

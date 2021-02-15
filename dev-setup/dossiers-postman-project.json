@@ -1,0 +1,1112 @@
+{
+  "info": {
+    "_postman_id": "524d0fd3-5eb7-4b0d-8139-7eec4ea65c47",
+    "name": "Burgerzaken Dossiers API",
+    "description": "Burgerzaken Dossiers API\n\nContact Support:\n Name: Procura BV\n Email: burgerzaken@procura.nl",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "api/v1",
+      "item": [
+        {
+          "name": "dossiers",
+          "item": [
+            {
+              "name": "Search for dossiers",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"bsns\": [\n        61\n    ]\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/dossiers/search",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "dossiers",
+                    "search"
+                  ]
+                },
+                "description": "Search for dossiers"
+              },
+              "response": [
+                {
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"dossierIds\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"bsns\": [\n        \"<long>\",\n        \"<long>\"\n    ],\n    \"types\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"statusses\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"entryDateTimePeriod\": {\n        \"from\": \"<dateTime>\",\n        \"to\": \"<dateTime>\"\n    },\n    \"startDatePeriod\": {\n        \"from\": \"<date>\",\n        \"to\": \"<date>\"\n    },\n    \"paging\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10\n    }\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/dossiers/search",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "dossiers",
+                        "search"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"result\": {\n  \"elements\": 1,\n  \"totalElements\": 1,\n  \"totalPages\": 1,\n  \"pageNumber\": 0,\n  \"pageSize\": 10,\n  \"content\": [\n   {\n    \"startDate\": \"<date>\",\n    \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n    \"referenceIds\": [\n     {\n      \"description\": \"System-B\",\n      \"id\": \"ABC-1234\"\n     }\n    ],\n    \"type\": {\n     \"code\": \"intra_mun_relocation\",\n     \"description\": \"Intra-municipal relocation\"\n    },\n    \"status\": {\n     \"code\": \"created\",\n     \"description\": \"Created\"\n    },\n    \"entryDateTime\": \"<dateTime>\"\n   },\n   {\n    \"startDate\": \"<date>\",\n    \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n    \"referenceIds\": [\n     {\n      \"description\": \"System-B\",\n      \"id\": \"ABC-1234\"\n     }\n    ],\n    \"type\": {\n     \"code\": \"intra_mun_relocation\",\n     \"description\": \"Intra-municipal relocation\"\n    },\n    \"status\": {\n     \"code\": \"created\",\n     \"description\": \"Created\"\n    },\n    \"entryDateTime\": \"<dateTime>\"\n   }\n  ]\n }\n}"
+                }
+              ]
+            }
+          ],
+          "protocolProfileBehavior": {},
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "relocations",
+          "item": [
+            {
+              "name": "intra",
+              "item": [
+                {
+                  "name": "Add a new dossier (complete)",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"dossier\": {\r\n    \"referenceIds\": [\r\n      {\r\n        \"id\": \"ZAAKSYSTEEM-1234\",\r\n        \"description\": \"E-loket\"\r\n      }\r\n    ],\r\n    \"startDate\": \"2020-01-06\"\r\n  },\r\n  \"declarant\": {\r\n    \"bsn\": \"999990019\",\r\n    \"contactInformation\": {\r\n      \"email\": \"burgerzaken@procura.nl\",\r\n      \"telephoneNumber\": \"1234567890\"\r\n    }\r\n  },\r\n  \"newAddress\": {\r\n    \"street\": \"Dorpstraat\",\r\n    \"houseNumber\": 1,\r\n    \"houseLetter\": \"A\",\r\n    \"houseNumberAddition\": \"4\",\r\n    \"postalCode\": \"1122AB\",\r\n    \"residence\": \"Residence XYZ\",\r\n    \"municipality\": {\r\n      \"code\": \"0000\",\r\n      \"description\": \"Municipal XYZ\"\r\n    },\r\n    \"addressFunction\": \"LIVING_ADDRESS\",\r\n    \"numberOfResidents\": 1,\r\n    \"destinationCurrentResidents\": \"Geen idee\",\r\n    \"liveIn\": {\r\n      \"liveInApplicable\": true\r\n    },\r\n    \"mainOccupant\": {\r\n      \"bsn\": \"61\",\r\n      \"contactInformation\": {\r\n        \"email\": \"burgerzaken@procura.nl\",\r\n        \"telephoneNumber\": \"1234567890\"\r\n      }\r\n    }\r\n  },\r\n  \"relocators\": [\r\n    {\r\n      \"bsn\": \"999990019\",\r\n      \"contactInformation\": {\r\n        \"email\": \"burgerzaken@procura.nl\",\r\n        \"telephoneNumber\": \"1234567890\"\r\n      },\r\n      \"declarationType\": \"REGISTERED\"\r\n    }\r\n  ]\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/intra",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "intra"
+                      ]
+                    },
+                    "description": "Add a new intra-municipal relocation"
+                  },
+                  "response": [
+                    {
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"relocators\": [\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        },\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        }\n    ],\n    \"dossier\": {\n        \"startDate\": \"<date>\",\n        \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n        \"referenceIds\": [\n            {\n                \"description\": \"System-B\",\n                \"id\": \"ABC-1234\"\n            }\n        ],\n        \"type\": {\n            \"code\": \"intra_mun_relocation\",\n            \"description\": \"Intra-municipal relocation\"\n        },\n        \"status\": {\n            \"code\": \"created\",\n            \"description\": \"Created\"\n        },\n        \"entryDateTime\": \"<dateTime>\"\n    },\n    \"declarant\": {\n        \"bsn\": \"999990019\",\n        \"contactInformation\": {\n            \"email\": \"burgerzaken@procura.nl\",\n            \"telephoneNumber\": \"1234567890\"\n        }\n    },\n    \"newAddress\": {\n        \"addressFunction\": \"<string>\",\n        \"houseNumber\": 1,\n        \"numberOfResidents\": 1,\n        \"postalCode\": \"1122AB\",\n        \"street\": \"Dorpstraat\",\n        \"houseLetter\": \"A\",\n        \"houseNumberAddition\": \"4\",\n        \"residence\": {\n            \"code\": \"0000\",\n            \"description\": \"Residence XYZ\"\n        },\n        \"municipality\": {\n            \"code\": \"0000\",\n            \"description\": \"Municipal XYZ\"\n        },\n        \"destinationCurrentResidents\": \"Unknown\",\n        \"liveIn\": {\n            \"liveInApplicable\": false,\n            \"consent\": \"NOT_APPLICABLE\",\n            \"consenter\": {\n                \"bsn\": \"999990019\",\n                \"contactInformation\": {\n                    \"email\": \"burgerzaken@procura.nl\",\n                    \"telephoneNumber\": \"1234567890\"\n                }\n            }\n        },\n        \"mainOccupant\": {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            }\n        }\n    }\n}"
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/relocations/intra",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "relocations",
+                            "intra"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n \"relocators\": [\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  },\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  }\n ],\n \"dossier\": {\n  \"startDate\": \"<date>\",\n  \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n  \"referenceIds\": [\n   {\n    \"description\": \"System-B\",\n    \"id\": \"ABC-1234\"\n   }\n  ],\n  \"type\": {\n   \"code\": \"intra_mun_relocation\",\n   \"description\": \"Intra-municipal relocation\"\n  },\n  \"status\": {\n   \"code\": \"created\",\n   \"description\": \"Created\"\n  },\n  \"entryDateTime\": \"<dateTime>\"\n },\n \"declarant\": {\n  \"bsn\": \"999990019\",\n  \"contactInformation\": {\n   \"email\": \"burgerzaken@procura.nl\",\n   \"telephoneNumber\": \"1234567890\"\n  }\n },\n \"newAddress\": {\n  \"addressFunction\": \"<string>\",\n  \"houseNumber\": 1,\n  \"numberOfResidents\": 1,\n  \"postalCode\": \"1122AB\",\n  \"street\": \"Dorpstraat\",\n  \"houseLetter\": \"A\",\n  \"houseNumberAddition\": \"4\",\n  \"residence\": {\n   \"code\": \"0000\",\n   \"description\": \"Residence XYZ\"\n  },\n  \"municipality\": {\n   \"code\": \"0000\",\n   \"description\": \"Municipal XYZ\"\n  },\n  \"destinationCurrentResidents\": \"Unknown\",\n  \"liveIn\": {\n   \"liveInApplicable\": false,\n   \"consent\": \"NOT_APPLICABLE\",\n   \"consenter\": {\n    \"bsn\": \"999990019\",\n    \"contactInformation\": {\n     \"email\": \"burgerzaken@procura.nl\",\n     \"telephoneNumber\": \"1234567890\"\n    }\n   }\n  },\n  \"mainOccupant\": {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   }\n  }\n }\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Add a new dossier (minimal)",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"dossier\": {\r\n  },\r\n  \"declarant\": {\r\n    \"bsn\": \"999990019\"\r\n  },\r\n  \"newAddress\": {\r\n    \"houseNumber\": 1,\r\n    \"postalCode\": \"1122AB\",\r\n    \"numberOfResidents\": 1,\r\n    \"liveIn\": {\r\n      \"liveInApplicable\": false\r\n    }\r\n  },\r\n  \"relocators\": [\r\n    {\r\n      \"bsn\": \"999990019\",\r\n      \"declarationType\": \"REGISTERED\"\r\n    }\r\n  ]\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/intra",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "intra"
+                      ]
+                    },
+                    "description": "Add a new intra-municipal relocation"
+                  },
+                  "response": [
+                    {
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"relocators\": [\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        },\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        }\n    ],\n    \"dossier\": {\n        \"startDate\": \"<date>\",\n        \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n        \"referenceIds\": [\n            {\n                \"description\": \"System-B\",\n                \"id\": \"ABC-1234\"\n            }\n        ],\n        \"type\": {\n            \"code\": \"intra_mun_relocation\",\n            \"description\": \"Intra-municipal relocation\"\n        },\n        \"status\": {\n            \"code\": \"created\",\n            \"description\": \"Created\"\n        },\n        \"entryDateTime\": \"<dateTime>\"\n    },\n    \"declarant\": {\n        \"bsn\": \"999990019\",\n        \"contactInformation\": {\n            \"email\": \"burgerzaken@procura.nl\",\n            \"telephoneNumber\": \"1234567890\"\n        }\n    },\n    \"newAddress\": {\n        \"addressFunction\": \"<string>\",\n        \"houseNumber\": 1,\n        \"numberOfResidents\": 1,\n        \"postalCode\": \"1122AB\",\n        \"street\": \"Dorpstraat\",\n        \"houseLetter\": \"A\",\n        \"houseNumberAddition\": \"4\",\n        \"residence\": {\n            \"code\": \"0000\",\n            \"description\": \"Residence XYZ\"\n        },\n        \"municipality\": {\n            \"code\": \"0000\",\n            \"description\": \"Municipal XYZ\"\n        },\n        \"destinationCurrentResidents\": \"Unknown\",\n        \"liveIn\": {\n            \"liveInApplicable\": false,\n            \"consent\": \"NOT_APPLICABLE\",\n            \"consenter\": {\n                \"bsn\": \"999990019\",\n                \"contactInformation\": {\n                    \"email\": \"burgerzaken@procura.nl\",\n                    \"telephoneNumber\": \"1234567890\"\n                }\n            }\n        },\n        \"mainOccupant\": {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            }\n        }\n    }\n}"
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/relocations/intra",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "relocations",
+                            "intra"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n \"relocators\": [\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  },\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  }\n ],\n \"dossier\": {\n  \"startDate\": \"<date>\",\n  \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n  \"referenceIds\": [\n   {\n    \"description\": \"System-B\",\n    \"id\": \"ABC-1234\"\n   }\n  ],\n  \"type\": {\n   \"code\": \"intra_mun_relocation\",\n   \"description\": \"Intra-municipal relocation\"\n  },\n  \"status\": {\n   \"code\": \"created\",\n   \"description\": \"Created\"\n  },\n  \"entryDateTime\": \"<dateTime>\"\n },\n \"declarant\": {\n  \"bsn\": \"999990019\",\n  \"contactInformation\": {\n   \"email\": \"burgerzaken@procura.nl\",\n   \"telephoneNumber\": \"1234567890\"\n  }\n },\n \"newAddress\": {\n  \"addressFunction\": \"<string>\",\n  \"houseNumber\": 1,\n  \"numberOfResidents\": 1,\n  \"postalCode\": \"1122AB\",\n  \"street\": \"Dorpstraat\",\n  \"houseLetter\": \"A\",\n  \"houseNumberAddition\": \"4\",\n  \"residence\": {\n   \"code\": \"0000\",\n   \"description\": \"Residence XYZ\"\n  },\n  \"municipality\": {\n   \"code\": \"0000\",\n   \"description\": \"Municipal XYZ\"\n  },\n  \"destinationCurrentResidents\": \"Unknown\",\n  \"liveIn\": {\n   \"liveInApplicable\": false,\n   \"consent\": \"NOT_APPLICABLE\",\n   \"consenter\": {\n    \"bsn\": \"999990019\",\n    \"contactInformation\": {\n     \"email\": \"burgerzaken@procura.nl\",\n     \"telephoneNumber\": \"1234567890\"\n    }\n   }\n  },\n  \"mainOccupant\": {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   }\n  }\n }\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Find one dossier",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "",
+                        "value": "",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/intra/:dossierId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "intra",
+                        ":dossierId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dossierId",
+                          "value": "ZAAKSYSTEEM-1234"
+                        }
+                      ]
+                    },
+                    "description": "Find an intra-municipal relocation based on a dossier-id"
+                  },
+                  "response": [
+                    {
+                      "name": "The requested resource could not be found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/relocations/intra/:dossierId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "relocations",
+                            "intra",
+                            ":dossierId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dossierId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n \"timestamp\": \"<dateTime>\",\n \"id\": \"<string>\",\n \"code\": \"<string>\",\n \"description\": \"<string>\",\n \"cause\": {\n  \"message\": \"<string>\",\n  \"cause\": {\n   \"message\": \"<string>\",\n   \"cause\": {\n    \"message\": \"<string>\",\n    \"cause\": {\n     \"message\": \"<string>\",\n     \"cause\": {\n      \"message\": \"<string>\",\n      \"cause\": {\n       \"message\": \"<string>\",\n       \"cause\": {\n        \"message\": \"<string>\",\n        \"cause\": {\n         \"message\": \"<string>\",\n         \"cause\": {\n          \"message\": \"<string>\",\n          \"cause\": {\n           \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n         }\n        }\n       }\n      }\n     }\n    }\n   }\n  }\n },\n \"request\": {\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"httpStatus\": {\n   \"code\": \"<integer>\",\n   \"description\": \"<string>\"\n  }\n }\n}"
+                    },
+                    {
+                      "name": "The request failed due to an internal error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/relocations/intra/:dossierId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "relocations",
+                            "intra",
+                            ":dossierId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dossierId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n \"timestamp\": \"<dateTime>\",\n \"id\": \"<string>\",\n \"code\": \"<string>\",\n \"description\": \"<string>\",\n \"cause\": {\n  \"message\": \"<string>\",\n  \"cause\": {\n   \"message\": \"<string>\",\n   \"cause\": {\n    \"message\": \"<string>\",\n    \"cause\": {\n     \"message\": \"<string>\",\n     \"cause\": {\n      \"message\": \"<string>\",\n      \"cause\": {\n       \"message\": \"<string>\",\n       \"cause\": {\n        \"message\": \"<string>\",\n        \"cause\": {\n         \"message\": \"<string>\",\n         \"cause\": {\n          \"message\": \"<string>\",\n          \"cause\": {\n           \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n         }\n        }\n       }\n      }\n     }\n    }\n   }\n  }\n },\n \"request\": {\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"httpStatus\": {\n   \"code\": \"<integer>\",\n   \"description\": \"<string>\"\n  }\n }\n}"
+                    },
+                    {
+                      "name": "Resource successfully returned",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/relocations/intra/:dossierId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "relocations",
+                            "intra",
+                            ":dossierId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dossierId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n \"relocators\": [\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  },\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  }\n ],\n \"dossier\": {\n  \"startDate\": \"<date>\",\n  \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n  \"referenceIds\": [\n   {\n    \"description\": \"System-B\",\n    \"id\": \"ABC-1234\"\n   }\n  ],\n  \"type\": {\n   \"code\": \"intra_mun_relocation\",\n   \"description\": \"Intra-municipal relocation\"\n  },\n  \"status\": {\n   \"code\": \"created\",\n   \"description\": \"Created\"\n  },\n  \"entryDateTime\": \"<dateTime>\"\n },\n \"declarant\": {\n  \"bsn\": \"999990019\",\n  \"contactInformation\": {\n   \"email\": \"burgerzaken@procura.nl\",\n   \"telephoneNumber\": \"1234567890\"\n  }\n },\n \"newAddress\": {\n  \"addressFunction\": \"<string>\",\n  \"houseNumber\": 1,\n  \"numberOfResidents\": 1,\n  \"postalCode\": \"1122AB\",\n  \"street\": \"Dorpstraat\",\n  \"houseLetter\": \"A\",\n  \"houseNumberAddition\": \"4\",\n  \"residence\": {\n   \"code\": \"0000\",\n   \"description\": \"Residence XYZ\"\n  },\n  \"municipality\": {\n   \"code\": \"0000\",\n   \"description\": \"Municipal XYZ\"\n  },\n  \"destinationCurrentResidents\": \"Unknown\",\n  \"liveIn\": {\n   \"liveInApplicable\": false,\n   \"consent\": \"NOT_APPLICABLE\",\n   \"consenter\": {\n    \"bsn\": \"999990019\",\n    \"contactInformation\": {\n     \"email\": \"burgerzaken@procura.nl\",\n     \"telephoneNumber\": \"1234567890\"\n    }\n   }\n  },\n  \"mainOccupant\": {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   }\n  }\n }\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Add lodging consent",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"dossierId\": \"ZAAKSYSTEEM-1234\",\n    \"consent\": \"APPROVED\",\n    \"consenter\": {\n        \"bsn\": \"61\",\n        \"contactInformation\": {\n            \"email\": \"burgerzaken@procura.nl\",\n            \"telephoneNumber\": \"123456770\"\n        }\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/intra/consent",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "intra",
+                        "consent"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ],
+              "protocolProfileBehavior": {},
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "inter",
+              "item": [
+                {
+                  "name": "Add a new dossier (complete)",
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "accessToken",
+                          "value": "{{accessToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"dossier\": {\r\n    \"referenceIds\": [\r\n      {\r\n        \"id\": \"ZAAKSYSTEEM-7890\",\r\n        \"description\": \"E-loket\"\r\n      }\r\n    ],\r\n    \"startDate\": \"2019-01-01\"\r\n  },\r\n  \"declarant\": {\r\n    \"bsn\": \"999993653\",\r\n    \"contactInformation\": {\r\n      \"email\": \"burgerzaken@procura.nl\",\r\n      \"telephoneNumber\": \"12345\"\r\n    }\r\n  },\r\n  \"newAddress\": {\r\n    \"street\": \"Dorpstraat\",\r\n    \"houseNumber\": 1,\r\n    \"houseLetter\": \"A\",\r\n    \"houseNumberAddition\": \"4\",\r\n    \"postalCode\": \"1234AA\",\r\n    \"residence\": \"Koedijk\",\r\n    \"municipality\": {\r\n      \"code\": \"4567\",\r\n      \"description\": \"Alkmaar\"\r\n    },\r\n    \"addressFunction\": \"LIVING_ADDRESS\",\r\n    \"numberOfResidents\": 2,\r\n    \"destinationCurrentResidents\": \"Destination current residents\",\r\n    \"liveIn\": {\r\n      \"liveInApplicable\": true,\r\n      \"consent\": \"PENDING\",\r\n      \"consenter\": {\r\n        \"bsn\": \"999990639\",\r\n        \"contactInformation\": {\r\n          \"email\": \"burgerzaken@procura.nl\",\r\n          \"telephoneNumber\": \"12345\"\r\n        }\r\n      }\r\n    },\r\n    \"mainOccupant\": {\r\n      \"bsn\": \"999993653\",\r\n      \"contactInformation\": {\r\n        \"email\": \"burgerzaken@procura.nl\",\r\n        \"telephoneNumber\": \"12345\"\r\n      }\r\n    }\r\n  },\r\n  \"previousMunicipality\": {\r\n    \"code\": \"0392\",\r\n    \"description\": \"Haarlem\"\r\n  },\r\n  \"relocators\": [\r\n    {\r\n      \"bsn\": \"999993653\",\r\n      \"contactInformation\": {\r\n        \"email\": \"burgerzaken@procura.nl\",\r\n        \"telephoneNumber\": \"12345\"\r\n      },\r\n      \"declarationType\": \"REGISTERED\"\r\n    }\r\n  ]\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/inter",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "inter"
+                      ]
+                    },
+                    "description": "Add a new inter-municipal relocation"
+                  },
+                  "response": [
+                    {
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"dossier\": {\n        \"startDate\": \"<date>\",\n        \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n        \"referenceIds\": [\n            {\n                \"description\": \"System-B\",\n                \"id\": \"ABC-1234\"\n            }\n        ],\n        \"type\": {\n            \"code\": \"intra_mun_relocation\",\n            \"description\": \"Intra-municipal relocation\"\n        },\n        \"status\": {\n            \"code\": \"created\",\n            \"description\": \"Created\"\n        },\n        \"entryDateTime\": \"<dateTime>\"\n    },\n    \"declarant\": {\n        \"bsn\": \"999990019\",\n        \"contactInformation\": {\n            \"email\": \"burgerzaken@procura.nl\",\n            \"telephoneNumber\": \"1234567890\"\n        }\n    },\n    \"newAddress\": {\n        \"addressFunction\": \"<string>\",\n        \"houseNumber\": 1,\n        \"numberOfResidents\": 1,\n        \"postalCode\": \"1122AB\",\n        \"street\": \"Dorpstraat\",\n        \"houseLetter\": \"A\",\n        \"houseNumberAddition\": \"4\",\n        \"residence\": {\n            \"code\": \"0000\",\n            \"description\": \"Residence XYZ\"\n        },\n        \"municipality\": {\n            \"code\": \"0000\",\n            \"description\": \"Municipal XYZ\"\n        },\n        \"destinationCurrentResidents\": \"Unknown\",\n        \"liveIn\": {\n            \"liveInApplicable\": false,\n            \"consent\": \"NOT_APPLICABLE\",\n            \"consenter\": {\n                \"bsn\": \"999990019\",\n                \"contactInformation\": {\n                    \"email\": \"burgerzaken@procura.nl\",\n                    \"telephoneNumber\": \"1234567890\"\n                }\n            }\n        },\n        \"mainOccupant\": {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            }\n        }\n    },\n    \"previousMunicipality\": {\n        \"code\": \"0000\",\n        \"description\": \"Municipal XYZ\"\n    },\n    \"relocators\": [\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        },\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        }\n    ]\n}"
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/relocations/inter",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "relocations",
+                            "inter"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n \"dossier\": {\n  \"startDate\": \"<date>\",\n  \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n  \"referenceIds\": [\n   {\n    \"description\": \"System-B\",\n    \"id\": \"ABC-1234\"\n   }\n  ],\n  \"type\": {\n   \"code\": \"intra_mun_relocation\",\n   \"description\": \"Intra-municipal relocation\"\n  },\n  \"status\": {\n   \"code\": \"created\",\n   \"description\": \"Created\"\n  },\n  \"entryDateTime\": \"<dateTime>\"\n },\n \"declarant\": {\n  \"bsn\": \"999990019\",\n  \"contactInformation\": {\n   \"email\": \"burgerzaken@procura.nl\",\n   \"telephoneNumber\": \"1234567890\"\n  }\n },\n \"newAddress\": {\n  \"addressFunction\": \"<string>\",\n  \"houseNumber\": 1,\n  \"numberOfResidents\": 1,\n  \"postalCode\": \"1122AB\",\n  \"street\": \"Dorpstraat\",\n  \"houseLetter\": \"A\",\n  \"houseNumberAddition\": \"4\",\n  \"residence\": {\n   \"code\": \"0000\",\n   \"description\": \"Residence XYZ\"\n  },\n  \"municipality\": {\n   \"code\": \"0000\",\n   \"description\": \"Municipal XYZ\"\n  },\n  \"destinationCurrentResidents\": \"Unknown\",\n  \"liveIn\": {\n   \"liveInApplicable\": false,\n   \"consent\": \"NOT_APPLICABLE\",\n   \"consenter\": {\n    \"bsn\": \"999990019\",\n    \"contactInformation\": {\n     \"email\": \"burgerzaken@procura.nl\",\n     \"telephoneNumber\": \"1234567890\"\n    }\n   }\n  },\n  \"mainOccupant\": {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   }\n  }\n },\n \"previousMunicipality\": {\n  \"code\": \"0000\",\n  \"description\": \"Municipal XYZ\"\n },\n \"relocators\": [\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  },\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  }\n ]\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Add a new dossier (minimal)",
+                  "request": {
+                    "auth": {
+                      "type": "oauth2",
+                      "oauth2": [
+                        {
+                          "key": "accessToken",
+                          "value": "{{accessToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"dossier\": {\r\n    \"startDate\": \"2019-01-01\"\r\n  },\r\n  \"declarant\": {\r\n    \"bsn\": \"999993653\"\r\n  },\r\n  \"newAddress\": {\r\n    \"houseNumber\": 1,\r\n    \"postalCode\": \"1234AA\",\r\n    \"numberOfResidents\": 2,\r\n    \"liveIn\": {\r\n      \"liveInApplicable\": true,\r\n      \"consent\": \"PENDING\",\r\n      \"consenter\": {\r\n        \"bsn\": \"999990639\",\r\n        \"contactInformation\": {\r\n          \"email\": \"burgerzaken@procura.nl\",\r\n          \"telephoneNumber\": \"12345\"\r\n        }\r\n      }\r\n    },\r\n    \"mainOccupant\": {\r\n      \"bsn\": \"999993653\"\r\n    }\r\n  },\r\n  \"previousMunicipality\": {\r\n    \"code\": \"8900\",\r\n    \"description\": \"Haarlem\"\r\n  },\r\n  \"relocators\": [\r\n    {\r\n      \"bsn\": \"999993653\",\r\n      \"contactInformation\": {\r\n        \"email\": \"burgerzaken@procura.nl\",\r\n        \"telephoneNumber\": \"12345\"\r\n      },\r\n      \"declarationType\": \"REGISTERED\"\r\n    }\r\n  ]\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/inter",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "inter"
+                      ]
+                    },
+                    "description": "Add a new inter-municipal relocation"
+                  },
+                  "response": [
+                    {
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"dossier\": {\n        \"startDate\": \"<date>\",\n        \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n        \"referenceIds\": [\n            {\n                \"description\": \"System-B\",\n                \"id\": \"ABC-1234\"\n            }\n        ],\n        \"type\": {\n            \"code\": \"intra_mun_relocation\",\n            \"description\": \"Intra-municipal relocation\"\n        },\n        \"status\": {\n            \"code\": \"created\",\n            \"description\": \"Created\"\n        },\n        \"entryDateTime\": \"<dateTime>\"\n    },\n    \"declarant\": {\n        \"bsn\": \"999990019\",\n        \"contactInformation\": {\n            \"email\": \"burgerzaken@procura.nl\",\n            \"telephoneNumber\": \"1234567890\"\n        }\n    },\n    \"newAddress\": {\n        \"addressFunction\": \"<string>\",\n        \"houseNumber\": 1,\n        \"numberOfResidents\": 1,\n        \"postalCode\": \"1122AB\",\n        \"street\": \"Dorpstraat\",\n        \"houseLetter\": \"A\",\n        \"houseNumberAddition\": \"4\",\n        \"residence\": {\n            \"code\": \"0000\",\n            \"description\": \"Residence XYZ\"\n        },\n        \"municipality\": {\n            \"code\": \"0000\",\n            \"description\": \"Municipal XYZ\"\n        },\n        \"destinationCurrentResidents\": \"Unknown\",\n        \"liveIn\": {\n            \"liveInApplicable\": false,\n            \"consent\": \"NOT_APPLICABLE\",\n            \"consenter\": {\n                \"bsn\": \"999990019\",\n                \"contactInformation\": {\n                    \"email\": \"burgerzaken@procura.nl\",\n                    \"telephoneNumber\": \"1234567890\"\n                }\n            }\n        },\n        \"mainOccupant\": {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            }\n        }\n    },\n    \"previousMunicipality\": {\n        \"code\": \"0000\",\n        \"description\": \"Municipal XYZ\"\n    },\n    \"relocators\": [\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        },\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        }\n    ]\n}"
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/relocations/inter",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "relocations",
+                            "inter"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n \"dossier\": {\n  \"startDate\": \"<date>\",\n  \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n  \"referenceIds\": [\n   {\n    \"description\": \"System-B\",\n    \"id\": \"ABC-1234\"\n   }\n  ],\n  \"type\": {\n   \"code\": \"intra_mun_relocation\",\n   \"description\": \"Intra-municipal relocation\"\n  },\n  \"status\": {\n   \"code\": \"created\",\n   \"description\": \"Created\"\n  },\n  \"entryDateTime\": \"<dateTime>\"\n },\n \"declarant\": {\n  \"bsn\": \"999990019\",\n  \"contactInformation\": {\n   \"email\": \"burgerzaken@procura.nl\",\n   \"telephoneNumber\": \"1234567890\"\n  }\n },\n \"newAddress\": {\n  \"addressFunction\": \"<string>\",\n  \"houseNumber\": 1,\n  \"numberOfResidents\": 1,\n  \"postalCode\": \"1122AB\",\n  \"street\": \"Dorpstraat\",\n  \"houseLetter\": \"A\",\n  \"houseNumberAddition\": \"4\",\n  \"residence\": {\n   \"code\": \"0000\",\n   \"description\": \"Residence XYZ\"\n  },\n  \"municipality\": {\n   \"code\": \"0000\",\n   \"description\": \"Municipal XYZ\"\n  },\n  \"destinationCurrentResidents\": \"Unknown\",\n  \"liveIn\": {\n   \"liveInApplicable\": false,\n   \"consent\": \"NOT_APPLICABLE\",\n   \"consenter\": {\n    \"bsn\": \"999990019\",\n    \"contactInformation\": {\n     \"email\": \"burgerzaken@procura.nl\",\n     \"telephoneNumber\": \"1234567890\"\n    }\n   }\n  },\n  \"mainOccupant\": {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   }\n  }\n },\n \"previousMunicipality\": {\n  \"code\": \"0000\",\n  \"description\": \"Municipal XYZ\"\n },\n \"relocators\": [\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  },\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  }\n ]\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Find one dossier",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/inter/:dossierId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "inter",
+                        ":dossierId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dossierId",
+                          "value": "ZAAKSYSTEEM-7890",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Find an inter-municipal relocation based on a dossier-id"
+                  },
+                  "response": [
+                    {
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/relocations/inter/:dossierId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "relocations",
+                            "inter",
+                            ":dossierId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dossierId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n \"dossier\": {\n  \"startDate\": \"<date>\",\n  \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n  \"referenceIds\": [\n   {\n    \"description\": \"System-B\",\n    \"id\": \"ABC-1234\"\n   }\n  ],\n  \"type\": {\n   \"code\": \"intra_mun_relocation\",\n   \"description\": \"Intra-municipal relocation\"\n  },\n  \"status\": {\n   \"code\": \"created\",\n   \"description\": \"Created\"\n  },\n  \"entryDateTime\": \"<dateTime>\"\n },\n \"declarant\": {\n  \"bsn\": \"999990019\",\n  \"contactInformation\": {\n   \"email\": \"burgerzaken@procura.nl\",\n   \"telephoneNumber\": \"1234567890\"\n  }\n },\n \"newAddress\": {\n  \"addressFunction\": \"<string>\",\n  \"houseNumber\": 1,\n  \"numberOfResidents\": 1,\n  \"postalCode\": \"1122AB\",\n  \"street\": \"Dorpstraat\",\n  \"houseLetter\": \"A\",\n  \"houseNumberAddition\": \"4\",\n  \"residence\": {\n   \"code\": \"0000\",\n   \"description\": \"Residence XYZ\"\n  },\n  \"municipality\": {\n   \"code\": \"0000\",\n   \"description\": \"Municipal XYZ\"\n  },\n  \"destinationCurrentResidents\": \"Unknown\",\n  \"liveIn\": {\n   \"liveInApplicable\": false,\n   \"consent\": \"NOT_APPLICABLE\",\n   \"consenter\": {\n    \"bsn\": \"999990019\",\n    \"contactInformation\": {\n     \"email\": \"burgerzaken@procura.nl\",\n     \"telephoneNumber\": \"1234567890\"\n    }\n   }\n  },\n  \"mainOccupant\": {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   }\n  }\n },\n \"previousMunicipality\": {\n  \"code\": \"0000\",\n  \"description\": \"Municipal XYZ\"\n },\n \"relocators\": [\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  },\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  }\n ]\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "Add lodging consent",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"dossierId\": \"7890\",\n    \"consent\": \"DECLINED\",\n    \"consenter\": {\n        \"bsn\": \"999990019\",\n        \"contactInformation\": {\n            \"email\": \"burgerzaken@procura.nl\",\n            \"telephoneNumber\": \"123456770\"\n        }\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/inter/consent",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "inter",
+                        "consent"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ],
+              "protocolProfileBehavior": {},
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Get summary of relatives",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/relocations/info/relatives/:bsn",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "relocations",
+                    "info",
+                    "relatives",
+                    ":bsn"
+                  ],
+                  "variable": [
+                    {
+                      "key": "bsn",
+                      "value": "115"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "protocolProfileBehavior": {},
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "birth",
+          "item": [
+            {
+              "name": "Add a new birth",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"dossier\": {\n        \"referenceIds\": [\n            {\n                \"id\": \"birth-1234\",\n                \"description\": \"E-Loket\"\n            }\n        ],\n        \"startDate\": \"2019-01-01\"\n    },\n    \"declarant\": {\n        \"bsn\": \"12\",\n        \"contactInformation\": {\n            \"email\": \"person1@procura.nl\",\n            \"telephoneNumber\": \"456\"\n        }\n    },\n    \"mother\": {\n        \"bsn\": \"61\",\n        \"contactInformation\": {\n            \"email\": \"person2@procura.nl\",\n            \"telephoneNumber\": \"123\"\n        }\n    },\n    \"fatherDuoMother\": {\n        \"bsn\": \"12\",\n        \"contactInformation\": {\n            \"email\": \"person1@procura.nl\",\n            \"telephoneNumber\": \"789\"\n        }\n    },\n    \"children\": [\n        {\n            \"firstname\": \"John\",\n            \"gender\": \"MAN\",\n            \"birthDateTime\": \"2020-04-03T11:12:00\"\n        },\n        {\n            \"firstname\": \"Mary\",\n            \"gender\": \"WOMAN\",\n            \"birthDateTime\": \"2020-04-02T10:40:00\"\n        }\n    ],\n    \"nameSelection\": {\n        \"lastname\": \"Vries\"\n    }\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/births",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "birth"
+                  ]
+                },
+                "description": "Add a new birth"
+              },
+              "response": [
+                {
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"relocators\": [\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        },\n        {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            },\n            \"declarationType\": \"REGISTERED\"\n        }\n    ],\n    \"dossier\": {\n        \"startDate\": \"<date>\",\n        \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n        \"referenceIds\": [\n            {\n                \"description\": \"System-B\",\n                \"id\": \"ABC-1234\"\n            }\n        ],\n        \"type\": {\n            \"code\": \"intra_mun_relocation\",\n            \"description\": \"Intra-municipal relocation\"\n        },\n        \"status\": {\n            \"code\": \"created\",\n            \"description\": \"Created\"\n        },\n        \"entryDateTime\": \"<dateTime>\"\n    },\n    \"declarant\": {\n        \"bsn\": \"999990019\",\n        \"contactInformation\": {\n            \"email\": \"burgerzaken@procura.nl\",\n            \"telephoneNumber\": \"1234567890\"\n        }\n    },\n    \"newAddress\": {\n        \"addressFunction\": \"<string>\",\n        \"houseNumber\": 1,\n        \"numberOfResidents\": 1,\n        \"postalCode\": \"1122AB\",\n        \"street\": \"Dorpstraat\",\n        \"houseLetter\": \"A\",\n        \"houseNumberAddition\": \"4\",\n        \"residence\": {\n            \"code\": \"0000\",\n            \"description\": \"Residence XYZ\"\n        },\n        \"municipality\": {\n            \"code\": \"0000\",\n            \"description\": \"Municipal XYZ\"\n        },\n        \"destinationCurrentResidents\": \"Unknown\",\n        \"liveIn\": {\n            \"liveInApplicable\": false,\n            \"consent\": \"NOT_APPLICABLE\",\n            \"consenter\": {\n                \"bsn\": \"999990019\",\n                \"contactInformation\": {\n                    \"email\": \"burgerzaken@procura.nl\",\n                    \"telephoneNumber\": \"1234567890\"\n                }\n            }\n        },\n        \"mainOccupant\": {\n            \"bsn\": \"999990019\",\n            \"contactInformation\": {\n                \"email\": \"burgerzaken@procura.nl\",\n                \"telephoneNumber\": \"1234567890\"\n            }\n        }\n    }\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/intra",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "intra"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"relocators\": [\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  },\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  }\n ],\n \"dossier\": {\n  \"startDate\": \"<date>\",\n  \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n  \"referenceIds\": [\n   {\n    \"description\": \"System-B\",\n    \"id\": \"ABC-1234\"\n   }\n  ],\n  \"type\": {\n   \"code\": \"intra_mun_relocation\",\n   \"description\": \"Intra-municipal relocation\"\n  },\n  \"status\": {\n   \"code\": \"created\",\n   \"description\": \"Created\"\n  },\n  \"entryDateTime\": \"<dateTime>\"\n },\n \"declarant\": {\n  \"bsn\": \"999990019\",\n  \"contactInformation\": {\n   \"email\": \"burgerzaken@procura.nl\",\n   \"telephoneNumber\": \"1234567890\"\n  }\n },\n \"newAddress\": {\n  \"addressFunction\": \"<string>\",\n  \"houseNumber\": 1,\n  \"numberOfResidents\": 1,\n  \"postalCode\": \"1122AB\",\n  \"street\": \"Dorpstraat\",\n  \"houseLetter\": \"A\",\n  \"houseNumberAddition\": \"4\",\n  \"residence\": {\n   \"code\": \"0000\",\n   \"description\": \"Residence XYZ\"\n  },\n  \"municipality\": {\n   \"code\": \"0000\",\n   \"description\": \"Municipal XYZ\"\n  },\n  \"destinationCurrentResidents\": \"Unknown\",\n  \"liveIn\": {\n   \"liveInApplicable\": false,\n   \"consent\": \"NOT_APPLICABLE\",\n   \"consenter\": {\n    \"bsn\": \"999990019\",\n    \"contactInformation\": {\n     \"email\": \"burgerzaken@procura.nl\",\n     \"telephoneNumber\": \"1234567890\"\n    }\n   }\n  },\n  \"mainOccupant\": {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   }\n  }\n }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Find one dossier",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/births/:dossierId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "birth",
+                    ":dossierId"
+                  ],
+                  "variable": [
+                    {
+                      "description": "(Required) ",
+                      "key": "dossierId",
+                      "value": "birth-1234"
+                    }
+                  ]
+                },
+                "description": "Find a birth based on a dossier-id"
+              },
+              "response": [
+                {
+                  "name": "The requested resource could not be found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/intra/:dossierId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "intra",
+                        ":dossierId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dossierId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"timestamp\": \"<dateTime>\",\n \"id\": \"<string>\",\n \"code\": \"<string>\",\n \"description\": \"<string>\",\n \"cause\": {\n  \"message\": \"<string>\",\n  \"cause\": {\n   \"message\": \"<string>\",\n   \"cause\": {\n    \"message\": \"<string>\",\n    \"cause\": {\n     \"message\": \"<string>\",\n     \"cause\": {\n      \"message\": \"<string>\",\n      \"cause\": {\n       \"message\": \"<string>\",\n       \"cause\": {\n        \"message\": \"<string>\",\n        \"cause\": {\n         \"message\": \"<string>\",\n         \"cause\": {\n          \"message\": \"<string>\",\n          \"cause\": {\n           \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n         }\n        }\n       }\n      }\n     }\n    }\n   }\n  }\n },\n \"request\": {\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"httpStatus\": {\n   \"code\": \"<integer>\",\n   \"description\": \"<string>\"\n  }\n }\n}"
+                },
+                {
+                  "name": "Resource successfully returned",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/intra/:dossierId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "intra",
+                        ":dossierId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dossierId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"relocators\": [\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  },\n  {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   },\n   \"declarationType\": \"REGISTERED\"\n  }\n ],\n \"dossier\": {\n  \"startDate\": \"<date>\",\n  \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n  \"referenceIds\": [\n   {\n    \"description\": \"System-B\",\n    \"id\": \"ABC-1234\"\n   }\n  ],\n  \"type\": {\n   \"code\": \"intra_mun_relocation\",\n   \"description\": \"Intra-municipal relocation\"\n  },\n  \"status\": {\n   \"code\": \"created\",\n   \"description\": \"Created\"\n  },\n  \"entryDateTime\": \"<dateTime>\"\n },\n \"declarant\": {\n  \"bsn\": \"999990019\",\n  \"contactInformation\": {\n   \"email\": \"burgerzaken@procura.nl\",\n   \"telephoneNumber\": \"1234567890\"\n  }\n },\n \"newAddress\": {\n  \"addressFunction\": \"<string>\",\n  \"houseNumber\": 1,\n  \"numberOfResidents\": 1,\n  \"postalCode\": \"1122AB\",\n  \"street\": \"Dorpstraat\",\n  \"houseLetter\": \"A\",\n  \"houseNumberAddition\": \"4\",\n  \"residence\": {\n   \"code\": \"0000\",\n   \"description\": \"Residence XYZ\"\n  },\n  \"municipality\": {\n   \"code\": \"0000\",\n   \"description\": \"Municipal XYZ\"\n  },\n  \"destinationCurrentResidents\": \"Unknown\",\n  \"liveIn\": {\n   \"liveInApplicable\": false,\n   \"consent\": \"NOT_APPLICABLE\",\n   \"consenter\": {\n    \"bsn\": \"999990019\",\n    \"contactInformation\": {\n     \"email\": \"burgerzaken@procura.nl\",\n     \"telephoneNumber\": \"1234567890\"\n    }\n   }\n  },\n  \"mainOccupant\": {\n   \"bsn\": \"999990019\",\n   \"contactInformation\": {\n    \"email\": \"burgerzaken@procura.nl\",\n    \"telephoneNumber\": \"1234567890\"\n   }\n  }\n }\n}"
+                },
+                {
+                  "name": "The request failed due to an internal error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/relocations/intra/:dossierId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "relocations",
+                        "intra",
+                        ":dossierId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dossierId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"timestamp\": \"<dateTime>\",\n \"id\": \"<string>\",\n \"code\": \"<string>\",\n \"description\": \"<string>\",\n \"cause\": {\n  \"message\": \"<string>\",\n  \"cause\": {\n   \"message\": \"<string>\",\n   \"cause\": {\n    \"message\": \"<string>\",\n    \"cause\": {\n     \"message\": \"<string>\",\n     \"cause\": {\n      \"message\": \"<string>\",\n      \"cause\": {\n       \"message\": \"<string>\",\n       \"cause\": {\n        \"message\": \"<string>\",\n        \"cause\": {\n         \"message\": \"<string>\",\n         \"cause\": {\n          \"message\": \"<string>\",\n          \"cause\": {\n           \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n         }\n        }\n       }\n      }\n     }\n    }\n   }\n  }\n },\n \"request\": {\n  \"id\": \"<string>\",\n  \"details\": \"<string>\",\n  \"httpStatus\": {\n   \"code\": \"<integer>\",\n   \"description\": \"<string>\"\n  }\n }\n}"
+                }
+              ]
+            },
+            {
+              "name": "NameSelection",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"mother\" : {\r\n    \"bsn\" : \"61\"\r\n  },\r\n  \"fatherDuoMother\" : {\r\n    \"bsn\" : \"12\"\r\n  }\r\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/births/info/nameSelection",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "birth",
+                    "info",
+                    "nameSelection"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "FamilySituation",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"birthDate\" : \"2015-01-01\",\r\n  \"mother\" : {\r\n    \"bsn\" : \"12\"\r\n  }\r\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/births/info/familySituation",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "birth",
+                    "info",
+                    "familySituation"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "protocolProfileBehavior": {},
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "tasks",
+          "item": [
+            {
+              "name": "Search for tasks",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"bsns\" : [ \"61\" ]\r\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/tasks/search",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "tasks",
+                    "search"
+                  ]
+                },
+                "description": "Search for dossiers"
+              },
+              "response": [
+                {
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"dossierIds\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"bsns\": [\n        \"<long>\",\n        \"<long>\"\n    ],\n    \"types\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"statusses\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"entryDateTimePeriod\": {\n        \"from\": \"<dateTime>\",\n        \"to\": \"<dateTime>\"\n    },\n    \"startDatePeriod\": {\n        \"from\": \"<date>\",\n        \"to\": \"<date>\"\n    },\n    \"paging\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10\n    }\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/dossiers/search",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "dossiers",
+                        "search"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"result\": {\n  \"elements\": 1,\n  \"totalElements\": 1,\n  \"totalPages\": 1,\n  \"pageNumber\": 0,\n  \"pageSize\": 10,\n  \"content\": [\n   {\n    \"startDate\": \"<date>\",\n    \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n    \"referenceIds\": [\n     {\n      \"description\": \"System-B\",\n      \"id\": \"ABC-1234\"\n     }\n    ],\n    \"type\": {\n     \"code\": \"intra_mun_relocation\",\n     \"description\": \"Intra-municipal relocation\"\n    },\n    \"status\": {\n     \"code\": \"created\",\n     \"description\": \"Created\"\n    },\n    \"entryDateTime\": \"<dateTime>\"\n   },\n   {\n    \"startDate\": \"<date>\",\n    \"dossierId\": \"123e4567-e89b-12d3-a456-556642440000\",\n    \"referenceIds\": [\n     {\n      \"description\": \"System-B\",\n      \"id\": \"ABC-1234\"\n     }\n    ],\n    \"type\": {\n     \"code\": \"intra_mun_relocation\",\n     \"description\": \"Intra-municipal relocation\"\n    },\n    \"status\": {\n     \"code\": \"created\",\n     \"description\": \"Created\"\n    },\n    \"entryDateTime\": \"<dateTime>\"\n   }\n  ]\n }\n}"
+                }
+              ]
+            }
+          ],
+          "protocolProfileBehavior": {},
+          "_postman_isSubFolder": true
+        }
+      ],
+      "protocolProfileBehavior": {}
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessToken",
+        "value": "{{accessToken}}",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "5a13d8e4-4ce8-4c3b-9d05-610d85b2f556",
+        "type": "text/javascript",
+        "exec": [
+          "function getvar(variableName) {",
+          "    let value = pm.variables.get(variableName);",
+          "    if (!value) throw new Error(",
+          "        `Variable '${variableName}' is not defined. Do you forget to select an environment?`);",
+          "    return value;",
+          "}",
+          "",
+          "let tokenUrl = getvar('tokenUrl');",
+          "let clientId = getvar('clientId');",
+          "let clientSecret = getvar('clientSecret');",
+          "let scope = getvar('scope');",
+          "",
+          "let getTokenRequest = {",
+          "    method: 'POST',",
+          "    url: tokenUrl,",
+          "    auth: {",
+          "        type: \"basic\",",
+          "        basic: [",
+          "            { key: \"username\", value: clientId },",
+          "            { key: \"password\", value: clientSecret }",
+          "        ]",
+          "    },",
+          "    body: {",
+          "        mode: 'formdata',",
+          "        formdata: [",
+          "            { key: 'grant_type', value: 'client_credentials' },",
+          "            { key: 'scope', value: scope }",
+          "        ]",
+          "    }",
+          "};",
+          "",
+          "pm.sendRequest(getTokenRequest, (err, response) => {",
+          "    let jsonResponse = response.json(),",
+          "        newAccessToken = jsonResponse.access_token;",
+          "",
+          "    console.log({ err, jsonResponse, newAccessToken })",
+          "",
+          "    pm.environment.set('accessToken', newAccessToken);",
+          "    pm.variables.set('accessToken', newAccessToken);",
+          "});",
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "6ec6fcc0-359f-437c-9eb3-5f1071a64940",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "protocolProfileBehavior": {}
+}

@@ -1,0 +1,50 @@
+# Compiled source #
+###################
+*.class
+rebel.xml
+log4j.xml
+log4j.properties
+/application.properties
+
+# Eclipse #
+############
+*.project
+*.classpath
+
+# Netbeans #
+############
+nbactions.xml
+nb-configuration.xml
+
+# Intellij #
+############
+.idea
+*.iml
+
+# Packages #
+############
+*.jar
+*.war
+*.ear
+
+# Intellij #
+############
+.idea/
+*.iml
+
+# Logs #
+########
+*.log
+
+# Folders #
+###########
+bin/
+build/
+target/
+.settings/
+
+# OS junk #
+###########
+.DS_Store*
+ehthumbs.db
+Thumbs.db

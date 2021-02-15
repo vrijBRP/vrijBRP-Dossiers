@@ -1,0 +1,18 @@
+[[dossier_document]]
+==== Add document to a dossier
+
+This is an example of adding a document to a dossier
+
+===== Successful call
+
+When making a successful call to this API endpoint, the following request parameters and body can be expected.
+
+====== Request
+
+include::{snippets}/add_document/http-request.adoc[]
+
+====== Response
+
+The filename returned has been derived from requested filename but not the same.
+
+include::{snippets}/add_document/http-response.adoc[]

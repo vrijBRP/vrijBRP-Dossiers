@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>nl.procura.burgerzaken</groupId>
+        <artifactId>dossiers</artifactId>
+        <version>1.0.6</version>
+    </parent>
+
+    <groupId>nl.procura.burgerzaken.dossiers</groupId>
+    <artifactId>jar</artifactId>
+    <name>Procura Burgerzaken Dossiers - JAR</name>
+
+    <properties>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- OWN modules -->
+        <dependency>
+            <groupId>nl.procura.burgerzaken.dossiers</groupId>
+            <artifactId>application</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>dossiers</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>nl.procura.burgerzaken.dossiers.DossiersApplication</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

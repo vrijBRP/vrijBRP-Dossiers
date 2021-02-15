@@ -1,0 +1,232 @@
+{
+  "inhoud": {
+    "algemeen": {
+      "zaakId": "ABC-203",
+      "meestRelevanteZaakId": "ABC-203",
+      "type": "ERKENNING",
+      "soort": "",
+      "omschrijving": "Erkenning",
+      "status": "OPGENOMEN",
+      "bron": "PROWEB Personen",
+      "leverancier": "PROCURA",
+      "datumIngang": 20200511,
+      "datumInvoer": 20200511,
+      "tijdInvoer": 145453,
+      "locatieInvoer": {
+        "waarde": "Backoffice",
+        "omschrijving": "Backoffice Publiekszaken / Burgerzaken"
+      },
+      "gebruikerInvoer": {
+        "waarde": "1",
+        "omschrijving": "Test"
+      },
+      "ids": [
+        {
+          "id": "ABC-203",
+          "systeem": "PROWEB-PERSONEN"
+        }
+      ],
+      "statussen": [
+        {
+          "volgNr": 2,
+          "type": "OPGENOMEN",
+          "opmerking": "",
+          "invoerDatum": 20200511,
+          "invoerTijd": 145742,
+          "invoerGebruiker": {
+            "waarde": "1",
+            "omschrijving": "Test"
+          }
+        },
+        {
+          "volgNr": 1,
+          "type": "OPGENOMEN",
+          "opmerking": "Initiële status.",
+          "invoerDatum": 20200511,
+          "invoerTijd": 145453,
+          "invoerGebruiker": {
+            "waarde": "1",
+            "omschrijving": "Test"
+          }
+        }
+      ],
+      "extraAttributen": [],
+      "gekoppeldeZaken": []
+    },
+    "verhuizing": null,
+    "geboorte": null,
+    "erkenning": {
+      "moeder": {
+        "bsn": 999990639,
+        "contactgegevens": {
+          "email": "",
+          "telefoonThuis": "",
+          "telefoonWerk": "",
+          "telefoonMobiel": "",
+          "telefoonBuitenland": {
+            "telefoon": "",
+            "landCode": -1
+          }
+        },
+        "voornamen": "Barbara",
+        "geslachtsnaam": "Goulouse",
+        "voorvoegsel": "",
+        "titelPredikaat": "",
+        "geslacht": "VROUW",
+        "adres": {
+          "straat": "Wateringseplein",
+          "hnr": 100,
+          "hnrL": "",
+          "hnrT": "III",
+          "postcode": "2567LP",
+          "woonplaats": {
+            "waarde": "Testoord",
+            "omschrijving": "Testoord"
+          },
+          "woonplaatsOpAkte": "Testoord",
+          "land": {
+            "waarde": "",
+            "omschrijving": ""
+          },
+          "landOpAkte": "Nederland",
+          "gemeente": {
+            "waarde": "",
+            "omschrijving": ""
+          }
+        },
+        "geboortedatum": 19831226,
+        "geboorteplaats": {
+          "waarde": "",
+          "omschrijving": ""
+        },
+        "geboorteplaatsOpAkte": "Schouwstad",
+        "geboorteland": {
+          "waarde": "",
+          "omschrijving": ""
+        },
+        "geboortelandOpAkte": "Nederland",
+        "immigratieDatum": -1,
+        "immigratieLand": {
+          "waarde": "",
+          "omschrijving": ""
+        },
+        "overlijdensDatum": -1,
+        "burgerlijkeStaat": "ONGEHUWD",
+        "burgerlijkeStaatDatum": 19831226,
+        "verstrekkingsbeperking": false,
+        "verblijfstitel": {
+          "waarde": "",
+          "omschrijving": ""
+        },
+        "toelichting": "",
+        "nationaliteiten": [
+          {
+            "nationaliteit": {
+              "waarde": "1",
+              "omschrijving": "Nederlandse"
+            },
+            "datumVerkrijgingVanafType": "ANDERS",
+            "datumVerkrijging": 19831226,
+            "redenVerkrijgingNL": {
+              "waarde": "000",
+              "omschrijving": ""
+            }
+          }
+        ]
+      },
+      "erkenner": {
+        "bsn": 999993872,
+        "contactgegevens": {
+          "email": "",
+          "telefoonThuis": "",
+          "telefoonWerk": "",
+          "telefoonMobiel": "",
+          "telefoonBuitenland": {
+            "telefoon": "",
+            "landCode": -1
+          }
+        },
+        "voornamen": "Petri",
+        "geslachtsnaam": "Meijden",
+        "voorvoegsel": "van der",
+        "titelPredikaat": "",
+        "geslacht": "MAN",
+        "adres": {
+          "straat": "Sweelinckplein",
+          "hnr": 1235,
+          "hnrL": "",
+          "hnrT": "",
+          "postcode": "2587TA",
+          "woonplaats": {
+            "waarde": "Testoord",
+            "omschrijving": "Testoord"
+          },
+          "woonplaatsOpAkte": "Testoord",
+          "land": {
+            "waarde": "",
+            "omschrijving": ""
+          },
+          "landOpAkte": "Nederland",
+          "gemeente": {
+            "waarde": "",
+            "omschrijving": ""
+          }
+        },
+        "geboortedatum": 19940704,
+        "geboorteplaats": {
+          "waarde": "",
+          "omschrijving": ""
+        },
+        "geboorteplaatsOpAkte": "Schouwstad",
+        "geboorteland": {
+          "waarde": "",
+          "omschrijving": ""
+        },
+        "geboortelandOpAkte": "Nederland",
+        "immigratieDatum": -1,
+        "immigratieLand": {
+          "waarde": "",
+          "omschrijving": ""
+        },
+        "overlijdensDatum": -1,
+        "burgerlijkeStaat": "ONGEHUWD",
+        "burgerlijkeStaatDatum": 19940704,
+        "verstrekkingsbeperking": false,
+        "verblijfstitel": {
+          "waarde": "",
+          "omschrijving": ""
+        },
+        "toelichting": "",
+        "nationaliteiten": [
+          {
+            "nationaliteit": {
+              "waarde": "1",
+              "omschrijving": "Nederlandse"
+            },
+            "datumVerkrijgingVanafType": "GEBOORTE_DATUM",
+            "datumVerkrijging": -1,
+            "redenVerkrijgingNL": {
+              "waarde": "017",
+              "omschrijving": ""
+            }
+          }
+        ]
+      },
+      "afstamming": null,
+      "namenrecht": {
+        "landToegepastRecht": null,
+        "geslachtsnaam": "Meijden",
+        "voorvoegsel": "van der",
+        "titelPredikaat": "",
+        "eersteKind": null,
+        "naamsPersoonType": null,
+        "naamskeuze": null
+      },
+      "erkenningsType": "ERKENNING_ONGEBOREN_VRUCHT",
+      "nationaliteiten": null,
+      "aktes": null
+    }
+  },
+  "succes": true,
+  "foutmelding": null
+}

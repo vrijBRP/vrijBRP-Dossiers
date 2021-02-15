@@ -1,0 +1,122 @@
+{
+  "zaak": {
+    "algemeen": {
+      "zaakId": null,
+      "meestRelevanteZaakId": null,
+      "type": "LIJKVINDING",
+      "soort": null,
+      "omschrijving": null,
+      "status": "OPGENOMEN",
+      "bron": "test-application",
+      "leverancier": "test-customer",
+      "datumIngang": 20200402,
+      "datumInvoer": 0,
+      "tijdInvoer": 0,
+      "locatieInvoer": null,
+      "gebruikerInvoer": null,
+      "ids": [
+        {
+          "id": "discovered-body-1234",
+          "systeem": "External system"
+        }
+      ],
+      "statussen": null,
+      "extraAttributen": null,
+      "gekoppeldeZaken": null
+    },
+    "verhuizing": null,
+    "geboorte": null,
+    "erkenning": null,
+    "huwelijk": null,
+    "overlijden": {
+      "overlijdenInGemeente": null,
+      "lijkvinding": {
+        "aangifte": {
+          "schriftelijkeAangever": "OFFICIER_VAN_JUSTITIE",
+          "plaats": {
+            "waarde": "0637",
+            "omschrijving": "Zoetermeer"
+          },
+          "datum": 20200816,
+          "tijd": 91000,
+          "toevoeging": "Found at home by the neighbours",
+          "documentType": "NATUURLIJK_DOOD"
+        },
+        "overledene": {
+          "bsn": 36,
+          "contactgegevens": null,
+          "voornamen": "Madonna",
+          "geslachtsnaam": "Kaart",
+          "voorvoegsel": "van der",
+          "titelPredikaat": "JV",
+          "aktenaam": null,
+          "geslacht": null,
+          "adres": null,
+          "geboortedatum": 19750307,
+          "geboorteplaats": {
+            "waarde": "Leidschendam",
+            "omschrijving": "Leidschendam"
+          },
+          "geboorteplaatsOpAkte": null,
+          "geboorteland": {
+            "waarde": "6030",
+            "omschrijving": null
+          },
+          "geboortelandOpAkte": null,
+          "immigratieDatum": null,
+          "immigratieLand": null,
+          "overlijdensDatum": null,
+          "burgerlijkeStaat": null,
+          "burgerlijkeStaatDatum": null,
+          "verstrekkingsbeperking": null,
+          "verblijfstitel": null,
+          "toelichting": null,
+          "nationaliteiten": null
+        },
+        "lijkbezorging": {
+          "datum": 20200820,
+          "tijd": 122000,
+          "lijkbezorgingType": "BEGRAVING_CREMATIE",
+          "buitenBenelux": true,
+          "doodsoorzaakType": "NATURAL_CAUSES",
+          "landVanBestemming": {
+            "waarde": "8045",
+            "omschrijving": "Antigua en Barbuda"
+          },
+          "plaatsVanBestemming": "Timboektoe",
+          "plaatsVanOntleding": null,
+          "via": "Het vliegveld",
+          "vervoermiddel": "vliegtuig"
+        },
+        "verzoek": {
+          "correspondentie": {
+            "type": "POST",
+            "organisatie": "Procura B.V.",
+            "afdeling": "Burgerzaken",
+            "naam": "Dhr. F. Janssen",
+            "email": "test@procura.nl",
+            "telefoon": "123456",
+            "straat": "Parelweg",
+            "hnr": 1,
+            "hnrL": "A",
+            "hnrT": "to",
+            "postcode": "1812RS",
+            "plaats": "Alkmaar"
+          },
+          "uittreksels": [
+            {
+              "code": "akt1",
+              "omschrijving": "Akte 1 description",
+              "aantal": 1
+            },
+            {
+              "code": "akt2",
+              "omschrijving": "Akte 2 description",
+              "aantal": 2
+            }
+          ]
+        }
+      }
+    }
+  }
+}

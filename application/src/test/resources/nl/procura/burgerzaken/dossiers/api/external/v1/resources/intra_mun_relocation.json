@@ -1,0 +1,102 @@
+{
+  "inhoud": {
+    "algemeen": {
+      "zaakId": "test-1234",
+      "meestRelevanteZaakId": null,
+      "type": "BINNENVERHUIZING",
+      "soort": null,
+      "omschrijving": null,
+      "status": "OPGENOMEN",
+      "bron": "PROWEB Personen",
+      "leverancier": "PROCURA",
+      "datumIngang": 20200201,
+      "datumInvoer": 20200428,
+      "tijdInvoer": 101112,
+      "locatieInvoer": null,
+      "gebruikerInvoer": null,
+      "ids": [
+        {
+          "id": "returned-id",
+          "systeem": "description"
+        }
+      ],
+      "statussen": null,
+      "extraAttributen": null,
+      "gekoppeldeZaken": null
+    },
+    "verhuizing": {
+      "type": "BINNENGEMEENTELIJK",
+      "bestemmmingHuidigeBewoners": "Geen idee",
+      "aangever": {
+        "bsn": 12,
+        "contactgegevens": {
+          "email": "burgerzaken@procura.nl",
+          "telefoonThuis": "1234",
+          "telefoonWerk": "5678",
+          "telefoonMobiel": "9876",
+          "telefoonBuitenland": {
+            "telefoon": "32312",
+            "landCode": 6047
+          }
+        },
+        "ambtshalve": true,
+        "hoofdInstelling": true,
+        "toelichting": "Dit is de aangever"
+      },
+      "hoofdbewoner": {
+        "bsn": 12
+      },
+      "inwoning": {
+        "sprakeVanInwoning": true,
+        "toestemminggever": {
+          "bsn": 12,
+          "anders": "anders..."
+        },
+        "aangifteStatus": "NIET_INGEVULD",
+        "toestemmingStatus": "NIET_VAN_TOEPASSING"
+      },
+      "binnenverhuizing": {
+        "nieuwAdres": {
+          "gemeente": {
+            "waarde": "0361",
+            "omschrijving": "Alkmaar"
+          },
+          "locatie": null,
+          "postcode": "1234AA",
+          "straat": "Dorpstraat",
+          "woonplaats": "Oudorp",
+          "aantalPersonen": 1,
+          "functieAdres": "WOONADRES",
+          "hnr": 1,
+          "hnrL": "L",
+          "hnrT": "T"
+        }
+      },
+      "buitenverhuizing": null,
+      "emigratie": null,
+      "hervestiging": null,
+      "verhuizers": [
+        {
+          "bsn": 12,
+          "aangifte": "INGESCHREVENE",
+          "verwerken": true
+        },
+        {
+          "bsn": 61,
+          "aangifte": "ECHTGENOOT_GEREGISTREERD_PARTNER",
+          "verwerken": false
+        },
+        {
+          "bsn": 3116,
+          "aangifte": "GEZAGHOUDER",
+          "verwerken": false
+        },
+        {
+          "bsn": 2458,
+          "aangifte": "GEZAGHOUDER",
+          "verwerken": false
+        }
+      ]
+    }
+  }
+}

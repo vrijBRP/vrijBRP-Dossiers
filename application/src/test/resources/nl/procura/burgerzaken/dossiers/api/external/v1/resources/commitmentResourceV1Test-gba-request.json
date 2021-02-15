@@ -1,0 +1,226 @@
+{
+  "zaak": {
+    "algemeen": {
+      "zaakId": null,
+      "meestRelevanteZaakId": null,
+      "type": "HUWELIJK_GPS_GEMEENTE",
+      "soort": null,
+      "omschrijving": null,
+      "status": "OPGENOMEN",
+      "bron": "test-application",
+      "leverancier": "test-customer",
+      "datumIngang": 20200402,
+      "datumInvoer": 0,
+      "tijdInvoer": 0,
+      "locatieInvoer": null,
+      "gebruikerInvoer": null,
+      "ids": [
+        {
+          "id": "commitment-1234",
+          "systeem": "External system"
+        }
+      ],
+      "statussen": null,
+      "extraAttributen": null,
+      "gekoppeldeZaken": null
+    },
+    "verhuizing": null,
+    "geboorte": null,
+    "erkenning": null,
+    "overlijden": null,
+    "huwelijk": {
+      "partner1": {
+        "persoon": {
+          "bsn": 24,
+          "contactgegevens": {
+            "email": "burgerzaken@procura.nl",
+            "telefoonThuis": "06-54 32 23 45",
+            "telefoonWerk": null,
+            "telefoonMobiel": null,
+            "telefoonBuitenland": null
+          },
+          "voornamen": null,
+          "geslachtsnaam": null,
+          "voorvoegsel": null,
+          "titelPredikaat": null,
+          "aktenaam": null,
+          "geslacht": null,
+          "adres": null,
+          "geboortedatum": null,
+          "geboorteplaats": null,
+          "geboorteplaatsOpAkte": null,
+          "geboorteland": null,
+          "geboortelandOpAkte": null,
+          "immigratieDatum": null,
+          "immigratieLand": null,
+          "overlijdensDatum": null,
+          "burgerlijkeStaat": null,
+          "burgerlijkeStaatDatum": null,
+          "verstrekkingsbeperking": null,
+          "verblijfstitel": null,
+          "toelichting": null,
+          "nationaliteiten": null
+        },
+        "naamgebruik": {
+          "type": "N",
+          "geslachtsnaam": "Vries",
+          "titelPredikaat": "B",
+          "voorvoegsel": "de"
+        }
+      },
+      "partner2": {
+        "persoon": {
+          "bsn": 36,
+          "contactgegevens": {
+            "email": "burgerzaken@procura.nl",
+            "telefoonThuis": "0887708100",
+            "telefoonWerk": null,
+            "telefoonMobiel": null,
+            "telefoonBuitenland": null
+          },
+          "voornamen": null,
+          "geslachtsnaam": null,
+          "voorvoegsel": null,
+          "titelPredikaat": null,
+          "aktenaam": null,
+          "geslacht": null,
+          "adres": null,
+          "geboortedatum": null,
+          "geboorteplaats": null,
+          "geboorteplaatsOpAkte": null,
+          "geboorteland": null,
+          "geboortelandOpAkte": null,
+          "immigratieDatum": null,
+          "immigratieLand": null,
+          "overlijdensDatum": null,
+          "burgerlijkeStaat": null,
+          "burgerlijkeStaatDatum": null,
+          "verstrekkingsbeperking": null,
+          "verblijfstitel": null,
+          "toelichting": null,
+          "nationaliteiten": null
+        },
+        "naamgebruik": {
+          "type": "V",
+          "geslachtsnaam": "Jansen",
+          "titelPredikaat": "JH",
+          "voorvoegsel": null
+        }
+      },
+      "planning": {
+        "soort": "HUWELIJK",
+        "datumVoornemen": 20200102,
+        "datumVerbintenis": 20200402,
+        "tijdVerbintenis": 111200,
+        "toelichting": "Nice wedding!"
+      },
+      "locatie": {
+        "naam": "Het Generaalshuis (Theater aan het Vrijthof)",
+        "aliassen": [
+          "generaalshuis"
+        ],
+        "opties": [
+          {
+            "type": "TEKST",
+            "naam": "Taalceremonie",
+            "aliassen": [
+              "taal_ceremonie"
+            ],
+            "waarde": "Spaans",
+            "omschrijving": "Taalceremonie"
+          },
+          {
+            "type": "NUMMER",
+            "naam": "Max. aantal personen",
+            "aliassen": [
+              "taal_ceremonie"
+            ],
+            "waarde": "75",
+            "omschrijving": "Max. aantal personen (1 - 250)"
+          },
+          {
+            "type": "BOOLEAN",
+            "naam": "Trouwboekje/Partnerschapsboekje",
+            "aliassen": [
+              "trouwboekje"
+            ],
+            "waarde": "true",
+            "omschrijving": "Trouwboekje/Partnerschapsboekje"
+          }
+        ]
+      },
+      "getuigen": {
+        "aantalGemeenteGetuigen": 2,
+        "eigenGetuigen": [
+          {
+            "persoon": {
+              "bsn": null,
+              "contactgegevens": null,
+              "voornamen": "Truus",
+              "geslachtsnaam": "Vries",
+              "voorvoegsel": "de",
+              "titelPredikaat": null,
+              "aktenaam": null,
+              "geslacht": null,
+              "adres": null,
+              "geboortedatum": 19900101,
+              "geboorteplaats": null,
+              "geboorteplaatsOpAkte": null,
+              "geboorteland": null,
+              "geboortelandOpAkte": null,
+              "immigratieDatum": null,
+              "immigratieLand": null,
+              "overlijdensDatum": null,
+              "burgerlijkeStaat": null,
+              "burgerlijkeStaatDatum": null,
+              "verstrekkingsbeperking": null,
+              "verblijfstitel": null,
+              "toelichting": "First witness!",
+              "nationaliteiten": null
+            }
+          },
+          {
+            "persoon": {
+              "bsn": 48,
+              "contactgegevens": null,
+              "voornamen": "Klaas",
+              "geslachtsnaam": "Jansen",
+              "voorvoegsel": null,
+              "titelPredikaat": null,
+              "aktenaam": null,
+              "geslacht": null,
+              "adres": null,
+              "geboortedatum": 19800503,
+              "geboorteplaats": null,
+              "geboorteplaatsOpAkte": null,
+              "geboorteland": null,
+              "geboortelandOpAkte": null,
+              "immigratieDatum": null,
+              "immigratieLand": null,
+              "overlijdensDatum": null,
+              "burgerlijkeStaat": null,
+              "burgerlijkeStaatDatum": null,
+              "verstrekkingsbeperking": null,
+              "verblijfstitel": null,
+              "toelichting": "Second witness!",
+              "nationaliteiten": null
+            }
+          }
+        ]
+      },
+      "ambtenaren": {
+        "voorkeuren": [
+          {
+            "naam": "Pietje precies",
+            "telefoon": "06-54 32 23 45",
+            "email": "burgerzaken@procura.nl",
+            "aliassen": [
+              "pietje"
+            ]
+          }
+        ],
+        "toegekend": null
+      }
+    }
+  }
+}

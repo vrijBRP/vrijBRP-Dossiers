@@ -1,0 +1,16 @@
+[[dossier_get_documents]]
+==== Get documents
+
+This is an example of getting documents of a dossier
+
+===== Successful call
+
+When making a successful call to this API endpoint, the following request parameters and body can be expected.
+
+====== Request
+
+include::{snippets}/get_documents/http-request.adoc[]
+
+====== Response
+
+include::{snippets}/get_documents/http-response.adoc[]

@@ -1,0 +1,41 @@
+{
+  "inhoud": {
+    "sleutels": null,
+    "zaken": [
+      {
+        "algemeen": {
+          "zaakId": "ABC-203",
+          "meestRelevanteZaakId": "ABC-203",
+          "type": "ERKENNING",
+          "soort": "",
+          "omschrijving": "Erkenning",
+          "status": "OPGENOMEN",
+          "bron": "PROWEB Personen",
+          "leverancier": "PROCURA",
+          "datumIngang": 20200511,
+          "datumInvoer": 20200511,
+          "tijdInvoer": 145453,
+          "locatieInvoer": {
+            "waarde": "Backoffice",
+            "omschrijving": "Backoffice Publiekszaken / Burgerzaken"
+          },
+          "gebruikerInvoer": {
+            "waarde": "1",
+            "omschrijving": "Test"
+          },
+          "ids": null,
+          "statussen": null,
+          "extraAttributen": null,
+          "gekoppeldeZaken": null
+        },
+        "verhuizing": null,
+        "geboorte": null,
+        "erkenning": null,
+        "overlijden": null
+      }
+    ],
+    "totaal": 1
+  },
+  "succes": true,
+  "foutmelding": null
+}

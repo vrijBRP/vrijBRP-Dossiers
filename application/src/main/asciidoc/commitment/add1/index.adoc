@@ -1,0 +1,19 @@
+[[add_commitment1]]
+==== Add new
+
+This is an example of a new commitment request.
+
+[[add_commitment1_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[add_commitment1_request]]
+====== Request
+
+include::{snippets}/add_commitment1/http-request.adoc[]
+
+[[add_commitment1_response]]
+====== Response
+
+include::{snippets}/add_commitment1/http-response.adoc[]

@@ -1,0 +1,19 @@
+[[intra_reloc_consent_1]]
+==== Add lodging consent
+
+This is an example of consent added to a intra-municipal relocation.
+
+[[intra_reloc_consent_1_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[intra_reloc_consent_1_request]]
+====== Request
+
+include::{snippets}/add_intra_reloc_consent1/http-request.adoc[]
+
+[[intra_reloc_consent_1_response]]
+====== Response
+
+include::{snippets}/add_intra_reloc_consent1/http-response.adoc[]

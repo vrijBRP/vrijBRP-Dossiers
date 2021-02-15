@@ -1,0 +1,19 @@
+[[birth_info_family_situation]]
+==== Family situation
+
+Checks if at the birthdate of the child the mother was in a legal committed relationship and returns the BSN of the partner.
+
+[[birth_info_family_situation_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[birth_info_family_situation_request]]
+====== Request
+
+include::{snippets}/birth_info_family_situation/http-request.adoc[]
+
+[[birth_info_family_situation_response]]
+====== Response
+
+include::{snippets}/birth_info_family_situation/http-response.adoc[]

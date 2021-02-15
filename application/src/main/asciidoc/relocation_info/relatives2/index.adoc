@@ -1,0 +1,19 @@
+[[reloc_relatives_2]]
+==== Example 2
+
+This is an example of a request for relocator info with an ex-partner
+
+[[reloc_relatives_2_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[reloc_relatives_2_request]]
+====== Request
+
+include::{snippets}/reloc_relatives_2/http-request.adoc[]
+
+[[reloc_relatives_2_response]]
+====== Response
+
+include::{snippets}/reloc_relatives_2/http-response.adoc[]

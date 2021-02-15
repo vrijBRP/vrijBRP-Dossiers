@@ -1,0 +1,19 @@
+[[add_intra_reloc1]]
+==== Add new (complete)
+
+This is an example of a new complete intra-municipal relocation.
+
+[[add_intra_reloc1_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+
+[[add_intra_reloc1_request]]
+====== Request
+
+include::{snippets}/add_intra_reloc1/http-request.adoc[]
+
+[[add_intra_reloc1_response]]
+====== Response
+
+include::{snippets}/add_intra_reloc1/http-response.adoc[]

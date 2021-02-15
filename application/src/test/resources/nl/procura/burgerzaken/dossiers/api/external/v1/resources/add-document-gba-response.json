@@ -1,0 +1,14 @@
+{
+  "inhoud": {
+    "id": "dXBsb2FkLXRlc3QtMjY0MzQwNTU5NjU0NzU5NDA1",
+    "titel": "A title",
+    "bestandsnaam": "upload-test-7991873931906390199.txt",
+    "vertrouwelijkheid": "ONBEKEND",
+    "pad": "\\temp\\upload-test-7991873931906390199.txt",
+    "invoerDatum": -1,
+    "invoerTijd": -1,
+    "invoerGebruiker": "Testgebruiker"
+  },
+  "succes": true,
+  "foutmelding": null
+}

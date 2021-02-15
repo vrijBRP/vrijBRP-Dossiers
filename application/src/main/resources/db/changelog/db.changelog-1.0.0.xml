@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="1" author="">
+        <createTable tableName="oauth_client_details">
+            <column name="client_id" type="VARCHAR(256)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="client_secret" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="scope" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authorized_grant_types" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="">
+        <createTable tableName="doss">
+            <column name="doss_id" type="BIGINT" autoIncrement="true" startWith="1">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="client_id" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="doss_type" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dt_added" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="d_start" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="casenr" type="VARCHAR(256)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="status" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="intra_reloc">
+            <column name="doss_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="street" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hnr" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hnr_l" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hnr_t" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pc" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="residence" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="municipality" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_func" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="residents_count" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dest_curr_residents" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="live_in" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="consent" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="person">
+            <column name="person_id" type="BIGINT" autoIncrement="true" startWith="1">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="doss_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bsn" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tel" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="relocator">
+            <column name="person_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="declaration" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="person_role">
+            <column name="person_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="role" type="VARCHAR(256)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+        <createTable tableName="doss_ref">
+            <column name="doss_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="ref_casenr" type="VARCHAR(256)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="description" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="client">
+            <column name="client_id" type="VARCHAR(256)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="application" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="">
+        <createIndex indexName="fki_doss_client_id_fkey" tableName="doss">
+            <column name="client_id"/>
+        </createIndex>
+        <createIndex indexName="fki_doss_ref_doss_id_fkey" tableName="doss_ref">
+            <column name="doss_id"/>
+        </createIndex>
+        <createIndex indexName="fki_person_doss_id_fkey" tableName="person">
+            <column name="doss_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="4" author="">
+        <!-- TODO Make doss.client_id client_id constraint work -->
+        <!--<addForeignKeyConstraint baseColumnNames="client_id" baseTableName="doss"
+                                 constraintName="doss_client_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="client_id" referencedTableName="client"/>-->
+
+        <addForeignKeyConstraint baseColumnNames="doss_id" baseTableName="doss_ref"
+                                 constraintName="doss_ref_doss_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="doss_id" referencedTableName="doss"/>
+
+        <addForeignKeyConstraint baseColumnNames="doss_id" baseTableName="intra_reloc"
+                                 constraintName="intra_reloc_doss_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="doss_id" referencedTableName="doss"/>
+
+        <addForeignKeyConstraint baseColumnNames="doss_id" baseTableName="person"
+                                 constraintName="person_doss_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="doss_id" referencedTableName="doss"/>
+
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="person_role"
+                                 constraintName="person_role_person_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="person_id" referencedTableName="person"/>
+
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableName="relocator"
+                                 constraintName="relocator_person_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="person_id" referencedTableName="person"/>
+    </changeSet>
+    <changeSet id="5" author="">
+        <createTable tableName="inter_reloc">
+            <column name="doss_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="street" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hnr" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hnr_l" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hnr_t" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pc" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="residence" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="municipality" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_func" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="residents_count" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dest_curr_residents" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="live_in" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="consent" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="prev_municipality" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="doss_id" baseTableName="inter_reloc"
+                                 constraintName="inter_reloc_doss_id_fkey" deferrable="false"
+                                 initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"
+                                 referencedColumnNames="doss_id" referencedTableName="doss"/>
+    </changeSet>
+    <changeSet id="6" author="">
+        <createTable tableName="event_log">
+            <column name="event_id" type="BIGINT" autoIncrement="true" startWith="1">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="client_id" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="object_id" type="VARCHAR(256)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time_stamp" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payload" type="CLOB">
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
