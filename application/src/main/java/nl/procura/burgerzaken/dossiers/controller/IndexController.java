@@ -41,8 +41,8 @@ public class IndexController {
     return "index";
   }
 
-  @GetMapping("/examples")
-  public String examples() {
-    return "examples/index";
+  @GetMapping("/documentation")
+  public String documentation() {
+    return "documentation/index";
   }
 }

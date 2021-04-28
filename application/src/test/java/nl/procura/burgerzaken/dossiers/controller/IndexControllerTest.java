@@ -41,7 +41,7 @@ class IndexControllerTest {
   void indexMustContainTitle() throws Exception {
     mockMvc.perform(get("/"))
         .andExpect(status().isOk())
-        .andExpect(content().string(containsString("Procura Burgerzaken Dossiers")));
+        .andExpect(content().string(containsString("VrijBRP Dossiers")));
   }
 
 }

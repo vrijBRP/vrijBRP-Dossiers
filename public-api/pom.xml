@@ -9,7 +9,7 @@
 
     <groupId>nl.procura.burgerzaken.dossiers</groupId>
     <artifactId>public-api</artifactId>
-    <name>Procura Burgerzaken Dossiers - Public API</name>
+    <name>VrijBRP Dossiers - Public API</name>
 
     <properties>
     </properties>

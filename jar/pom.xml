@@ -9,7 +9,7 @@
 
     <groupId>nl.procura.burgerzaken.dossiers</groupId>
     <artifactId>jar</artifactId>
-    <name>Procura Burgerzaken Dossiers - JAR</name>
+    <name>VrijBRP Dossiers - JAR</name>
 
     <properties>
     </properties>

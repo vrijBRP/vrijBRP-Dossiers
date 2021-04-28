@@ -9,7 +9,7 @@
 
     <groupId>nl.procura.burgerzaken.dossiers</groupId>
     <artifactId>domain</artifactId>
-    <name>Procura Burgerzaken Dossiers - Domain</name>
+    <name>VrijBRP Dossiers - Domain</name>
 
     <properties>
         <querydsl.version>4.2.2</querydsl.version>

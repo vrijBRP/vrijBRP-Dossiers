@@ -9,7 +9,7 @@
 
     <groupId>nl.procura.burgerzaken.dossiers</groupId>
     <artifactId>application</artifactId>
-    <name>Procura Burgerzaken Dossiers - Application</name>
+    <name>VrijBRP Dossiers - Application</name>
 
     <properties>
         <snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
@@ -183,7 +183,7 @@
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/classes/templates/examples</outputDirectory>
+                            <outputDirectory>${project.build.directory}/classes/templates/documentation</outputDirectory>
                             <sourceDocumentName>index.adoc</sourceDocumentName>
                             <backend>html5</backend>
                             <doctype>article</doctype>

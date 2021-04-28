@@ -9,7 +9,7 @@
 
     <groupId>nl.procura.burgerzaken.dossiers</groupId>
     <artifactId>admin-client-retrofit2</artifactId>
-    <name>Procura Burgerzaken Dossiers - Admin client (Retrofit2)</name>
+    <name>VrijBRP Dossiers - Admin client (Retrofit2)</name>
 
     <properties>
         <java.version>1.8</java.version>

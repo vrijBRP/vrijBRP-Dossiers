@@ -2,7 +2,7 @@
 ==== Error
 This is an example of an error if the provided request is not valid.
 
-[[intra_reloc_error]]
+[[intra_reloc_error_bad_request]]
 ===== Bad request call
 When making a unsuccessfull call to this API endpoint because of an invalid request, the following request parameters and body can be expected.
 

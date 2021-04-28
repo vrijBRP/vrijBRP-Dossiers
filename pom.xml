@@ -4,7 +4,7 @@
     <groupId>nl.procura.burgerzaken</groupId>
     <artifactId>dossiers</artifactId>
     <version>1.0.7-SNAPSHOT</version>
-    <name>Procura Burgerzaken Dossiers</name>
+    <name>VrijBRP Dossiers</name>
     <packaging>pom</packaging>
 
     <properties>
