@@ -33,7 +33,7 @@ link:public/postman/api.procura.nl.postman_environment.json[Test environment con
 
 === Test data
 
-link:public/RvIG_testset_persoonslijsten.ods[RvIG test data]
+link:public/RvIG-testdata.xlsx[RvIG test data]
 
 [[relocations]]
 == Relocations
