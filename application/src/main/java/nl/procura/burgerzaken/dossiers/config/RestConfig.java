@@ -133,7 +133,7 @@ public class RestConfig {
   public FilterRegistrationBean<RequestLogFilter> requestLogFilter(@Autowired LoggingService loggingService) {
     FilterRegistrationBean<RequestLogFilter> registrationBean = new FilterRegistrationBean<>();
     registrationBean.setFilter(new RequestLogFilter(loggingService));
-    registrationBean.addUrlPatterns("/api/*");
+    registrationBean.addUrlPatterns("/api/*", "/oauth/*");
     return registrationBean;
   }
 

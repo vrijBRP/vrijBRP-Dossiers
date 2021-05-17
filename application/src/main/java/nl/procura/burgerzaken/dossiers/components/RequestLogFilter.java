@@ -124,7 +124,7 @@ public class RequestLogFilter extends OncePerRequestFilter implements Ordered {
       if (buf.length > 0) {
         int length = Math.min(buf.length, maxPayloadLength);
         try {
-          payload = new String(buf, 0, length, wrapper.getCharacterEncoding());
+          payload = sanitizeRequest(new String(buf, 0, length, wrapper.getCharacterEncoding()));
         } catch (UnsupportedEncodingException ex) {
           logger.error(ex.getMessage(), ex);
           payload = "[unknown]";
@@ -132,6 +132,14 @@ public class RequestLogFilter extends OncePerRequestFilter implements Ordered {
       }
     }
     return payload;
+  }
+
+  private String sanitizeRequest(String payload) {
+    return removeClientSecretFromRequest(payload);
+  }
+
+  private String removeClientSecretFromRequest(String payload) {
+    return payload.replaceAll("client_secret=(.*)&", "client_secret=***&");
   }
 
   private String getResponsePayload(HttpServletResponse resp) {
