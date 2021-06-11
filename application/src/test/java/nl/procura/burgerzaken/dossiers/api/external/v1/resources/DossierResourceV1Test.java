@@ -48,6 +48,7 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossierDocumen
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.search.ApiSearchRequest;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.search.ApiSearchResponse;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import okhttp3.mockwebserver.MockResponse;
 
@@ -70,7 +71,7 @@ class DossierResourceV1Test extends BaseResourceTest {
             .to(LocalDate.now())
             .build())
         .paging(ApiRequestPaging.defaultPaging())
-        .bsns(Arrays.asList(String.valueOf(TEST_BSN_3)))
+        .bsns(Arrays.asList(BsnUtils.toBsnString(TEST_BSN_3)))
         .dossierIds(Arrays.asList("zaak-1234"))
         .statusses(Arrays.asList(DossierStatus.INCOMPLETE.getCode()))
         .build();

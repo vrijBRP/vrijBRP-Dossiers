@@ -56,6 +56,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>nl.procura.burgerzaken</groupId>
+            <artifactId>gba-commons</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

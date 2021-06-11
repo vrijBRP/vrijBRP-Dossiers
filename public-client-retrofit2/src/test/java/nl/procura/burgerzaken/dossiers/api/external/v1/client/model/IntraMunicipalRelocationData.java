@@ -30,6 +30,8 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Arrays;
 
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
+
 public final class IntraMunicipalRelocationData {
 
   public static final String DOSSIER_ID        = "relocation-1234";
@@ -54,7 +56,7 @@ public final class IntraMunicipalRelocationData {
             .startDate(LocalDate.of(2019, Month.JANUARY, 1))
             .entryDateTime(LocalDateTime.now().withNano(0)))
         .declarant(new RelocationDeclarant()
-            .bsn(String.valueOf(TEST_BSN_1))
+            .bsn(BsnUtils.toBsnString(TEST_BSN_1))
             .contactInformation(ci))
         .newAddress(new RelocationMunicipalAddress()
             .street("Dorpstraat")
@@ -80,18 +82,18 @@ public final class IntraMunicipalRelocationData {
                 .contactInformation(ci)))
         .relocators(Arrays.asList(
             new IntraMunicipalRelocationPerson()
-                .bsn(String.valueOf(TEST_BSN_1))
+                .bsn(BsnUtils.toBsnString(TEST_BSN_1))
                 .contactInformation(ci)
                 .declarationType(REGISTERED),
             new IntraMunicipalRelocationPerson()
-                .bsn(String.valueOf(TEST_BSN_5))
+                .bsn(BsnUtils.toBsnString(TEST_BSN_5))
                 .contactInformation(ci)
                 .declarationType(PARTNER)));
   }
 
   public static RelocationConsent createConsent() {
     RelocationConsenter consenter = new RelocationConsenter();
-    consenter.setBsn(String.valueOf(TEST_BSN_1));
+    consenter.setBsn(BsnUtils.toBsnString(TEST_BSN_1));
 
     RelocationConsent consent = new RelocationConsent();
     consent.setConsenter(consenter);

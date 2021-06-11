@@ -25,6 +25,7 @@ import java.util.List;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossierType;
 import nl.procura.burgerzaken.dossiers.model.task.Task;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -57,7 +58,7 @@ public class ApiTask {
   public static ApiTask of(Task d) {
     return ApiTask
         .builder()
-        .bsn(d.getBsns())
+        .bsn(BsnUtils.toBsnStringList(d.getBsns()))
         .dossierId(d.getDossierId())
         .dossierType(ofNullable(d.getDossierType())
             .map(dt -> ApiDossierType.builder()

@@ -25,6 +25,7 @@ import javax.validation.Valid;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.birth.ApiPartner;
 import nl.procura.burgerzaken.dossiers.model.birth.FamilySituationInfo;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -56,7 +57,7 @@ public class ApiFamilySituationInfoResponse {
         .legalDeceasedPeriodRuleApplicable(info.isLegalDeceasedPeriodRuleApplicable())
         .partner(ofNullable(info.getBsnPartner())
             .map(bsn -> ApiPartner.builder()
-                .bsn(info.getBsnPartner())
+                .bsn(BsnUtils.toBsnString(info.getBsnPartner()))
                 .build())
             .orElse(null))
         .build();

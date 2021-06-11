@@ -26,6 +26,7 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiNationalTable;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
 import nl.procura.burgerzaken.dossiers.model.base.ModelValidation;
 import nl.procura.burgerzaken.dossiers.model.deaths.Deceased;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -77,7 +78,7 @@ public class ApiDeceased extends ApiPerson {
   public static ApiDeceased of(Deceased deceased) {
     if (ModelValidation.isValid(deceased)) {
       return ApiDeceased.builder()
-          .bsn(deceased.getBsn())
+          .bsn(BsnUtils.toBsnString(deceased.getBsn()))
           .firstname(deceased.getFirstname())
           .lastname(deceased.getLastname())
           .prefix(deceased.getPrefix())

@@ -43,9 +43,9 @@ import nl.procura.burgerzaken.dossiers.model.relocations.info.RelocationObstruct
 import nl.procura.burgerzaken.dossiers.model.relocations.info.RelocationRelative;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierSearchRequest;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierService;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 import nl.procura.burgerzaken.gba.core.enums.GBACat;
 import nl.procura.burgerzaken.gba.core.enums.GBAElem;
-import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonList;
 
 import lombok.Getter;
@@ -82,7 +82,7 @@ public class ProcuraRelocationRelative {
 
     Long bsn = pl.getCurrentRec(PERSOON)
         .map(rec -> rec.getElemValue(BSN))
-        .map(bsnValue -> new Bsn(bsnValue).toLong())
+        .map(bsnValue -> BsnUtils.toLongBsn(bsnValue))
         .orElseThrow(() -> new IllegalStateException("Person has no BSN"));
 
     Page<Dossier> dossiers = dossierService.find(DossierSearchRequest.builder()

@@ -49,6 +49,8 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.consent.ApiCo
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.intra.ApiIntraMunicipalRelocation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.intra.ApiIntraMunicipalRelocationPerson;
 import nl.procura.burgerzaken.dossiers.model.events.EventType;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 import okhttp3.mockwebserver.MockResponse;
 
@@ -111,7 +113,7 @@ class IntraRelocationResourceV1Test extends BaseResourceTest {
         .toClass(ApiIntraMunicipalRelocation.class);
 
     assertEquals(dossierId, created.getDossier().getDossierId());
-    String declarantBsn = String.valueOf(TEST_BSN_1);
+    String declarantBsn = BsnUtils.toBsnString(TEST_BSN_1);
     assertEquals(declarantBsn, created.getDeclarant().getBsn());
 
     ApiMunicipalAddress foundAddress = created.getNewAddress();
@@ -135,7 +137,7 @@ class IntraRelocationResourceV1Test extends BaseResourceTest {
         .filter(r -> declarantBsn.equals(r.getBsn())).findFirst().orElseThrow();
     assertEquals(ApiDeclarationType.REGISTERED, declarant.getDeclarationType());
     ApiIntraMunicipalRelocationPerson partner = relocators.stream()
-        .filter(r -> String.valueOf(TEST_BSN_5).equals(r.getBsn())).findFirst().orElseThrow();
+        .filter(r -> new Bsn(TEST_BSN_5).equals(r.getBsn())).findFirst().orElseThrow();
     assertEquals(ApiDeclarationType.PARTNER, partner.getDeclarationType());
   }
 
@@ -215,7 +217,7 @@ class IntraRelocationResourceV1Test extends BaseResourceTest {
         .dossierId(dossierId)
         .consent(ApiLiveInConsentType.APPROVED)
         .consenter(ApiConsenter.builder()
-            .bsn(String.valueOf(TEST_BSN_3))
+            .bsn(new Bsn(TEST_BSN_3).toString())
             .contactInformation(contactInfo)
             .build())
         .build();

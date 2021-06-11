@@ -25,6 +25,8 @@ import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
 
+import nl.procura.burgerzaken.gba.numbers.Bsn;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -43,7 +45,10 @@ public class TaskSearchRequest {
   private PageRequest pageRequest;
 
   public boolean isMatchWithBsn(String bsn) {
-    return isEmpty(getBsns()) || getBsns().contains(bsn);
+    return isEmpty(getBsns()) || getBsns()
+        .stream().map(Bsn::new)
+        .filter(Bsn::isCorrect)
+        .anyMatch(b -> b.equals(new Bsn(bsn)));
   }
 
   public boolean isMatchWithStatus(TaskStatus taskStatus) {

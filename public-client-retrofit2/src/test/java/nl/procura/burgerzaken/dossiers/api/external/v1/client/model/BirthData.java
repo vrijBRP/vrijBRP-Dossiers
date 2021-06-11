@@ -28,6 +28,8 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Arrays;
 
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
+
 public final class BirthData {
 
   public static final String DOSSIER_ID    = "birth-1234";
@@ -54,10 +56,10 @@ public final class BirthData {
             .bsn(BSN_DECLARANT)
             .contactInformation(ci))
         .mother(new BirthMother()
-            .bsn(String.valueOf(TEST_BSN_5))
+            .bsn(BsnUtils.toBsnString(TEST_BSN_5))
             .contactInformation(ci))
         .fatherDuoMother(new BirthFatherDuoMother()
-            .bsn(String.valueOf(TEST_BSN_1))
+            .bsn(BsnUtils.toBsnString(TEST_BSN_1))
             .contactInformation(ci))
         .nameSelection(
             new BirthNameSelection()

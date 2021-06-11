@@ -35,8 +35,6 @@ import lombok.ToString;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "birth_child")
 public class BirthChild {
 
   @Id

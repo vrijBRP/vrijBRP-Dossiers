@@ -47,12 +47,13 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossier;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiReferenceId;
 import nl.procura.burgerzaken.dossiers.model.deaths.CauseOfDeathType;
 import nl.procura.burgerzaken.dossiers.model.events.EventType;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 @ContextConfiguration(initializers = GbaSource.class)
 class DeathResourceV1Test extends BaseResourceTest {
 
-  private static final String DECLARATOR_BSN = String.valueOf(TEST_BSN_2);
-  private static final String DECEASED_BSN   = String.valueOf(TEST_BSN_3);
+  private static final String DECLARATOR_BSN = BsnUtils.toBsnString(TEST_BSN_2);
+  private static final String DECEASED_BSN   = BsnUtils.toBsnString(TEST_BSN_3);
 
   private static final String URI_ADD_DEATH_IN_MUN       = "/api/v1/deaths/in-municipality";
   private static final String URI_GET_DEATH_IN_MUN_BY_ID = "/api/v1/deaths/in-municipality/{dossierId}";

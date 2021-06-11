@@ -50,15 +50,16 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.birth.*;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossier;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiReferenceId;
 import nl.procura.burgerzaken.dossiers.model.events.EventType;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import okhttp3.mockwebserver.RecordedRequest;
 
 @ContextConfiguration(initializers = GbaSource.class)
 class BirthResourceV1Test extends BaseResourceTest {
 
-  private static final String DECLARATOR_BSN        = String.valueOf(TEST_BSN_2);
-  private static final String MOTHER_BSN            = String.valueOf(TEST_BSN_3);
-  private static final String FATHER_DUO_MOTHER_BSN = String.valueOf(TEST_BSN_4);
+  private static final String DECLARATOR_BSN        = BsnUtils.toBsnString(TEST_BSN_2);
+  private static final String MOTHER_BSN            = BsnUtils.toBsnString(TEST_BSN_3);
+  private static final String FATHER_DUO_MOTHER_BSN = BsnUtils.toBsnString(TEST_BSN_4);
 
   private static final String URI_ADD_BIRTH       = "/api/v1/births";
   private static final String URI_GET_BIRTH_BY_ID = "/api/v1/births/{dossierId}";

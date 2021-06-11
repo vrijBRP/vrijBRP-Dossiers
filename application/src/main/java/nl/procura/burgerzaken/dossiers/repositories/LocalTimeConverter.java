@@ -19,14 +19,13 @@
 
 package nl.procura.burgerzaken.dossiers.repositories;
 
-import org.apache.commons.lang3.StringUtils;
-
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
+
+import org.apache.commons.lang3.StringUtils;
 
 @Converter(autoApply = true)
 public class LocalTimeConverter implements AttributeConverter<LocalTime, Integer> {

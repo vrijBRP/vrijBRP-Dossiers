@@ -29,6 +29,7 @@ import nl.procura.burgerzaken.dossiers.model.dossier.Person;
 import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
 import nl.procura.burgerzaken.dossiers.model.relocations.Relocator;
 import nl.procura.burgerzaken.dossiers.model.relocations.info.DeclarationType;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -58,7 +59,7 @@ public class ApiIntraMunicipalRelocationPerson extends ApiPerson {
   public static ApiIntraMunicipalRelocationPerson of(Relocator relocator) {
     return new ApiIntraMunicipalRelocationPerson(
         ApiIntraMunicipalRelocationPerson.builder()
-            .bsn(String.valueOf(relocator.getPerson().getBsn()))
+            .bsn(BsnUtils.toBsnString(relocator.getPerson().getBsn()))
             .contactInformation(ApiContactInformation.builder()
                 .email(relocator.getPerson().getEmail())
                 .telephoneNumber(relocator.getPerson().getPhoneNumber())

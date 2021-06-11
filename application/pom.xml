@@ -130,11 +130,6 @@
             <artifactId>gba-rest-model</artifactId>
             <version>${gba.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>nl.procura.burgerzaken</groupId>
-            <artifactId>gba-commons</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

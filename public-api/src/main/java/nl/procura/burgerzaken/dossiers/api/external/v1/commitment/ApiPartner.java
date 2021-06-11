@@ -24,6 +24,7 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
 import nl.procura.burgerzaken.dossiers.model.base.ModelValidation;
 import nl.procura.burgerzaken.dossiers.model.commitment.CommitmentPartner;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -61,7 +62,7 @@ public class ApiPartner extends ApiPerson {
       person.setEmail(partner.getEmail());
       return new ApiPartner(
           ApiPartner.builder()
-              .bsn(String.valueOf(partner.getBsn()))
+              .bsn(BsnUtils.toBsnString(partner.getBsn()))
               .contactInformation(ApiContactInformation.of(person))
               .nameAfterCommitment(ApiNameAfterCommitment.of(partner.getNameUse())));
     }

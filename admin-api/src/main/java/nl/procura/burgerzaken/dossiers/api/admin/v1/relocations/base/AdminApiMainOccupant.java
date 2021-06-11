@@ -24,6 +24,7 @@ import nl.procura.burgerzaken.dossiers.api.admin.v1.dossier.AdminApiPerson;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
 import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -51,7 +52,7 @@ public class AdminApiMainOccupant extends AdminApiPerson {
     }
     return new AdminApiMainOccupant(
         AdminApiMainOccupant.builder()
-            .bsn(String.valueOf(person.getBsn()))
+            .bsn(BsnUtils.toBsnString(person.getBsn()))
             .contactInformation(AdminApiContactInformation.builder()
                 .email(person.getEmail())
                 .telephoneNumber(person.getPhoneNumber())

@@ -37,12 +37,13 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.task.search.ApiSearchRequ
 import nl.procura.burgerzaken.dossiers.api.external.v1.task.search.ApiSearchResponse;
 import nl.procura.burgerzaken.dossiers.service.task.TaskStatus;
 import nl.procura.burgerzaken.dossiers.service.task.TaskType;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 @ContextConfiguration(initializers = GbaSource.class)
 class TaskResourceV1Test extends BaseResourceTest {
 
-  private static final String BSN_DECLARANT     = String.valueOf(TEST_BSN_2);
-  private static final String BSN_MAIN_OCCUPANT = String.valueOf(TEST_BSN_3);
+  private static final String BSN_DECLARANT     = BsnUtils.toBsnString(TEST_BSN_2);
+  private static final String BSN_MAIN_OCCUPANT = BsnUtils.toBsnString(TEST_BSN_3);
   private static final String URI_SEARCH_TASK   = "/api/v1/tasks/search";
 
   @Test

@@ -41,6 +41,7 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relative
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelativesResponse;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelocationObstructionType;
 import nl.procura.burgerzaken.dossiers.service.ProcuraWsService;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 import nl.procura.burgerzaken.gba.core.enums.GBACat;
 import nl.procura.burgerzaken.gba.core.enums.GBAElem;
 import nl.procura.burgerzaken.gba.core.enums.GBARecStatus;
@@ -49,16 +50,16 @@ import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonList;
 @ContextConfiguration(initializers = GbaSource.class)
 class RelocationInfoResourceV1Test extends BaseResourceTest {
 
-  private static final String DECLARATOR_BSN                 = String.valueOf(TEST_BSN_4);
-  private static final String PARTNER_BSN                    = String.valueOf(TEST_BSN_7);
-  private static final String EX_PARTNER_BSN                 = String.valueOf(TEST_BSN_10);
-  private static final String OTHER_MUN_PARENT_BSN           = String.valueOf(TEST_BSN_910);
-  private static final String DECEASED_PARENT_BSN            = String.valueOf(TEST_BSN_8);
-  private static final String CHILD_BSN                      = String.valueOf(TEST_BSN_9);
-  private static final String CHILD_WITH_WRONG_BIRTHDATE_BSN = String.valueOf(TEST_BSN_3);
-  private static final String ADULT_CHILD_BSN                = String.valueOf(TEST_BSN_1);
-  private static final String OTHER_ADDRESS_CHILD_BSN        = String.valueOf(TEST_BSN_2);
-  private static final String PERSON_NOT_FOUND_BSN           = String.valueOf(TEST_BSN_6);
+  private static final String DECLARATOR_BSN                 = BsnUtils.toBsnString(TEST_BSN_4);
+  private static final String PARTNER_BSN                    = BsnUtils.toBsnString(TEST_BSN_7);
+  private static final String EX_PARTNER_BSN                 = BsnUtils.toBsnString(TEST_BSN_10);
+  private static final String OTHER_MUN_PARENT_BSN           = BsnUtils.toBsnString(TEST_BSN_910);
+  private static final String DECEASED_PARENT_BSN            = BsnUtils.toBsnString(TEST_BSN_8);
+  private static final String CHILD_BSN                      = BsnUtils.toBsnString(TEST_BSN_9);
+  private static final String CHILD_WITH_WRONG_BIRTHDATE_BSN = BsnUtils.toBsnString(TEST_BSN_3);
+  private static final String ADULT_CHILD_BSN                = BsnUtils.toBsnString(TEST_BSN_1);
+  private static final String OTHER_ADDRESS_CHILD_BSN        = BsnUtils.toBsnString(TEST_BSN_2);
+  private static final String PERSON_NOT_FOUND_BSN           = BsnUtils.toBsnString(TEST_BSN_6);
 
   @MockBean
   private ProcuraWsService service;

@@ -20,6 +20,7 @@
 package nl.procura.burgerzaken.dossiers.api.external.v1.resources;
 
 import static java.util.Collections.singletonList;
+import static nl.procura.burgerzaken.dossiers.util.BsnUtils.toBsnString;
 import static nl.procura.burgerzaken.gba.numbers.Bsn.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -54,14 +55,14 @@ class BirthInfoResourceV1Test extends BaseResourceTest {
 
   private static final long MAX_LEGAL_TERM = 306L;
 
-  private static final String MOTHER_BSN    = String.valueOf(TEST_BSN_3);
-  private static final String PARTNER1_BSN  = String.valueOf(TEST_BSN_6);
-  private static final String PARTNER2_BSN  = String.valueOf(TEST_BSN_4);
-  private static final String PARTNER3_BSN  = String.valueOf(TEST_BSN_6);
-  private static final String NEIGHBOUR_BSN = String.valueOf(TEST_BSN_7);
-  private static final String CHILD_1_BSN   = String.valueOf(TEST_BSN_8);
-  private static final String CHILD_2_BSN   = String.valueOf(TEST_BSN_9);
-  private static final String CHILD_3_BSN   = String.valueOf(TEST_BSN_3);
+  private static final String MOTHER_BSN    = toBsnString(TEST_BSN_3);
+  private static final String PARTNER1_BSN  = toBsnString(TEST_BSN_6);
+  private static final String PARTNER2_BSN  = toBsnString(TEST_BSN_4);
+  private static final String PARTNER3_BSN  = toBsnString(TEST_BSN_6);
+  private static final String NEIGHBOUR_BSN = toBsnString(TEST_BSN_7);
+  private static final String CHILD_1_BSN   = toBsnString(TEST_BSN_8);
+  private static final String CHILD_2_BSN   = toBsnString(TEST_BSN_9);
+  private static final String CHILD_3_BSN   = toBsnString(TEST_BSN_3);
 
   public static final String PARAM_BIRTH_DATE               = "birthDate";
   public static final String PARAM_BSN_MOTHER               = "bsnMother";

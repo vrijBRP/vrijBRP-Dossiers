@@ -4,7 +4,7 @@
 rebel.xml
 log4j.xml
 log4j.properties
-/application.properties
+/application.properties*
 
 # Eclipse #
 ############

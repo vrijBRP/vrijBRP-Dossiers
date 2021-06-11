@@ -47,6 +47,7 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.consent.ApiCo
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.inter.ApiInterMunicipalRelocation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.inter.ApiInterMunicipalRelocationPerson;
 import nl.procura.burgerzaken.dossiers.model.events.EventType;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 @ContextConfiguration(initializers = GbaSource.class)
 class InterRelocationResourceV1Test extends BaseResourceTest {
@@ -162,7 +163,7 @@ class InterRelocationResourceV1Test extends BaseResourceTest {
         .dossierId(dossierId)
         .consent(ApiLiveInConsentType.APPROVED)
         .consenter(ApiConsenter.builder()
-            .bsn(String.valueOf(TEST_BSN_3))
+            .bsn(BsnUtils.toBsnString(TEST_BSN_3))
             .contactInformation(contactInfo)
             .build())
         .build();

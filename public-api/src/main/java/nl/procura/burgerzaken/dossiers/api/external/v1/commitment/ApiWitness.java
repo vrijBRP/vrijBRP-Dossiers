@@ -23,6 +23,7 @@ import javax.validation.constraints.NotNull;
 
 import nl.procura.burgerzaken.dossiers.model.base.ModelValidation;
 import nl.procura.burgerzaken.dossiers.model.commitment.CommitmentWitness;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -62,7 +63,7 @@ public class ApiWitness {
   public static ApiWitness of(CommitmentWitness witness) {
     if (ModelValidation.isValid(witness)) {
       return ApiWitness.builder()
-          .bsn(witness.getBsn())
+          .bsn(BsnUtils.toBsnString(witness.getBsn()))
           .firstname(witness.getFirstname())
           .lastname(witness.getLastname())
           .birthdate(witness.getBirthdate())
