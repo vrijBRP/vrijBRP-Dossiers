@@ -49,25 +49,22 @@ public class ApiOpenDocsTest {
 
   @Test
   public void apiDocsCanBeDownloaded() throws Exception {
-    download("target/admin-api-docs.json", "/public/v3/api-docs/admin-API");
-    download("target/public-api-docs.json", "/public/v3/api-docs/public-API");
+    download("target/admin-api-docs.json", "/public/v3/api-docs/admin-API-v1.0");
+    download("target/public-api-docs.json", "/public/v3/api-docs/public-API-v1.0");
   }
 
   @Test
   void operationIdMustNotContainUnderscore() throws Exception {
-    mustNotContainerUnderscores("/public/v3/api-docs/admin-API");
-    mustNotContainerUnderscores("/public/v3/api-docs/public-API");
+    mustNotContainerUnderscores("/public/v3/api-docs/admin-API-v1.0");
+    mustNotContainerUnderscores("/public/v3/api-docs/public-API-v1.0");
   }
 
   @Test
   void operationIdsMustMatch() throws Exception {
-    operationsMustMatch("/public/v3/api-docs/admin-API",
-        "getEvents", "getInfo",
-        "findInterMunicipalRelocation", "addInterMunicipalRelocation",
-        "findIntraMunicipalRelocation", "addIntraMunicipalRelocation",
-        "deleteDossier", "searchDossiers");
+    operationsMustMatch("/public/v3/api-docs/admin-API-v1.0",
+        "getEvents", "getInfo");
 
-    operationsMustMatch("/public/v3/api-docs/public-API",
+    operationsMustMatch("/public/v3/api-docs/public-API-v1.0",
         "searchTasks",
         "searchDossiers",
         "addInterMunicipalRelocation", "findInterMunicipalRelocation", "addInterMunicipalRelocationConsent",

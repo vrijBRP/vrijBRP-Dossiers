@@ -38,8 +38,6 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Data
-@Entity
-@Table(name = "doss")
 public class Dossier {
 
   @Id

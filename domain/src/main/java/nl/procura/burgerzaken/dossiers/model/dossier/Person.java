@@ -32,7 +32,6 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Data
-@Entity
 public class Person {
 
   @Id

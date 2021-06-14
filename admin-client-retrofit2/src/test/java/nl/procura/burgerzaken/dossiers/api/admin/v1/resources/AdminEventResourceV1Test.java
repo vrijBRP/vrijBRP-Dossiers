@@ -31,9 +31,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import nl.procura.burgerzaken.dossiers.api.admin.v1.client.AdminTestBase;
 import nl.procura.burgerzaken.dossiers.api.admin.v1.client.api.AdminApiEventsApi;
 import nl.procura.burgerzaken.dossiers.api.admin.v1.client.model.ResultPage;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.relocations.AdminTestBase;
 import nl.procura.burgerzaken.dossiers.model.events.EventLog;
 import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.burgerzaken.dossiers.repositories.events.EventLogRepository;

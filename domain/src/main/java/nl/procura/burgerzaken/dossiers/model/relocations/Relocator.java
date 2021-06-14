@@ -30,7 +30,6 @@ import lombok.ToString;
 
 @Data
 @NoArgsConstructor
-@Entity
 public class Relocator {
 
   @Id

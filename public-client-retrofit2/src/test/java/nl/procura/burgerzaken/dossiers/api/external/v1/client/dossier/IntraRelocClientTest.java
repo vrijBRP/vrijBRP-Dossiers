@@ -17,23 +17,26 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.admin.v1.client.relocations.intra;
+package nl.procura.burgerzaken.dossiers.api.external.v1.client.dossier;
 
-import static examples.AdminExampleUtils.toPrettyJson;
 import static java.util.Collections.singletonList;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.*;
+import java.io.IOException;
 
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.api.AdminApiDossiersApi;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.api.AdminApiIntraMunicipalRelocationsApi;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.model.DossierSearchRequest;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.model.DossierSearchResponse;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.model.IntraMunicipalRelocation;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.model.IntraMunicipalRelocationTest;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.relocations.AdminTestBase;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+
+import nl.procura.burgerzaken.dossiers.api.external.v1.client.PublicApiTestBase;
+import nl.procura.burgerzaken.dossiers.api.external.v1.client.api.DossiersApi;
+import nl.procura.burgerzaken.dossiers.api.external.v1.client.api.IntraMunicipalRelocationsApi;
+import nl.procura.burgerzaken.dossiers.api.external.v1.client.model.DossierSearchRequest;
+import nl.procura.burgerzaken.dossiers.api.external.v1.client.model.DossierSearchResponse;
+import nl.procura.burgerzaken.dossiers.api.external.v1.client.model.IntraMunicipalRelocation;
+import nl.procura.burgerzaken.dossiers.api.external.v1.client.model.IntraMunicipalRelocationData;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -41,8 +44,7 @@ import retrofit2.Response;
 
 @Slf4j
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@Disabled("Admin API not important anymore since relocation are add directly to the Front-desk")
-public class IntraRelocAdminClientTest extends AdminTestBase {
+public class IntraRelocClientTest extends PublicApiTestBase {
 
   private static final String REFERENCE_ID = "1234";
 
@@ -50,13 +52,12 @@ public class IntraRelocAdminClientTest extends AdminTestBase {
   @Order(1)
   @SneakyThrows
   public void canAddDossier() {
-    AdminApiIntraMunicipalRelocationsApi api = getApiClient().getApiClient()
-        .createService(AdminApiIntraMunicipalRelocationsApi.class);
+    IntraMunicipalRelocationsApi api = getApiClient().getApiClient()
+        .createService(IntraMunicipalRelocationsApi.class);
     Response<IntraMunicipalRelocation> response = api
-        .addIntraMunicipalRelocation(IntraMunicipalRelocationTest.createNew()).execute();
+        .addIntraMunicipalRelocation(IntraMunicipalRelocationData.createNew()).execute();
     assertTrue(response.isSuccessful());
     IntraMunicipalRelocation relocation = response.body();
-    assertNotNull(relocation);
     assert relocation.getDossier() != null;
     assertTrue(StringUtils.isNotBlank(relocation.getDossier().getDossierId()));
   }
@@ -66,26 +67,14 @@ public class IntraRelocAdminClientTest extends AdminTestBase {
   @SneakyThrows
   public void canFindDossierByReferenceId() {
     String dossierId = getDossierIdByReferenceId();
-    AdminApiIntraMunicipalRelocationsApi api = getApiClient().getApiClient()
-        .createService(AdminApiIntraMunicipalRelocationsApi.class);
+    IntraMunicipalRelocationsApi api = getApiClient().getApiClient()
+        .createService(IntraMunicipalRelocationsApi.class);
     Response<IntraMunicipalRelocation> response = api.findIntraMunicipalRelocation(dossierId).execute();
     assertTrue(response.isSuccessful());
-    log.info(toPrettyJson(response.body()));
   }
 
-  @Test
-  @Order(3)
-  @SneakyThrows
-  public void canDeleteDossier() {
-    String dossierId = getDossierIdByReferenceId();
-    AdminApiDossiersApi api = getApiClient().getApiClient()
-        .createService(AdminApiDossiersApi.class);
-    Response<Void> response = api.deleteDossier(dossierId).execute();
-    assertTrue(response.isSuccessful());
-  }
-
-  private String getDossierIdByReferenceId() throws java.io.IOException {
-    AdminApiDossiersApi api = getApiClient().getApiClient().createService(AdminApiDossiersApi.class);
+  private String getDossierIdByReferenceId() throws IOException {
+    DossiersApi api = getApiClient().getApiClient().createService(DossiersApi.class);
     DossierSearchRequest request = new DossierSearchRequest().dossierIds(singletonList(REFERENCE_ID));
     Response<DossierSearchResponse> response = api.searchDossiers(request).execute();
     assertTrue(response.isSuccessful());

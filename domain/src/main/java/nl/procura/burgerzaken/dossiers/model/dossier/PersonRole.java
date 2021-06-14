@@ -21,7 +21,10 @@ package nl.procura.burgerzaken.dossiers.model.dossier;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 
 import nl.procura.burgerzaken.dossiers.util.DatabaseFieldNotNull;
 
@@ -32,8 +35,6 @@ import lombok.ToString;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "person_role")
 public class PersonRole implements Serializable {
 
   @EmbeddedId

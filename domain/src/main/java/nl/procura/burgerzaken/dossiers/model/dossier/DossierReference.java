@@ -32,8 +32,6 @@ import lombok.ToString;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "doss_ref")
 public class DossierReference implements Serializable {
 
   @EmbeddedId

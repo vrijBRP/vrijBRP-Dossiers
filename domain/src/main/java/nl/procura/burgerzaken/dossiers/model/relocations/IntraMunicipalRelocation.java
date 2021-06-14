@@ -40,8 +40,6 @@ import lombok.ToString;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "intra_reloc")
 public class IntraMunicipalRelocation implements ConsentRelocation {
 
   @Id

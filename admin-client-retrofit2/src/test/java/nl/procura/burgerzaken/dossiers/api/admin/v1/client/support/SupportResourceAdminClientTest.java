@@ -25,9 +25,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
+import nl.procura.burgerzaken.dossiers.api.admin.v1.client.AdminTestBase;
 import nl.procura.burgerzaken.dossiers.api.admin.v1.client.api.AdminApiSupportApi;
 import nl.procura.burgerzaken.dossiers.api.admin.v1.client.model.Info;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.relocations.AdminTestBase;
 
 import lombok.SneakyThrows;
 import retrofit2.Response;

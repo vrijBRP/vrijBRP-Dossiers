@@ -17,7 +17,7 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.admin.v1.client.relocations;
+package nl.procura.burgerzaken.dossiers.api.admin.v1.client;
 
 import static java.util.Collections.singleton;
 
@@ -27,8 +27,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 
 import nl.procura.burgerzaken.dossiers.DossiersApplication;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.ApiClientConfiguration;
-import nl.procura.burgerzaken.dossiers.api.admin.v1.client.DossierAdminApiClient;
 import nl.procura.burgerzaken.dossiers.oauth.Client;
 import nl.procura.burgerzaken.dossiers.oauth.ClientDetailsService;
 import nl.procura.burgerzaken.dossiers.oauth.Grants;
