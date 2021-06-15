@@ -21,9 +21,8 @@ package nl.procura.burgerzaken.dossiers.api.external.v1.birth;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiContactInformation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
-import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
+import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,14 +39,14 @@ import lombok.experimental.SuperBuilder;
 public class ApiFatherDuoMother extends ApiPerson {
 
   @Override
-  public Person toPerson(Dossier dossier) {
-    Person person = super.toPerson(dossier);
-    person.addRole(PersonType.FATHER_DUO_MOTHER);
+  public Person toPerson() {
+    Person person = super.toPerson();
+    person.addRole(PersonRole.FATHER_DUO_MOTHER);
     return person;
   }
 
   public static ApiFatherDuoMother of(Person person) {
-    if (!person.containsRole(PersonType.FATHER_DUO_MOTHER)) {
+    if (!person.containsRole(PersonRole.FATHER_DUO_MOTHER)) {
       throw new IllegalArgumentException("Person doesn't have the father/duo mother role");
     }
     return new ApiFatherDuoMother(

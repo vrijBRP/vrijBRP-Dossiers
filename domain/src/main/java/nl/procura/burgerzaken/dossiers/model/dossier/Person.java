@@ -19,78 +19,33 @@
 
 package nl.procura.burgerzaken.dossiers.model.dossier;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.persistence.*;
-
-import nl.procura.burgerzaken.dossiers.util.DatabaseFieldNotNull;
-
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @Data
 public class Person {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "person_id")
-  private Long personId;
-
-  @Column(name = "bsn")
-  @DatabaseFieldNotNull
-  private Long bsn;
-
-  @Column(name = "email")
-  @DatabaseFieldNotNull
-  private String email;
-
-  @Column(name = "tel")
-  @DatabaseFieldNotNull
-  private String phoneNumber;
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "doss_id", nullable = false)
-  @EqualsAndHashCode.Exclude
-  @ToString.Exclude
-  private Dossier dossier;
-
-  @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-  @EqualsAndHashCode.Exclude
-  @ToString.Exclude
-  private Set<PersonRole> roles;
+  private Long            bsn;
+  private String          email;
+  private String          phoneNumber;
+  private Set<PersonRole> roles = new LinkedHashSet<>();
 
   public Person() {
   }
 
-  public Person(Dossier dossier) {
-    setDossier(dossier);
+  public void addRole(PersonRole role) {
+    roles.add(role);
   }
 
-  public void addRole(PersonType role) {
-    PersonRole personRole = new PersonRole(this, role.getCode());
-    if (roles == null) {
-      roles = new HashSet<>();
-    }
-    roles.add(personRole);
+  public boolean containsRole(PersonRole role) {
+    return roles.contains(role);
   }
 
-  public boolean containsRole(PersonType role) {
-    if (roles == null) {
-      return false;
-    }
-    return roles.stream()
-        .map(r -> r.getId().getRole())
-        .anyMatch(roleId -> Objects.equals(roleId, role.getCode()));
-  }
-
-  public void removeRole(PersonType role) {
-    if (roles == null) {
-      return;
-    }
-    roles.removeIf(r -> r.personType() == role);
+  public void removeRole(PersonRole role) {
+    roles.remove(role);
   }
 
   public boolean hasRoles() {

@@ -25,9 +25,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiGenderType;
 import nl.procura.burgerzaken.dossiers.model.birth.BirthChild;
-import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
+import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
 import nl.procura.burgerzaken.dossiers.util.Constants.Formats;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -51,9 +50,9 @@ public class ApiChild {
   @JsonFormat(pattern = Formats.DATE_TIME_FORMAT)
   private LocalDateTime birthDateTime;
 
-  public BirthChild toChild(Dossier dossier) {
-    Person person = new Person(dossier);
-    person.addRole(PersonType.CHILD);
+  public BirthChild toChild() {
+    Person person = new Person();
+    person.addRole(PersonRole.CHILD);
     person.setBsn(-1L);
     person.setEmail("");
     person.setPhoneNumber("");

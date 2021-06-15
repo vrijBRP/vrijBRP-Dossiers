@@ -21,8 +21,8 @@ package nl.procura.burgerzaken.dossiers.converters;
 
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestConverter.toPersonWithContactinfo;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestNamenrechtConverter.toNameSelection;
-import static nl.procura.burgerzaken.dossiers.model.dossier.PersonType.ACKNOWLEDGER;
-import static nl.procura.burgerzaken.dossiers.model.dossier.PersonType.MOTHER;
+import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.ACKNOWLEDGER;
+import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.MOTHER;
 
 import java.util.Map;
 

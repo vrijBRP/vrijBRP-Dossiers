@@ -22,6 +22,7 @@ package nl.procura.burgerzaken.dossiers.model.commitment;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
@@ -30,7 +31,9 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Commitment {
 
-  private Dossier             dossier;
+  @EqualsAndHashCode.Include
+  private Dossier dossier;
+
   private CommitmentPartner   partner1;
   private CommitmentPartner   partner2;
   private CommitmentPlanning  planning;

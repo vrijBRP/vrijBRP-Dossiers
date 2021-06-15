@@ -27,11 +27,11 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import nl.procura.burgerzaken.dossiers.model.client.Client;
 import org.apache.commons.lang3.StringUtils;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiContactInformation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossier;
-import nl.procura.burgerzaken.dossiers.model.client.Client;
 import nl.procura.burgerzaken.dossiers.model.commitment.*;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 

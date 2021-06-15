@@ -22,7 +22,7 @@ package nl.procura.burgerzaken.dossiers.converters;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestConverter.toPerson;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestToestemmingStatusConverter.ofConsent;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestToestemmingStatusConverter.toGbaAangifteStatus;
-import static nl.procura.burgerzaken.dossiers.model.dossier.PersonType.RELOCATOR;
+import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.RELOCATOR;
 
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
 import nl.procura.burgerzaken.dossiers.model.relocations.Relocator;

@@ -26,7 +26,7 @@ import static nl.procura.burgerzaken.dossiers.converters.GbaRestDossierConverter
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestRelocationConverter.*;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestToestemmingStatusConverter.toConsent;
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.INTRA_MUNICIPAL_RELOCATION;
-import static nl.procura.burgerzaken.dossiers.model.dossier.PersonType.*;
+import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.*;
 import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.BINNENVERHUIZING;
 
 import org.apache.commons.lang3.BooleanUtils;

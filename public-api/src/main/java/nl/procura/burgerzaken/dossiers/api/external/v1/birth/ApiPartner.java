@@ -21,9 +21,8 @@ package nl.procura.burgerzaken.dossiers.api.external.v1.birth;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiContactInformation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
-import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
+import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,14 +39,14 @@ import lombok.experimental.SuperBuilder;
 public class ApiPartner extends ApiPerson {
 
   @Override
-  public Person toPerson(Dossier dossier) {
-    Person person = super.toPerson(dossier);
-    person.addRole(PersonType.PARTNER);
+  public Person toPerson() {
+    Person person = super.toPerson();
+    person.addRole(PersonRole.PARTNER);
     return person;
   }
 
   public static ApiPartner of(Person person) {
-    if (!person.containsRole(PersonType.DECLARANT)) {
+    if (!person.containsRole(PersonRole.DECLARANT)) {
       throw new IllegalArgumentException("Person doesn't have partner role");
     }
     return new ApiPartner(

@@ -36,7 +36,6 @@ import org.springframework.stereotype.Component;
 import nl.procura.burgerzaken.dossiers.model.client.Client;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierReference;
-import nl.procura.burgerzaken.dossiers.model.dossier.DossierReferenceId;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakAlgemeen;
@@ -81,7 +80,7 @@ public class GbaRestDossierConverter {
     algemeen.setDatumIngang(toIntegerDate(dossier.getDateStart()));
     algemeen.setStatus(toGbaStatus(dossier.getStatus()));
     Set<DossierReference> references = dossier.getReferences();
-    if (references != null) {
+    if (!references.isEmpty()) {
       algemeen.setIds(references.stream()
           .map(GbaRestConverter::toGbaId)
           .collect(toList()));
@@ -96,7 +95,6 @@ public class GbaRestDossierConverter {
   public static Dossier toDossier(GbaRestZaak zaak, DossierType dossierType) {
     GbaRestZaakAlgemeen algemeen = zaak.getAlgemeen();
     Dossier dossier = new Dossier();
-    dossier.setPeople(new ArrayList<>());
     dossier.setCaseNumber(algemeen.getZaakId());
     dossier.setDossierType(dossierType);
     dossier.setDateAdded(toLocalDateTime(algemeen.getDatumInvoer(), algemeen.getTijdInvoer()));
@@ -107,9 +105,7 @@ public class GbaRestDossierConverter {
       Set<DossierReference> references = new HashSet<>();
       for (GbaRestZaakId id : ids) {
         DossierReference reference = new DossierReference();
-        DossierReferenceId refId = new DossierReferenceId();
-        refId.setReferenceNumber(id.getId());
-        reference.setId(refId);
+        reference.setReferenceNumber(id.getId());
         reference.setDescription(id.getSysteem());
         references.add(reference);
       }

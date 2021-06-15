@@ -116,10 +116,10 @@ public class ApiInterMunicipalRelocation {
         .build();
   }
 
-  public InterMunicipalRelocation withNewId(Client client) {
+  public InterMunicipalRelocation createNew(Client client) {
     Dossier newDossier = this.dossier.createNew(DossierType.INTER_MUNICIPAL_RELOCATION, client);
     InterMunicipalRelocation relocation = new InterMunicipalRelocation(newDossier);
-    relocation.setDeclarant(declarant.toPerson(newDossier));
+    relocation.setDeclarant(declarant.toPerson());
     relocation.setStreet(ofNullable(newAddress.getStreet()).orElse(""));
     relocation.setPostalCode(newAddress.getPostalCode());
     relocation.setHouseNumber(newAddress.getHouseNumber());
@@ -142,16 +142,16 @@ public class ApiInterMunicipalRelocation {
       relocation.setConsent(ofNullable(liveIn.getConsent()).orElse(PENDING).getCode());
 
       if (liveIn.getConsenter() != null) {
-        relocation.setConsenter(liveIn.getConsenter().toPerson(newDossier));
+        relocation.setConsenter(liveIn.getConsenter().toPerson());
       }
       relocation.setMainOccupant(ofNullable(newAddress.getMainOccupant())
           .orElseThrow(() -> new ApiException(ApiErrorType.BAD_REQUEST,
               "mainOccupant is mandatory if liveInApplicable is true"))
-          .toPerson(newDossier));
+          .toPerson());
     }
 
     relocation.setPreviousMunicipality(previousMunicipality.getCode());
-    relocators.forEach(r -> relocation.addRelocator(r.toRelocator(newDossier)));
+    relocators.forEach(r -> relocation.addRelocator(r.toRelocator()));
     return relocation;
   }
 }

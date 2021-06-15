@@ -93,14 +93,14 @@ public class ApiBirth {
         .build();
   }
 
-  public Birth withNewId(Client client) {
+  public Birth createNew(Client client) {
     Dossier newDossier = this.dossier.createNew(BIRTH, client);
     Birth birth = new Birth(newDossier);
-    birth.setDeclarant(declarant.toPerson(newDossier));
-    birth.setMother(mother.toPerson(newDossier));
-    birth.setFatherDuoMother(fatherDuoMother.toPerson(newDossier));
+    birth.setDeclarant(declarant.toPerson());
+    birth.setMother(mother.toPerson());
+    birth.setFatherDuoMother(fatherDuoMother.toPerson());
     birth.setNameSelection(nameSelection.toNameSelection());
-    children.forEach(r -> birth.addChild(r.toChild(newDossier)));
+    children.forEach(r -> birth.addChild(r.toChild()));
     return birth;
   }
 }

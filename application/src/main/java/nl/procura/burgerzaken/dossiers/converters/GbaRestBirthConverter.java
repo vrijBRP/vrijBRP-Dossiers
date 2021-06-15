@@ -25,7 +25,7 @@ import static nl.procura.burgerzaken.dossiers.converters.GbaRestConverter.*;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestDossierConverter.toGbaRestZaakAlgemeen;
 import static nl.procura.burgerzaken.dossiers.model.base.PersistableEnum.valueOfCode;
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.BIRTH;
-import static nl.procura.burgerzaken.dossiers.model.dossier.PersonType.*;
+import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.*;
 
 import org.springframework.stereotype.Component;
 

@@ -23,7 +23,7 @@ import static nl.procura.burgerzaken.dossiers.converters.GbaRestConverter.*;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestDeathConverter.*;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestDossierConverter.toGbaRestZaakAlgemeen;
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.DEATH_IN_MUNICIPALITY;
-import static nl.procura.burgerzaken.dossiers.model.dossier.PersonType.DECLARANT;
+import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.DECLARANT;
 import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.OVERLIJDEN_IN_GEMEENTE;
 import static nl.procura.gba.web.rest.v2.model.zaken.overlijden.gemeente.GbaRestDocumentType.NATUURLIJK_DOOD;
 import static nl.procura.gba.web.rest.v2.model.zaken.overlijden.gemeente.GbaRestDocumentType.NIET_NATUURLIJK_DOOD;

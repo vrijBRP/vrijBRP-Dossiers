@@ -19,9 +19,9 @@
 
 package nl.procura.burgerzaken.dossiers.model.relocations;
 
-import java.util.Set;
+import java.util.List;
 
 public interface Relocation {
 
-  Set<Relocator> getRelocators();
+  List<Relocator> getRelocators();
 }

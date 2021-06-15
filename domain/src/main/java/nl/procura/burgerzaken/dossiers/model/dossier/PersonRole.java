@@ -19,41 +19,36 @@
 
 package nl.procura.burgerzaken.dossiers.model.dossier;
 
-import java.io.Serializable;
+import static java.lang.String.format;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
+import java.util.Arrays;
 
-import nl.procura.burgerzaken.dossiers.util.DatabaseFieldNotNull;
+import lombok.Getter;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+@Getter
+public enum PersonRole {
 
-@Data
-@NoArgsConstructor
-public class PersonRole implements Serializable {
+  RELOCATOR("relocator"),
+  DECLARANT("declarant"),
+  CONSENTER("consenter"),
+  MAIN_OCCUPANT("main_occupant"),
+  MOTHER("mother"),
+  PARTNER("partner"),
+  FATHER_DUO_MOTHER("father_duo_mother"),
+  CHILD("child"),
+  ACKNOWLEDGER("acknowledger"),
+  DECEASED("deceased");
 
-  @EmbeddedId
-  private PersonRoleId id;
+  private final String code;
 
-  @ManyToOne
-  @MapsId("personId")
-  @JoinColumn(name = "person_id", nullable = false)
-  @EqualsAndHashCode.Exclude
-  @ToString.Exclude
-  @DatabaseFieldNotNull
-  private Person person;
-
-  public PersonRole(Person person, String roleCode) {
-    id = new PersonRoleId(roleCode);
-    this.person = person;
+  PersonRole(String code) {
+    this.code = code;
   }
 
-  public PersonType personType() {
-    return PersonType.valueOfCode(getId().getRole());
+  public static PersonRole valueOfCode(String code) {
+    return Arrays.stream(values())
+        .filter(v -> v.getCode().equals(code))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException(format("Illegal person type with code %s", code)));
   }
 }

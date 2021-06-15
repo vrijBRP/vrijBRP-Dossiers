@@ -115,7 +115,7 @@ public class ApiDeathInMunicipality {
         .setMunicipality(getMunicipality().toTableValue())
         .setDateOfDeath(getDateOfDeath())
         .setTimeOfDeath(getTimeOfDeath())
-        .setDeclarant(getDeclarant().toPerson(newDossier))
+        .setDeclarant(getDeclarant().toPerson())
         .setFuneralServices(getFuneralServices().toFuneralServices())
         .setDeceased(getDeceased().toDeceased())
         .setCorrespondence(getCorrespondence().toCorrespondence())

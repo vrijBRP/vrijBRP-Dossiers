@@ -21,9 +21,8 @@ package nl.procura.burgerzaken.dossiers.api.external.v1.deaths;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiContactInformation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
-import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
+import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,14 +39,14 @@ import lombok.experimental.SuperBuilder;
 public class ApiDeclarant extends ApiPerson {
 
   @Override
-  public Person toPerson(Dossier dossier) {
-    Person person = super.toPerson(dossier);
-    person.addRole(PersonType.DECLARANT);
+  public Person toPerson() {
+    Person person = super.toPerson();
+    person.addRole(PersonRole.DECLARANT);
     return person;
   }
 
   public static ApiDeclarant of(Person person) {
-    if (!person.containsRole(PersonType.DECLARANT)) {
+    if (!person.containsRole(PersonRole.DECLARANT)) {
       throw new IllegalArgumentException("Person doesn't have declarant role");
     }
     return new ApiDeclarant(

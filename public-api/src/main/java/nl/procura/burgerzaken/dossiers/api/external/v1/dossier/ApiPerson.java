@@ -47,10 +47,9 @@ public class ApiPerson {
 
   private ApiContactInformation contactInformation;
 
-  protected Person toPerson(Dossier dossier) {
+  protected Person toPerson() {
     Person person = new Person();
     // parse BSN better?
-    person.setDossier(dossier);
     person.setBsn(Long.valueOf(bsn));
     person.setEmail("");
     person.setPhoneNumber("");

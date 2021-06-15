@@ -78,8 +78,8 @@
       "hervestiging": null,
       "verhuizers": [
         {
-          "bsn": 999993653,
-          "aangifte": "INGESCHREVENE",
+          "bsn": 2458,
+          "aangifte": "GEZAGHOUDER",
           "verwerken": null
         },
         {
@@ -88,8 +88,8 @@
           "verwerken": null
         },
         {
-          "bsn": 2458,
-          "aangifte": "GEZAGHOUDER",
+          "bsn": 999993653,
+          "aangifte": "INGESCHREVENE",
           "verwerken": null
         }
       ]

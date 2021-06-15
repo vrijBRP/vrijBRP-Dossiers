@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.*;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.deaths.ApiDeathInMunicipality;
 import nl.procura.burgerzaken.dossiers.api.external.v1.deaths.ApiDiscoveredBody;
+import nl.procura.burgerzaken.dossiers.model.client.Client;
 import nl.procura.burgerzaken.dossiers.model.deaths.DeathInMunicipality;
 import nl.procura.burgerzaken.dossiers.model.deaths.DiscoveredBody;
 import nl.procura.burgerzaken.dossiers.service.ClientService;
@@ -94,8 +95,8 @@ public class DeathInMunicipalityResourceV1 {
   public ResponseEntity<ApiDeathInMunicipality> addDeathInMunicipality(
       @Valid @RequestBody ApiDeathInMunicipality death,
       @Parameter(hidden = true) @AuthenticationPrincipal Jwt jwt) {
-    DeathInMunicipality newDossier = deathInMunicipalityService
-        .add(death.createNew(clientService.getById(jwt.getSubject())));
+    Client client = clientService.getById(jwt.getSubject());
+    DeathInMunicipality newDossier = deathInMunicipalityService.add(death.createNew(client));
     return new ResponseEntity<>(ApiDeathInMunicipality.of(newDossier), HttpStatus.CREATED);
   }
 
@@ -129,8 +130,8 @@ public class DeathInMunicipalityResourceV1 {
   public ResponseEntity<ApiDiscoveredBody> addDiscoveredBody(
       @Valid @RequestBody ApiDiscoveredBody discoveredBody,
       @Parameter(hidden = true) @AuthenticationPrincipal Jwt jwt) {
-    DiscoveredBody newDossier = discoveredBodyService
-        .add(discoveredBody.createNew(clientService.getById(jwt.getSubject())));
+    Client client = clientService.getById(jwt.getSubject());
+    DiscoveredBody newDossier = discoveredBodyService.add(discoveredBody.createNew(client));
     return new ResponseEntity<>(ApiDiscoveredBody.of(newDossier), HttpStatus.CREATED);
   }
 }

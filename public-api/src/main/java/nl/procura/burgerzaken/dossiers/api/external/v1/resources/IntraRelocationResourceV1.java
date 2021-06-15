@@ -87,7 +87,7 @@ public class IntraRelocationResourceV1 {
   })
   public ResponseEntity<ApiIntraMunicipalRelocation> add(@Valid @RequestBody ApiIntraMunicipalRelocation relocation,
       @Parameter(hidden = true) @AuthenticationPrincipal Jwt jwt) {
-    IntraMunicipalRelocation newDossier = service.add(relocation.withNewId(clientService.getById(jwt.getSubject())));
+    IntraMunicipalRelocation newDossier = service.add(relocation.createNew(clientService.getById(jwt.getSubject())));
     return new ResponseEntity<>(ApiIntraMunicipalRelocation.of(newDossier), HttpStatus.CREATED);
   }
 
@@ -105,7 +105,7 @@ public class IntraRelocationResourceV1 {
       @ApiResponse(responseCode = "404", ref = NOT_FOUND)
   })
   public ResponseEntity<Void> addConsent(@Valid @RequestBody ApiConsent consent) {
-    Person consenter = consent.getConsenter().toPerson(null);
+    Person consenter = consent.getConsenter().toPerson();
     service.addConsent(consent.getDossierId(), consenter, consent.getConsent().getCode());
     return new ResponseEntity<>(HttpStatus.OK);
   }

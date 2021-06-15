@@ -21,94 +21,41 @@ package nl.procura.burgerzaken.dossiers.model.relocations;
 
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.INTER_MUNICIPAL_RELOCATION;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-
-import javax.persistence.*;
 
 import nl.procura.burgerzaken.dossiers.model.client.Client;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
-import nl.procura.burgerzaken.dossiers.util.DatabaseFieldNotNull;
+import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class InterMunicipalRelocation implements ConsentRelocation {
 
-  @Id
-  @Column(name = "doss_id")
-  @DatabaseFieldNotNull
-  private Long dossierId;
-
-  @OneToOne(optional = false)
-  @MapsId
-  @JoinColumn(name = "doss_id")
-  @EqualsAndHashCode.Exclude
-  @ToString.Exclude
-  @DatabaseFieldNotNull
+  @EqualsAndHashCode.Include
   private Dossier dossier;
 
-  @Column(name = "street")
-  @DatabaseFieldNotNull
-  private String street;
-
-  @Column(name = "hnr")
-  @DatabaseFieldNotNull
-  private Integer houseNumber;
-
-  @Column(name = "hnr_l")
-  @DatabaseFieldNotNull
-  private String houseNumberLetter;
-
-  @Column(name = "hnr_t")
-  @DatabaseFieldNotNull
-  private String houseNumberAddition;
-
-  @Column(name = "pc")
-  @DatabaseFieldNotNull
-  private String postalCode;
-
-  @Column(name = "residence")
-  @DatabaseFieldNotNull
-  private String residence;
-
-  @Column(name = "municipality")
-  @DatabaseFieldNotNull
-  private String municipality;
-
-  @Column(name = "address_func")
-  @DatabaseFieldNotNull
-  private String addressFunction;
-
-  @Column(name = "residents_count")
-  @DatabaseFieldNotNull
-  private Integer residentsCount;
-
-  @Column(name = "dest_curr_residents")
-  @DatabaseFieldNotNull
-  private String destCurrResidents;
-
-  @Column(name = "live_in")
-  @DatabaseFieldNotNull
-  private Boolean liveIn;
-
-  @Column(name = "consent")
-  @DatabaseFieldNotNull
-  private String consent;
-
-  @Column(name = "prev_municipality")
-  @DatabaseFieldNotNull
-  private String previousMunicipality;
-
-  @Transient
-  private final Set<Relocator> relocators = new HashSet<>();
+  private String                street;
+  private Integer               houseNumber;
+  private String                houseNumberLetter;
+  private String                houseNumberAddition;
+  private String                postalCode;
+  private String                residence;
+  private String                municipality;
+  private String                addressFunction;
+  private Integer               residentsCount;
+  private String                destCurrResidents;
+  private Boolean               liveIn;
+  private String                consent;
+  private String                previousMunicipality;
+  private final List<Relocator> relocators = new ArrayList<>();
 
   public InterMunicipalRelocation(Dossier dossier) {
     this.dossier = dossier;
@@ -132,7 +79,7 @@ public class InterMunicipalRelocation implements ConsentRelocation {
   }
 
   public Optional<Person> getDeclarant() {
-    return dossier.getPersonByRole(PersonType.DECLARANT);
+    return dossier.getPersonByRole(PersonRole.DECLARANT);
   }
 
   public void setDeclarant(Person person) {
@@ -140,7 +87,7 @@ public class InterMunicipalRelocation implements ConsentRelocation {
   }
 
   public Optional<Person> getConsenter() {
-    return dossier.getPersonByRole(PersonType.CONSENTER);
+    return dossier.getPersonByRole(PersonRole.CONSENTER);
   }
 
   @Override
@@ -150,14 +97,10 @@ public class InterMunicipalRelocation implements ConsentRelocation {
 
   @Override
   public Optional<Person> getMainOccupant() {
-    return dossier.getPersonByRole(PersonType.MAIN_OCCUPANT);
+    return dossier.getPersonByRole(PersonRole.MAIN_OCCUPANT);
   }
 
   public void setMainOccupant(Person person) {
     dossier.setPersonByRole(person);
-  }
-
-  public static InterMunicipalRelocation newDefault(Client client) {
-    return new InterMunicipalRelocation(new Dossier(INTER_MUNICIPAL_RELOCATION, client));
   }
 }

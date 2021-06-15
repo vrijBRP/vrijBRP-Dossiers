@@ -98,7 +98,7 @@ public class BirthResourceV1 {
   public ResponseEntity<ApiBirth> add(
       @Valid @RequestBody ApiBirth birth,
       @Parameter(hidden = true) @AuthenticationPrincipal Jwt jwt) {
-    Birth newDossier = service.add(birth.withNewId(clientService.getById(jwt.getSubject())));
+    Birth newDossier = service.add(birth.createNew(clientService.getById(jwt.getSubject())));
     return new ResponseEntity<>(ApiBirth.of(newDossier), HttpStatus.CREATED);
   }
 

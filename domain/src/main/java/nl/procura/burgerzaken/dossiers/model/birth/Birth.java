@@ -26,19 +26,21 @@ import java.util.Optional;
 import nl.procura.burgerzaken.dossiers.model.base.NameSelection;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
+import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Birth {
 
+  @EqualsAndHashCode.Include
   private Dossier dossier;
 
-  private NameSelection nameSelection;
-
+  private NameSelection          nameSelection;
   private final List<BirthChild> children = new ArrayList<>();
 
   public Birth(Dossier dossier) {
@@ -50,7 +52,7 @@ public class Birth {
   }
 
   public Optional<Person> getDeclarant() {
-    return dossier.getPersonByRole(PersonType.DECLARANT);
+    return dossier.getPersonByRole(PersonRole.DECLARANT);
   }
 
   public void setDeclarant(Person person) {
@@ -58,7 +60,7 @@ public class Birth {
   }
 
   public Optional<Person> getMother() {
-    return dossier.getPersonByRole(PersonType.MOTHER);
+    return dossier.getPersonByRole(PersonRole.MOTHER);
   }
 
   public void setMother(Person person) {
@@ -66,7 +68,7 @@ public class Birth {
   }
 
   public Optional<Person> getFatherDuoMother() {
-    return dossier.getPersonByRole(PersonType.FATHER_DUO_MOTHER);
+    return dossier.getPersonByRole(PersonRole.FATHER_DUO_MOTHER);
   }
 
   public void setFatherDuoMother(Person person) {

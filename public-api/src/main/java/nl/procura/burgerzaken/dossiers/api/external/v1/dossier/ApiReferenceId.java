@@ -38,6 +38,6 @@ public class ApiReferenceId {
   private String description;
 
   public static ApiReferenceId of(DossierReference reference) {
-    return new ApiReferenceId(reference.getId().getReferenceNumber(), reference.getDescription());
+    return new ApiReferenceId(reference.getReferenceNumber(), reference.getDescription());
   }
 }

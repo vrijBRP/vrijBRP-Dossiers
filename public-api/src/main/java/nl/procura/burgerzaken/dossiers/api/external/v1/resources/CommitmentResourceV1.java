@@ -24,6 +24,7 @@ import static nl.procura.burgerzaken.dossiers.util.Constants.Errors.NOT_FOUND;
 
 import javax.validation.Valid;
 
+import nl.procura.burgerzaken.dossiers.model.client.Client;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -87,7 +88,8 @@ public class CommitmentResourceV1 {
   public ResponseEntity<ApiCommitment> add(
       @Valid @RequestBody ApiCommitment commitment,
       @Parameter(hidden = true) @AuthenticationPrincipal Jwt jwt) {
-    Commitment newDossier = service.add(commitment.createNew(clientService.getById(jwt.getSubject())));
+    Client client = clientService.getById(jwt.getSubject());
+    Commitment newDossier = service.add(commitment.createNew(client));
     return new ResponseEntity<>(ApiCommitment.of(newDossier), HttpStatus.CREATED);
   }
 
@@ -107,8 +109,9 @@ public class CommitmentResourceV1 {
       @PathVariable String dossierId,
       @Valid @RequestBody ApiCommitment commitment,
       @Parameter(hidden = true) @AuthenticationPrincipal Jwt jwt) {
+    Client client = clientService.getById(jwt.getSubject());
     commitment.getDossier().setDossierId(dossierId);
-    Commitment newDossier = service.update(commitment.createNew(clientService.getById(jwt.getSubject())));
+    Commitment newDossier = service.update(commitment.createNew(client));
     return new ResponseEntity<>(ApiCommitment.of(newDossier), HttpStatus.OK);
   }
 

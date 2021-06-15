@@ -21,36 +21,22 @@ package nl.procura.burgerzaken.dossiers.model.dossier;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
-
-import nl.procura.burgerzaken.dossiers.util.DatabaseFieldNotNull;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class DossierReference implements Serializable {
 
-  @EmbeddedId
-  private DossierReferenceId id;
+  @EqualsAndHashCode.Include
+  private String referenceNumber;
 
-  @Column(name = "description")
-  @DatabaseFieldNotNull
   private String description;
 
-  @ManyToOne
-  @MapsId("dossierId")
-  @JoinColumn(name = "doss_id", nullable = false)
-  @EqualsAndHashCode.Exclude
-  @ToString.Exclude
-  private Dossier dossier;
-
-  public DossierReference(Dossier dossier, String referenceNumber, String description) {
-    id = new DossierReferenceId(referenceNumber);
-    this.dossier = dossier;
+  public DossierReference(String referenceNumber, String description) {
+    this.referenceNumber = referenceNumber;
     this.description = description;
   }
 }

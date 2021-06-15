@@ -27,8 +27,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Optional;
 
 import nl.procura.burgerzaken.dossiers.model.base.PersistableEnum;
@@ -36,7 +34,6 @@ import nl.procura.burgerzaken.dossiers.model.base.TableValue;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierReference;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
 import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
-import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
 import nl.procura.burgerzaken.dossiers.service.dossier.LocalDatePeriod;
 import nl.procura.burgerzaken.dossiers.service.dossier.LocalDateTimePeriod;
 import nl.procura.burgerzaken.gba.StringUtils;
@@ -132,7 +129,7 @@ public final class GbaRestConverter {
   }
 
   public static Optional<Person> toPersonWithContactinfo(HeeftContactgegevens personWithContactinfo,
-      PersonType personType) {
+      PersonRole personType) {
     Optional<Person> person = toPerson(personWithContactinfo, personType);
     person.ifPresent(p -> {
       GbaRestContactgegevens cg = personWithContactinfo.getContactgegevens();
@@ -144,12 +141,11 @@ public final class GbaRestConverter {
     return person;
   }
 
-  public static Optional<Person> toPerson(HeeftBsn personWithBsn, PersonType personType) {
+  public static Optional<Person> toPerson(HeeftBsn personWithBsn, PersonRole personType) {
     if (personWithBsn != null) {
       Person person = new Person();
       person.setBsn(personWithBsn.getBsn());
-      PersonRole role = new PersonRole(person, personType.getCode());
-      person.setRoles(new HashSet<>(Collections.singletonList(role)));
+      person.addRole(personType);
       return Optional.of(person);
     }
     return Optional.empty();
@@ -157,7 +153,7 @@ public final class GbaRestConverter {
 
   public static GbaRestZaakId toGbaId(DossierReference reference) {
     GbaRestZaakId id = new GbaRestZaakId();
-    id.setId(reference.getId().getReferenceNumber());
+    id.setId(reference.getReferenceNumber());
     id.setSysteem(reference.getDescription());
     return id;
   }

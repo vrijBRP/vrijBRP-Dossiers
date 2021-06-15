@@ -83,11 +83,10 @@ public class ApiDossier {
             .code(String.valueOf(status.getCode()))
             .description(status.getDescription())
             .build());
-    if (dossier.getReferences() != null) {
-      builder.referenceIds(
-          dossier.getReferences().stream()
-              .map(ApiReferenceId::of)
-              .collect(toSet()));
+    if (!dossier.getReferences().isEmpty()) {
+      builder.referenceIds(dossier.getReferences().stream()
+          .map(ApiReferenceId::of)
+          .collect(toSet()));
     }
     return builder.build();
   }
@@ -96,7 +95,6 @@ public class ApiDossier {
     Dossier dossier = new Dossier(type, client);
     dossier.setCaseNumber(dossierId);
     dossier.setDateStart(startDate);
-    dossier.setPeople(new ArrayList<>());
     if (referenceIds != null) {
       referenceIds.forEach(reference -> dossier.addReference(reference.getId(), reference.getDescription()));
     }

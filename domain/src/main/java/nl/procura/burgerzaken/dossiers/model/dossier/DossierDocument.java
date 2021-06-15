@@ -25,10 +25,7 @@ import lombok.Value;
 public class DossierDocument {
 
   private final String id;
-
   private final String title;
-
   private final String filename;
-
   private final byte[] content;
 }

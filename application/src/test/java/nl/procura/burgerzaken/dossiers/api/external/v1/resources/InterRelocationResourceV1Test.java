@@ -222,17 +222,17 @@ class InterRelocationResourceV1Test extends BaseResourceTest {
             .build())
         .relocators(Arrays.asList(
             ApiInterMunicipalRelocationPerson.builder()
-                .declarationType(ApiDeclarationType.REGISTERED)
-                .bsn("999993653")
-                .contactInformation(contactInfo)
+                .declarationType(ApiDeclarationType.AUTHORITY_HOLDER)
+                .bsn("2458")
                 .build(),
             ApiInterMunicipalRelocationPerson.builder()
                 .declarationType(ApiDeclarationType.AUTHORITY_HOLDER)
                 .bsn("3116")
                 .build(),
             ApiInterMunicipalRelocationPerson.builder()
-                .declarationType(ApiDeclarationType.AUTHORITY_HOLDER)
-                .bsn("2458")
+                .declarationType(ApiDeclarationType.REGISTERED)
+                .bsn("999993653")
+                .contactInformation(contactInfo)
                 .build()))
         .build();
   }

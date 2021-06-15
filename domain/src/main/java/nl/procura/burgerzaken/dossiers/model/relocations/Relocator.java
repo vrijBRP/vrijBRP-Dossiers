@@ -19,30 +19,20 @@
 
 package nl.procura.burgerzaken.dossiers.model.relocations;
 
-import javax.persistence.*;
-
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.util.DatabaseFieldNotNull;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Relocator {
 
-  @Id
-  private Long personId;
-
-  @OneToOne(optional = false)
-  @MapsId
-  @JoinColumn(name = "person_id")
-  @ToString.Exclude
+  @EqualsAndHashCode.Include
   private Person person;
 
-  @Column(name = "declaration")
-  @DatabaseFieldNotNull
   private String declaration;
 
   public Relocator(Person person) {

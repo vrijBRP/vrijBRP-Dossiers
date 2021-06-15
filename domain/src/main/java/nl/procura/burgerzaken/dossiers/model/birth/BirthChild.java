@@ -22,46 +22,21 @@ package nl.procura.burgerzaken.dossiers.model.birth;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import javax.persistence.*;
-
 import nl.procura.burgerzaken.dossiers.model.base.GenderType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.util.DatabaseFieldNotNull;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 public class BirthChild {
 
-  @Id
-  private Long personId;
-
-  @OneToOne(optional = false)
-  @MapsId
-  @JoinColumn(name = "person_id")
-  @EqualsAndHashCode.Exclude
-  @ToString.Exclude
-  private Person person;
-
-  @Column(name = "firstname")
-  @DatabaseFieldNotNull
-  private String firstname;
-
-  @Column(name = "gender")
-  @DatabaseFieldNotNull
+  private Person     person;
+  private String     firstname;
   private GenderType gender;
-
-  @Column(name = "birth_date")
-  @DatabaseFieldNotNull
-  private LocalDate birthDate;
-
-  @Column(name = "birth_time")
-  @DatabaseFieldNotNull
-  private LocalTime birthTime;
+  private LocalDate  birthDate;
+  private LocalTime  birthTime;
 
   public BirthChild(Person person) {
     this.person = person;

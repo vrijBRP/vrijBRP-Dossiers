@@ -24,9 +24,8 @@ import javax.validation.constraints.NotNull;
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiContactInformation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.ApiDeclarationType;
-import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.model.dossier.PersonType;
+import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
 import nl.procura.burgerzaken.dossiers.model.relocations.Relocator;
 import nl.procura.burgerzaken.dossiers.model.relocations.info.DeclarationType;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
@@ -48,9 +47,9 @@ public class ApiInterMunicipalRelocationPerson extends ApiPerson {
   @NotNull(message = "declarationType is mandatory")
   private ApiDeclarationType declarationType;
 
-  public Relocator toRelocator(Dossier dossier) {
-    Person person = toPerson(dossier);
-    person.addRole(PersonType.RELOCATOR);
+  public Relocator toRelocator() {
+    Person person = toPerson();
+    person.addRole(PersonRole.RELOCATOR);
     Relocator relocator = new Relocator(person);
     relocator.setDeclaration(declarationType.getType().getCode());
     return relocator;
