@@ -49,6 +49,7 @@ import nl.procura.burgerzaken.dossiers.model.task.Task;
 import nl.procura.burgerzaken.dossiers.service.task.TaskService;
 import nl.procura.burgerzaken.dossiers.service.task.TaskStatus;
 import nl.procura.burgerzaken.dossiers.service.task.TaskType;
+import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -87,7 +88,7 @@ public class TaskResourceV1 {
     nl.procura.burgerzaken.dossiers.service.task.TaskSearchRequest r = nl.procura.burgerzaken.dossiers.service.task.TaskSearchRequest
         .builder()
         .pageRequest(PageRequest.of(paging.getPageNumber(), paging.getPageSize()))
-        .bsns(request.getBsns())
+        .bsns(BsnUtils.toBsnList(request.getBsns()))
         .types(Optional.ofNullable(request.getTypes())
             .orElse(new ArrayList<>())
             .stream()

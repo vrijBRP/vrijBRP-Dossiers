@@ -37,6 +37,7 @@ import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
 import nl.procura.burgerzaken.dossiers.service.dossier.LocalDatePeriod;
 import nl.procura.burgerzaken.dossiers.service.dossier.LocalDateTimePeriod;
 import nl.procura.burgerzaken.gba.StringUtils;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.base.GbaRestEnum;
 import nl.procura.gba.web.rest.v2.model.base.HeeftBsn;
 import nl.procura.gba.web.rest.v2.model.base.HeeftContactgegevens;
@@ -143,9 +144,8 @@ public final class GbaRestConverter {
 
   public static Optional<Person> toPerson(HeeftBsn personWithBsn, PersonRole personType) {
     if (personWithBsn != null) {
-      Person person = new Person();
-      person.setBsn(personWithBsn.getBsn());
-      person.addRole(personType);
+      Person person = new Person(personType);
+      person.setBsn(new Bsn(personWithBsn.getBsn()));
       return Optional.of(person);
     }
     return Optional.empty();

@@ -42,6 +42,7 @@ import nl.procura.burgerzaken.dossiers.repositories.AcknowledgementRepository;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierSearchRequest;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierService;
 import nl.procura.burgerzaken.dossiers.service.dossier.LocalDateTimePeriod;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 @Service
 public class AcknowledgementService {
@@ -54,7 +55,7 @@ public class AcknowledgementService {
     this.repository = repository;
   }
 
-  public Optional<Acknowledgement> findUnborn(Long bsn) {
+  public Optional<Acknowledgement> findUnborn(Bsn bsn) {
 
     DossierSearchRequest request = new DossierSearchRequest();
     request.setBsns(singletonList(bsn));

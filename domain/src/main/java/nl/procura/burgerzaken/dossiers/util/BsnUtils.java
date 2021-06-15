@@ -34,14 +34,14 @@ public class BsnUtils {
     return new Bsn(bsn).toString();
   }
 
-  public static Long toLongBsn(String bsn) {
-    return new Bsn(bsn).toLong();
-  }
-
-  public static List<String> toBsnStringList(List<String> bsns) {
+  public static List<String> toStringList(List<Bsn> bsns) {
     if (bsns != null) {
-      return bsns.stream().map(BsnUtils::toBsnString).collect(Collectors.toList());
+      return bsns.stream().map(Bsn::toString).collect(Collectors.toList());
     }
     return null;
+  }
+
+  public static List<Bsn> toBsnList(List<String> bsns) {
+    return bsns == null ? null : bsns.stream().map(Bsn::new).collect(Collectors.toList());
   }
 }

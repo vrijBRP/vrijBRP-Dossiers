@@ -36,7 +36,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class TaskSearchRequest {
 
-  private List<String> bsns;
+  private List<Bsn> bsns;
 
   private List<TaskStatus> statusses;
 
@@ -44,11 +44,11 @@ public class TaskSearchRequest {
 
   private PageRequest pageRequest;
 
-  public boolean isMatchWithBsn(String bsn) {
+  public boolean isMatchWithBsn(Bsn bsn) {
     return isEmpty(getBsns()) || getBsns()
-        .stream().map(Bsn::new)
+        .stream()
         .filter(Bsn::isCorrect)
-        .anyMatch(b -> b.equals(new Bsn(bsn)));
+        .anyMatch(b -> b.equals(bsn));
   }
 
   public boolean isMatchWithStatus(TaskStatus taskStatus) {

@@ -157,7 +157,7 @@ public class GbaRestBirthConverter implements GbaConverter<Birth> {
 
     private static GbaRestPersoon toGbaPersoon(Person person) {
         GbaRestPersoon aangever = new GbaRestPersoon();
-        aangever.setBsn(person.getBsn());
+        aangever.setBsn(person.getBsn().toLong());
         GbaRestContactgegevens contactgegevens = new GbaRestContactgegevens();
         contactgegevens.setEmail(person.getEmail());
         contactgegevens.setTelefoonThuis(person.getPhoneNumber());

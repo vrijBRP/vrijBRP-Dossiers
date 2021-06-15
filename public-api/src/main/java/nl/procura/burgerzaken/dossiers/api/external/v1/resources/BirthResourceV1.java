@@ -43,6 +43,7 @@ import nl.procura.burgerzaken.dossiers.model.birth.Birth;
 import nl.procura.burgerzaken.dossiers.service.AcknowledgementService;
 import nl.procura.burgerzaken.dossiers.service.BirthService;
 import nl.procura.burgerzaken.dossiers.service.ClientService;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -120,7 +121,8 @@ public class BirthResourceV1 {
   public ApiNameSelectionInfoResponse getNameSelection(
       @RequestParam("bsnMother") String bsnMother,
       @RequestParam("bsnFatherOrDuoMother") String bsnFatherDuoMother) {
-    return ApiNameSelectionInfoResponse.of(service.getNameSelectionInfo(bsnMother, bsnFatherDuoMother));
+    return ApiNameSelectionInfoResponse
+        .of(service.getNameSelectionInfo(new Bsn(bsnMother), new Bsn(bsnFatherDuoMother)));
   }
 
   @Operation(
@@ -141,7 +143,7 @@ public class BirthResourceV1 {
   public ApiFamilySituationInfoResponse getFamilySituation(
       @RequestParam("birthDate") @DateTimeFormat(iso = DATE) LocalDate birthDate,
       @RequestParam("bsnMother") String bsnMother) {
-    return ApiFamilySituationInfoResponse.of(service.getFamilySituationInfo(birthDate, bsnMother));
+    return ApiFamilySituationInfoResponse.of(service.getFamilySituationInfo(birthDate, new Bsn(bsnMother)));
   }
 
   @Operation(
@@ -157,7 +159,7 @@ public class BirthResourceV1 {
       @ApiResponse(responseCode = "404", ref = NOT_FOUND)
   })
   public ResponseEntity<ApiUnbornAcknowledgement> getAcknowledgement(@RequestParam("bsnMother") String bsnMother) {
-    return acknowledgementService.findUnborn(Long.valueOf(bsnMother))
+    return acknowledgementService.findUnborn(new Bsn(bsnMother))
         .map(ApiUnbornAcknowledgement::of)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());

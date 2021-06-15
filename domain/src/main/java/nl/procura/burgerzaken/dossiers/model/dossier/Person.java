@@ -20,20 +20,25 @@
 package nl.procura.burgerzaken.dossiers.model.dossier;
 
 import java.util.LinkedHashSet;
-import java.util.Objects;
 import java.util.Set;
+
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 import lombok.Data;
 
 @Data
 public class Person {
 
-  private Long            bsn;
-  private String          email;
-  private String          phoneNumber;
-  private Set<PersonRole> roles = new LinkedHashSet<>();
+  private Bsn             bsn         = new Bsn(-1L);
+  private String          email       = "";
+  private String          phoneNumber = "";
+  private Set<PersonRole> roles       = new LinkedHashSet<>();
 
   public Person() {
+  }
+
+  public Person(PersonRole role) {
+    addRole(role);
   }
 
   public void addRole(PersonRole role) {

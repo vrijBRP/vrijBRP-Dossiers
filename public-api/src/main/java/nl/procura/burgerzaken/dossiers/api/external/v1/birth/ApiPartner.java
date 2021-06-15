@@ -23,7 +23,6 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiContactInformatio
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
 import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
-import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -51,7 +50,7 @@ public class ApiPartner extends ApiPerson {
     }
     return new ApiPartner(
         ApiPartner.builder()
-            .bsn(BsnUtils.toBsnString(person.getBsn()))
+            .bsn(person.getBsn().toString())
             .contactInformation(ApiContactInformation.of(person)));
   }
 }

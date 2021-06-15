@@ -58,7 +58,7 @@ public class ApiTask {
   public static ApiTask of(Task d) {
     return ApiTask
         .builder()
-        .bsn(BsnUtils.toBsnStringList(d.getBsns()))
+        .bsn(BsnUtils.toStringList(d.getBsns()))
         .dossierId(d.getDossierId())
         .dossierType(ofNullable(d.getDossierType())
             .map(dt -> ApiDossierType.builder()

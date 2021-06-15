@@ -22,8 +22,9 @@ package nl.procura.burgerzaken.dossiers.service;
 import java.util.List;
 
 import nl.procura.burgerzaken.dossiers.model.relocations.info.RelocationRelative;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 public interface RelocationInfoService {
 
-  List<RelocationRelative> getRelativeInfo(String bsn);
+  List<RelocationRelative> getRelativeInfo(Bsn bsn);
 }

@@ -24,10 +24,11 @@ import java.time.LocalDate;
 import nl.procura.burgerzaken.dossiers.model.birth.Birth;
 import nl.procura.burgerzaken.dossiers.model.birth.FamilySituationInfo;
 import nl.procura.burgerzaken.dossiers.model.birth.NameSelectionInfo;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 public interface BirthService extends DossierTypeService<Birth> {
 
-  NameSelectionInfo getNameSelectionInfo(String bsnMother, String bsnFather);
+  NameSelectionInfo getNameSelectionInfo(Bsn bsnMother, Bsn bsnFather);
 
-  FamilySituationInfo getFamilySituationInfo(LocalDate birthDate, String bsnMother);
+  FamilySituationInfo getFamilySituationInfo(LocalDate birthDate, Bsn bsnMother);
 }

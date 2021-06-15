@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelativesResponse;
 import nl.procura.burgerzaken.dossiers.service.RelocationInfoService;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -61,6 +62,6 @@ public class RelocationResourceV1 {
       @ApiResponse(responseCode = "400", ref = BAD_REQUEST)
   })
   public ApiRelativesResponse find(@Valid @PathVariable String bsn) {
-    return ApiRelativesResponse.of(service.getRelativeInfo(bsn));
+    return ApiRelativesResponse.of(service.getRelativeInfo(new Bsn(bsn)));
   }
 }

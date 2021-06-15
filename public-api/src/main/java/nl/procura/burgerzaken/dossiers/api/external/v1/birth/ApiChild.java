@@ -51,13 +51,7 @@ public class ApiChild {
   private LocalDateTime birthDateTime;
 
   public BirthChild toChild() {
-    Person person = new Person();
-    person.addRole(PersonRole.CHILD);
-    person.setBsn(-1L);
-    person.setEmail("");
-    person.setPhoneNumber("");
-
-    BirthChild child = new BirthChild(person);
+    BirthChild child = new BirthChild(new Person(PersonRole.CHILD));
     child.setFirstname(firstname);
     child.setGender(gender.getType());
     child.setBirthDate(birthDateTime.toLocalDate());

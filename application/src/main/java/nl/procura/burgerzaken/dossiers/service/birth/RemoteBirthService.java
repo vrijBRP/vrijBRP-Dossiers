@@ -48,6 +48,7 @@ import nl.procura.burgerzaken.dossiers.service.EventLogService;
 import nl.procura.burgerzaken.dossiers.service.ProcuraWsService;
 import nl.procura.burgerzaken.gba.core.enums.GBACat;
 import nl.procura.burgerzaken.gba.core.enums.GBAElem;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakToevoegenVraag;
 import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonList;
 import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonListRec;
@@ -98,7 +99,7 @@ public class RemoteBirthService implements BirthService {
   }
 
   @Override
-  public NameSelectionInfo getNameSelectionInfo(String bsnMother, String bsnFather) {
+  public NameSelectionInfo getNameSelectionInfo(Bsn bsnMother, Bsn bsnFather) {
     GbaWsPersonList mother = getRegistered(bsnMother, "mother");
     GbaWsPersonList father = getRegistered(bsnFather, "father / duomother");
     return getFirstMatchingChild(mother, father)
@@ -107,7 +108,7 @@ public class RemoteBirthService implements BirthService {
   }
 
   @Override
-  public FamilySituationInfo getFamilySituationInfo(LocalDate birthDate, String bsnMother) {
+  public FamilySituationInfo getFamilySituationInfo(LocalDate birthDate, Bsn bsnMother) {
     GbaWsPersonList mother = getRegistered(bsnMother, "mother");
     return mother.getCurrentRecords(GBACat.HUW_GPS).stream()
         .map(rec -> getFamilySituationInfo(birthDate, rec))
@@ -121,7 +122,7 @@ public class RemoteBirthService implements BirthService {
     int marriageDate = NumberUtils.toInt(rec.getElemValue(GBAElem.DATUM_VERBINTENIS), -1);
     int endDate = NumberUtils.toInt(rec.getElemValue(GBAElem.DATUM_ONTBINDING), -1);
     String endReason = rec.getElemValue(GBAElem.REDEN_ONTBINDING);
-    String bsnPartner = rec.getElemValue(GBAElem.BSN);
+    Bsn bsnPartner = new Bsn(rec.getElemValue(GBAElem.BSN));
     if (marriageDate > 0) {
       boolean marriedBeforeBirth = toLocalDate(marriageDate).isBefore(birthDate);
       if (marriedBeforeBirth) {
@@ -180,8 +181,8 @@ public class RemoteBirthService implements BirthService {
         .findFirst();
   }
 
-  private GbaWsPersonList getRegistered(String bsn, String personType) {
-    List<GbaWsPersonList> personLists = personWsService.get(Long.parseLong(bsn));
+  private GbaWsPersonList getRegistered(Bsn bsn, String personType) {
+    List<GbaWsPersonList> personLists = personWsService.get(bsn.toLong());
     if (personLists.isEmpty()) {
       throw new ApiException(ApiErrorType.BAD_REQUEST, "No person found with the BSN of the " + personType);
     }

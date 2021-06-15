@@ -23,6 +23,8 @@ import java.util.List;
 
 import org.springframework.data.domain.PageRequest;
 
+import nl.procura.burgerzaken.gba.numbers.Bsn;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -32,7 +34,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 public class DossierSearchRequest {
 
-  private List<Long> bsns;
+  private List<Bsn> bsns;
 
   private List<String> statusses;
 

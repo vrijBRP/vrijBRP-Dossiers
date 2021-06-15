@@ -24,6 +24,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import nl.procura.burgerzaken.dossiers.model.relocations.info.RelocationRelative;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 @Service
 public class RelocationInfoServiceImpl implements RelocationInfoService {
@@ -35,7 +36,7 @@ public class RelocationInfoServiceImpl implements RelocationInfoService {
   }
 
   @Override
-  public List<RelocationRelative> getRelativeInfo(String bsn) {
+  public List<RelocationRelative> getRelativeInfo(Bsn bsn) {
     return relocationRelativesFactory.getRelatives(bsn);
   }
 }

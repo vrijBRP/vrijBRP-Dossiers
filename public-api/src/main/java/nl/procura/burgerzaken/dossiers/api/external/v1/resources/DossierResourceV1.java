@@ -22,13 +22,13 @@ package nl.procura.burgerzaken.dossiers.api.external.v1.resources;
 import static java.lang.String.format;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.toUnmodifiableList;
+import static nl.procura.burgerzaken.dossiers.util.BsnUtils.toBsnList;
 import static nl.procura.burgerzaken.dossiers.util.Constants.Errors.BAD_REQUEST;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -98,7 +98,7 @@ public class DossierResourceV1 {
         .pageRequest(PageRequest.of(paging.getPageNumber(), paging.getPageSize()))
         .startDatePeriod(getDatePeriod(request.getStartDatePeriod()))
         .entryDateTimePeriod(getDateTimePeriod(request.getEntryDateTimePeriod()))
-        .bsns(toBsns(request.getBsns()))
+        .bsns(toBsnList(request.getBsns()))
         .statusses(request.getStatusses())
         .types(request.getTypes())
         .dossierIds(request.getDossierIds())
@@ -186,10 +186,6 @@ public class DossierResourceV1 {
     } catch (IOException e) {
       throw new UncheckedIOException(e);
     }
-  }
-
-  private List<Long> toBsns(List<String> bsns) {
-    return bsns == null ? null : bsns.stream().map(Long::parseLong).collect(Collectors.toList());
   }
 
   private static LocalDatePeriod getDatePeriod(ApiDatePeriod period) {

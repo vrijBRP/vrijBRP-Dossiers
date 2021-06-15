@@ -42,6 +42,7 @@ import nl.procura.burgerzaken.dossiers.model.task.Task;
 import nl.procura.burgerzaken.dossiers.service.ConsentRelocationService;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierSearchRequest;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierService;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 @Service
 public class TaskService {
@@ -56,7 +57,7 @@ public class TaskService {
     List<Task> tasks = new ArrayList<>();
 
     DossierSearchRequest search = new DossierSearchRequest();
-    search.setBsns(singletonList(Long.valueOf(request.getBsns().get(0))));
+    search.setBsns(singletonList(request.getBsns().get(0)));
     search.setTypes(Arrays.asList(
         INTRA_MUNICIPAL_RELOCATION.getCode(),
         INTER_MUNICIPAL_RELOCATION.getCode()));
@@ -78,7 +79,7 @@ public class TaskService {
   private Optional<Task> getConsentTask(TaskSearchRequest request, Dossier dossier, ConsentRelocation relocation) {
     Optional<Person> mainOccupant = relocation.getMainOccupant();
     if (BooleanUtils.isTrue(relocation.getLiveIn()) && mainOccupant.isPresent()) {
-      String bsnMainOccupant = String.valueOf(mainOccupant.get().getBsn());
+      Bsn bsnMainOccupant = mainOccupant.get().getBsn();
       if ("P".equals(relocation.getConsent())
           && request.isMatchWithBsn(bsnMainOccupant)
           && request.isMatchWithStatus(TaskStatus.PLANNED)

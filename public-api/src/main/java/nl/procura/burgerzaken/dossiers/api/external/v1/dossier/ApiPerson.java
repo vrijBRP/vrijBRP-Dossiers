@@ -22,8 +22,8 @@ package nl.procura.burgerzaken.dossiers.api.external.v1.dossier;
 import javax.validation.constraints.NotNull;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiContactInformation;
-import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -49,10 +49,7 @@ public class ApiPerson {
 
   protected Person toPerson() {
     Person person = new Person();
-    // parse BSN better?
-    person.setBsn(Long.valueOf(bsn));
-    person.setEmail("");
-    person.setPhoneNumber("");
+    person.setBsn(new Bsn(bsn));
     if (contactInformation != null) {
       person.setEmail(contactInformation.getEmail());
       person.setPhoneNumber(contactInformation.getTelephoneNumber());

@@ -24,17 +24,18 @@ import java.util.List;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.service.task.TaskStatus;
 import nl.procura.burgerzaken.dossiers.service.task.TaskType;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
 import lombok.Data;
 
 @Data
 public class Task {
 
-  private List<String> bsns;
-  private String       dossierId;
-  private DossierType  dossierType;
-  private TaskType     taskType;
-  private TaskStatus   status;
+  private List<Bsn>   bsns;
+  private String      dossierId;
+  private DossierType dossierType;
+  private TaskType    taskType;
+  private TaskStatus  status;
 
   public Task() {
   }

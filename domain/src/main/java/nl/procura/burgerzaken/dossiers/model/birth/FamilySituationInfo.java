@@ -19,6 +19,8 @@
 
 package nl.procura.burgerzaken.dossiers.model.birth;
 
+import nl.procura.burgerzaken.gba.numbers.Bsn;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,5 +30,5 @@ public class FamilySituationInfo {
 
   private boolean bornInPartnership;
   private boolean legalDeceasedPeriodRuleApplicable;
-  private String  bsnPartner;
+  private Bsn     bsnPartner;
 }

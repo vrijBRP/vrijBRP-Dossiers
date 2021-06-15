@@ -112,7 +112,7 @@ public class GbaRestDeathInMunicipalityConverter implements GbaConverter<DeathIn
     contactgegevens.setEmail(person.getEmail());
     contactgegevens.setTelefoonThuis(person.getPhoneNumber());
     GbaRestPersoon persoon = new GbaRestPersoon();
-    persoon.setBsn(person.getBsn());
+    persoon.setBsn(person.getBsn().toLong());
     persoon.setContactgegevens(contactgegevens);
     return persoon;
   }

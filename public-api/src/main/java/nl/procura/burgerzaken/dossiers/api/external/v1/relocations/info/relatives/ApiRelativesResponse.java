@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.ApiDeclarationType;
 import nl.procura.burgerzaken.dossiers.model.relocations.info.RelocationRelative;
-import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -45,7 +44,7 @@ public class ApiRelativesResponse {
         .builder()
         .relatives(relatives.stream().map(r -> ApiRelative.builder()
             .person(ApiRelativePerson.builder()
-                .bsn(BsnUtils.toBsnString(r.getBsn()))
+                .bsn(r.getBsn().toString())
                 .build())
             .relationshipType(ApiRelationshipType.valueOfType(r.getRelationshipType()))
             .declarationType(r.getDeclarationType().map(ApiDeclarationType::valueOfType).orElse(null))

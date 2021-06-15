@@ -38,6 +38,7 @@ import nl.procura.burgerzaken.dossiers.model.error.ApiException;
 import nl.procura.burgerzaken.dossiers.model.relocations.info.RelationshipType;
 import nl.procura.burgerzaken.dossiers.model.relocations.info.RelocationRelative;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierService;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonList;
 import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonListRec;
 import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonListSet;
@@ -53,7 +54,7 @@ public class RelocationRelativesFactory {
     this.dossierService = dossierService;
   }
 
-  public List<RelocationRelative> getRelatives(String bsn) {
+  public List<RelocationRelative> getRelatives(Bsn bsn) {
     List<ProcuraRelocationRelative> relatives = new ArrayList<>();
     ProcuraRelocationRelative registered = getRegistered(bsn);
     relatives.add(registered);
@@ -66,8 +67,8 @@ public class RelocationRelativesFactory {
         .collect(Collectors.toList());
   }
 
-  private ProcuraRelocationRelative getRegistered(String bsn) {
-    List<GbaWsPersonList> personLists = personWsService.get(Long.parseLong(bsn));
+  private ProcuraRelocationRelative getRegistered(Bsn bsn) {
+    List<GbaWsPersonList> personLists = personWsService.get(bsn.toLong());
     if (personLists.isEmpty()) {
       throw new ApiException(ApiErrorType.BAD_REQUEST, "No persons found");
     }
@@ -81,10 +82,10 @@ public class RelocationRelativesFactory {
   }
 
   private ProcuraRelocationRelative getRelative(ProcuraRelocationRelative registered,
-      String bsn,
+      Bsn bsn,
       RelationshipType relationshipType) {
     ProcuraRelocationRelative relative = new ProcuraRelocationRelative(bsn, relationshipType);
-    List<GbaWsPersonList> personsLists = personWsService.get(Long.parseLong(bsn));
+    List<GbaWsPersonList> personsLists = personWsService.get(bsn.toLong());
 
     if (personsLists.size() == 1) {
       relative.addPersonList(personsLists.get(0));
@@ -148,7 +149,7 @@ public class RelocationRelativesFactory {
         .isEmpty();
   }
 
-  private Optional<String> getBsn(GbaWsPersonListRec rec) {
-    return rec.getElem(BSN).map(e -> e.getValue().getVal());
+  private Optional<Bsn> getBsn(GbaWsPersonListRec rec) {
+    return rec.getElem(BSN).map(e -> new Bsn(e.getValue().getVal()));
   }
 }

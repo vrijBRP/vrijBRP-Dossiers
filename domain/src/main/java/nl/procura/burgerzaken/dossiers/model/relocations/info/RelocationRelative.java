@@ -23,17 +23,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import nl.procura.burgerzaken.gba.numbers.Bsn;
+
 import lombok.Getter;
 
 @Getter
 public class RelocationRelative {
 
-  private final String                          bsn;
+  private final Bsn                             bsn;
   private final RelationshipType                relationshipType;
   private Integer                               age;
   private final List<RelocationObstructionType> obstructions = new ArrayList<>();
 
-  public RelocationRelative(String bsn, RelationshipType relationshipType) {
+  public RelocationRelative(Bsn bsn, RelationshipType relationshipType) {
     this.bsn = bsn;
     this.relationshipType = relationshipType;
   }

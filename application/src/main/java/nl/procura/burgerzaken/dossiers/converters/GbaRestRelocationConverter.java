@@ -68,7 +68,7 @@ public final class GbaRestRelocationConverter {
 
   public static GbaRestAangever toGbaAangever(Person person) {
     GbaRestAangever aangever = new GbaRestAangever();
-    aangever.setBsn(person.getBsn());
+    aangever.setBsn(person.getBsn().toLong());
     GbaRestContactgegevens contactgegevens = new GbaRestContactgegevens();
     contactgegevens.setEmail(person.getEmail());
     contactgegevens.setTelefoonThuis(person.getPhoneNumber());
@@ -78,19 +78,19 @@ public final class GbaRestRelocationConverter {
 
   public static GbaRestToestemminggever toGbaToestemminggever(Person person) {
     GbaRestToestemminggever toestemminggever = new GbaRestToestemminggever();
-    toestemminggever.setBsn(person.getBsn());
+    toestemminggever.setBsn(person.getBsn().toLong());
     return toestemminggever;
   }
 
   public static GbaRestHoofdbewoner toGbaHoofdbewoner(Person person) {
     GbaRestHoofdbewoner hoofdbewoner = new GbaRestHoofdbewoner();
-    hoofdbewoner.setBsn(person.getBsn());
+    hoofdbewoner.setBsn(person.getBsn().toLong());
     return hoofdbewoner;
   }
 
   public static GbaRestVerhuizer toGbaVerhuizer(Relocator person) {
     GbaRestVerhuizer verhuizer = new GbaRestVerhuizer();
-    verhuizer.setBsn(person.getPerson().getBsn());
+    verhuizer.setBsn(person.getPerson().getBsn().toLong());
     verhuizer.setAangifte(toGbaAangifteSoort(person.getDeclaration()));
     return verhuizer;
   }
