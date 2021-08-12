@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.procura.burgerzaken</groupId>
     <artifactId>dossiers</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9-SNAPSHOT</version>
     <name>VrijBRP Dossiers</name>
     <packaging>pom</packaging>
 
