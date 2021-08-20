@@ -71,15 +71,16 @@ public class InitClient implements CommandLineRunner {
 
   @Override
   public void run(String... args) {
-    if (args.length != 4) {
-      log.error("Usage: java {} <id> <scope> <customer> <application>", InitClient.class.getName());
+    if (args.length != 5) {
+      log.error("Usage: java {} <id> <scope> <customer> <application> <secret>", InitClient.class.getName());
       return;
     }
     String id = args[0];
     Scope scope = new Scope(args[1]);
     String customer = args[2];
     String application = args[3];
-    Client oauthClient = ClientDetailsService.newClientCredentialsClient(id, singleton(scope));
+    String secret = args[4];
+    Client oauthClient = ClientDetailsService.newClient(id, secret, singleton(scope));
     service.createOrRegeneratePassword(oauthClient);
     clientRepository.save(new nl.procura.burgerzaken.dossiers.model.client.Client(id, customer, application));
     log.info("Created client\nid: {}\nsecret: {}\nscope: {}\nCustomer: {}\nApplication: {}", oauthClient.clientId(),

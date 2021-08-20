@@ -45,7 +45,7 @@ class InitClientTest {
   @Test
   void initClientMustCreateAnApiClient() throws IOException {
     // when
-    List<String> output = exec(InitClient.class, asList("test", "api", "test-customer", "test-application"));
+    List<String> output = exec(InitClient.class, asList("test", "api", "test-customer", "test-application", "secret"));
     // then
     assertOutputContains("id: ", output);
     assertOutputContains("secret: ", output);

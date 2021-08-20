@@ -46,6 +46,11 @@ public class ClientDetailsService {
         singleton(Grants.CLIENT_CREDENTIALS));
   }
 
+  public static Client newClient(String id, String secret, Set<Scope> scopes) {
+    return new Client(id, secret, scopes,
+        singleton(Grants.CLIENT_CREDENTIALS));
+  }
+
   public boolean create(Client client) {
     return repository.create(client, passwordEncoder.encode(client.rawSecret()));
   }
