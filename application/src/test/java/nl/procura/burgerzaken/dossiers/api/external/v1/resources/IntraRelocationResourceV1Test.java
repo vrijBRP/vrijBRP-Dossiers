@@ -48,7 +48,6 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.*;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.consent.ApiConsent;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.intra.ApiIntraMunicipalRelocation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.intra.ApiIntraMunicipalRelocationPerson;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 import nl.procura.burgerzaken.gba.numbers.Bsn;
 
@@ -89,9 +88,6 @@ class IntraRelocationResourceV1Test extends BaseResourceTest {
     assertEquals(1, referenceIds.size());
     assertEquals("returned-id", referenceIds.iterator().next().getId());
     assertEquals(1, response.getNewAddress().getHouseNumber());
-    // then database must be updated correctly
-    eventLogAssertions.assertClientAndType(dossierId, apiAccess.clientId(),
-        EventType.INTRA_MUNICIPAL_RELOCATION_CREATED);
   }
 
   @Test

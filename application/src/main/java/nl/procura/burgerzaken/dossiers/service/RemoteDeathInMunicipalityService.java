@@ -24,21 +24,17 @@ import org.springframework.stereotype.Service;
 import nl.procura.burgerzaken.dossiers.components.GbaClient;
 import nl.procura.burgerzaken.dossiers.converters.GbaRestDeathInMunicipalityConverter;
 import nl.procura.burgerzaken.dossiers.model.deaths.DeathInMunicipality;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakToevoegenVraag;
 
 @Service
 public class RemoteDeathInMunicipalityService implements DeathInMunicipalityService {
 
   private final GbaClient                           client;
-  private final EventLogService                     eventLog;
   private final GbaRestDeathInMunicipalityConverter converter;
 
   public RemoteDeathInMunicipalityService(GbaClient client,
-      EventLogService eventLog,
       GbaRestDeathInMunicipalityConverter converter) {
     this.client = client;
-    this.eventLog = eventLog;
     this.converter = converter;
   }
 
@@ -46,13 +42,9 @@ public class RemoteDeathInMunicipalityService implements DeathInMunicipalityServ
   public DeathInMunicipality add(DeathInMunicipality death) {
     GbaRestZaakToevoegenVraag request = new GbaRestZaakToevoegenVraag();
     request.setZaak(GbaRestDeathInMunicipalityConverter.toGbaRestZaak(death));
-    DeathInMunicipality created = converter.toDomainModel(client.zaken()
+    return converter.toDomainModel(client.zaken()
         .addZaak(request)
         .getInhoud());
-
-    eventLog.add(EventType.DEATH_CREATED, created.getDossier().getCaseNumber(),
-        death.getDossier().getClient().getClientId());
-    return created;
   }
 
   @Override

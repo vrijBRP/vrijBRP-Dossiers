@@ -43,15 +43,14 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiMessage;
 import nl.procura.burgerzaken.dossiers.api.external.v1.commitment.*;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossier;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiReferenceId;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 @ContextConfiguration(initializers = GbaSource.class)
 class CommitmentResourceV1Test extends BaseResourceTest {
 
-  private static final String PARTNER1_BSN = BsnUtils.toBsnString(TEST_BSN_2);;
-  private static final String PARTNER2_BSN = BsnUtils.toBsnString(TEST_BSN_3);;
-  private static final String WITNESS_BSN  = BsnUtils.toBsnString(TEST_BSN_4);;
+  private static final String PARTNER1_BSN = BsnUtils.toBsnString(TEST_BSN_2);
+  private static final String PARTNER2_BSN = BsnUtils.toBsnString(TEST_BSN_3);
+  private static final String WITNESS_BSN  = BsnUtils.toBsnString(TEST_BSN_4);
 
   private static final String URI_ADD_COMMITMENT       = "/api/v1/commitments";
   private static final String URI_GET_COMMITMENT_BY_ID = "/api/v1/commitments/{dossierId}";
@@ -88,10 +87,6 @@ class CommitmentResourceV1Test extends BaseResourceTest {
     assertEquals(3, resp.getLocation().getOptions().size());
     assertEquals(ApiCommitmentType.MARRIAGE, resp.getPlanning().getCommitmentType());
     assertEquals(LocalDateTime.of(2020, 9, 10, 11, 12), resp.getPlanning().getCommitmentDateTime());
-
-    // then database must be updated correctly
-    eventLogAssertions.assertClientAndType(dossierId, apiAccess.clientId(),
-        EventType.COMMITMENT_CREATED);
   }
 
   @Test
@@ -120,10 +115,6 @@ class CommitmentResourceV1Test extends BaseResourceTest {
     assertEquals(3, resp.getLocation().getOptions().size());
     assertEquals(ApiCommitmentType.MARRIAGE, resp.getPlanning().getCommitmentType());
     assertEquals(LocalDateTime.of(2020, 9, 10, 11, 12), resp.getPlanning().getCommitmentDateTime());
-
-    // then database must be updated correctly
-    eventLogAssertions.assertClientAndType(returnedDossierId, apiAccess.clientId(),
-        EventType.COMMITMENT_UPDATED);
   }
 
   @Test

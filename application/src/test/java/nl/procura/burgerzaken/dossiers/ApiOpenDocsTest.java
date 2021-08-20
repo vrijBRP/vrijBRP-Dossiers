@@ -62,7 +62,7 @@ public class ApiOpenDocsTest {
   @Test
   void operationIdsMustMatch() throws Exception {
     operationsMustMatch("/public/v3/api-docs/admin-API-v1.0",
-        "getEvents", "getInfo");
+        "getInfo");
 
     operationsMustMatch("/public/v3/api-docs/public-API-v1.0",
         "searchTasks",

@@ -49,7 +49,6 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiTitlePredicateTyp
 import nl.procura.burgerzaken.dossiers.api.external.v1.birth.*;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossier;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiReferenceId;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import okhttp3.mockwebserver.RecordedRequest;
@@ -65,7 +64,7 @@ class BirthResourceV1Test extends BaseResourceTest {
   private static final String URI_GET_BIRTH_BY_ID = "/api/v1/births/{dossierId}";
 
   @Test
-  void addCompleteBirth() throws Exception {
+  void addCompleteBirth() {
     GbaSource.enqueueJsonResponse(getClass().getResource("birth.json"));
     ApiBirth resp = newMockTest()
         .post(URI_ADD_BIRTH, getCompleteBirth())
@@ -93,10 +92,6 @@ class BirthResourceV1Test extends BaseResourceTest {
     assertEquals("Vries", resp.getNameSelection().getLastname());
     assertEquals("de", resp.getNameSelection().getPrefix());
     assertEquals("B", resp.getNameSelection().getTitlePredicate().getType().getCode());
-
-    // then database must be updated correctly
-    eventLogAssertions.assertClientAndType(dossierId, apiAccess.clientId(),
-        EventType.BIRTH_CREATED);
   }
 
   @Test
@@ -128,7 +123,7 @@ class BirthResourceV1Test extends BaseResourceTest {
   }
 
   @Test
-  void findById() throws Exception {
+  void findById() {
     GbaSource.enqueueJsonResponse(getClass().getResource("birth.json"));
     String dossierId = "test-1234";
     ApiBirth created = newMockTest()

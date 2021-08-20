@@ -22,7 +22,6 @@ package nl.procura.burgerzaken.dossiers.service;
 import static java.util.stream.Collectors.toList;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestConverter.toGbaRestPeriode;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestZaakStatusConverter.toGbaStatus;
-import static nl.procura.burgerzaken.dossiers.model.events.EventType.DOSSIER_DELETED;
 
 import java.util.Collections;
 import java.util.List;
@@ -48,21 +47,18 @@ import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakZoekGegeven;
 public class RemoteDossierService implements DossierService {
 
   private final GbaClient               client;
-  private final EventLogService         eventLog;
   private final GbaRestDossierConverter dossierConverter;
   private IntraRelocationService        intraRelocationService;
   private InterRelocationService        interRelocationService;
   private BirthService                  birthService;
 
   public RemoteDossierService(GbaClient client,
-      EventLogService eventLog,
       GbaRestDossierConverter dossierConverter,
       IntraRelocationService intraRelocationService,
       InterRelocationService interRelocationService,
       BirthService birthService) {
 
     this.client = client;
-    this.eventLog = eventLog;
     this.dossierConverter = dossierConverter;
     this.intraRelocationService = intraRelocationService;
     this.interRelocationService = interRelocationService;
@@ -83,7 +79,6 @@ public class RemoteDossierService implements DossierService {
   @Override
   public void delete(String clientId, String caseNumber) {
     client.zaken().deleteZaakByZaakId(caseNumber);
-    eventLog.add(DOSSIER_DELETED, caseNumber, clientId);
   }
 
   @Override

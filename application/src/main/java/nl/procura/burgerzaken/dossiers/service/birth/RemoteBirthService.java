@@ -42,9 +42,7 @@ import nl.procura.burgerzaken.dossiers.model.birth.FamilySituationInfo;
 import nl.procura.burgerzaken.dossiers.model.birth.NameSelectionInfo;
 import nl.procura.burgerzaken.dossiers.model.error.ApiErrorType;
 import nl.procura.burgerzaken.dossiers.model.error.ApiException;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.burgerzaken.dossiers.service.BirthService;
-import nl.procura.burgerzaken.dossiers.service.EventLogService;
 import nl.procura.burgerzaken.dossiers.service.ProcuraWsService;
 import nl.procura.burgerzaken.gba.core.enums.GBACat;
 import nl.procura.burgerzaken.gba.core.enums.GBAElem;
@@ -57,7 +55,6 @@ import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonListRec;
 public class RemoteBirthService implements BirthService {
 
   private final GbaClient             client;
-  private final EventLogService       eventLog;
   private final ProcuraWsService      personWsService;
   private final GbaRestBirthConverter converter;
 
@@ -65,11 +62,9 @@ public class RemoteBirthService implements BirthService {
   private static final long  MAX_LEGAL_DAYS     = 306L;
 
   public RemoteBirthService(GbaClient client,
-      EventLogService eventLog,
       ProcuraWsService personWsService,
       GbaRestBirthConverter converter) {
     this.client = client;
-    this.eventLog = eventLog;
     this.personWsService = personWsService;
     this.converter = converter;
   }
@@ -78,12 +73,9 @@ public class RemoteBirthService implements BirthService {
   public Birth add(Birth birth) {
     GbaRestZaakToevoegenVraag request = new GbaRestZaakToevoegenVraag();
     request.setZaak(toGbaRestZaak(birth));
-    Birth created = converter.toDomainModel(client.zaken()
+    return converter.toDomainModel(client.zaken()
         .addZaak(request)
         .getInhoud());
-    eventLog.add(EventType.BIRTH_CREATED, created.getDossier().getCaseNumber(),
-        birth.getDossier().getClient().getClientId());
-    return created;
   }
 
   @Override

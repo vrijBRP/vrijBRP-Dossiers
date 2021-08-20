@@ -24,7 +24,6 @@ import org.springframework.stereotype.Service;
 import nl.procura.burgerzaken.dossiers.components.GbaClient;
 import nl.procura.burgerzaken.dossiers.converters.GbaRestCommitmentConverter;
 import nl.procura.burgerzaken.dossiers.model.commitment.Commitment;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakStatusUpdateVraag;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakToevoegenVraag;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakUpdateVraag;
@@ -34,14 +33,11 @@ import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakStatusType;
 public class RemoteCommitmentService implements CommitmentService {
 
   private final GbaClient                  client;
-  private final EventLogService            eventLog;
   private final GbaRestCommitmentConverter converter;
 
   public RemoteCommitmentService(GbaClient client,
-      EventLogService eventLog,
       GbaRestCommitmentConverter converter) {
     this.client = client;
-    this.eventLog = eventLog;
     this.converter = converter;
   }
 
@@ -49,24 +45,18 @@ public class RemoteCommitmentService implements CommitmentService {
   public Commitment add(Commitment commitment) {
     GbaRestZaakToevoegenVraag request = new GbaRestZaakToevoegenVraag();
     request.setZaak(GbaRestCommitmentConverter.toGbaRestZaak(commitment));
-    Commitment created = converter.toDomainModel(client.zaken()
+    return converter.toDomainModel(client.zaken()
         .addZaak(request)
         .getInhoud());
-    eventLog.add(EventType.COMMITMENT_CREATED, created.getDossier().getCaseNumber(),
-        commitment.getDossier().getClient().getClientId());
-    return created;
   }
 
   @Override
   public Commitment update(Commitment commitment) {
     GbaRestZaakUpdateVraag request = new GbaRestZaakUpdateVraag();
     request.setZaak(GbaRestCommitmentConverter.toGbaRestZaak(commitment));
-    Commitment updated = converter.toDomainModel(client.zaken()
+    return converter.toDomainModel(client.zaken()
         .updateZaak(request)
         .getInhoud());
-    eventLog.add(EventType.COMMITMENT_UPDATED, updated.getDossier().getCaseNumber(),
-        commitment.getDossier().getClient().getClientId());
-    return updated;
   }
 
   @Override

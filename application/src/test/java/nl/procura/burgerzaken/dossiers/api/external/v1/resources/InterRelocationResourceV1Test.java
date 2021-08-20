@@ -46,7 +46,6 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.*;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.consent.ApiConsent;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.inter.ApiInterMunicipalRelocation;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.inter.ApiInterMunicipalRelocationPerson;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 @ContextConfiguration(initializers = GbaSource.class)
@@ -85,9 +84,6 @@ class InterRelocationResourceV1Test extends BaseResourceTest {
     Set<ApiReferenceId> referenceIds = dossier.getReferenceIds();
     assertEquals(1, referenceIds.size());
     assertEquals("returned-id", referenceIds.iterator().next().getId());
-    // then database must be updated correctly
-    eventLogAssertions.assertClientAndType(dossierId, apiAccess.clientId(),
-        EventType.INTER_MUNICIPAL_RELOCATION_CREATED);
   }
 
   @Test

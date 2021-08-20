@@ -46,7 +46,6 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.deaths.*;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossier;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiReferenceId;
 import nl.procura.burgerzaken.dossiers.model.deaths.CauseOfDeathType;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 @ContextConfiguration(initializers = GbaSource.class)
@@ -88,10 +87,6 @@ class DeathResourceV1Test extends BaseResourceTest {
 
     assertEquals("09:10", resp.getTimeOfDeath());
     assertEquals("13:20", resp.getFuneralServices().getTime());
-
-    // then database must be updated correctly
-    eventLogAssertions.assertClientAndType(dossierId, apiAccess.clientId(),
-        EventType.DEATH_CREATED);
   }
 
   @Test
@@ -121,10 +116,6 @@ class DeathResourceV1Test extends BaseResourceTest {
 
     assertEquals("09:10", resp.getTimeOfFinding());
     assertEquals("13:20", resp.getFuneralServices().getTime());
-
-    // then database must be updated correctly
-    eventLogAssertions.assertClientAndType(dossierId, apiAccess.clientId(),
-        EventType.DEATH_CREATED);
   }
 
   @Test

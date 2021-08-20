@@ -26,7 +26,6 @@ import org.springframework.stereotype.Service;
 import nl.procura.burgerzaken.dossiers.components.GbaClient;
 import nl.procura.burgerzaken.dossiers.converters.GbaRestIntraMunicipalRelocationConverter;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.burgerzaken.dossiers.model.relocations.IntraMunicipalRelocation;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakToevoegenVraag;
 
@@ -34,14 +33,11 @@ import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakToevoegenVraag;
 public class RemoteIntraRelocationService implements IntraRelocationService {
 
   private final GbaClient                                client;
-  private final EventLogService                          eventLog;
   private final GbaRestIntraMunicipalRelocationConverter converter;
 
   public RemoteIntraRelocationService(GbaClient client,
-      EventLogService eventLog,
       GbaRestIntraMunicipalRelocationConverter converter) {
     this.client = client;
-    this.eventLog = eventLog;
     this.converter = converter;
   }
 
@@ -49,12 +45,9 @@ public class RemoteIntraRelocationService implements IntraRelocationService {
   public IntraMunicipalRelocation add(IntraMunicipalRelocation relocation) {
     GbaRestZaakToevoegenVraag request = new GbaRestZaakToevoegenVraag();
     request.setZaak(GbaRestIntraMunicipalRelocationConverter.toGbaRestZaak(relocation));
-    IntraMunicipalRelocation created = converter.toDomainModel(client.zaken()
+    return converter.toDomainModel(client.zaken()
         .addZaak(request)
         .getInhoud());
-    eventLog.add(EventType.INTRA_MUNICIPAL_RELOCATION_CREATED, created.getDossier().getCaseNumber(),
-        relocation.getDossier().getClient().getClientId());
-    return created;
   }
 
   @Override

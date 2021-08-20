@@ -43,7 +43,6 @@ import org.springframework.web.context.WebApplicationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import nl.procura.burgerzaken.dossiers.components.ApiAccess;
-import nl.procura.burgerzaken.dossiers.components.EventLogAssertions;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -63,9 +62,6 @@ public class BaseResourceTest {
 
   @Autowired
   protected EntityManager em;
-
-  @Autowired
-  protected EventLogAssertions eventLogAssertions;
 
   @BeforeEach
   public void setUp(WebApplicationContext context, RestDocumentationContextProvider restDocumentation) {

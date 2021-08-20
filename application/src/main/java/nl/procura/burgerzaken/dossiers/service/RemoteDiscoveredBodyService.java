@@ -24,21 +24,17 @@ import org.springframework.stereotype.Service;
 import nl.procura.burgerzaken.dossiers.components.GbaClient;
 import nl.procura.burgerzaken.dossiers.converters.GbaRestDiscoveredBodyConverter;
 import nl.procura.burgerzaken.dossiers.model.deaths.DiscoveredBody;
-import nl.procura.burgerzaken.dossiers.model.events.EventType;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakToevoegenVraag;
 
 @Service
 public class RemoteDiscoveredBodyService implements DiscoveredBodyService {
 
   private final GbaClient                      client;
-  private final EventLogService                eventLog;
   private final GbaRestDiscoveredBodyConverter converter;
 
   public RemoteDiscoveredBodyService(GbaClient client,
-      EventLogService eventLog,
       GbaRestDiscoveredBodyConverter converter) {
     this.client = client;
-    this.eventLog = eventLog;
     this.converter = converter;
   }
 
@@ -46,13 +42,9 @@ public class RemoteDiscoveredBodyService implements DiscoveredBodyService {
   public DiscoveredBody add(DiscoveredBody discoveredBody) {
     GbaRestZaakToevoegenVraag request = new GbaRestZaakToevoegenVraag();
     request.setZaak(GbaRestDiscoveredBodyConverter.toGbaRestZaak(discoveredBody));
-    DiscoveredBody created = converter.toDomainModel(client.zaken()
+    return converter.toDomainModel(client.zaken()
         .addZaak(request)
         .getInhoud());
-
-    eventLog.add(EventType.DEATH_CREATED, created.getDossier().getCaseNumber(),
-        discoveredBody.getDossier().getClient().getClientId());
-    return created;
   }
 
   @Override
