@@ -23,13 +23,14 @@ import static java.lang.String.format;
 
 import java.util.Arrays;
 
-import nl.procura.burgerzaken.dossiers.model.relocations.info.RelationshipType;
+import nl.procura.burgerzaken.dossiers.model.relatives.RelationshipType;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
 @Getter
 @Schema(name = "RelocationRelativesInfoRelationshipType")
+@Deprecated
 public enum ApiRelationshipType {
 
   REGISTERED(RelationshipType.REGISTERED),

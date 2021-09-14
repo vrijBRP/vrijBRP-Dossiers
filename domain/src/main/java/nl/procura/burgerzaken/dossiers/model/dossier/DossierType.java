@@ -22,6 +22,7 @@ package nl.procura.burgerzaken.dossiers.model.dossier;
 import static java.lang.String.format;
 
 import java.util.Arrays;
+import java.util.List;
 
 import lombok.Getter;
 
@@ -33,6 +34,7 @@ public enum DossierType {
   EMIGRATION("emigration", "Emigration"),
   RESETTLEMENT("resettlement", "Resettlement"),
   BIRTH("birth", "Birth"),
+  CONFIDENTIALITY("confidentiality", "Confidentiality"),
   COMMITMENT("commitment", "Commitment"),
   DEATH_IN_MUNICIPALITY("death_in_municipality", "Death in municipality"),
   DISCOVERED_BODY("discovered_body", "Discovered body"),
@@ -44,6 +46,10 @@ public enum DossierType {
   DossierType(String code, String description) {
     this.code = code;
     this.description = description;
+  }
+
+  public boolean matches(DossierType... types) {
+    return List.of(types).contains(this);
   }
 
   public static DossierType valueOfCode(String code) {

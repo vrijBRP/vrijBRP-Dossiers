@@ -17,12 +17,9 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.model.relocations.info;
+package nl.procura.burgerzaken.dossiers.service;
 
-public enum RelationshipType {
-  REGISTERED,
-  PARENT,
-  PARTNER,
-  EX_PARTNER,
-  CHILD
+import nl.procura.burgerzaken.dossiers.model.confidentiality.Confidentiality;
+
+public interface ConfidentialityService<T extends Confidentiality> extends DossierTypeService<T> {
 }

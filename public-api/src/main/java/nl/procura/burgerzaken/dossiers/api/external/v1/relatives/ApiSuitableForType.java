@@ -17,38 +17,33 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base;
+package nl.procura.burgerzaken.dossiers.api.external.v1.relatives;
 
 import static java.lang.String.format;
 
 import java.util.Arrays;
 
-import nl.procura.burgerzaken.dossiers.model.relatives.DeclarationType;
+import nl.procura.burgerzaken.dossiers.model.relatives.SuitableForType;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
 @Getter
-@Schema(name = "RelocationDeclarationType")
-public enum ApiDeclarationType {
+@Schema(name = "RelativesInfoSuitableForType")
+public enum ApiSuitableForType {
 
-  EX_OFFICIO(DeclarationType.EX_OFFICIO),
-  MINISTERIAL_DECISION(DeclarationType.MINISTERIAL_DECISION),
-  AUTHORITY_HOLDER(DeclarationType.AUTHORITY_HOLDER),
-  HEAD_OF_AN_INSTITUTION(DeclarationType.HEAD_OF_AN_INSTITUTION),
-  REGISTERED(DeclarationType.REGISTERED),
-  ADULT_CHILD_LIVING_WITH_PARENTS(DeclarationType.ADULT_CHILD_LIVING_WITH_PARENTS),
-  ADULT_AUTHORIZED_REPRESENTATIVE(DeclarationType.ADULT_AUTHORIZED_REPRESENTATIVE),
-  PARTNER(DeclarationType.PARTNER),
-  PARENT_LIVING_WITH_ADULT_CHILD(DeclarationType.PARENT_LIVING_WITH_ADULT_CHILD);
+  GENERAL_USE_CASE(SuitableForType.GENERAL_USE_CASE),
+  NEW_RELOCATION_CASE(SuitableForType.NEW_RELOCATION_CASE),
+  NEW_BRP_EXTRACT_CASE(SuitableForType.NEW_BRP_EXTRACT_CASE),
+  NEW_CONFIDENTIALITY_CASE(SuitableForType.NEW_CONFIDENTIALITY_CASE);
 
-  private DeclarationType type;
+  private SuitableForType type;
 
-  ApiDeclarationType(DeclarationType type) {
-    this.type = type;
+  ApiSuitableForType(SuitableForType obstructionType) {
+    this.type = obstructionType;
   }
 
-  public static ApiDeclarationType valueOfType(final DeclarationType type) {
+  public static ApiSuitableForType valueOfType(final SuitableForType type) {
     return Arrays.stream(values())
         .filter(apiType -> apiType.getType() == type)
         .findFirst()

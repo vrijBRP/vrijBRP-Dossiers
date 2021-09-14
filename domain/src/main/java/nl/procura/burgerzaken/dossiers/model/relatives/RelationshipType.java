@@ -17,14 +17,17 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.service;
+package nl.procura.burgerzaken.dossiers.model.relatives;
 
-import java.util.List;
+public enum RelationshipType {
 
-import nl.procura.burgerzaken.dossiers.model.relocations.info.RelocationRelative;
-import nl.procura.burgerzaken.gba.numbers.Bsn;
+  REGISTERED,
+  PARENT,
+  PARTNER,
+  EX_PARTNER,
+  CHILD;
 
-public interface RelocationInfoService {
-
-  List<RelocationRelative> getRelativeInfo(Bsn bsn);
+  public boolean matches(RelationshipType type) {
+    return this == type;
+  }
 }

@@ -21,22 +21,10 @@ package nl.procura.burgerzaken.dossiers.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
-import nl.procura.burgerzaken.dossiers.model.relocations.info.RelocationRelative;
+import nl.procura.burgerzaken.dossiers.model.relatives.Relative;
 import nl.procura.burgerzaken.gba.numbers.Bsn;
 
-@Service
-public class RelocationInfoServiceImpl implements RelocationInfoService {
+public interface RelativesService {
 
-  private final RelocationRelativesFactory relocationRelativesFactory;
-
-  public RelocationInfoServiceImpl(RelocationRelativesFactory relocationRelativesFactory) {
-    this.relocationRelativesFactory = relocationRelativesFactory;
-  }
-
-  @Override
-  public List<RelocationRelative> getRelativeInfo(Bsn bsn) {
-    return relocationRelativesFactory.getRelatives(bsn);
-  }
+  List<Relative> getRelativeInfo(Bsn bsn);
 }

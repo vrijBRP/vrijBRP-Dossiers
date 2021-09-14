@@ -17,38 +17,34 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base;
+package nl.procura.burgerzaken.dossiers.api.external.v1.relatives;
 
 import static java.lang.String.format;
 
 import java.util.Arrays;
 
-import nl.procura.burgerzaken.dossiers.model.relatives.DeclarationType;
+import nl.procura.burgerzaken.dossiers.model.relatives.RelationshipType;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
 @Getter
-@Schema(name = "RelocationDeclarationType")
-public enum ApiDeclarationType {
+@Schema(name = "RelativesInfoRelationshipType")
+public enum ApiRelationshipType {
 
-  EX_OFFICIO(DeclarationType.EX_OFFICIO),
-  MINISTERIAL_DECISION(DeclarationType.MINISTERIAL_DECISION),
-  AUTHORITY_HOLDER(DeclarationType.AUTHORITY_HOLDER),
-  HEAD_OF_AN_INSTITUTION(DeclarationType.HEAD_OF_AN_INSTITUTION),
-  REGISTERED(DeclarationType.REGISTERED),
-  ADULT_CHILD_LIVING_WITH_PARENTS(DeclarationType.ADULT_CHILD_LIVING_WITH_PARENTS),
-  ADULT_AUTHORIZED_REPRESENTATIVE(DeclarationType.ADULT_AUTHORIZED_REPRESENTATIVE),
-  PARTNER(DeclarationType.PARTNER),
-  PARENT_LIVING_WITH_ADULT_CHILD(DeclarationType.PARENT_LIVING_WITH_ADULT_CHILD);
+  REGISTERED(RelationshipType.REGISTERED),
+  PARENT(RelationshipType.PARENT),
+  PARTNER(RelationshipType.PARTNER),
+  EX_PARTNER(RelationshipType.EX_PARTNER),
+  CHILD(RelationshipType.CHILD);
 
-  private DeclarationType type;
+  private final RelationshipType type;
 
-  ApiDeclarationType(DeclarationType type) {
+  ApiRelationshipType(RelationshipType type) {
     this.type = type;
   }
 
-  public static ApiDeclarationType valueOfType(final DeclarationType type) {
+  public static ApiRelationshipType valueOfType(final RelationshipType type) {
     return Arrays.stream(values())
         .filter(apiType -> apiType.getType() == type)
         .findFirst()

@@ -69,6 +69,7 @@ public class ApiOpenDocsTest {
         "searchDossiers",
         "addInterMunicipalRelocation", "findInterMunicipalRelocation", "addInterMunicipalRelocationConsent",
         "addIntraMunicipalRelocation", "findIntraMunicipalRelocation", "addIntraMunicipalRelocationConsent",
+        "findRelatives",
         "findRelocationRelatives",
         "findBirth", "addBirth", "getNameSelection", "getFamilySituation", "getAcknowledgement",
         "addDocumentToDossier", "getDocumentsOfDossier", "getDossierDocument",

@@ -51,18 +51,21 @@ public class RemoteDossierService implements DossierService {
   private IntraRelocationService        intraRelocationService;
   private InterRelocationService        interRelocationService;
   private BirthService                  birthService;
+  private ConfidentialityService        confidentialityService;
 
   public RemoteDossierService(GbaClient client,
       GbaRestDossierConverter dossierConverter,
       IntraRelocationService intraRelocationService,
       InterRelocationService interRelocationService,
-      BirthService birthService) {
+      BirthService birthService,
+      ConfidentialityService confidentialityService) {
 
     this.client = client;
     this.dossierConverter = dossierConverter;
     this.intraRelocationService = intraRelocationService;
     this.interRelocationService = interRelocationService;
     this.birthService = birthService;
+    this.confidentialityService = confidentialityService;
   }
 
   @Override
@@ -90,6 +93,8 @@ public class RemoteDossierService implements DossierService {
         return (T) interRelocationService;
       case BIRTH:
         return (T) birthService;
+      case CONFIDENTIALITY:
+        return (T) confidentialityService;
       default:
         throw new UnsupportedOperationException("dossier type '" + dossierType + "' is not supported");
     }

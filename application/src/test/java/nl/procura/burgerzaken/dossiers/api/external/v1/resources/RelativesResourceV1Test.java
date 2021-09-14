@@ -20,10 +20,9 @@
 package nl.procura.burgerzaken.dossiers.api.external.v1.resources;
 
 import static java.util.Collections.singletonList;
+import static nl.procura.burgerzaken.dossiers.api.external.v1.relatives.ApiObstructionType.*;
+import static nl.procura.burgerzaken.dossiers.api.external.v1.relatives.ApiRelationshipType.*;
 import static nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.ApiDeclarationType.AUTHORITY_HOLDER;
-import static nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelationshipType.CHILD;
-import static nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelationshipType.PARENT;
-import static nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelocationObstructionType.*;
 import static nl.procura.burgerzaken.gba.numbers.Bsn.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
@@ -38,11 +37,11 @@ import org.springframework.test.context.ContextConfiguration;
 
 import nl.procura.burgerzaken.dossiers.GbaSource;
 import nl.procura.burgerzaken.dossiers.PersonList;
+import nl.procura.burgerzaken.dossiers.api.external.v1.relatives.ApiObstructionType;
+import nl.procura.burgerzaken.dossiers.api.external.v1.relatives.ApiRelationshipType;
+import nl.procura.burgerzaken.dossiers.api.external.v1.relatives.ApiRelative;
+import nl.procura.burgerzaken.dossiers.api.external.v1.relatives.ApiRelativesResponse;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.ApiDeclarationType;
-import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelationshipType;
-import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelative;
-import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelativesResponse;
-import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelocationObstructionType;
 import nl.procura.burgerzaken.dossiers.service.ProcuraWsService;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 import nl.procura.burgerzaken.gba.core.enums.GBACat;
@@ -51,7 +50,7 @@ import nl.procura.burgerzaken.gba.core.enums.GBARecStatus;
 import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonList;
 
 @ContextConfiguration(initializers = GbaSource.class)
-class RelocationInfoResourceV1Test extends BaseResourceTest {
+class RelativesResourceV1Test extends BaseResourceTest {
 
   private static final String DECLARATOR_BSN                 = BsnUtils.toBsnString(TEST_BSN_4);
   private static final String PARTNER_BSN                    = BsnUtils.toBsnString(TEST_BSN_7);
@@ -78,38 +77,30 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
     setupData(OTHER_MUN_PARENT_BSN, getParentInOtherMunipality());
     setupData(DECEASED_PARENT_BSN, getDeceasedParent());
 
-    ApiRelativesResponse resp = getApiRelatives("reloc_relatives_1");
+    ApiRelativesResponse resp = getApiRelatives("relatives_1");
     ApiRelative registered = getRelativeByBsn(resp, DECLARATOR_BSN);
     ApiRelative partner = getRelativeByBsn(resp, PARTNER_BSN);
     ApiRelative parentInOtherMun = getRelativeByBsn(resp, OTHER_MUN_PARENT_BSN);
     ApiRelative deceasedParent = getRelativeByBsn(resp, DECEASED_PARENT_BSN);
-    ApiRelative minorChild = getRelativeByBsn(resp, CHILD_BSN);
+    ApiRelative childUnder16 = getRelativeByBsn(resp, CHILD_BSN);
     ApiRelative adultChild = getRelativeByBsn(resp, ADULT_CHILD_BSN);
-    ApiRelative childOnOtherAddress = getRelativeByBsn(resp, OTHER_ADDRESS_CHILD_BSN);
     ApiRelative childWithWrongBirthDate = getRelativeByBsn(resp, CHILD_WITH_WRONG_BIRTHDATE_BSN);
     ApiRelative childNotFound = getRelativeByBsn(resp, PERSON_NOT_FOUND_BSN);
 
-    assertEquals(ApiRelationshipType.REGISTERED, registered.getRelationshipType());
+    assertEquals(REGISTERED, registered.getRelationshipType());
     assertEquals(ApiDeclarationType.REGISTERED, registered.getDeclarationType());
     assertEquals(EXISTING_RELOCATION_CASE, partner.getObstructions().get(0));
-    assertEquals(false, registered.isSuitableForRelocation());
+    assertFalse(registered.isSuitableForRelocation());
 
     assertEquals(ApiRelationshipType.PARTNER, partner.getRelationshipType());
     assertEquals(ApiDeclarationType.PARTNER, partner.getDeclarationType());
     assertEquals(EXISTING_RELOCATION_CASE, partner.getObstructions().get(0));
-    assertFalse(registered.isSuitableForRelocation());
+    assertFalse(partner.isSuitableForRelocation());
 
-    assertEquals(CHILD, minorChild.getRelationshipType());
-    assertEquals(AUTHORITY_HOLDER, minorChild.getDeclarationType());
-    assertEquals(0, minorChild.getObstructions().size());
-    assertTrue(minorChild.isSuitableForRelocation());
-
-    assertEquals(CHILD, childOnOtherAddress.getRelationshipType());
-    assertEquals(AUTHORITY_HOLDER, childOnOtherAddress.getDeclarationType());
-    assertEquals(2, childOnOtherAddress.getObstructions().size());
-    assertTrue(childOnOtherAddress.getObstructions().contains(DIFFERENT_ADDRESS));
-    assertTrue(childOnOtherAddress.getObstructions().contains(PERSON_RECORD_IS_BLOCKED));
-    assertFalse(childOnOtherAddress.isSuitableForRelocation());
+    assertEquals(CHILD, childUnder16.getRelationshipType());
+    assertEquals(AUTHORITY_HOLDER, childUnder16.getDeclarationType());
+    assertEquals(0, childUnder16.getObstructions().size());
+    assertTrue(childUnder16.isSuitableForRelocation());
 
     assertEquals(CHILD, adultChild.getRelationshipType());
     assertEquals(ApiDeclarationType.PARENT_LIVING_WITH_ADULT_CHILD, adultChild.getDeclarationType());
@@ -121,19 +112,19 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
     assertTrue(childWithWrongBirthDate.isSuitableForRelocation());
 
     assertEquals(CHILD, childNotFound.getRelationshipType());
-    assertEquals(NO_PERSON_RECORD_FOUND, childNotFound.getObstructions().get(0));
+    assertEquals(ApiObstructionType.NO_PERSON_RECORD_FOUND, childNotFound.getObstructions().get(0));
     assertEquals(1, childNotFound.getObstructions().size());
     assertFalse(childNotFound.isSuitableForRelocation());
 
     assertEquals(PARENT, parentInOtherMun.getRelationshipType());
     assertEquals(1, parentInOtherMun.getObstructions().size());
     assertEquals(DIFFERENT_ADDRESS, parentInOtherMun.getObstructions().get(0));
-    assertEquals(false, parentInOtherMun.isSuitableForRelocation());
+    assertFalse(parentInOtherMun.isSuitableForRelocation());
 
     assertEquals(PARENT, deceasedParent.getRelationshipType());
     assertEquals(PERSON_IS_DECEASED, deceasedParent.getObstructions().get(0));
     assertEquals(1, deceasedParent.getObstructions().size());
-    assertEquals(false, deceasedParent.isSuitableForRelocation());
+    assertFalse(deceasedParent.isSuitableForRelocation());
   }
 
   @Test
@@ -141,11 +132,11 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
     setupData(DECLARATOR_BSN, getRegisteredWithExPartner());
     setupData(EX_PARTNER_BSN, getExPartner());
 
-    ApiRelativesResponse resp = getApiRelatives("reloc_relatives_2");
+    ApiRelativesResponse resp = getApiRelatives("relatives_2");
     ApiRelative exPartner = getRelativeByBsn(resp, EX_PARTNER_BSN);
     assertEquals(ApiRelationshipType.EX_PARTNER, exPartner.getRelationshipType());
     assertNull(exPartner.getDeclarationType());
-    assertEquals(ApiRelocationObstructionType.RELATIONSHIP_HAS_ENDED, exPartner.getObstructions().get(0));
+    assertEquals(ApiObstructionType.RELATIONSHIP_HAS_ENDED, exPartner.getObstructions().get(0));
   }
 
   @Test
@@ -155,9 +146,8 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
 
     ApiRelativesResponse resp = getApiRelatives("");
     ApiRelative child = getRelativeByBsn(resp, CHILD_BSN);
-    assertEquals(ApiRelocationObstructionType.PERSON_RECORD_IS_BLOCKED, child.getObstructions().get(0));
+    assertEquals(ApiObstructionType.PERSON_RECORD_IS_BLOCKED, child.getObstructions().get(0));
     assertEquals(1, child.getObstructions().size());
-    assertFalse(child.isSuitableForRelocation());
   }
 
   @Test
@@ -167,9 +157,8 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
 
     ApiRelativesResponse resp = getApiRelatives("");
     ApiRelative child = getRelativeByBsn(resp, CHILD_BSN);
-    assertEquals(ApiRelocationObstructionType.PERSON_RECORD_IS_SUSPENDED, child.getObstructions().get(0));
+    assertEquals(ApiObstructionType.PERSON_RECORD_IS_SUSPENDED, child.getObstructions().get(0));
     assertEquals(1, child.getObstructions().size());
-    assertFalse(child.isSuitableForRelocation());
   }
 
   @Test
@@ -180,13 +169,12 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
     ApiRelativesResponse resp = getApiRelatives("");
     ApiRelative child = getRelativeByBsn(resp, CHILD_BSN);
     assertTrue(child.getObstructions().contains(PERSON_IS_EMIGRATED));
-    assertTrue(child.getObstructions().contains(PERSON_IS_EMIGRATED));
+    assertTrue(child.getObstructions().contains(DIFFERENT_ADDRESS));
     assertEquals(2, child.getObstructions().size());
-    assertFalse(child.isSuitableForRelocation());
   }
 
   private ApiRelativesResponse getApiRelatives(String documentation) {
-    return newMockTest().get("/api/v1/relocations/info/relatives/" + DECLARATOR_BSN, DECLARATOR_BSN)
+    return newMockTest().get("/api/v1/relatives/" + DECLARATOR_BSN, DECLARATOR_BSN)
         .documentation(documentation)
         .status(status().isOk())
         .toClass(ApiRelativesResponse.class);
@@ -321,7 +309,7 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
 
   public GbaWsPersonList getOtherAddressChild() {
     return new PL()
-        .person(OTHER_ADDRESS_CHILD_BSN, 13)
+        .person(OTHER_ADDRESS_CHILD_BSN, 18)
         .address(398, "1111BB")
         .blocked()
         .build();

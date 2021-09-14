@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives.ApiRelativesResponse;
+import nl.procura.burgerzaken.dossiers.api.external.v1.relatives.ApiRelativesResponse;
 import nl.procura.burgerzaken.dossiers.service.RelativesService;
 import nl.procura.burgerzaken.gba.numbers.Bsn;
 
@@ -38,31 +38,29 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@Deprecated
-@Tag(name = "Relocations",
-    description = "Generic actions related to relocations")
+@Tag(name = "Relatives",
+    description = "Information about relatives")
 @RestController
-@RequestMapping("/api/v1/relocations")
-public class RelocationResourceV1 {
+@RequestMapping("/api/v1/relatives")
+public class RelativesResourceV1 {
 
   private RelativesService service;
 
-  public RelocationResourceV1(RelativesService service) {
+  public RelativesResourceV1(RelativesService service) {
     this.service = service;
   }
 
   @Operation(
-      operationId = "findRelocationRelatives",
+      operationId = "findRelatives",
       summary = "Get summary of relatives",
       description = "Find the relatives of registered person")
   @GetMapping(
-      value = "/info/relatives/{bsn}",
+      value = "/{bsn}",
       produces = MediaType.APPLICATION_JSON_VALUE)
   @ApiResponses({
       @ApiResponse(responseCode = "200", description = "Resource successfully returned"),
       @ApiResponse(responseCode = "400", ref = BAD_REQUEST)
   })
-  @Deprecated
   public ApiRelativesResponse find(@Valid @PathVariable String bsn) {
     return ApiRelativesResponse.of(service.getRelativeInfo(new Bsn(bsn)));
   }

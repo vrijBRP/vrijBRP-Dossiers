@@ -17,7 +17,7 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives;
+package nl.procura.burgerzaken.dossiers.api.external.v1.relatives;
 
 import java.util.List;
 
@@ -31,8 +31,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @NoArgsConstructor
-@Schema(name = "RelocationRelativesInfoRelative")
-@Deprecated
+@Schema(name = "RelativesInfoRelative")
 public class ApiRelative {
 
   @Schema(name = "person")
@@ -44,9 +43,13 @@ public class ApiRelative {
   @Schema(name = "declarationType")
   private ApiDeclarationType declarationType;
 
+  @Deprecated
   @Schema(name = "suitableForRelocation")
   private boolean suitableForRelocation;
 
+  @Schema(name = "suitableFor")
+  private List<ApiSuitableForType> suitableFor;
+
   @Schema(name = "obstructions")
-  private List<ApiRelocationObstructionType> obstructions;
+  private List<ApiObstructionType> obstructions;
 }

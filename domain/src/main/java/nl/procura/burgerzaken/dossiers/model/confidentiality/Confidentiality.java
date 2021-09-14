@@ -17,17 +17,23 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.model.relocations.info;
+package nl.procura.burgerzaken.dossiers.model.confidentiality;
 
-public enum RelocationObstructionType {
-  EXISTING_RELOCATION,
-  DIFFERENT_ADDRESS,
-  MULTIPLE_PERSON_RECORDS_FOUND,
-  NO_PERSON_RECORD_FOUND,
-  RELATIONSHIP_HAS_ENDED,
-  PERSON_IS_DECEASED,
-  PERSON_IS_EMIGRATED,
-  PERSON_RECORD_IS_BLOCKED,
-  PERSON_RECORD_IS_SUSPENDED,
-  PERSON_HAS_CURATOR
+import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Confidentiality {
+
+  @EqualsAndHashCode.Include
+  private Dossier dossier;
+
+  public Confidentiality(Dossier dossier) {
+    this.dossier = dossier;
+  }
 }

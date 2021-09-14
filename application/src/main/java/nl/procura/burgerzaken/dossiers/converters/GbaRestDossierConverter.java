@@ -25,7 +25,6 @@ import static nl.procura.burgerzaken.dossiers.converters.GbaRestConverter.*;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestZaakStatusConverter.toGbaStatus;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestZaakStatusConverter.toStatus;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

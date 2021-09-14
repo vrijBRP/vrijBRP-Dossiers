@@ -17,7 +17,7 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives;
+package nl.procura.burgerzaken.dossiers.api.external.v1.relatives;
 
 import static java.util.Optional.ofNullable;
 import static nl.procura.burgerzaken.dossiers.model.relatives.SuitableForType.NEW_RELOCATION_CASE;
@@ -34,10 +34,9 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
-@Deprecated
 @SuperBuilder
 @NoArgsConstructor
-@Schema(name = "RelocationRelativesInfoResponse")
+@Schema(name = "RelativesInfoResponse")
 public class ApiRelativesResponse {
 
   @Schema(name = "relatives")
@@ -49,14 +48,18 @@ public class ApiRelativesResponse {
         .relatives(relatives.stream().map(r -> ApiRelative.builder()
             .person(ApiRelativePerson.builder()
                 .bsn(r.getBsn().toString())
+                .age(r.getAge())
                 .build())
             .relationshipType(ApiRelationshipType.valueOfType(r.getRelationshipType()))
             .declarationType(ofNullable(r.getDeclarationType())
                 .map(ApiDeclarationType::valueOfType)
                 .orElse(null))
             .suitableForRelocation(r.getSuitableFor().stream().anyMatch(NEW_RELOCATION_CASE::matches))
+            .suitableFor(r.getSuitableFor().stream()
+                .map(ApiSuitableForType::valueOfType)
+                .collect(Collectors.toList()))
             .obstructions(r.getObstructions().stream()
-                .map(ApiRelocationObstructionType::valueOfType)
+                .map(ApiObstructionType::valueOfType)
                 .collect(Collectors.toList()))
             .build()).collect(Collectors.toList()))
         .build();

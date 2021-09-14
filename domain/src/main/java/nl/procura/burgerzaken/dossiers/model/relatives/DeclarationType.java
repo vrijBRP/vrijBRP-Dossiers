@@ -17,7 +17,7 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.model.relocations.info;
+package nl.procura.burgerzaken.dossiers.model.relatives;
 
 import static java.lang.String.format;
 

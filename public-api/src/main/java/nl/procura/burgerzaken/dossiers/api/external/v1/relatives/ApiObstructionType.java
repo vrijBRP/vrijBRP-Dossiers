@@ -17,7 +17,7 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives;
+package nl.procura.burgerzaken.dossiers.api.external.v1.relatives;
 
 import static java.lang.String.format;
 
@@ -29,12 +29,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
 @Getter
-@Schema(name = "RelocationRelativesInfoObstructionType")
-@Deprecated
-public enum ApiRelocationObstructionType {
+@Schema(name = "RelativesInfoObstructionType")
+public enum ApiObstructionType {
 
-  EXISTING_RELOCATION_CASE(ObstructionType.EXISTING_RELOCATION_CASE),
   EXISTING_CONFIDENTIALITY_CASE(ObstructionType.EXISTING_CONFIDENTIALITY_CASE),
+  EXISTING_RELOCATION_CASE(ObstructionType.EXISTING_RELOCATION_CASE),
   DIFFERENT_ADDRESS(ObstructionType.DIFFERENT_ADDRESS),
   MULTIPLE_PERSON_RECORDS_FOUND(ObstructionType.MULTIPLE_PERSON_RECORDS_FOUND),
   NO_PERSON_RECORD_FOUND(ObstructionType.NO_PERSON_RECORD_FOUND),
@@ -48,11 +47,11 @@ public enum ApiRelocationObstructionType {
 
   private ObstructionType type;
 
-  ApiRelocationObstructionType(ObstructionType obstructionType) {
+  ApiObstructionType(ObstructionType obstructionType) {
     this.type = obstructionType;
   }
 
-  public static ApiRelocationObstructionType valueOfType(final ObstructionType type) {
+  public static ApiObstructionType valueOfType(final ObstructionType type) {
     return Arrays.stream(values())
         .filter(apiType -> apiType.getType() == type)
         .findFirst()

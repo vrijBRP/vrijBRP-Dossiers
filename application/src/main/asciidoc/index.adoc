@@ -55,9 +55,13 @@ include::inter_relocation/add1/index.adoc[]
 include::inter_relocation/search1/index.adoc[]
 include::inter_reloc_consent/index.adoc[]
 
-=== Relocation info
+=== Relocation info (deprecated)
+
+WARNING: THIS OPERATION IS DEPRECATED.
+USE link:#_relatives[5.4: RELATIVES].
 
 Information that is usefull for the relocation process
+
 include::relocation_info/relatives1/index.adoc[]
 include::relocation_info/relatives2/index.adoc[]
 
@@ -108,3 +112,12 @@ include::dossier/document/get_document.adoc[]
 === Tasks
 
 include::task/search/index.adoc[]
+
+=== Relatives
+
+Information about the relatives.
+
+INFO: This is the replacement for link:#_relocation_info_deprecated[Relocation Info] which is now deprecated.
+
+include::relatives/relatives1/index.adoc[]
+include::relatives/relatives2/index.adoc[]

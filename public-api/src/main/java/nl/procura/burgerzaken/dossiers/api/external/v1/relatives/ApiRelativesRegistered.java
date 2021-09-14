@@ -17,36 +17,27 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives;
+package nl.procura.burgerzaken.dossiers.api.external.v1.relatives;
 
-import java.util.List;
-
-import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.ApiDeclarationType;
+import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiContactInformation;
+import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder
 @NoArgsConstructor
-@Schema(name = "RelocationRelativesInfoRelative")
-@Deprecated
-public class ApiRelative {
+@EqualsAndHashCode(callSuper = true)
+@Schema(name = "RelativesInfoRegistered")
+public class ApiRelativesRegistered extends ApiPerson {
 
-  @Schema(name = "person")
-  private ApiRelativePerson person;
-
-  @Schema(name = "relationshipType")
-  private ApiRelationshipType relationshipType;
-
-  @Schema(name = "declarationType")
-  private ApiDeclarationType declarationType;
-
-  @Schema(name = "suitableForRelocation")
-  private boolean suitableForRelocation;
-
-  @Schema(name = "obstructions")
-  private List<ApiRelocationObstructionType> obstructions;
+  @Override
+  @Schema(hidden = true)
+  public ApiContactInformation getContactInformation() {
+    return super.getContactInformation();
+  }
 }

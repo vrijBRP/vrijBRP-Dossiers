@@ -32,6 +32,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Schema(name = "RelocationRelativesInfoPerson")
 @EqualsAndHashCode(callSuper = true)
+@Deprecated
 public class ApiRelativePerson extends ApiPerson {
 
   @Override

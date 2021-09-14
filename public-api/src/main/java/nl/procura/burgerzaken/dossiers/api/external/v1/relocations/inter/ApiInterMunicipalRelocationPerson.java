@@ -26,8 +26,8 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiPerson;
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.ApiDeclarationType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
 import nl.procura.burgerzaken.dossiers.model.dossier.PersonRole;
+import nl.procura.burgerzaken.dossiers.model.relatives.DeclarationType;
 import nl.procura.burgerzaken.dossiers.model.relocations.Relocator;
-import nl.procura.burgerzaken.dossiers.model.relocations.info.DeclarationType;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
