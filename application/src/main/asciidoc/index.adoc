@@ -17,7 +17,7 @@ link:public/authentication.pdf[PDF]
 
 link:public/swagger-ui.html[Swagger UI]
 
-link:public/v3/api-docs/public-API[Open API 3 Specification]
+link:public/v3/api-docs/public-API-v1.0[Open API 3 Specification]
 
 === Postman
 
