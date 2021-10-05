@@ -78,6 +78,13 @@ include::birth/info/index1.adoc[]
 include::birth/info/index2.adoc[]
 include::birth/info/index3.adoc[]
 
+== Commitment
+
+include::commitment/add1/index.adoc[]
+include::commitment/update1/index.adoc[]
+include::commitment/search1/index.adoc[]
+include::commitment/cancel.adoc[]
+
 == Deaths
 
 === Death in municipality
@@ -89,13 +96,6 @@ include::death/death_in_mun/search/index.adoc[]
 
 include::death/discovered_body/add/index.adoc[]
 include::death/discovered_body/search/index.adoc[]
-
-=== Commitment
-
-include::commitment/add1/index.adoc[]
-include::commitment/update1/index.adoc[]
-include::commitment/search1/index.adoc[]
-include::commitment/cancel.adoc[]
 
 == Dossiers
 
