@@ -23,6 +23,7 @@ import static java.util.Optional.ofNullable;
 import static nl.procura.burgerzaken.dossiers.model.relatives.SuitableForType.NEW_RELOCATION_CASE;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base.ApiDeclarationType;
@@ -57,6 +58,7 @@ public class ApiRelativesResponse {
             .suitableForRelocation(r.getSuitableFor().stream().anyMatch(NEW_RELOCATION_CASE::matches))
             .obstructions(r.getObstructions().stream()
                 .map(ApiRelocationObstructionType::valueOfType)
+                .filter(Objects::nonNull)
                 .collect(Collectors.toList()))
             .build()).collect(Collectors.toList()))
         .build();

@@ -173,6 +173,16 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
   }
 
   @Test
+  public void canGetRegisteredWithConfidentialityChild() {
+    setupData(DECLARATOR_BSN, getRegisteredWithChild());
+    setupData(CHILD_BSN, getConfidentialityChild());
+
+    ApiRelativesResponse resp = getApiRelatives("");
+    ApiRelative child = getRelativeByBsn(resp, CHILD_BSN);
+    assertTrue(child.getObstructions().isEmpty());
+  }
+
+  @Test
   public void canGetRegisteredWithRNIChild() {
     setupData(DECLARATOR_BSN, getRegisteredWithChild());
     setupData(CHILD_BSN, getRNI());
@@ -343,6 +353,14 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
         .build();
   }
 
+  public GbaWsPersonList getConfidentialityChild() {
+    return new PL()
+        .person(CHILD_BSN, 18)
+        .address(398, "1234AA")
+        .confidentiality()
+        .build();
+  }
+
   public GbaWsPersonList getRNI() {
     return new PL()
         .person(CHILD_BSN, 18)
@@ -414,6 +432,14 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
           .addSet(1)
           .addRecord(1, GBARecStatus.CURRENT)
           .addElem(GBAElem.OMSCHR_REDEN_OPSCH_BIJHOUD, "O");
+      return this;
+    }
+
+    public PL confidentiality() {
+      builder.addCat(GBACat.INSCHR)
+          .addSet(1)
+          .addRecord(1, GBARecStatus.CURRENT)
+          .addElem(GBAElem.IND_GEHEIM, "7");
       return this;
     }
 

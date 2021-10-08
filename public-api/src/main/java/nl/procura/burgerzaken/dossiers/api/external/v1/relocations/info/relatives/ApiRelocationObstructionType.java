@@ -19,8 +19,6 @@
 
 package nl.procura.burgerzaken.dossiers.api.external.v1.relocations.info.relatives;
 
-import static java.lang.String.format;
-
 import java.util.Arrays;
 
 import nl.procura.burgerzaken.dossiers.model.relatives.ObstructionType;
@@ -34,7 +32,6 @@ import lombok.Getter;
 public enum ApiRelocationObstructionType {
 
   EXISTING_RELOCATION_CASE(ObstructionType.EXISTING_RELOCATION_CASE),
-  EXISTING_CONFIDENTIALITY_CASE(ObstructionType.EXISTING_CONFIDENTIALITY_CASE),
   DIFFERENT_ADDRESS(ObstructionType.DIFFERENT_ADDRESS),
   MULTIPLE_PERSON_RECORDS_FOUND(ObstructionType.MULTIPLE_PERSON_RECORDS_FOUND),
   NO_PERSON_RECORD_FOUND(ObstructionType.NO_PERSON_RECORD_FOUND),
@@ -43,8 +40,7 @@ public enum ApiRelocationObstructionType {
   PERSON_IS_EMIGRATED(ObstructionType.PERSON_IS_EMIGRATED),
   PERSON_RECORD_IS_BLOCKED(ObstructionType.PERSON_RECORD_IS_BLOCKED),
   PERSON_RECORD_IS_SUSPENDED(ObstructionType.PERSON_RECORD_IS_SUSPENDED),
-  PERSON_HAS_CURATOR(ObstructionType.PERSON_HAS_CURATOR),
-  PERSON_HAS_CONFIDENTIALITY(ObstructionType.PERSON_HAS_CONFIDENTIALITY);
+  PERSON_HAS_CURATOR(ObstructionType.PERSON_HAS_CURATOR);
 
   private ObstructionType type;
 
@@ -56,6 +52,6 @@ public enum ApiRelocationObstructionType {
     return Arrays.stream(values())
         .filter(apiType -> apiType.getType() == type)
         .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(format("Illegal value %s", type)));
+        .orElse(null);
   }
 }
