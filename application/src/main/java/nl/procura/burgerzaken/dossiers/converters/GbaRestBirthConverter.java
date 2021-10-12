@@ -27,6 +27,7 @@ import static nl.procura.burgerzaken.dossiers.model.base.PersistableEnum.valueOf
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.BIRTH;
 import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.*;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import nl.procura.burgerzaken.dossiers.model.base.GenderType;
@@ -49,120 +50,125 @@ import nl.procura.gba.web.rest.v2.model.zaken.verhuizing.GbaRestContactgegevens;
 @Component
 public class GbaRestBirthConverter implements GbaConverter<Birth> {
 
-    @Override
-    public DossierType dossierType() {
-        return BIRTH;
+  @Override
+  public DossierType dossierType() {
+    return BIRTH;
+  }
+
+  @Override
+  public GbaRestZaakType zaakType() {
+    return GbaRestZaakType.GEBOORTE;
+  }
+
+  @Override
+  public Birth toDomainModel(GbaRestZaak zaak) {
+    Dossier dossier = toDossier(zaak);
+    Birth birth = new Birth(dossier);
+    GbaRestGeboorte geb = zaak.getGeboorte();
+    //People
+    toPersonWithContactinfo(geb.getAangever(), DECLARANT).ifPresent(birth::setDeclarant);
+    toPersonWithContactinfo(geb.getMoeder(), MOTHER).ifPresent(birth::setMother);
+    geb.getKinderen().forEach(kind -> birth.addChild(toChild(kind)));
+
+    GbaRestGeboorteVerzoek verzoek = geb.getVerzoek();
+    if (verzoek != null) {
+      GbaRestPersoon vdm = verzoek.getVaderOfDuoMoeder();
+      if (vdm != null && vdm.getBsn() != null && vdm.getBsn() > 0) {
+        toPersonWithContactinfo(vdm, FATHER_DUO_MOTHER)
+            .ifPresent(birth::setFatherDuoMother);
+      }
+      if (StringUtils.isNotBlank(verzoek.getGeslachtsnaam())) {
+        birth.setNameSelection(new NameSelection(verzoek.getGeslachtsnaam(),
+            verzoek.getVoorvoegsel(),
+            valueOfCode(TitlePredicateType.values(), verzoek.getTitelPredikaat())));
+      }
     }
+    return birth;
+  }
 
-    @Override
-    public GbaRestZaakType zaakType() {
-        return GbaRestZaakType.GEBOORTE;
+  private static BirthChild toChild(GbaRestKind kind) {
+    BirthChild child = new BirthChild();
+    child.setFirstname(kind.getVoornamen());
+    child.setGender(toGenderType(kind.getGeslacht()));
+    child.setBirthDate(toLocalDate(kind.getGeboortedatum()));
+    child.setBirthTime(toLocalTime(kind.getGeboortetijd()));
+    return child;
+  }
+
+  public static GbaRestZaak toGbaRestZaak(Birth birth) {
+    Dossier dossier = birth.getDossier();
+
+    GbaRestGeboorte geboorte = new GbaRestGeboorte();
+    // People
+    birth.getDeclarant().ifPresent(p -> geboorte.setAangever(toGbaPersoon(p)));
+    birth.getMother().ifPresent(p -> geboorte.setMoeder(toGbaPersoon(p)));
+    geboorte.setKinderen(birth.getChildren().stream()
+        .map(GbaRestBirthConverter::toGbaKind)
+        .collect(toList()));
+
+    // "Requested bsn father/duomother / name selection
+    geboorte.setVerzoek(toGbaRestGeboorteVerzoek(birth));
+
+    GbaRestZaak zaak = new GbaRestZaak();
+    zaak.setAlgemeen(toGbaRestZaakAlgemeen(dossier, GbaRestZaakType.GEBOORTE));
+    zaak.setGeboorte(geboorte);
+    return zaak;
+  }
+
+  private static GbaRestGeboorteVerzoek toGbaRestGeboorteVerzoek(Birth birth) {
+    GbaRestGeboorteVerzoek verzoek = new GbaRestGeboorteVerzoek();
+    birth.getFatherDuoMother().ifPresent(p -> verzoek.setVaderOfDuoMoeder(toGbaPersoon(p)));
+    verzoek.setGeslachtsnaam(birth.getNameSelection().getLastName());
+    verzoek.setVoorvoegsel(birth.getNameSelection().getPrefix());
+    verzoek.setTitelPredikaat(ofNullable(birth.getNameSelection().getTitle())
+        .map(TitlePredicateType::getCode)
+        .orElse(null));
+    return verzoek;
+  }
+
+  private static GbaRestKind toGbaKind(BirthChild child) {
+    GbaRestKind kind = new GbaRestKind();
+    kind.setVoornamen(child.getFirstname());
+    kind.setGeslacht(toGbaRestGeslacht(child.getGender()));
+    kind.setGeboortedatum(toIntegerDate(child.getBirthDate()));
+    kind.setGeboortetijd(toIntegerTime(child.getBirthTime()));
+    return kind;
+  }
+
+  private static GbaRestGeslacht toGbaRestGeslacht(GenderType genderType) {
+    switch (genderType) {
+      case MAN:
+        return GbaRestGeslacht.MAN;
+      case WOMAN:
+        return GbaRestGeslacht.VROUW;
+      case UNKNOWN:
+        return GbaRestGeslacht.ONBEKEND;
+      default:
+        return null;
     }
+  }
 
-    @Override
-    public Birth toDomainModel(GbaRestZaak zaak) {
-        Dossier dossier = toDossier(zaak);
-        Birth birth = new Birth(dossier);
-        GbaRestGeboorte geb = zaak.getGeboorte();
-        //People
-        toPersonWithContactinfo(geb.getAangever(), DECLARANT).ifPresent(birth::setDeclarant);
-        toPersonWithContactinfo(geb.getMoeder(), MOTHER).ifPresent(birth::setMother);
-        geb.getKinderen().forEach(kind -> birth.addChild(toChild(kind)));
-
-        GbaRestGeboorteVerzoek verzoek = geb.getVerzoek();
-        if (verzoek != null) {
-          toPersonWithContactinfo(verzoek.getVaderOfDuoMoeder(), FATHER_DUO_MOTHER)
-                    .ifPresent(birth::setFatherDuoMother);
-            birth.setNameSelection(new NameSelection(verzoek.getGeslachtsnaam(),
-                    verzoek.getVoorvoegsel(),
-                    valueOfCode(TitlePredicateType.values(), verzoek.getTitelPredikaat())));
-        }
-        return birth;
+  private static GenderType toGenderType(GbaRestGeslacht restGeslacht) {
+    switch (restGeslacht) {
+      case MAN:
+        return GenderType.MAN;
+      case VROUW:
+        return GenderType.WOMAN;
+      case ONBEKEND:
+        return GenderType.UNKNOWN;
+      default:
+        return null;
     }
+  }
 
-    private static BirthChild toChild(GbaRestKind kind) {
-        BirthChild child = new BirthChild();
-        child.setFirstname(kind.getVoornamen());
-        child.setGender(toGenderType(kind.getGeslacht()));
-        child.setBirthDate(toLocalDate(kind.getGeboortedatum()));
-        child.setBirthTime(toLocalTime(kind.getGeboortetijd()));
-        return child;
-    }
-
-    public static GbaRestZaak toGbaRestZaak(Birth birth) {
-        Dossier dossier = birth.getDossier();
-
-        GbaRestGeboorte geboorte = new GbaRestGeboorte();
-        // People
-        birth.getDeclarant().ifPresent(p -> geboorte.setAangever(toGbaPersoon(p)));
-        birth.getMother().ifPresent(p -> geboorte.setMoeder(toGbaPersoon(p)));
-        geboorte.setKinderen(birth.getChildren().stream()
-                .map(GbaRestBirthConverter::toGbaKind)
-                .collect(toList()));
-
-        // "Requested bsn father/duomother / name selection
-        geboorte.setVerzoek(toGbaRestGeboorteVerzoek(birth));
-
-        GbaRestZaak zaak = new GbaRestZaak();
-        zaak.setAlgemeen(toGbaRestZaakAlgemeen(dossier, GbaRestZaakType.GEBOORTE));
-        zaak.setGeboorte(geboorte);
-        return zaak;
-    }
-
-    private static GbaRestGeboorteVerzoek toGbaRestGeboorteVerzoek(Birth birth) {
-        GbaRestGeboorteVerzoek verzoek = new GbaRestGeboorteVerzoek();
-        birth.getFatherDuoMother().ifPresent(p -> verzoek.setVaderOfDuoMoeder(toGbaPersoon(p)));
-        verzoek.setGeslachtsnaam(birth.getNameSelection().getLastName());
-        verzoek.setVoorvoegsel(birth.getNameSelection().getPrefix());
-        verzoek.setTitelPredikaat(ofNullable(birth.getNameSelection().getTitle())
-                .map(TitlePredicateType::getCode)
-                .orElse(null));
-        return verzoek;
-    }
-
-    private static GbaRestKind toGbaKind(BirthChild child) {
-        GbaRestKind kind = new GbaRestKind();
-        kind.setVoornamen(child.getFirstname());
-        kind.setGeslacht(toGbaRestGeslacht(child.getGender()));
-        kind.setGeboortedatum(toIntegerDate(child.getBirthDate()));
-        kind.setGeboortetijd(toIntegerTime(child.getBirthTime()));
-        return kind;
-    }
-
-    private static GbaRestGeslacht toGbaRestGeslacht(GenderType genderType) {
-        switch (genderType) {
-            case MAN:
-                return GbaRestGeslacht.MAN;
-            case WOMAN:
-                return GbaRestGeslacht.VROUW;
-            case UNKNOWN:
-                return GbaRestGeslacht.ONBEKEND;
-            default:
-                return null;
-        }
-    }
-
-    private static GenderType toGenderType(GbaRestGeslacht restGeslacht) {
-        switch (restGeslacht) {
-            case MAN:
-                return GenderType.MAN;
-            case VROUW:
-                return GenderType.WOMAN;
-            case ONBEKEND:
-                return GenderType.UNKNOWN;
-            default:
-                return null;
-        }
-    }
-
-    private static GbaRestPersoon toGbaPersoon(Person person) {
-        GbaRestPersoon aangever = new GbaRestPersoon();
-        aangever.setBsn(person.getBsn().toLong());
-        GbaRestContactgegevens contactgegevens = new GbaRestContactgegevens();
-        contactgegevens.setEmail(person.getEmail());
-        contactgegevens.setTelefoonThuis(person.getPhoneNumber());
-        aangever.setContactgegevens(contactgegevens);
-        return aangever;
-    }
+  private static GbaRestPersoon toGbaPersoon(Person person) {
+    GbaRestPersoon aangever = new GbaRestPersoon();
+    aangever.setBsn(person.getBsn().toLong());
+    GbaRestContactgegevens contactgegevens = new GbaRestContactgegevens();
+    contactgegevens.setEmail(person.getEmail());
+    contactgegevens.setTelefoonThuis(person.getPhoneNumber());
+    aangever.setContactgegevens(contactgegevens);
+    return aangever;
+  }
 
 }

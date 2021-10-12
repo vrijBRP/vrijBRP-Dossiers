@@ -19,6 +19,7 @@
 
 package nl.procura.burgerzaken.dossiers.api.external.v1.birth;
 
+import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.toList;
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.BIRTH;
 
@@ -45,7 +46,7 @@ import lombok.experimental.SuperBuilder;
 public class ApiBirth {
 
   @Valid
-  @Schema(required = true, name = "dossier")
+  @Schema(name = "dossier", required = true)
   @NotNull(message = "dossier is mandatory")
   private ApiDossier dossier;
 
@@ -98,7 +99,7 @@ public class ApiBirth {
     Birth birth = new Birth(newDossier);
     birth.setDeclarant(declarant.toPerson());
     birth.setMother(mother.toPerson());
-    birth.setFatherDuoMother(fatherDuoMother.toPerson());
+    ofNullable(fatherDuoMother).ifPresent(fatherDuoMother -> birth.setFatherDuoMother(fatherDuoMother.toPerson()));
     birth.setNameSelection(nameSelection.toNameSelection());
     children.forEach(r -> birth.addChild(r.toChild()));
     return birth;
