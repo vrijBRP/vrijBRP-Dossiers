@@ -25,6 +25,7 @@ import static nl.procura.burgerzaken.dossiers.converters.GbaRestZaakStatusConver
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -76,6 +77,7 @@ public class RemoteDossierService implements DossierService {
         .getZaken()
         .stream()
         .map(dossierConverter::toDossier)
+        .filter(Objects::nonNull)
         .collect(Collectors.toList()));
   }
 

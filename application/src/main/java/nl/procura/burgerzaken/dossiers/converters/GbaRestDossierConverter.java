@@ -88,7 +88,8 @@ public class GbaRestDossierConverter {
   }
 
   public Dossier toDossier(GbaRestZaak zaak) {
-    return toDossier(zaak, toDossierType(zaak.getAlgemeen().getType()));
+    DossierType dossierType = toDossierType(zaak.getAlgemeen().getType());
+    return dossierType != null ? toDossier(zaak, dossierType) : null;
   }
 
   public static Dossier toDossier(GbaRestZaak zaak, DossierType dossierType) {
@@ -118,6 +119,6 @@ public class GbaRestDossierConverter {
         .filter(gbaConverter -> gbaConverter.zaakType() == type)
         .map(GbaConverter::dossierType)
         .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(type.getDescr() + " not supported"));
+        .orElse(null);
   }
 }
