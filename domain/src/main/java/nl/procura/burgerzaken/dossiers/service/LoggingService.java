@@ -21,6 +21,9 @@ package nl.procura.burgerzaken.dossiers.service;
 
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import nl.procura.burgerzaken.dossiers.model.error.ErrorLog;
 import nl.procura.burgerzaken.dossiers.model.request.RequestLog;
 import nl.procura.burgerzaken.dossiers.model.request.RequestVariables;
@@ -33,6 +36,12 @@ public class LoggingService {
 
   private static ThreadLocal<RequestVariables> requestVariables = new ThreadLocal<>();
 
+  private ObjectMapper objectMapper;
+
+  public LoggingService(ObjectMapper objectMapper) {
+    this.objectMapper = objectMapper;
+  }
+
   public ThreadLocal<RequestVariables> getRequestVariables() {
     if (requestVariables.get() == null) {
       requestVariables.set(new RequestVariables());
@@ -41,7 +50,30 @@ public class LoggingService {
   }
 
   public void logRequest(RequestLog logMessage) {
-    log.info(logMessage.toString());
+    try {
+      String request = logMessage.getRequest();
+      String response = logMessage.getResponse();
+      logMessage.setRequest(null);
+      logMessage.setResponse(null);
+
+      StringBuilder info = new StringBuilder();
+      info.append("\n\nNEW MESSAGE\n\n");
+      info.append(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(logMessage));
+      info.append("\nREQUEST >>>\n\n");
+      info.append(prettify(request));
+      info.append("\nRESPONSE <<<\n\n");
+      info.append(prettify(response));
+      info.append("\n");
+
+      log.info(info.toString());
+    } catch (JsonProcessingException e) {
+      log.info(logMessage.toString());
+    }
+  }
+
+  private String prettify(String request) throws JsonProcessingException {
+    return objectMapper.writerWithDefaultPrettyPrinter()
+        .writeValueAsString(objectMapper.readValue(request, Object.class));
   }
 
   public void logException(ErrorLog error, Exception exception) {
