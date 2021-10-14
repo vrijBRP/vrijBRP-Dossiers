@@ -91,12 +91,12 @@ class RelocationInfoResourceV1Test extends BaseResourceTest {
 
     assertEquals(ApiRelationshipType.REGISTERED, registered.getRelationshipType());
     assertEquals(ApiDeclarationType.REGISTERED, registered.getDeclarationType());
-    assertEquals(EXISTING_RELOCATION_CASE, partner.getObstructions().get(0));
+    assertEquals(EXISTING_RELOCATION, partner.getObstructions().get(0));
     assertEquals(false, registered.isSuitableForRelocation());
 
     assertEquals(ApiRelationshipType.PARTNER, partner.getRelationshipType());
     assertEquals(ApiDeclarationType.PARTNER, partner.getDeclarationType());
-    assertEquals(EXISTING_RELOCATION_CASE, partner.getObstructions().get(0));
+    assertEquals(EXISTING_RELOCATION, partner.getObstructions().get(0));
     assertFalse(registered.isSuitableForRelocation());
 
     assertEquals(CHILD, minorChild.getRelationshipType());
