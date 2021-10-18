@@ -19,6 +19,7 @@
 
 package nl.procura.burgerzaken.dossiers.service;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -57,13 +58,9 @@ public class LoggingService {
       logMessage.setResponse(null);
 
       StringBuilder info = new StringBuilder();
-      info.append("\n\nNEW MESSAGE\n\n");
-      info.append(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(logMessage));
-      info.append("\nREQUEST >>>\n\n");
-      info.append(prettify(request));
-      info.append("\nRESPONSE <<<\n\n");
-      info.append(prettify(response));
-      info.append("\n");
+      logMessage(logMessage, info);
+      logRequest(request, info);
+      logResponse(response, info);
 
       log.info(info.toString());
     } catch (JsonProcessingException e) {
@@ -71,9 +68,39 @@ public class LoggingService {
     }
   }
 
+  private void logMessage(RequestLog logMessage, StringBuilder info) throws JsonProcessingException {
+    info.append("\n\n");
+    info.append("NEW MESSAGE\n");
+    info.append(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(logMessage));
+    info.append("\n\n");
+  }
+
+  private void logRequest(String request, StringBuilder info) throws JsonProcessingException {
+    if (StringUtils.isNotBlank(request)) {
+      info.append("REQUEST\n");
+      info.append(prettify(request));
+    } else {
+      info.append("EMPTY REQUEST");
+    }
+    info.append("\n\n");
+  }
+
+  private void logResponse(String response, StringBuilder info) throws JsonProcessingException {
+    if (StringUtils.isNotBlank(response)) {
+      info.append("RESPONSE\n");
+      info.append(prettify(response));
+    } else {
+      info.append("EMPTY RESPONSE");
+    }
+    info.append("\n\n");
+  }
+
   private String prettify(String request) throws JsonProcessingException {
-    return objectMapper.writerWithDefaultPrettyPrinter()
-        .writeValueAsString(objectMapper.readValue(request, Object.class));
+    if (StringUtils.isNotBlank(request)) {
+      return objectMapper.writerWithDefaultPrettyPrinter()
+          .writeValueAsString(objectMapper.readValue(request, Object.class));
+    }
+    return "";
   }
 
   public void logException(ErrorLog error, Exception exception) {
