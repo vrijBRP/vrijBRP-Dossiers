@@ -40,6 +40,7 @@ import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierSearchRequest;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierService;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakZoekenVraag;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakZoekGegeven;
@@ -124,7 +125,12 @@ public class RemoteDossierService implements DossierService {
       if (request.getBsns().size() > 1) {
         throw new IllegalArgumentException("Only one BSN is supported, not multiple.");
       }
-      vraag.setPersoonId(String.valueOf(request.getBsns().get(0)));
+      Bsn bsn = new Bsn(String.valueOf(request.getBsns().get(0)));
+      if (bsn.isCorrect()) {
+        vraag.setPersoonId(bsn.toString());
+      } else {
+        throw new IllegalArgumentException("Incorrecte BSN ingegeven.");
+      }
     }
 
     vraag.setIngangsDatum(toGbaRestPeriode(request.getStartDatePeriod()).orElse(null));
