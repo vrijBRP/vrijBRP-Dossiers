@@ -19,6 +19,8 @@
 
 package nl.procura.burgerzaken.dossiers.api.external.v1.deaths;
 
+import static java.util.Optional.ofNullable;
+
 import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
@@ -76,7 +78,7 @@ public class ApiFuneralServices {
         .setTime(time)
         .setOutsideBenelux(outsideBenelux)
         .setCauseOfDeathType(causeOfDeathType)
-        .setCountryOfDestination(countryOfDestination.toTableValue())
+        .setCountryOfDestination(ofNullable(countryOfDestination).map(ApiCountry::toTableValue).orElse(null))
         .setPlaceOfDestination(placeOfDestination)
         .setVia(via)
         .setTransportation(transportation);
