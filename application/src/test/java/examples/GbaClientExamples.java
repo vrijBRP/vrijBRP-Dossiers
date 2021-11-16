@@ -46,20 +46,20 @@ public class GbaClientExamples {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(GbaClientExamples.class);
 
-  private static final String BASE_URL        = "http://localhost:8080/personen/rest";
+  private static final String BASE_URL        = "http://localhost:8081/personen/rest";
   private static final String USERNAME        = "1";
   private static final String PASSWORD        = "123456";
   private static final int    TIMEOUT_SECONDS = 5;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws JsonProcessingException {
     getZaakByZaakId();
     //    addZaak();
   }
 
-  private static void getZaakByZaakId() {
+  private static void getZaakByZaakId() throws JsonProcessingException {
     GbaClient client = getGbaClient();
-    GbaRestAntwoord<GbaRestZaak> zaakByZaakId = client.zaken().getZaakByZaakId("0040-nl1-zj0");
-    System.out.println(zaakByZaakId.getInhoud().getAlgemeen().getZaakId());
+    GbaRestAntwoord<GbaRestZaak> zaakByZaakId = client.zaken().getZaakByZaakId("0040-gp3-hca");
+    show(zaakByZaakId.getInhoud());
   }
 
   private static void addZaak() throws JsonProcessingException {

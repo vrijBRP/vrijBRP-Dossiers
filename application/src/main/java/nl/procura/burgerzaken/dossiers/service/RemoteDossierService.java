@@ -36,7 +36,7 @@ import org.springframework.stereotype.Service;
 import nl.procura.burgerzaken.dossiers.components.GbaClient;
 import nl.procura.burgerzaken.dossiers.converters.GbaRestDossierConverter;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
-import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus;
+import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatusType;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierSearchRequest;
 import nl.procura.burgerzaken.dossiers.service.dossier.DossierService;
@@ -106,7 +106,7 @@ public class RemoteDossierService implements DossierService {
   private GbaRestZaakZoekenVraag toGbaRestZaakZoekenVraag(DossierSearchRequest request) {
     GbaRestZaakZoekenVraag vraag = new GbaRestZaakZoekenVraag();
     vraag.setZaakIds(request.getDossierIds());
-    vraag.setZoekGegevens(Collections.singletonList(GbaRestZaakZoekGegeven.ALGEMENE_ZAAKGEGEVENS));
+    vraag.setZoekGegevens(Collections.singletonList(GbaRestZaakZoekGegeven.SPECIFIEKE_ZAAKGEGEVENS));
 
     vraag.setZaakTypes(Optional.ofNullable(request.getTypes())
         .map(this::toGbaZaakTypes)
@@ -116,7 +116,7 @@ public class RemoteDossierService implements DossierService {
       vraag.setZaakStatussen(request
           .getStatusses()
           .stream()
-          .map(s -> toGbaStatus(DossierStatus.valueOfCode(s)))
+          .map(s -> toGbaStatus(DossierStatusType.valueOfCode(s)))
           .collect(Collectors.toUnmodifiableList()));
     }
 

@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
 import nl.procura.burgerzaken.dossiers.model.birth.Acknowledgement;
 import nl.procura.burgerzaken.dossiers.model.birth.BirthAcknowledgementType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
-import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus;
+import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatusType;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.model.error.ApiErrorType;
 import nl.procura.burgerzaken.dossiers.model.error.ApiException;
@@ -60,7 +60,7 @@ public class AcknowledgementService {
     DossierSearchRequest request = new DossierSearchRequest();
     request.setBsns(singletonList(bsn));
     request.setTypes(singletonList(DossierType.ACKNOWLEDGEMENT.getCode()));
-    request.setStatusses(asList(DossierStatus.CREATED.getCode(), DossierStatus.PROCESSED.getCode()));
+    request.setStatusses(asList(DossierStatusType.CREATED.getCode(), DossierStatusType.PROCESSED.getCode()));
     request.setEntryDateTimePeriod(
         new LocalDateTimePeriod(LocalDateTime.now().minus(1, ChronoUnit.YEARS), LocalDateTime.now()));
     Page<Dossier> dossiers = dossierService.find(request);

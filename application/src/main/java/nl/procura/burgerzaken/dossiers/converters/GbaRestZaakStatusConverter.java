@@ -21,7 +21,12 @@ package nl.procura.burgerzaken.dossiers.converters;
 
 import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakStatusType.INCOMPLEET;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus;
+import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatusType;
+import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakStatus;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakStatusType;
 
 public final class GbaRestZaakStatusConverter {
@@ -29,31 +34,40 @@ public final class GbaRestZaakStatusConverter {
   private GbaRestZaakStatusConverter() {
   }
 
-  public static DossierStatus toStatus(GbaRestZaakStatusType status) {
+  public static DossierStatus toStatus(List<GbaRestZaakStatus> statusList) {
+    if (statusList == null || statusList.isEmpty()) {
+      return new DossierStatus(DossierStatusType.UNKNOWN, LocalDateTime.now());
+    }
+    GbaRestZaakStatus status = statusList.get(0);
+    LocalDateTime dateTime = GbaRestConverter.toLocalDateTime(status.getInvoerDatum(), status.getInvoerTijd());
+    return new DossierStatus(toStatusType(status.getType()), dateTime);
+  }
+
+  public static DossierStatusType toStatusType(GbaRestZaakStatusType status) {
     switch (status) {
       case INCOMPLEET:
-        return DossierStatus.INCOMPLETE;
+        return DossierStatusType.INCOMPLETE;
       case WACHTKAMER:
-        return DossierStatus.ON_HOLD;
+        return DossierStatusType.ON_HOLD;
       case OPGENOMEN:
-        return DossierStatus.CREATED;
+        return DossierStatusType.CREATED;
       case GEWEIGERD:
-        return DossierStatus.REFUSED;
+        return DossierStatusType.REFUSED;
       case VERWERKT:
       case VERWERKT_IN_GBA:
-        return DossierStatus.PROCESSED;
+        return DossierStatusType.PROCESSED;
       case GEANNULEERD:
-        return DossierStatus.CANCELLED;
+        return DossierStatusType.CANCELLED;
       case GEPREVALIDEERD:
       case DOCUMENT_ONTVANGEN:
       case INBEHANDELING:
       case ONBEKEND:
       default:
-        return DossierStatus.PROCESSING;
+        return DossierStatusType.PROCESSING;
     }
   }
 
-  public static GbaRestZaakStatusType toGbaStatus(DossierStatus status) {
+  public static GbaRestZaakStatusType toGbaStatus(DossierStatusType status) {
     switch (status) {
       case CREATED:
         return GbaRestZaakStatusType.OPGENOMEN;

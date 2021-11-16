@@ -21,7 +21,7 @@ package nl.procura.burgerzaken.dossiers.service;
 
 import static java.util.Collections.singletonList;
 import static nl.procura.burgerzaken.dossiers.components.BrpDate.ADJUSTER.TO_START_PERIOD;
-import static nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus.*;
+import static nl.procura.burgerzaken.dossiers.model.dossier.DossierStatusType.*;
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.*;
 import static nl.procura.burgerzaken.dossiers.model.relatives.ObstructionType.*;
 import static nl.procura.burgerzaken.dossiers.model.relatives.RelationshipType.CHILD;

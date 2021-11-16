@@ -23,7 +23,6 @@ import static java.util.stream.Collectors.toSet;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Set;
 
 import javax.validation.constraints.NotNull;
@@ -49,6 +48,9 @@ public class ApiDossier {
 
   @Schema(description = "The ID of the dossier", example = "dossier-1234")
   private String dossierId;
+
+  @Schema(description = "Description")
+  private String description;
 
   @Schema(description = "The reference IDs provided by the client")
   private Set<ApiReferenceId> referenceIds;
@@ -77,11 +79,14 @@ public class ApiDossier {
             .code(String.valueOf(dossierType.getCode()))
             .description(dossierType.getDescription())
             .build())
+        .description(dossier.getDescription())
         .startDate(dossier.getDateStart())
         .entryDateTime(dossier.getDateAdded())
         .status(ApiDossierStatus.builder()
-            .code(String.valueOf(status.getCode()))
-            .description(status.getDescription())
+            .code(String.valueOf(status.getType().getCode()))
+            .description(status.getType().getDescription())
+            .entryDateTime(status.getDateTime())
+            .endStatus(status.getType().isEndStatus())
             .build());
     if (!dossier.getReferences().isEmpty()) {
       builder.referenceIds(dossier.getReferences().stream()

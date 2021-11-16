@@ -19,36 +19,13 @@
 
 package nl.procura.burgerzaken.dossiers.model.dossier;
 
-import static java.lang.String.format;
+import java.time.LocalDateTime;
 
-import java.util.Arrays;
+import lombok.Value;
 
-import lombok.Getter;
+@Value
+public class DossierStatus {
 
-@Getter
-public enum DossierStatus {
-
-  CREATED("created", "Created"),
-  PROCESSING("processing", "Processing"),
-  ON_HOLD("on_hold", "On hold"),
-  PROCESSED("processed", "Processed"),
-  CANCELLED("cancelled", "Cancelled"),
-  DELETED("deleted", "Deleted"),
-  REFUSED("refused", "Refused"),
-  INCOMPLETE("incomplete", "Incomplete");
-
-  private final String code;
-  private final String description;
-
-  DossierStatus(String code, String description) {
-    this.code = code;
-    this.description = description;
-  }
-
-  public static DossierStatus valueOfCode(String code) {
-    return Arrays.stream(values())
-        .filter(v -> v.getCode().equals(code))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException(format("Illegal dossier status with code %s", code)));
-  }
+  DossierStatusType type;
+  LocalDateTime     dateTime;
 }

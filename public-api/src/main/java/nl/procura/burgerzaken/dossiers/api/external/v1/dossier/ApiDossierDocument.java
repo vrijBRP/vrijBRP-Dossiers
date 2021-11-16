@@ -19,9 +19,14 @@
 
 package nl.procura.burgerzaken.dossiers.api.external.v1.dossier;
 
+import java.time.LocalDateTime;
+
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierDocument;
+import nl.procura.burgerzaken.dossiers.util.Constants;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -44,6 +49,11 @@ public class ApiDossierDocument {
   @Schema(required = true, description = "Filename", example = "file.pdf")
   private String filename;
 
+  @Schema(description = "Date / time the status is added",
+      example = "2020-01-01T00:00:00")
+  @JsonFormat(pattern = Constants.Formats.DATE_TIME_FORMAT)
+  private LocalDateTime entryDateTime;
+
   @NotEmpty(message = "content must not be empty")
   @Schema(required = true, description = "Base 64 encoded content")
   private byte[] content;
@@ -51,6 +61,7 @@ public class ApiDossierDocument {
   public static ApiDossierDocument of(DossierDocument document) {
     return ApiDossierDocument.builder()
         .id(document.getId())
+        .entryDateTime(document.getDateTime())
         .title(document.getTitle())
         .filename(document.getFilename())
         .content(document.getContent())
@@ -58,6 +69,6 @@ public class ApiDossierDocument {
   }
 
   public DossierDocument toDossierDocument() {
-    return new DossierDocument(id, title, filename, content);
+    return new DossierDocument(id, title, filename, entryDateTime, content);
   }
 }

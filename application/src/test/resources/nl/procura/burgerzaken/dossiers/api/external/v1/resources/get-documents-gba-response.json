@@ -7,8 +7,8 @@
         "bestandsnaam": "upload-test-7991873931906390199.txt",
         "vertrouwelijkheid": "ONBEKEND",
         "pad": "\\temp\\upload-test-7991873931906390199.txt",
-        "invoerDatum": -1,
-        "invoerTijd": -1,
+        "invoerDatum": 20210115,
+        "invoerTijd": 101112,
         "invoerGebruiker": "Testgebruiker"
       },
       {
@@ -17,8 +17,8 @@
         "bestandsnaam": "upload-test-7991873931906390192.txt",
         "vertrouwelijkheid": "ONBEKEND",
         "pad": "\\temp\\upload-test-7991873931906390192.txt",
-        "invoerDatum": -1,
-        "invoerTijd": -1,
+        "invoerDatum": 20210116,
+        "invoerTijd": 131415,
         "invoerGebruiker": "Testgebruiker"
       }
     ]

@@ -47,7 +47,7 @@ import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiRequestPaging;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.ApiDossierDocument;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.search.ApiSearchRequest;
 import nl.procura.burgerzaken.dossiers.api.external.v1.dossier.search.ApiSearchResponse;
-import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus;
+import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatusType;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
 
 import okhttp3.mockwebserver.MockResponse;
@@ -73,7 +73,7 @@ class DossierResourceV1Test extends BaseResourceTest {
         .paging(ApiRequestPaging.defaultPaging())
         .bsns(Arrays.asList(BsnUtils.toBsnString(TEST_BSN_3)))
         .dossierIds(Arrays.asList("zaak-1234"))
-        .statusses(Arrays.asList(DossierStatus.INCOMPLETE.getCode()))
+        .statusses(Arrays.asList(DossierStatusType.INCOMPLETE.getCode()))
         .build();
 
     ApiSearchResponse response = newMockTest()
@@ -134,7 +134,9 @@ class DossierResourceV1Test extends BaseResourceTest {
     // then 2 documents must be returned in same order as front-desk response
     assertEquals(2, documents.size());
     assertEquals("dXBsb2FkLXRlc3QtMjY0MzQwNTU5NjU0NzU5NDA1", documents.get(0).getId());
+    assertEquals("2021-01-15T10:11:12", documents.get(0).getEntryDateTime().toString());
     assertEquals("dXBsb2FkLXRlc3QtMjY0MzQwNTU5NjU0NzU5NDA2", documents.get(1).getId());
+    assertEquals("2021-01-16T13:14:15", documents.get(1).getEntryDateTime().toString());
   }
 
   @Test

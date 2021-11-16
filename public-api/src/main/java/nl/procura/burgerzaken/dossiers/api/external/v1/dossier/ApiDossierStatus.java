@@ -19,6 +19,12 @@
 
 package nl.procura.burgerzaken.dossiers.api.external.v1.dossier;
 
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import nl.procura.burgerzaken.dossiers.util.Constants;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,4 +41,12 @@ public class ApiDossierStatus {
 
   @Schema(example = "Created")
   private String description;
+
+  @Schema(description = "Date / time the status is added",
+      example = "2020-01-01T00:00:00")
+  @JsonFormat(pattern = Constants.Formats.DATE_TIME_FORMAT)
+  private LocalDateTime entryDateTime;
+
+  @Schema(description = "Returns true if this is an 'end status'", example = "false")
+  private Boolean endStatus = false;
 }

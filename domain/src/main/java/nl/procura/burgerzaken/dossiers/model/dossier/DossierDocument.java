@@ -19,13 +19,16 @@
 
 package nl.procura.burgerzaken.dossiers.model.dossier;
 
+import java.time.LocalDateTime;
+
 import lombok.Value;
 
 @Value
 public class DossierDocument {
 
-  private final String id;
-  private final String title;
-  private final String filename;
-  private final byte[] content;
+  String        id;
+  String        title;
+  String        filename;
+  LocalDateTime dateTime;
+  byte[]        content;
 }

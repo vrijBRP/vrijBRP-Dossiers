@@ -37,6 +37,7 @@ public class Dossier {
   private DossierType   dossierType;
   private LocalDateTime dateAdded;
   private LocalDate     dateStart;
+  private String        description;
   private DossierStatus status;
 
   public Set<DossierReference> references = new LinkedHashSet<>();
@@ -51,7 +52,7 @@ public class Dossier {
     dateAdded = LocalDateTime.now();
     dateStart = LocalDate.now();
     caseNumber = "";
-    status = DossierStatus.CREATED;
+    status = new DossierStatus(DossierStatusType.CREATED, LocalDateTime.now());
   }
 
   public Dossier addPerson(Person person) {

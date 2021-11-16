@@ -24,7 +24,19 @@
             "omschrijving": "Frits Janssen"
           },
           "ids": null,
-          "statussen": null,
+          "statussen": [
+            {
+              "volgNr": 1,
+              "type": "INCOMPLEET",
+              "opmerking": "Initiële status.",
+              "invoerDatum": 20210920,
+              "invoerTijd": 154950,
+              "invoerGebruiker": {
+                "waarde": "202",
+                "omschrijving": "Frits Janssen"
+              }
+            }
+          ],
           "extraAttributen": null,
           "gekoppeldeZaken": null
         },

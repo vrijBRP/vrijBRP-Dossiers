@@ -20,8 +20,8 @@
 package nl.procura.burgerzaken.dossiers.service.task;
 
 import static java.util.Collections.singletonList;
-import static nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus.INCOMPLETE;
-import static nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus.ON_HOLD;
+import static nl.procura.burgerzaken.dossiers.model.dossier.DossierStatusType.INCOMPLETE;
+import static nl.procura.burgerzaken.dossiers.model.dossier.DossierStatusType.ON_HOLD;
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.INTER_MUNICIPAL_RELOCATION;
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.INTRA_MUNICIPAL_RELOCATION;
 

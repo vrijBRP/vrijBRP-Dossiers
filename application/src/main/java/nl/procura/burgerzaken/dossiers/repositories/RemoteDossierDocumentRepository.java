@@ -27,6 +27,7 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.stereotype.Service;
 
 import nl.procura.burgerzaken.dossiers.components.GbaClient;
+import nl.procura.burgerzaken.dossiers.converters.GbaRestConverter;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierDocument;
 import nl.procura.gba.web.rest.v2.model.base.GbaRestAntwoord;
 import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakDocumentToevoegenVraag;
@@ -74,7 +75,11 @@ public class RemoteDossierDocumentRepository implements DossierDocumentRepositor
   }
 
   private static DossierDocument toDossierDocument(GbaRestZaakDocument restZaakDocument) {
-    return new DossierDocument(restZaakDocument.getId(), restZaakDocument.getTitel(),
-        restZaakDocument.getBestandsnaam(), null);
+    return new DossierDocument(restZaakDocument.getId(),
+        restZaakDocument.getTitel(),
+        restZaakDocument.getBestandsnaam(),
+        GbaRestConverter.toLocalDateTime(restZaakDocument.getInvoerDatum(),
+            restZaakDocument.getInvoerTijd()),
+        null);
   }
 }

@@ -22,18 +22,18 @@ package nl.procura.burgerzaken.dossiers.repositories;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatus;
+import nl.procura.burgerzaken.dossiers.model.dossier.DossierStatusType;
 
 @Converter(autoApply = true)
-public class DossierStatusConverter implements AttributeConverter<DossierStatus, String> {
+public class DossierStatusConverter implements AttributeConverter<DossierStatusType, String> {
 
   @Override
-  public String convertToDatabaseColumn(DossierStatus attribute) {
+  public String convertToDatabaseColumn(DossierStatusType attribute) {
     return attribute.getCode();
   }
 
   @Override
-  public DossierStatus convertToEntityAttribute(String dbData) {
-    return DossierStatus.valueOfCode(dbData);
+  public DossierStatusType convertToEntityAttribute(String dbData) {
+    return DossierStatusType.valueOfCode(dbData);
   }
 }

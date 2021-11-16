@@ -77,7 +77,7 @@ public class GbaRestDossierConverter {
     algemeen.setDatumInvoer(toIntegerDate(dossier.getDateAdded()));
     algemeen.setTijdInvoer(toIntegerTime(dossier.getDateAdded()));
     algemeen.setDatumIngang(toIntegerDate(dossier.getDateStart()));
-    algemeen.setStatus(toGbaStatus(dossier.getStatus()));
+    algemeen.setStatus(toGbaStatus(dossier.getStatus().getType()));
     Set<DossierReference> references = dossier.getReferences();
     if (!references.isEmpty()) {
       algemeen.setIds(references.stream()
@@ -96,10 +96,11 @@ public class GbaRestDossierConverter {
     GbaRestZaakAlgemeen algemeen = zaak.getAlgemeen();
     Dossier dossier = new Dossier();
     dossier.setCaseNumber(algemeen.getZaakId());
+    dossier.setDescription(algemeen.getOmschrijving());
     dossier.setDossierType(dossierType);
     dossier.setDateAdded(toLocalDateTime(algemeen.getDatumInvoer(), algemeen.getTijdInvoer()));
     dossier.setDateStart(toLocalDate(algemeen.getDatumIngang()));
-    dossier.setStatus(toStatus(algemeen.getStatus()));
+    dossier.setStatus(toStatus(algemeen.getStatussen()));
     List<GbaRestZaakId> ids = algemeen.getIds();
     if (ids != null) {
       Set<DossierReference> references = new HashSet<>();

@@ -20,7 +20,19 @@
           "systeem": "description"
         }
       ],
-      "statussen": null,
+      "statussen": [
+        {
+          "volgNr": 1,
+          "type": "OPGENOMEN",
+          "opmerking": "Initiële status.",
+          "invoerDatum": 20210920,
+          "invoerTijd": 154950,
+          "invoerGebruiker": {
+            "waarde": "202",
+            "omschrijving": "Frits Janssen"
+          }
+        }
+      ],
       "extraAttributen": null,
       "gekoppeldeZaken": null
     },

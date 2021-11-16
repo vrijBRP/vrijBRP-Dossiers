@@ -14,15 +14,25 @@
       "tijdInvoer": 101112,
       "locatieInvoer": null,
       "gebruikerInvoer": null,
-      "locatieInvoer": null,
-      "gebruikerInvoer": null,
       "ids": [
         {
           "id": "birth-1234",
           "systeem": "External system"
         }
       ],
-      "statussen": null,
+      "statussen": [
+        {
+          "volgNr": 1,
+          "type": "OPGENOMEN",
+          "opmerking": "Initiële status.",
+          "invoerDatum": 20210920,
+          "invoerTijd": 154950,
+          "invoerGebruiker": {
+            "waarde": "202",
+            "omschrijving": "Frits Janssen"
+          }
+        }
+      ],
       "extraAttributen": null,
       "gekoppeldeZaken": null
     },
