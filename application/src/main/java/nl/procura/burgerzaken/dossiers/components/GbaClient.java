@@ -94,6 +94,7 @@ public class GbaClient {
           connection.addHandlerLast(new WriteTimeoutHandler(config.getTimeoutSeconds()));
         });
     client = WebClient.builder()
+        .codecs(codecConfigurer -> codecConfigurer.defaultCodecs().maxInMemorySize(-1))
         .clientConnector(new ReactorClientHttpConnector(HttpClient.from(tcpClient)))
         .baseUrl(config.getBaseUrl())
         .defaultHeaders(httpHeaders -> httpHeaders.setBasicAuth(config.getUsername(), config.getPassword()))
