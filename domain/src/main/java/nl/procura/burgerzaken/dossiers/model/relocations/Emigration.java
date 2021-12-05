@@ -17,9 +17,31 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.service;
+package nl.procura.burgerzaken.dossiers.model.relocations;
 
-import nl.procura.burgerzaken.dossiers.model.confidentiality.Confidentiality;
+import java.util.ArrayList;
+import java.util.List;
 
-public interface ConfidentialityService extends DossierTypeService<Confidentiality> {
+import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Emigration implements Relocation {
+
+  @EqualsAndHashCode.Include
+  private Dossier dossier;
+
+  public Emigration(Dossier dossier) {
+    this.dossier = dossier;
+  }
+
+  @Override
+  public List<Relocator> getRelocators() {
+    return new ArrayList<>();
+  }
 }

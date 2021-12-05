@@ -22,33 +22,33 @@ package nl.procura.burgerzaken.dossiers.service;
 import org.springframework.stereotype.Service;
 
 import nl.procura.burgerzaken.dossiers.components.GbaClient;
-import nl.procura.burgerzaken.dossiers.converters.GbaRestConfidentialityConverter;
-import nl.procura.burgerzaken.dossiers.model.confidentiality.Confidentiality;
+import nl.procura.burgerzaken.dossiers.converters.GbaRestEmigrationConverter;
+import nl.procura.burgerzaken.dossiers.model.relocations.Emigration;
 
 @Service
-public class RemoteConfidentialityService implements ConfidentialityService {
+public class RemoteEmigrationService implements EmigrationService {
 
-  private final GbaClient                       client;
-  private final GbaRestConfidentialityConverter converter;
+  private final GbaClient                  client;
+  private final GbaRestEmigrationConverter converter;
 
-  public RemoteConfidentialityService(GbaClient client,
-      GbaRestConfidentialityConverter converter) {
+  public RemoteEmigrationService(GbaClient client,
+      GbaRestEmigrationConverter converter) {
     this.client = client;
     this.converter = converter;
   }
 
   @Override
-  public Confidentiality add(Confidentiality dossier) {
+  public Emigration add(Emigration dossier) {
     throw new UnsupportedOperationException("Not yet implemented");
   }
 
   @Override
-  public Confidentiality update(Confidentiality dossier) {
+  public Emigration update(Emigration dossier) {
     throw new UnsupportedOperationException("Not yet implemented");
   }
 
   @Override
-  public Confidentiality findByCaseNumber(String caseNumber) {
+  public Emigration findByCaseNumber(String caseNumber) {
     throw new UnsupportedOperationException("Not yet implemented");
   }
 }

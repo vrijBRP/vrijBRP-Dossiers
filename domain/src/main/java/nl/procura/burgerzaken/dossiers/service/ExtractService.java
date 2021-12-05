@@ -19,7 +19,7 @@
 
 package nl.procura.burgerzaken.dossiers.service;
 
-import nl.procura.burgerzaken.dossiers.model.confidentiality.Confidentiality;
+import nl.procura.burgerzaken.dossiers.model.deaths.Extract;
 
-public interface ConfidentialityService extends DossierTypeService<Confidentiality> {
+public interface ExtractService extends DossierTypeService<Extract> {
 }

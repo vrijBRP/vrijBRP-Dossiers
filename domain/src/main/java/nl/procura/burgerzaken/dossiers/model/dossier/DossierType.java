@@ -35,6 +35,8 @@ public enum DossierType {
   RESETTLEMENT("resettlement", "Resettlement"),
   BIRTH("birth", "Birth"),
   CONFIDENTIALITY("confidentiality", "Confidentiality"),
+  EXTRACT("extract", "Extract"),
+  NAMEUSE("nameuse", "Name Use"),
   COMMITMENT("commitment", "Commitment"),
   DEATH_IN_MUNICIPALITY("death_in_municipality", "Death in municipality"),
   DISCOVERED_BODY("discovered_body", "Discovered body"),

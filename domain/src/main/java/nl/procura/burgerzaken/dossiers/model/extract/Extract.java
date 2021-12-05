@@ -17,9 +17,23 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.service;
+package nl.procura.burgerzaken.dossiers.model.extract;
 
-import nl.procura.burgerzaken.dossiers.model.confidentiality.Confidentiality;
+import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 
-public interface ConfidentialityService extends DossierTypeService<Confidentiality> {
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Extract {
+
+  @EqualsAndHashCode.Include
+  private Dossier dossier;
+
+  public Extract(Dossier dossier) {
+    this.dossier = dossier;
+  }
 }

@@ -19,7 +19,7 @@
 
 package nl.procura.burgerzaken.dossiers.service;
 
-import nl.procura.burgerzaken.dossiers.model.confidentiality.Confidentiality;
+import nl.procura.burgerzaken.dossiers.model.relocations.Emigration;
 
-public interface ConfidentialityService extends DossierTypeService<Confidentiality> {
+public interface EmigrationService extends RelocationService<Emigration> {
 }
