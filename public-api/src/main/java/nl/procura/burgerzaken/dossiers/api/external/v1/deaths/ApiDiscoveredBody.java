@@ -70,11 +70,11 @@ public class ApiDiscoveredBody {
   @NotNull(message = "municipality is mandatory")
   private ApiMunicipality municipality;
 
-  @Schema(name = "dateOfDeath", required = true)
-  @NotNull(message = "dateOfDeath is mandatory")
+  @Schema(name = "dateOfFinding", required = true)
+  @NotNull(message = "dateOfFinding is mandatory")
   private LocalDate dateOfFinding;
 
-  @Schema(name = "timeOfDeath", pattern = "HH:mm")
+  @Schema(name = "timeOfFinding", pattern = "HH:mm")
   @Pattern(regexp = "[0-9]{1,2}:[0-9]{2}", message = "time must match HH:mm")
   @NotNull(message = "time is mandatory")
   private String timeOfFinding;
