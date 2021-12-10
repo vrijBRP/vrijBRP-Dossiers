@@ -16,5 +16,6 @@ EXPOSE 8080
 CMD [ \
   "java", \
   "-Djava.security.egd=file:/dev/./urandom", \
+  "-Dlog4j2.formatMsgNoLookups=true", \
   "-jar","app.jar" \
 ]
