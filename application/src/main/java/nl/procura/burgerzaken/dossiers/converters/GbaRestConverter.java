@@ -22,6 +22,7 @@ package nl.procura.burgerzaken.dossiers.converters;
 import static nl.procura.burgerzaken.dossiers.model.base.PersistableEnum.valueOfCode;
 import static nl.procura.gba.web.rest.v2.model.base.GbaRestEnum.toEnum;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
+import static org.apache.commons.lang3.math.NumberUtils.toInt;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -57,23 +58,23 @@ public final class GbaRestConverter {
   }
 
   public static LocalDateTime toLocalDateTime(Integer date, Integer time) {
-    if (date == null || time == null) {
+    if (date == null) {
       return null;
     }
     LocalDate ld = toLocalDate(date);
     LocalTime lt = toLocalTime(time);
-    return LocalDateTime.of(ld, lt);
+    return LocalDateTime.of(ld, lt == null ? toLocalTime(0) : lt);
   }
 
   public static LocalTime toLocalTime(String time) {
-    if (time == null) {
+    if (time == null || toInt(time) < 0) {
       return null;
     }
-    return LocalTime.parse(time, DateTimeFormatter.ISO_TIME);
+    return toLocalTime(Math.max(toInt(time), 0));
   }
 
   public static LocalTime toLocalTime(Integer time) {
-    if (time == null || time <= 0) {
+    if (time == null || time < 0) {
       return null;
     }
     String paddedTime = StringUtils.leftPad(time.toString(), TIME_WITH_SECONDS_LENGTH, '0');
