@@ -29,6 +29,8 @@ import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.LIJKVI
 import static nl.procura.gba.web.rest.v2.model.zaken.overlijden.gemeente.GbaRestDocumentType.NATUURLIJK_DOOD;
 import static nl.procura.gba.web.rest.v2.model.zaken.overlijden.gemeente.GbaRestDocumentType.NIET_NATUURLIJK_DOOD;
 
+import java.util.List;
+
 import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.stereotype.Component;
 
@@ -37,6 +39,7 @@ import nl.procura.burgerzaken.dossiers.model.deaths.DiscoveredBody;
 import nl.procura.burgerzaken.dossiers.model.deaths.WrittenDeclarantType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 import nl.procura.gba.web.rest.v2.model.zaken.overlijden.GbaRestOverlijden;
@@ -114,5 +117,10 @@ public class GbaRestDiscoveredBodyConverter implements GbaConverter<DiscoveredBo
     aangifte.setTijd(toIntegerTime(discoveredBody.getTimeOfFinding()));
     aangifte.setToevoeging(discoveredBody.getExplanation());
     return aangifte;
+  }
+
+  @Override
+  public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return false;
   }
 }

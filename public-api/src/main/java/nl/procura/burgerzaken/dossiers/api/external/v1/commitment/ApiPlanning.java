@@ -56,10 +56,17 @@ public class ApiPlanning {
     if (ModelValidation.isValid(planning)) {
       return ApiPlanning.builder()
           .commitmentType(ApiCommitmentType.valueOfType(planning.getCommitmentType()))
-          .commitmentDateTime(LocalDateTime.of(planning.getCommitmentDate(), planning.getCommitmentTime()))
+          .commitmentDateTime(getCommitmentDateTime(planning))
           .intentionDate(planning.getIntentionDate())
           .remarks(planning.getRemarks())
           .build();
+    }
+    return null;
+  }
+
+  private static LocalDateTime getCommitmentDateTime(CommitmentPlanning planning) {
+    if (planning.getCommitmentDate() != null && planning.getCommitmentTime() != null) {
+      return LocalDateTime.of(planning.getCommitmentDate(), planning.getCommitmentTime());
     }
     return null;
   }

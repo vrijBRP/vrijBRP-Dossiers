@@ -27,6 +27,8 @@ import static nl.procura.burgerzaken.dossiers.model.base.PersistableEnum.valueOf
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.BIRTH;
 import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.*;
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +40,7 @@ import nl.procura.burgerzaken.dossiers.model.birth.BirthChild;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.base.GbaRestGeslacht;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
@@ -171,4 +174,8 @@ public class GbaRestBirthConverter implements GbaConverter<Birth> {
     return aangever;
   }
 
+  @Override
+  public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return bsns.stream().anyMatch(bsn -> GbaRestConverter.isBsnMatch(bsn, zaak.getGeboorte().getAangever()));
+  }
 }

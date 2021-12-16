@@ -23,11 +23,14 @@ import static nl.procura.burgerzaken.dossiers.converters.GbaRestDossierConverter
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.EXTRACT;
 import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.UITTREKSEL;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.model.extract.Extract;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 
@@ -76,6 +79,11 @@ public class GbaRestExtractConverter implements GbaConverter<Extract> {
     //    confidentiality.setConsent(toConsent(verh.getInwoning().getToestemmingStatus()));    
 
     return extract;
+  }
+
+  @Override
+  public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return true; // TODO Add isDeclarant code
   }
 
   public static GbaRestZaak toGbaRestZaak(Extract extract) {

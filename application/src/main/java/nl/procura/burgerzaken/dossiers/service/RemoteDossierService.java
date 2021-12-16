@@ -86,7 +86,7 @@ public class RemoteDossierService implements DossierService {
         .getInhoud()
         .getZaken()
         .stream()
-        .map(dossierConverter::toDossier)
+        .map(zaak -> dossierConverter.toDossier(zaak, request))
         .filter(Objects::nonNull)
         .collect(Collectors.toList()));
   }

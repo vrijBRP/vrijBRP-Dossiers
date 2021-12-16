@@ -21,8 +21,11 @@ package nl.procura.burgerzaken.dossiers.converters;
 
 import static java.lang.String.format;
 
+import java.util.List;
+
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 
@@ -33,6 +36,8 @@ public interface GbaConverter<T> {
   GbaRestZaakType zaakType();
 
   T toDomainModel(GbaRestZaak zaak);
+
+  boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns);
 
   default Dossier toDossier(GbaRestZaak zaak) {
     GbaRestZaakType expected = zaakType();

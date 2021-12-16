@@ -23,11 +23,14 @@ import static nl.procura.burgerzaken.dossiers.converters.GbaRestDossierConverter
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.CONFIDENTIALITY;
 import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.VERSTREKKINGSBEPERKING;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import nl.procura.burgerzaken.dossiers.model.confidentiality.Confidentiality;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 
@@ -116,5 +119,10 @@ public class GbaRestConfidentialityConverter implements GbaConverter<Confidentia
     zaak.setAlgemeen(toGbaRestZaakAlgemeen(dossier, VERSTREKKINGSBEPERKING));
     //zaak.setVerhuizing(verhuizing);
     return zaak;
+  }
+
+  @Override
+  public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return true; // TODO Add isDeclarant code
   }
 }

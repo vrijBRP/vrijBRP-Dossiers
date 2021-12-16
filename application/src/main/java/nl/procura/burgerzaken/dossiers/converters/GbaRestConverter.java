@@ -73,7 +73,7 @@ public final class GbaRestConverter {
   }
 
   public static LocalTime toLocalTime(Integer time) {
-    if (time == null) {
+    if (time == null || time <= 0) {
       return null;
     }
     String paddedTime = StringUtils.leftPad(time.toString(), TIME_WITH_SECONDS_LENGTH, '0');
@@ -81,7 +81,7 @@ public final class GbaRestConverter {
   }
 
   public static LocalDate toLocalDate(Integer date) {
-    if (date == null) {
+    if (date == null || date <= 0) {
       return null;
     }
     return LocalDate.from(DATE_FORMATTER.parse(date.toString()));
@@ -221,5 +221,12 @@ public final class GbaRestConverter {
       return null;
     }
     return valueOfCode(values, enumValue.getCode());
+  }
+
+  public static boolean isBsnMatch(Bsn bsn, HeeftContactgegevens persoonBsn) {
+    if (persoonBsn != null && persoonBsn.getBsn() != null) {
+      return bsn.isCorrect() && new Bsn(persoonBsn.getBsn()).equals(bsn);
+    }
+    return false;
   }
 }

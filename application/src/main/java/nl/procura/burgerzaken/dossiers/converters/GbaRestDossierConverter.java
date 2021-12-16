@@ -36,6 +36,8 @@ import nl.procura.burgerzaken.dossiers.model.client.Client;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierReference;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
+import nl.procura.burgerzaken.dossiers.service.dossier.DossierSearchRequest;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakAlgemeen;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakId;
@@ -87,9 +89,12 @@ public class GbaRestDossierConverter {
     return algemeen;
   }
 
-  public Dossier toDossier(GbaRestZaak zaak) {
+  public Dossier toDossier(GbaRestZaak zaak, DossierSearchRequest request) {
     DossierType dossierType = toDossierType(zaak.getAlgemeen().getType());
-    return dossierType != null ? toDossier(zaak, dossierType) : null;
+    Dossier dossier = toDossier(zaak, dossierType);
+    boolean isDossier = dossierType != null
+        && (!request.isOnlyDeclarant() || isRelevantForBsn(zaak, request.getBsns()));
+    return isDossier ? dossier : null;
   }
 
   public static Dossier toDossier(GbaRestZaak zaak, DossierType dossierType) {
@@ -115,9 +120,18 @@ public class GbaRestDossierConverter {
     return dossier;
   }
 
+  private boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return converters.stream()
+        .filter(converter -> converter.zaakType() == zaak.getAlgemeen().getType())
+        .filter(converters -> bsns != null && bsns.size() > 0)
+        .map(gbaConverter -> gbaConverter.isRelevantForBsn(zaak, bsns))
+        .findFirst()
+        .orElse(true);
+  }
+
   public DossierType toDossierType(GbaRestZaakType type) {
     return converters.stream()
-        .filter(gbaConverter -> gbaConverter.zaakType() == type)
+        .filter(converter -> converter.zaakType() == type)
         .map(GbaConverter::dossierType)
         .findFirst()
         .orElse(null);

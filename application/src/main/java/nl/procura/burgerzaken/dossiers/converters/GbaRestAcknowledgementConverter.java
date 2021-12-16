@@ -24,6 +24,7 @@ import static nl.procura.burgerzaken.dossiers.converters.GbaRestNamenrechtConver
 import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.ACKNOWLEDGER;
 import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.MOTHER;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
@@ -33,6 +34,7 @@ import nl.procura.burgerzaken.dossiers.model.birth.BirthAcknowledgementType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 import nl.procura.gba.web.rest.v2.model.zaken.erkenning.GbaRestErkenning;
@@ -79,5 +81,14 @@ public class GbaRestAcknowledgementConverter implements GbaConverter<Acknowledge
         .acknowledger(acknowledger)
         .nameSelection(toNameSelection(erkenning.getNamenrecht()))
         .build();
+  }
+
+  @Override
+  public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return bsns.stream().anyMatch(bsn -> {
+      boolean isErkenner = GbaRestConverter.isBsnMatch(bsn, zaak.getErkenning().getErkenner());
+      boolean isMoeder = GbaRestConverter.isBsnMatch(bsn, zaak.getErkenning().getMoeder());
+      return isErkenner || isMoeder;
+    });
   }
 }

@@ -99,6 +99,7 @@ public class DossierResourceV1 {
         .startDatePeriod(getDatePeriod(request.getStartDatePeriod()))
         .entryDateTimePeriod(getDateTimePeriod(request.getEntryDateTimePeriod()))
         .bsns(toBsnList(request.getBsns()))
+        .onlyDeclarant(true)
         .statusses(request.getStatusses())
         .types(request.getTypes())
         .dossierIds(request.getDossierIds())

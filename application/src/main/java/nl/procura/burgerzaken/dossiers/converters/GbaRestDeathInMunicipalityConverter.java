@@ -28,6 +28,8 @@ import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.OVERLI
 import static nl.procura.gba.web.rest.v2.model.zaken.overlijden.gemeente.GbaRestDocumentType.NATUURLIJK_DOOD;
 import static nl.procura.gba.web.rest.v2.model.zaken.overlijden.gemeente.GbaRestDocumentType.NIET_NATUURLIJK_DOOD;
 
+import java.util.List;
+
 import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +37,7 @@ import nl.procura.burgerzaken.dossiers.model.deaths.DeathInMunicipality;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 import nl.procura.gba.web.rest.v2.model.zaken.base.persoon.GbaRestPersoon;
@@ -115,5 +118,10 @@ public class GbaRestDeathInMunicipalityConverter implements GbaConverter<DeathIn
     persoon.setBsn(person.getBsn().toLong());
     persoon.setContactgegevens(contactgegevens);
     return persoon;
+  }
+
+  @Override
+  public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return bsns.stream().anyMatch(bsn -> isBsnMatch(bsn, zaak.getOverlijden().getOverlijdenInGemeente().getAangever()));
   }
 }

@@ -43,6 +43,7 @@ import nl.procura.burgerzaken.dossiers.model.base.ModelValidation;
 import nl.procura.burgerzaken.dossiers.model.commitment.*;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 import nl.procura.gba.web.rest.v2.model.zaken.base.persoon.GbaRestPersoon;
@@ -60,6 +61,15 @@ public class GbaRestCommitmentConverter implements GbaConverter<Commitment> {
   @Override
   public GbaRestZaakType zaakType() {
     return HUWELIJK_GPS_GEMEENTE;
+  }
+
+  @Override
+  public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return bsns.stream().anyMatch(bsn -> {
+      boolean partner1 = isBsnMatch(bsn, zaak.getHuwelijk().getPartner1().getPersoon());
+      boolean partner2 = isBsnMatch(bsn, zaak.getHuwelijk().getPartner2().getPersoon());
+      return partner1 || partner2;
+    });
   }
 
   @Override

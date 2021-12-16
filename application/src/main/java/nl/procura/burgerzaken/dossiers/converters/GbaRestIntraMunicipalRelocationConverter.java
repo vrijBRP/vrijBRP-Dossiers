@@ -29,12 +29,15 @@ import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.INTRA_MU
 import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.*;
 import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.BINNENVERHUIZING;
 
+import java.util.List;
+
 import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.stereotype.Component;
 
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.model.relocations.IntraMunicipalRelocation;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestTabelWaarde;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
@@ -127,5 +130,10 @@ public class GbaRestIntraMunicipalRelocationConverter implements GbaConverter<In
     zaak.setAlgemeen(toGbaRestZaakAlgemeen(dossier, BINNENVERHUIZING));
     zaak.setVerhuizing(verhuizing);
     return zaak;
+  }
+
+  @Override
+  public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
+    return bsns.stream().anyMatch(bsn -> GbaRestConverter.isBsnMatch(bsn, zaak.getVerhuizing().getAangever()));
   }
 }

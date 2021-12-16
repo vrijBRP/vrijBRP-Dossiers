@@ -36,6 +36,8 @@ public class DossierSearchRequest {
 
   private List<Bsn> bsns;
 
+  private boolean onlyDeclarant;
+
   private List<String> statusses;
 
   private List<String> types;
