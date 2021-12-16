@@ -49,11 +49,14 @@ public class ApiNameSelection {
   }
 
   public static ApiNameSelection of(NameSelection nameSelection) {
-    return ApiNameSelection.builder()
-        .lastname(nameSelection.getLastName())
-        .prefix(nameSelection.getPrefix())
-        .titlePredicate(ApiTitlePredicateType.valueOfType(nameSelection.getTitle()))
-        .build();
+    if (nameSelection != null) {
+      return ApiNameSelection.builder()
+          .lastname(nameSelection.getLastName())
+          .prefix(nameSelection.getPrefix())
+          .titlePredicate(ApiTitlePredicateType.valueOfType(nameSelection.getTitle()))
+          .build();
+    }
+    return null;
   }
 
   public NameSelection toNameSelection() {
