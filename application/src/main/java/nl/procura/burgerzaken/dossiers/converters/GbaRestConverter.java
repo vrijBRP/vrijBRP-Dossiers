@@ -70,7 +70,7 @@ public final class GbaRestConverter {
     if (time == null || toInt(time) < 0) {
       return null;
     }
-    return toLocalTime(Math.max(toInt(time), 0));
+    return LocalTime.parse(time, DateTimeFormatter.ISO_TIME);
   }
 
   public static LocalTime toLocalTime(Integer time) {

@@ -31,8 +31,9 @@ class GbaRestConverterTest {
     assertEquals("2020-01-01T00:00", GbaRestConverter.toLocalDateTime(20200101, null).toString());
     assertEquals("2020-01-01T00:00", GbaRestConverter.toLocalDateTime(20200101, -1).toString());
     assertEquals("2020-01-01T10:11:12", GbaRestConverter.toLocalDateTime(20200101, 101112).toString());
-    assertEquals("10:11", GbaRestConverter.toLocalTime(101100).toString());
-    assertEquals("10:11", GbaRestConverter.toLocalTime("101100").toString());
+    assertEquals("10:11:01", GbaRestConverter.toLocalTime(101101).toString());
+    assertEquals("09:10", GbaRestConverter.toLocalTime("09:10").toString());
+    assertEquals("91000", GbaRestConverter.toIntegerTime("09:10").toString());
     assertNull(GbaRestConverter.toLocalDateTime(null, null));
     assertNull(GbaRestConverter.toIntegerTime("-1"));
     assertNull(GbaRestConverter.toLocalTime(-1));
