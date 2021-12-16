@@ -37,16 +37,19 @@ import nl.procura.gba.web.rest.v2.model.zaken.overlijden.gemeente.GbaRestDocumen
 public final class GbaRestDeathConverter<T> {
 
   protected static Deceased toDeceased(GbaRestPersoon persoon) {
-    GbaRestTabelWaarde geboorteland = persoon.getGeboorteland();
-    return new Deceased()
-        .setBsn(persoon.getBsn().toString())
-        .setFirstname(persoon.getVoornamen())
-        .setLastname(persoon.getGeslachtsnaam())
-        .setPrefix(persoon.getVoorvoegsel())
-        .setTitle(persoon.getTitelPredikaat())
-        .setBirthdate(persoon.getGeboortedatum())
-        .setBirthplace(persoon.getGeboorteplaats().getOmschrijving())
-        .setBirthcountry(toTableValue(geboorteland));
+    if (persoon != null) {
+      GbaRestTabelWaarde geboorteland = persoon.getGeboorteland();
+      return new Deceased()
+          .setBsn(persoon.getBsn().toString())
+          .setFirstname(persoon.getVoornamen())
+          .setLastname(persoon.getGeslachtsnaam())
+          .setPrefix(persoon.getVoorvoegsel())
+          .setTitle(persoon.getTitelPredikaat())
+          .setBirthdate(persoon.getGeboortedatum())
+          .setBirthplace(persoon.getGeboorteplaats().getOmschrijving())
+          .setBirthcountry(toTableValue(geboorteland));
+    }
+    return null;
   }
 
   protected static GbaRestPersoon toOverledene(Deceased person) {

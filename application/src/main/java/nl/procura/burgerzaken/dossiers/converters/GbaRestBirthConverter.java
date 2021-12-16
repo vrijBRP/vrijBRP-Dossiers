@@ -176,6 +176,11 @@ public class GbaRestBirthConverter implements GbaConverter<Birth> {
 
   @Override
   public boolean isRelevantForBsn(GbaRestZaak zaak, List<Bsn> bsns) {
-    return bsns.stream().anyMatch(bsn -> GbaRestConverter.isBsnMatch(bsn, zaak.getGeboorte().getAangever()));
+    return bsns.stream().anyMatch(bsn -> {
+      boolean isAangever = isBsnMatch(bsn, zaak.getGeboorte().getAangever());
+      boolean isMoeder = isBsnMatch(bsn, zaak.getGeboorte().getMoeder());
+      boolean isVader = isBsnMatch(bsn, zaak.getGeboorte().getVaderOfDuoMoeder());
+      return isAangever || isMoeder || isVader;
+    });
   }
 }
