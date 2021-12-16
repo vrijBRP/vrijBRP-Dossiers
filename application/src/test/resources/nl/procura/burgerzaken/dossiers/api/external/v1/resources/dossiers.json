@@ -40,7 +40,66 @@
           "extraAttributen": null,
           "gekoppeldeZaken": null
         },
-        "verhuizing": null,
+        "verhuizing": {
+          "type": "BINNENGEMEENTELIJK",
+          "bestemmmingHuidigeBewoners": "Geen idee",
+          "aangever": {
+            "bsn": 36,
+            "contactgegevens": {
+              "email": "burgerzaken@procura.nl",
+              "telefoonThuis": "1234",
+              "telefoonWerk": "5678",
+              "telefoonMobiel": "9876",
+              "telefoonBuitenland": {
+                "telefoon": "32312",
+                "landCode": 6047
+              }
+            },
+            "ambtshalve": true,
+            "hoofdInstelling": true,
+            "toelichting": "Dit is de aangever"
+          },
+          "hoofdbewoner": {
+            "bsn": 12
+          },
+          "inwoning": {
+            "sprakeVanInwoning": true,
+            "aangifteStatus": "NIET_INGEVULD",
+            "toestemmingStatus": "NIET_INGEVULD"
+          },
+          "binnenverhuizing": {
+            "nieuwAdres": {
+              "gemeente": {
+                "waarde": "0361",
+                "omschrijving": "Alkmaar"
+              },
+              "locatie": null,
+              "postcode": "1234AA",
+              "straat": "Dorpstraat",
+              "woonplaats": "Oudorp",
+              "aantalPersonen": 1,
+              "functieAdres": "WOONADRES",
+              "hnr": 1,
+              "hnrL": "L",
+              "hnrT": "T"
+            }
+          },
+          "buitenverhuizing": null,
+          "emigratie": null,
+          "hervestiging": null,
+          "verhuizers": [
+            {
+              "bsn": 24,
+              "aangifte": "INGESCHREVENE",
+              "verwerken": true
+            },
+            {
+              "bsn": 61,
+              "aangifte": "ECHTGENOOT_GEREGISTREERD_PARTNER",
+              "verwerken": false
+            }
+          ]
+        },
         "geboorte": null
       }
     ],
