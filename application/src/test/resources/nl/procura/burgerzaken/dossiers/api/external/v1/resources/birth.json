@@ -38,7 +38,7 @@
     },
     "geboorte": {
       "aangifte": {
-        "redenVerplichtOfBevoegd": "GEBOORTE_IN_MIJN_WONING"
+        "redenVerplichtOfBevoegd": "VADER"
       },
       "aangever": {
         "bsn": 24,

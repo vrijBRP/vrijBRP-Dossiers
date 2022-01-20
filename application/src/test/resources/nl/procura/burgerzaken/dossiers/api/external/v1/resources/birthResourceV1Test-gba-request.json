@@ -104,7 +104,7 @@
         }
       ],
       "aangifte": {
-        "redenVerplichtOfBevoegd": "GEBOORTE_IN_MIJN_WONING",
+        "redenVerplichtOfBevoegd": "VADER",
         "tardieveAangifte": null,
         "tardieveAangifteReden": null
       },
