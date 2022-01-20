@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -89,6 +89,7 @@ class BirthResourceV1Test extends BaseResourceTest {
     assertEquals("birth-1234", referenceIds.iterator().next().getId());
     assertEquals(1, dossier.getReferenceIds().size());
 
+    assertEquals(ApiQualificationForDeclaringType.BORN_IN_HOME, resp.getQualificationForDeclaringType());
     assertEquals("Vries", resp.getNameSelection().getLastname());
     assertEquals("de", resp.getNameSelection().getPrefix());
     assertEquals("B", resp.getNameSelection().getTitlePredicate().getType().getCode());
@@ -179,6 +180,7 @@ class BirthResourceV1Test extends BaseResourceTest {
             .referenceIds(singleton(new ApiReferenceId("birth-1234", "External system")))
             .startDate(LocalDate.of(2020, Month.APRIL, 2))
             .build())
+        .qualificationForDeclaringType(ApiQualificationForDeclaringType.BORN_IN_HOME)
         .declarant(ApiDeclarant.builder()
             .bsn(DECLARATOR_BSN)
             .contactInformation(contactInfo)

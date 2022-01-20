@@ -37,6 +37,9 @@
       "gekoppeldeZaken": null
     },
     "geboorte": {
+      "aangifte": {
+        "redenVerplichtOfBevoegd": "GEBOORTE_IN_MIJN_WONING"
+      },
       "aangever": {
         "bsn": 24,
         "contactgegevens": {

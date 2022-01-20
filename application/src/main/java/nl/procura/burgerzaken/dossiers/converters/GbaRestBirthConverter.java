@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -28,6 +28,7 @@ import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.BIRTH;
 import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -37,17 +38,17 @@ import nl.procura.burgerzaken.dossiers.model.base.NameSelection;
 import nl.procura.burgerzaken.dossiers.model.base.TitlePredicateType;
 import nl.procura.burgerzaken.dossiers.model.birth.Birth;
 import nl.procura.burgerzaken.dossiers.model.birth.BirthChild;
+import nl.procura.burgerzaken.dossiers.model.birth.QualificationForDeclaringType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
 import nl.procura.burgerzaken.dossiers.model.dossier.Person;
 import nl.procura.burgerzaken.gba.numbers.Bsn;
+import nl.procura.gba.web.rest.v2.model.base.GbaRestEnum;
 import nl.procura.gba.web.rest.v2.model.base.GbaRestGeslacht;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 import nl.procura.gba.web.rest.v2.model.zaken.base.persoon.GbaRestPersoon;
-import nl.procura.gba.web.rest.v2.model.zaken.geboorte.GbaRestGeboorte;
-import nl.procura.gba.web.rest.v2.model.zaken.geboorte.GbaRestGeboorteVerzoek;
-import nl.procura.gba.web.rest.v2.model.zaken.geboorte.GbaRestKind;
+import nl.procura.gba.web.rest.v2.model.zaken.geboorte.*;
 import nl.procura.gba.web.rest.v2.model.zaken.verhuizing.GbaRestContactgegevens;
 
 @Component
@@ -68,6 +69,14 @@ public class GbaRestBirthConverter implements GbaConverter<Birth> {
     Dossier dossier = toDossier(zaak);
     Birth birth = new Birth(dossier);
     GbaRestGeboorte geb = zaak.getGeboorte();
+    if (geb.getAangifte() != null) {
+      GbaRestRedenVerplichtOfBevoegdType redenVerplichtOfBevoegd = geb.getAangifte().getRedenVerplichtOfBevoegd();
+      if (redenVerplichtOfBevoegd != null) {
+        birth.setQualificationForDeclaringType(
+            valueOfCode(QualificationForDeclaringType.values(),
+                redenVerplichtOfBevoegd.getCode()));
+      }
+    }
     //People
     toPersonWithContactinfo(geb.getAangever(), DECLARANT).ifPresent(birth::setDeclarant);
     toPersonWithContactinfo(geb.getMoeder(), MOTHER).ifPresent(birth::setMother);
@@ -102,6 +111,7 @@ public class GbaRestBirthConverter implements GbaConverter<Birth> {
     Dossier dossier = birth.getDossier();
 
     GbaRestGeboorte geboorte = new GbaRestGeboorte();
+    geboorte.setAangifte(toGbaRestGeboorteAangifte(birth));
     // People
     birth.getDeclarant().ifPresent(p -> geboorte.setAangever(toGbaPersoon(p)));
     birth.getMother().ifPresent(p -> geboorte.setMoeder(toGbaPersoon(p)));
@@ -116,6 +126,17 @@ public class GbaRestBirthConverter implements GbaConverter<Birth> {
     zaak.setAlgemeen(toGbaRestZaakAlgemeen(dossier, GbaRestZaakType.GEBOORTE));
     zaak.setGeboorte(geboorte);
     return zaak;
+  }
+
+  private static GbaRestGeboorteAangifte toGbaRestGeboorteAangifte(Birth birth) {
+    Optional<QualificationForDeclaringType> qualificationForDeclaringType = ofNullable(
+        birth.getQualificationForDeclaringType());
+    GbaRestGeboorteAangifte geboorteAangifte = new GbaRestGeboorteAangifte();
+    qualificationForDeclaringType
+        .ifPresent(type -> geboorteAangifte.setRedenVerplichtOfBevoegd(
+            GbaRestEnum.toEnum(GbaRestRedenVerplichtOfBevoegdType.values(),
+                type.getCode())));
+    return geboorteAangifte;
   }
 
   private static GbaRestGeboorteVerzoek toGbaRestGeboorteVerzoek(Birth birth) {

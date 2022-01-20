@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -24,6 +24,7 @@ import static java.util.stream.Collectors.toList;
 import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.BIRTH;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -49,6 +50,9 @@ public class ApiBirth {
   @Schema(name = "dossier", required = true)
   @NotNull(message = "dossier is mandatory")
   private ApiDossier dossier;
+
+  @Schema(name = "qualificationForDeclaringType")
+  private ApiQualificationForDeclaringType qualificationForDeclaringType;
 
   @Valid
   @Schema(name = "declarant", required = true)
@@ -78,6 +82,9 @@ public class ApiBirth {
   public static ApiBirth of(Birth birth) {
     return ApiBirth.builder()
         .dossier(ApiDossier.of(birth.getDossier()))
+        .qualificationForDeclaringType(Optional.ofNullable(birth.getQualificationForDeclaringType())
+            .map(ApiQualificationForDeclaringType::valueOfType)
+            .orElse(null))
         .declarant(birth.getDeclarant()
             .map(ApiDeclarant::of)
             .orElseThrow(() -> new IllegalArgumentException("No declarant")))
@@ -97,6 +104,7 @@ public class ApiBirth {
   public Birth createNew(Client client) {
     Dossier newDossier = this.dossier.createNew(BIRTH, client);
     Birth birth = new Birth(newDossier);
+    ofNullable(qualificationForDeclaringType).ifPresent(type -> birth.setQualificationForDeclaringType(type.getType()));
     birth.setDeclarant(declarant.toPerson());
     birth.setMother(mother.toPerson());
     ofNullable(fatherDuoMother).ifPresent(fatherDuoMother -> birth.setFatherDuoMother(fatherDuoMother.toPerson()));

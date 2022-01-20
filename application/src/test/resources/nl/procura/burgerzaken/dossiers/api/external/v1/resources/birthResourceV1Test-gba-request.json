@@ -103,7 +103,11 @@
           "geboortetijd": 143000
         }
       ],
-      "aangifte": null,
+      "aangifte": {
+        "redenVerplichtOfBevoegd": "GEBOORTE_IN_MIJN_WONING",
+        "tardieveAangifte": null,
+        "tardieveAangifteReden": null
+      },
       "gezinssituatie": null,
       "afstamming": null,
       "namenrecht": null,

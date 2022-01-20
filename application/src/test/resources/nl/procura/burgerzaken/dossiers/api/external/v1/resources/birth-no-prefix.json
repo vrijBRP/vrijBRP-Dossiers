@@ -14,8 +14,6 @@
       "tijdInvoer": 101112,
       "locatieInvoer": null,
       "gebruikerInvoer": null,
-      "locatieInvoer": null,
-      "gebruikerInvoer": null,
       "ids": [
         {
           "id": "birth-1234",
@@ -27,6 +25,9 @@
       "gekoppeldeZaken": null
     },
     "geboorte": {
+      "aangifte": {
+        "redenVerplichtOfBevoegd": "GEBOORTE_IN_MIJN_WONING"
+      },
       "aangever": {
         "bsn": 24,
         "contactgegevens": {

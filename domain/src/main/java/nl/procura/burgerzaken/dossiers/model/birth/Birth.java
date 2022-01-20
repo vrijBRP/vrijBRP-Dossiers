@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -40,8 +40,9 @@ public class Birth {
   @EqualsAndHashCode.Include
   private Dossier dossier;
 
-  private NameSelection          nameSelection;
-  private final List<BirthChild> children = new ArrayList<>();
+  private QualificationForDeclaringType qualificationForDeclaringType;
+  private NameSelection                 nameSelection;
+  private final List<BirthChild>        children = new ArrayList<>();
 
   public Birth(Dossier dossier) {
     this.dossier = dossier;
