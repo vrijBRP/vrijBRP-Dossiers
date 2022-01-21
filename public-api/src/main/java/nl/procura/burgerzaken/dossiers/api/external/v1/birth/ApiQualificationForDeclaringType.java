@@ -36,7 +36,7 @@ public enum ApiQualificationForDeclaringType implements ApiEnum<QualificationFor
   BORN_IN_HOME(QualificationForDeclaringType.BORN_IN_HOME),
   BORN_IN_INSTITUTION(QualificationForDeclaringType.BORN_IN_INSTITUTION),
   MOTHER(QualificationForDeclaringType.MOTHER),
-  MAYOR(QualificationForDeclaringType.FATHER),
+  MAYOR(QualificationForDeclaringType.MAYOR),
   KNOWLEDGE_CARRIER(QualificationForDeclaringType.KNOWLEDGE_CARRIER);
 
   private final QualificationForDeclaringType type;
