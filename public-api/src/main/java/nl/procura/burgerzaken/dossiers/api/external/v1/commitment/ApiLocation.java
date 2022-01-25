@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -23,7 +23,7 @@ import static java.util.stream.Collectors.toList;
 
 import java.util.List;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 import nl.procura.burgerzaken.dossiers.model.base.ModelValidation;
 import nl.procura.burgerzaken.dossiers.model.commitment.CommitmentLocation;
@@ -40,7 +40,7 @@ import lombok.experimental.SuperBuilder;
 public class ApiLocation {
 
   @Schema(name = "name", description = "Name of the location", required = true)
-  @NotNull(message = "Name of the location is mandatory")
+  @NotEmpty(message = "Name of the location is mandatory")
   private String name;
 
   @Schema(name = "aliases")

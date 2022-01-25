@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -21,6 +21,7 @@ package nl.procura.burgerzaken.dossiers.api.external.v1.commitment;
 
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import nl.procura.burgerzaken.dossiers.model.commitment.CommitmentLocationOption;
@@ -40,7 +41,7 @@ public class ApiLocationOption {
   private String name;
 
   @Schema(name = "value", required = true)
-  @NotNull(message = "location option value is mandatory")
+  @NotEmpty(message = "location option value is mandatory")
   private String value;
 
   @Schema(name = "description")

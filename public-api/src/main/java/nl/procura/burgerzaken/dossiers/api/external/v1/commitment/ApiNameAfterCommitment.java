@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -19,6 +19,7 @@
 
 package nl.procura.burgerzaken.dossiers.api.external.v1.commitment;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import nl.procura.burgerzaken.dossiers.model.base.ModelValidation;
@@ -46,7 +47,7 @@ public class ApiNameAfterCommitment {
   private String prefix;
 
   @Schema(name = "lastname", required = true)
-  @NotNull(message = "lastname is mandatory")
+  @NotEmpty(message = "lastname is mandatory")
   private String lastname;
 
   public CommitmentNameUse toCommitmentNameUse() {

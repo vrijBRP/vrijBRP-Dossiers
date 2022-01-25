@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -19,7 +19,7 @@
 
 package nl.procura.burgerzaken.dossiers.api.external.v1.base;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 import nl.procura.burgerzaken.dossiers.model.base.TableValue;
 
@@ -37,7 +37,7 @@ import lombok.experimental.SuperBuilder;
 public class ApiMunicipality extends ApiNationalTable {
 
   @Override
-  @NotNull(message = "municipality code is mandatory")
+  @NotEmpty(message = "municipality code is mandatory")
   public String getCode() {
     return super.getCode();
   }

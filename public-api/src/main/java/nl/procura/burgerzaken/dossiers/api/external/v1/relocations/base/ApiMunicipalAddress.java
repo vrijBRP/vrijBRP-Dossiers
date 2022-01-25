@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -20,6 +20,7 @@
 package nl.procura.burgerzaken.dossiers.api.external.v1.relocations.base;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiMunicipality;
@@ -49,7 +50,7 @@ public class ApiMunicipalAddress {
   private String houseNumberAddition;
 
   @Schema(required = true, example = "1122AB")
-  @NotNull(message = "postalCode is mandatory")
+  @NotEmpty(message = "postalCode is mandatory")
   private String postalCode;
 
   @Schema(example = "Residence XYZ")
