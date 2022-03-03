@@ -13,8 +13,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.release>8</maven.compiler.release>
         <gson-fire-version>1.8.3</gson-fire-version>
         <swagger-annotations-version>1.5.22</swagger-annotations-version>
         <retrofit-version>2.5.0</retrofit-version>
@@ -198,11 +197,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <release>${maven.compiler.release}</release>
                     <encoding>UTF-8</encoding>
                     <showWarnings>true</showWarnings>
-                    <fork>true</fork>
                 </configuration>
             </plugin>
 

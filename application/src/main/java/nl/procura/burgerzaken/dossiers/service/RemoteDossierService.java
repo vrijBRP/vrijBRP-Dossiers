@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -50,13 +50,14 @@ public class RemoteDossierService implements DossierService {
 
   private final GbaClient               client;
   private final GbaRestDossierConverter dossierConverter;
-  private IntraRelocationService        intraRelocationService;
-  private InterRelocationService        interRelocationService;
-  private BirthService                  birthService;
-  private ConfidentialityService        confidentialityService;
-  private ExtractService                extractService;
-  private NameUseService                nameUseService;
-  private EmigrationService             emigrationService;
+  private final IntraRelocationService  intraRelocationService;
+  private final InterRelocationService  interRelocationService;
+  private final BirthService            birthService;
+  private final ConfidentialityService  confidentialityService;
+  private final ExtractService          extractService;
+  private final NameUseService          nameUseService;
+  private final EmigrationService       emigrationService;
+  private final ResettlementService     resettlementService;
 
   public RemoteDossierService(GbaClient client,
       GbaRestDossierConverter dossierConverter,
@@ -66,7 +67,8 @@ public class RemoteDossierService implements DossierService {
       ConfidentialityService confidentialityService,
       ExtractService extractService,
       NameUseService nameUseService,
-      EmigrationService emigrationService) {
+      EmigrationService emigrationService,
+      ResettlementService resettlementService) {
 
     this.client = client;
     this.dossierConverter = dossierConverter;
@@ -77,6 +79,7 @@ public class RemoteDossierService implements DossierService {
     this.extractService = extractService;
     this.nameUseService = nameUseService;
     this.emigrationService = emigrationService;
+    this.resettlementService = resettlementService;
   }
 
   @Override
@@ -113,6 +116,8 @@ public class RemoteDossierService implements DossierService {
         return (T) nameUseService;
       case EMIGRATION:
         return (T) emigrationService;
+      case RESETTLEMENT:
+        return (T) resettlementService;
       default:
         throw new UnsupportedOperationException("dossier type '" + dossierType + "' is not supported");
     }

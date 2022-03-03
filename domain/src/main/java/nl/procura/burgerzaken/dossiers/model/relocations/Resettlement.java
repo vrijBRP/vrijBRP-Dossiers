@@ -34,15 +34,20 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Emigration implements Relocation {
+public class Resettlement implements ConsentRelocation {
 
   @EqualsAndHashCode.Include
   private Dossier dossier;
 
+  private Boolean liveIn;
+  private String  consent;
+
   private final List<Relocator> relocators = new ArrayList<>();
 
-  public Emigration(Dossier dossier) {
+  public Resettlement(Dossier dossier) {
     this.dossier = dossier;
+    liveIn = false;
+    consent = "";
   }
 
   public void addRelocator(Relocator relocator) {
@@ -54,6 +59,24 @@ public class Emigration implements Relocation {
   }
 
   public void setDeclarant(Person person) {
+    dossier.setPersonByRole(person);
+  }
+
+  public Optional<Person> getConsenter() {
+    return dossier.getPersonByRole(PersonRole.CONSENTER);
+  }
+
+  @Override
+  public void setConsenter(Person person) {
+    dossier.setPersonByRole(person);
+  }
+
+  @Override
+  public Optional<Person> getMainOccupant() {
+    return dossier.getPersonByRole(PersonRole.MAIN_OCCUPANT);
+  }
+
+  public void setMainOccupant(Person person) {
     dossier.setPersonByRole(person);
   }
 }

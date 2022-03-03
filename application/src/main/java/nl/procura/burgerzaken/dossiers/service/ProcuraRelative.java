@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -195,11 +195,19 @@ public class ProcuraRelative {
     // Relocations
     checkExistingDossiers(dossierService,
         List.of(INTRA_MUNICIPAL_RELOCATION, INTER_MUNICIPAL_RELOCATION,
-            CONFIDENTIALITY),
+            EMIGRATION, RESETTLEMENT, CONFIDENTIALITY),
         (bsn, dossiers) -> {
           filterRelocationCases(dossierService, bsn, dossiers);
           filterConfidentialityCases(dossiers);
         });
+  }
+
+  private void filterRelocationCases(DossierService dossierService, Bsn bsn, Page<Dossier> dossiers) {
+    dossiers.stream()
+        .filter(dossier -> dossier.getDossierType()
+            .matches(INTRA_MUNICIPAL_RELOCATION, INTER_MUNICIPAL_RELOCATION, EMIGRATION, RESETTLEMENT))
+        .filter(dossier -> hasRelocatorBsn(dossierService, bsn, dossier)).findAny()
+        .ifPresent(d -> relative.addObstruction(EXISTING_RELOCATION_CASE));
   }
 
   private boolean hasRelocatorBsn(DossierService dossierService, Bsn bsn, Dossier dossier) {
@@ -210,14 +218,6 @@ public class ProcuraRelative {
         .getRelocators()
         .stream()
         .anyMatch(relocator -> bsn.equals(relocator.getPerson().getBsn()));
-  }
-
-  private void filterRelocationCases(DossierService dossierService, Bsn bsn, Page<Dossier> dossiers) {
-    dossiers.stream()
-        .filter(dossier -> dossier.getDossierType().matches(
-            INTRA_MUNICIPAL_RELOCATION, INTER_MUNICIPAL_RELOCATION))
-        .filter(dossier -> hasRelocatorBsn(dossierService, bsn, dossier)).findAny()
-        .ifPresent(d -> relative.addObstruction(EXISTING_RELOCATION_CASE));
   }
 
   private void filterConfidentialityCases(Page<Dossier> dossiers) {

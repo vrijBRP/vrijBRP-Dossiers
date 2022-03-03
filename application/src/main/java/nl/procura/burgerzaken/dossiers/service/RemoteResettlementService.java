@@ -22,33 +22,33 @@ package nl.procura.burgerzaken.dossiers.service;
 import org.springframework.stereotype.Service;
 
 import nl.procura.burgerzaken.dossiers.components.GbaClient;
-import nl.procura.burgerzaken.dossiers.converters.GbaRestEmigrationConverter;
-import nl.procura.burgerzaken.dossiers.model.relocations.Emigration;
+import nl.procura.burgerzaken.dossiers.converters.GbaRestResettlementConverter;
+import nl.procura.burgerzaken.dossiers.model.relocations.Resettlement;
 
 @Service
-public class RemoteEmigrationService implements EmigrationService {
+public class RemoteResettlementService implements ResettlementService {
 
-  private final GbaClient                  client;
-  private final GbaRestEmigrationConverter converter;
+  private final GbaClient                    client;
+  private final GbaRestResettlementConverter converter;
 
-  public RemoteEmigrationService(GbaClient client,
-      GbaRestEmigrationConverter converter) {
+  public RemoteResettlementService(GbaClient client,
+      GbaRestResettlementConverter converter) {
     this.client = client;
     this.converter = converter;
   }
 
   @Override
-  public Emigration add(Emigration dossier) {
+  public Resettlement add(Resettlement dossier) {
     throw new UnsupportedOperationException("Not yet implemented");
   }
 
   @Override
-  public Emigration update(Emigration dossier) {
+  public Resettlement update(Resettlement dossier) {
     throw new UnsupportedOperationException("Not yet implemented");
   }
 
   @Override
-  public Emigration findByCaseNumber(String caseNumber) {
+  public Resettlement findByCaseNumber(String caseNumber) {
     return converter.toDomainModel(client.zaken()
         .getZaakByZaakId(caseNumber)
         .getInhoud());

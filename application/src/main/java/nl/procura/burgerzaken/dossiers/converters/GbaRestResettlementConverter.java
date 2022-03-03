@@ -19,12 +19,13 @@
 
 package nl.procura.burgerzaken.dossiers.converters;
 
+import static nl.procura.burgerzaken.dossiers.converters.GbaRestConverter.toPerson;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestConverter.toPersonWithContactinfo;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestDossierConverter.toGbaRestZaakAlgemeen;
 import static nl.procura.burgerzaken.dossiers.converters.GbaRestRelocationConverter.toRelocator;
-import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.EMIGRATION;
-import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.DECLARANT;
-import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.EMIGRATIE;
+import static nl.procura.burgerzaken.dossiers.model.dossier.DossierType.RESETTLEMENT;
+import static nl.procura.burgerzaken.dossiers.model.dossier.PersonRole.*;
+import static nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType.HERVESTIGING;
 
 import java.util.List;
 
@@ -32,31 +33,33 @@ import org.springframework.stereotype.Component;
 
 import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 import nl.procura.burgerzaken.dossiers.model.dossier.DossierType;
-import nl.procura.burgerzaken.dossiers.model.relocations.Emigration;
+import nl.procura.burgerzaken.dossiers.model.relocations.Resettlement;
 import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakType;
 import nl.procura.gba.web.rest.v2.model.zaken.verhuizing.GbaRestVerhuizing;
 
 @Component
-public class GbaRestEmigrationConverter implements GbaConverter<Emigration> {
+public class GbaRestResettlementConverter implements GbaConverter<Resettlement> {
 
   @Override
   public DossierType dossierType() {
-    return EMIGRATION;
+    return RESETTLEMENT;
   }
 
   @Override
   public GbaRestZaakType zaakType() {
-    return EMIGRATIE;
+    return HERVESTIGING;
   }
 
   @Override
-  public Emigration toDomainModel(GbaRestZaak zaak) {
+  public Resettlement toDomainModel(GbaRestZaak zaak) {
     Dossier dossier = toDossier(zaak);
-    Emigration relocation = new Emigration(dossier);
+    Resettlement relocation = new Resettlement(dossier);
     GbaRestVerhuizing verh = zaak.getVerhuizing();
     toPersonWithContactinfo(verh.getAangever(), DECLARANT).ifPresent(relocation::setDeclarant);
+    toPerson(verh.getInwoning().getToestemminggever(), CONSENTER).ifPresent(relocation::setConsenter);
+    toPerson(verh.getHoofdbewoner(), MAIN_OCCUPANT).ifPresent(relocation::setMainOccupant);
     verh.getVerhuizers().forEach(verhuizer -> relocation.addRelocator(toRelocator(verhuizer)));
 
     // Address
@@ -81,42 +84,42 @@ public class GbaRestEmigrationConverter implements GbaConverter<Emigration> {
     return relocation;
   }
 
-  public static GbaRestZaak toGbaRestZaak(Emigration emigration) {
-    Dossier dossier = emigration.getDossier();
+  public static GbaRestZaak toGbaRestZaak(Resettlement resettlement) {
+    Dossier dossier = resettlement.getDossier();
 
     //    GbaRestVerhuizing verhuizing = new GbaRestVerhuizing();
     //    verhuizing.setType(GbaRestVerhuisType.BINNENGEMEENTELIJK);
-    //    verhuizing.setBestemmmingHuidigeBewoners(emigration.getDestCurrResidents());
-    //    emigration.getDeclarant().ifPresent(p -> verhuizing.setAangever(toGbaAangever(p)));
-    //    emigration.getMainOccupant().ifPresent(p -> verhuizing.setHoofdbewoner(toGbaHoofdbewoner(p)));
-    //    verhuizing.setVerhuizers(emigration.getRelocators().stream()
+    //    verhuizing.setBestemmmingHuidigeBewoners(resettlement.getDestCurrResidents());
+    //    resettlement.getDeclarant().ifPresent(p -> verhuizing.setAangever(toGbaAangever(p)));
+    //    resettlement.getMainOccupant().ifPresent(p -> verhuizing.setHoofdbewoner(toGbaHoofdbewoner(p)));
+    //    verhuizing.setVerhuizers(resettlement.getRelocators().stream()
     //        .map(GbaRestRelocationConverter::toGbaVerhuizer)
     //        .collect(toList()));
     //
     //    // address
     //    GbaRestVerhuizingBinnenlandsAdres adres = new GbaRestVerhuizingBinnenlandsAdres();
-    //    adres.setPostcode(emigration.getPostalCode());
-    //    adres.setStraat(emigration.getStreet());
-    //    adres.setHnr(emigration.getHouseNumber());
-    //    adres.setHnrL(emigration.getHouseNumberLetter());
-    //    adres.setHnrT(emigration.getHouseNumberAddition());
-    //    adres.setWoonplaats(emigration.getResidence());
-    //    adres.setGemeente(new GbaRestTabelWaarde(emigration.getMunicipality()));
+    //    adres.setPostcode(resettlement.getPostalCode());
+    //    adres.setStraat(resettlement.getStreet());
+    //    adres.setHnr(resettlement.getHouseNumber());
+    //    adres.setHnrL(resettlement.getHouseNumberLetter());
+    //    adres.setHnrT(resettlement.getHouseNumberAddition());
+    //    adres.setWoonplaats(resettlement.getResidence());
+    //    adres.setGemeente(new GbaRestTabelWaarde(resettlement.getMunicipality()));
     //    adres.setLocatie("");
-    //    adres.setFunctieAdres(toGbaFunctieAdres(emigration.getAddressFunction()));
-    //    adres.setAantalPersonen(emigration.getResidentsCount());
+    //    adres.setFunctieAdres(toGbaFunctieAdres(resettlement.getAddressFunction()));
+    //    adres.setAantalPersonen(resettlement.getResidentsCount());
     //
     //    GbaRestBinnenverhuizing binnenverhuizing = new GbaRestBinnenverhuizing();
     //    binnenverhuizing.setNieuwAdres(adres);
     //    verhuizing.setBinnenverhuizing(binnenverhuizing);
     //
     //    verhuizing.setInwoning(
-    //        toGbaRestInwoning(emigration.getLiveIn(),
-    //            emigration.getConsenter().orElse(null),
-    //            emigration.getConsent()));
+    //        toGbaRestInwoning(resettlement.getLiveIn(),
+    //            resettlement.getConsenter().orElse(null),
+    //            resettlement.getConsent()));
 
     GbaRestZaak zaak = new GbaRestZaak();
-    zaak.setAlgemeen(toGbaRestZaakAlgemeen(dossier, EMIGRATIE));
+    zaak.setAlgemeen(toGbaRestZaakAlgemeen(dossier, HERVESTIGING));
     //zaak.setVerhuizing(verhuizing);
     return zaak;
   }
