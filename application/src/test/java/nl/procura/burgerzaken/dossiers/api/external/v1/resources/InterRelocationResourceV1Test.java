@@ -190,7 +190,7 @@ class InterRelocationResourceV1Test extends BaseResourceTest {
             .houseNumber(1)
             .houseLetter("A")
             .houseNumberAddition("4")
-            .postalCode("1234AA")
+            .postalCode("1234aa")
             .residence("Koedijk")
             .municipality(ApiMunicipality.builder()
                 .code("4567")

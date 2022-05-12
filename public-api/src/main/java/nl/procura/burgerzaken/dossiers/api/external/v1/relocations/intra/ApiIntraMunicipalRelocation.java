@@ -113,7 +113,7 @@ public class ApiIntraMunicipalRelocation {
     IntraMunicipalRelocation relocation = new IntraMunicipalRelocation(newDossier);
     relocation.setDeclarant(declarant.toPerson());
     relocation.setStreet(ofNullable(newAddress.getStreet()).orElse(""));
-    relocation.setPostalCode(newAddress.getPostalCode());
+    relocation.setPostalCode(newAddress.getPostalCode().toUpperCase());
     relocation.setHouseNumber(newAddress.getHouseNumber());
     relocation.setHouseNumberLetter(ofNullable(newAddress.getHouseLetter()).orElse(""));
     relocation.setHouseNumberAddition(ofNullable(newAddress.getHouseNumberAddition()).orElse(""));
