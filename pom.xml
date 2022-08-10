@@ -23,10 +23,10 @@
         <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
         <dependency-check-maven.version>5.2.4</dependency-check-maven.version>
-        <commons-io.version>2.6</commons-io.version>
-        <commons-lang3.version>3.9</commons-lang3.version>
-        <lombok.version>1.18.10</lombok.version>
-        <gba.version>1.25</gba.version>
+        <commons-io.version>2.11.0</commons-io.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <lombok.version>1.18.24</lombok.version>
+        <gba.version>1.29.2</gba.version>
     </properties>
 
     <organization>

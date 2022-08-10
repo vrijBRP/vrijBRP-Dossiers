@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -19,8 +19,6 @@
 
 package nl.procura.burgerzaken.dossiers.api.external.v1.commitment;
 
-import javax.validation.constraints.NotNull;
-
 import nl.procura.burgerzaken.dossiers.model.base.ModelValidation;
 import nl.procura.burgerzaken.dossiers.model.commitment.CommitmentWitness;
 import nl.procura.burgerzaken.dossiers.util.BsnUtils;
@@ -36,9 +34,7 @@ import lombok.experimental.SuperBuilder;
 @Schema(name = "CommitmentWitness")
 public class ApiWitness {
 
-  @NotNull(message = "bsn is mandatory")
-  @Schema(required = true,
-      description = "BurgerServiceNummer",
+  @Schema(description = "BurgerServiceNummer",
       example = "999990019",
       maxLength = 9,
       minLength = 9,

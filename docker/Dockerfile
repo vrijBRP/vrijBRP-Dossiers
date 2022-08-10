@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:jdk-11.0.5_10-alpine
+FROM amazoncorretto:11-alpine
 ARG jar
 
 ENV LANG nl_NL.UTF-8

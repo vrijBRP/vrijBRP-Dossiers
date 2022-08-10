@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -22,6 +22,7 @@ package nl.procura.burgerzaken.dossiers.api.external.v1.commitment;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import nl.procura.burgerzaken.dossiers.model.base.ModelValidation;
@@ -42,6 +43,7 @@ public class ApiWitnesses {
   @NotNull(message = "numberOfMunicipalWitnesses is mandatory")
   private Integer numberOfMunicipalWitnesses;
 
+  @Valid
   @Schema(name = "chosen")
   private List<ApiWitness> chosen;
 
