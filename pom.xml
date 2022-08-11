@@ -119,6 +119,12 @@
         <artifactId>gba-commons</artifactId>
         <version>1.0.3</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.4.1</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
