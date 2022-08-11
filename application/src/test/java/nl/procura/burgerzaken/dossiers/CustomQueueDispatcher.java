@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -29,8 +29,8 @@ public class CustomQueueDispatcher extends QueueDispatcher {
 
   public void emptyQueue() {
     try {
-      while (responseQueue.size() > 0) {
-        responseQueue.poll(1, TimeUnit.MILLISECONDS);
+      while (getResponseQueue().size() > 0) {
+        getResponseQueue().poll(1, TimeUnit.MILLISECONDS);
       }
     } catch (InterruptedException e) {
       // interrupt thread owner too, if any

@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -60,7 +60,11 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.responses.ApiResponse;
-import io.swagger.v3.oas.models.security.*;
+import io.swagger.v3.oas.models.security.OAuthFlow;
+import io.swagger.v3.oas.models.security.OAuthFlows;
+import io.swagger.v3.oas.models.security.Scopes;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 
 @Configuration
@@ -141,7 +145,7 @@ public class RestConfig {
   public GroupedOpenApi openApiPublicGroup() {
     if (new AntPathMatcher().match(springdocPathsToMatch, "/api")) {
       return GroupedOpenApi.builder()
-          .setGroup("public-API-v1.0")
+          .group("public-API-v1.0")
           .packagesToScan(DossierResourceV1.class.getPackageName())
           .addOpenApiCustomiser(openApi -> {
             openApi.getInfo()
@@ -161,7 +165,7 @@ public class RestConfig {
   public GroupedOpenApi openApiAdminGroup() {
     if (new AntPathMatcher().match(springdocPathsToMatch, "/admin/api")) {
       return GroupedOpenApi.builder()
-          .setGroup("admin-API-v1.0")
+          .group("admin-API-v1.0")
           .packagesToScan(AdminSupportResourceV1.class.getPackageName())
           .addOpenApiCustomiser(openApi -> {
             openApi.getInfo()
@@ -181,13 +185,6 @@ public class RestConfig {
   public OpenAPI customOpenAPI() {
     Components components = new Components();
     components.setResponses(getResponses());
-
-    //  Disabled for now. This no longer worked from version 1.2.31 to current (1.3.9)
-    //
-    //  components.schemas(getSchemas(asList(ApiError.class,
-    //      ApiErrorCause.class,
-    //      ApiErrorRequest.class,
-    //      ApiErrorHttpStatus.class)));
 
     OpenAPI info = new OpenAPI()
         .openapi("3.0.0")
