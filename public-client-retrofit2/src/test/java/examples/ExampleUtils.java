@@ -39,7 +39,7 @@ public class ExampleUtils {
   public static DossierApiClient getClient() {
 
     String clientId = "sim";
-    String clientSecret = "TokhE5rMhcpFfRDUySzB7sJPAaZAaTMH";
+    String clientSecret = "";
 
     String baseURL = "http://localhost:9000/dossiers/";
     //    String baseURL = "http://srv-411t:9085/";

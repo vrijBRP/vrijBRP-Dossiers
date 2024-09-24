@@ -34,9 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
         // token endpoint does all authentication on its own
-        .antMatchers("/*", "/public/**", "/oauth/token").permitAll()
+        .antMatchers("/*", "/public/**", "/oauth/token", "/api/v1/info/**").permitAll()
         .antMatchers("/api/**").hasAuthority(SCOPE_API)
-        .antMatchers("/admin/api/**").hasAuthority(SCOPE_ADMIN)
         .anyRequest().hasAuthority(SCOPE_ADMIN);
     // should we disable CSRF on all endpoints?
     http.csrf().disable();

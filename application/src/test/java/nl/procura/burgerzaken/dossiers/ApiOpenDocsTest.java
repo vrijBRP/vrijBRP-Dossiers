@@ -53,21 +53,16 @@ public class ApiOpenDocsTest {
 
   @Test
   public void apiDocsCanBeDownloaded() throws Exception {
-    download("target/admin-api-docs.json", "/public/v3/api-docs/admin-API-v1.0");
     download("target/public-api-docs.json", "/public/v3/api-docs/public-API-v1.0");
   }
 
   @Test
   void operationIdMustNotContainUnderscore() throws Exception {
-    mustNotContainerUnderscores("/public/v3/api-docs/admin-API-v1.0");
     mustNotContainerUnderscores("/public/v3/api-docs/public-API-v1.0");
   }
 
   @Test
   void operationIdsMustMatch() throws Exception {
-    operationsMustMatch("/public/v3/api-docs/admin-API-v1.0",
-        "getInfo");
-
     operationsMustMatch("/public/v3/api-docs/public-API-v1.0",
         "searchTasks",
         "searchDossiers",
@@ -79,7 +74,8 @@ public class ApiOpenDocsTest {
         "findBirth", "addBirth", "getNameSelection", "getFamilySituation", "getAcknowledgement",
         "addDocumentToDossier", "getDocumentsOfDossier", "getDossierDocument",
         "findCommitment", "addCommitment", "updateCommitment", "cancelCommitment",
-        "findDeathInMunicipality", "addDeathInMunicipality", "findDiscoveredBody", "addDiscoveredBody");
+        "findDeathInMunicipality", "addDeathInMunicipality", "findDiscoveredBody", "addDiscoveredBody",
+        "getInfo");
   }
 
   private void download(String filePath, String uri) throws Exception {

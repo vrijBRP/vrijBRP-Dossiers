@@ -3,7 +3,7 @@
     <parent>
         <artifactId>dossiers</artifactId>
         <groupId>nl.procura.burgerzaken</groupId>
-        <version>1.0.21-SNAPSHOT</version>
+        <version>1.0.22</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -26,16 +26,6 @@
         <dependency>
             <groupId>nl.procura.burgerzaken.dossiers</groupId>
             <artifactId>public-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>nl.procura.burgerzaken.dossiers</groupId>
-            <artifactId>admin-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>nl.procura.burgerzaken.dossiers</groupId>
-            <artifactId>admin-client-retrofit2</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

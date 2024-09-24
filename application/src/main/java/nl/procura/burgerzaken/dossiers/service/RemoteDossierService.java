@@ -118,7 +118,7 @@ public class RemoteDossierService implements DossierService {
       case NAMEUSE:
         return (T) nameUseService;
       case NAMECHOICE:
-        return (T) nameUseService;
+        return (T) nameChoiceService;
       case EMIGRATION:
         return (T) emigrationService;
       case RESETTLEMENT:

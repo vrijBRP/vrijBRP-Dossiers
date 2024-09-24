@@ -60,7 +60,7 @@ public class ApiAccess {
   }
 
   public void adminScope(MockMvc mockMvc) {
-    tokenRequest(mockMvc, "api admin");
+    tokenRequest(mockMvc, "api");
   }
 
   public void tokenRequest(MockMvc mockMvc, String scope) {

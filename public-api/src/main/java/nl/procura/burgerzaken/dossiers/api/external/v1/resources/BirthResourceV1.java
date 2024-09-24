@@ -66,7 +66,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BirthResourceV1 {
 
-  private final BirthService birthService;
+  private final BirthService           birthService;
   private final ClientService          clientService;
   private final AcknowledgementService acknowledgementService;
 

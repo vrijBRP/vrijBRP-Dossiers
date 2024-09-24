@@ -4,7 +4,7 @@
     <parent>
         <groupId>nl.procura.burgerzaken</groupId>
         <artifactId>dossiers</artifactId>
-        <version>1.0.21-SNAPSHOT</version>
+        <version>1.0.22</version>
     </parent>
 
     <groupId>nl.procura.burgerzaken.dossiers</groupId>
@@ -71,11 +71,6 @@
         <dependency>
             <groupId>nl.procura.burgerzaken.dossiers</groupId>
             <artifactId>public-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>nl.procura.burgerzaken.dossiers</groupId>
-            <artifactId>admin-api</artifactId>
         </dependency>
 
         <dependency>

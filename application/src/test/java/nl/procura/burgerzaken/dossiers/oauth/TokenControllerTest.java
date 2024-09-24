@@ -24,7 +24,6 @@ import static java.util.Collections.singleton;
 import static nl.procura.burgerzaken.dossiers.MockMvcUtils.authorization;
 import static nl.procura.burgerzaken.dossiers.MockMvcUtils.givenCredentials;
 import static org.hamcrest.CoreMatchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -55,15 +54,12 @@ class TokenControllerTest {
   @Autowired
   private ClientDetailsService clientDetailsService;
 
-  private Client adminClient;
   private Client apiClient;
 
   private final List<Client> createdClients = new ArrayList<>();
 
   @BeforeEach
   public void setUp() {
-    adminClient = createClient(
-        new Client("admin", "secret", Scope.of("admin api"), singleton(Grants.CLIENT_CREDENTIALS)));
     apiClient = createClient(new Client("api", "secret", Scope.of("api"), singleton(Grants.CLIENT_CREDENTIALS)));
   }
 
@@ -128,37 +124,6 @@ class TokenControllerTest {
             .headers(authorization(accessToken))
             .contentType(MediaType.APPLICATION_JSON)
             .content("{\"types\":[\"intra_mun_relocation\"]}"))
-        .andExpect(status().isOk());
-  }
-
-  @Test
-  void apiScopeMustDenyAccessToAdminResource() throws Exception {
-    String accessToken = givenCredentials(mockMvc, apiClient, "api");
-    mockMvc.perform(
-        get("/admin/api/v1/relocations/intra/nonexistent")
-            .headers(authorization(accessToken)))
-        .andExpect(status().isForbidden());
-  }
-
-  /**
-   * For now you must provides all scopes. We might introduce scopes which includes other scopes.
-   */
-  @Test
-  void apiAndAdminScopeMustGrantAccessToApiResource() throws Exception {
-    GbaSource.enqueueJsonResponse(getClass().getResource("TokenControllerTest-empty.json"));
-    String accessToken = givenCredentials(mockMvc, adminClient, "api admin");
-    mockMvc.perform(
-        post("/api/v1/dossiers/search")
-            .headers(authorization(accessToken))
-            .contentType(MediaType.APPLICATION_JSON)
-            .content("{\"types\":[\"intra_mun_relocation\"]}"))
-        .andExpect(status().isOk());
-  }
-
-  @Test
-  void adminScopeGrantAccessToAdminResource() throws Exception {
-    String accessToken = givenCredentials(mockMvc, adminClient, "admin");
-    mockMvc.perform(get("/admin/api/v1/support/info").headers(authorization(accessToken)))
         .andExpect(status().isOk());
   }
 

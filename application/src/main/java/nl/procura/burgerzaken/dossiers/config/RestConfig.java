@@ -48,7 +48,6 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
-import nl.procura.burgerzaken.dossiers.api.admin.v1.resources.AdminSupportResourceV1;
 import nl.procura.burgerzaken.dossiers.api.external.v1.resources.DossierResourceV1;
 import nl.procura.burgerzaken.dossiers.components.RequestLogFilter;
 import nl.procura.burgerzaken.dossiers.model.error.ApiErrorType;
@@ -155,26 +154,6 @@ public class RestConfig {
             openApi.addSecurityItem(new SecurityRequirement().addList(OAUTH_SECURITY_SCHEME));
             openApi.getComponents().addSecuritySchemes(OAUTH_SECURITY_SCHEME,
                 getOauthSecurityScheme("api", "Actions related to the public API"));
-          })
-          .build();
-    }
-    return null;
-  }
-
-  @Bean
-  public GroupedOpenApi openApiAdminGroup() {
-    if (new AntPathMatcher().match(springdocPathsToMatch, "/admin/api")) {
-      return GroupedOpenApi.builder()
-          .group("admin-API-v1.0")
-          .packagesToScan(AdminSupportResourceV1.class.getPackageName())
-          .addOpenApiCustomiser(openApi -> {
-            openApi.getInfo()
-                .version("1.0.0")
-                .title("Burgerzaken Dossiers Admin API")
-                .description("Administrator API for internal use");
-            openApi.addSecurityItem(new SecurityRequirement().addList(OAUTH_SECURITY_SCHEME));
-            openApi.getComponents().addSecuritySchemes(OAUTH_SECURITY_SCHEME,
-                getOauthSecurityScheme("admin", "Actions related to the admin API"));
           })
           .build();
     }

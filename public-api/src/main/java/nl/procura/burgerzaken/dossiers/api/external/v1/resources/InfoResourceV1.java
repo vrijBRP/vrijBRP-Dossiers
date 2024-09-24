@@ -17,7 +17,7 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.api.admin.v1.resources;
+package nl.procura.burgerzaken.dossiers.api.external.v1.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,19 +27,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import nl.procura.burgerzaken.dossiers.api.admin.v1.support.AdminApiInfo;
+import nl.procura.burgerzaken.dossiers.api.external.v1.info.ApiInfo;
 import nl.procura.burgerzaken.dossiers.model.support.Version;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 
-@Tag(name = "Admin API - Support",
-    description = "Support actions for admin")
+@Tag(name = "Info",
+    description = "Generic information")
 @RestController
-@RequestMapping("/admin/api/v1/support")
-public class AdminSupportResourceV1 {
+@RequestMapping("/api/v1/info")
+@RequiredArgsConstructor
+public class InfoResourceV1 {
 
   @Autowired
   Version version;
@@ -49,13 +51,12 @@ public class AdminSupportResourceV1 {
       summary = "Return service information",
       description = "Return service information")
   @GetMapping(
-      value = "/info",
       produces = MediaType.APPLICATION_JSON_VALUE)
   @ApiResponses({
       @ApiResponse(responseCode = "200", description = "Resource successfully returned"),
   })
-  public ResponseEntity<AdminApiInfo> getInfo() {
-    AdminApiInfo info = new AdminApiInfo();
+  public ResponseEntity<ApiInfo> getInfo() {
+    ApiInfo info = new ApiInfo();
     info.setVersion(version.version());
     info.setBuildTime(version.time());
     return new ResponseEntity<>(info, HttpStatus.OK);
