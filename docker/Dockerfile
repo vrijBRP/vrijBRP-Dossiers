@@ -1,16 +1,11 @@
-FROM amazoncorretto:11-alpine
-ARG jar
+ARG SOURCE
 
-ENV LANG nl_NL.UTF-8
-ENV LANGUAGE nl_NL:nl
-ENV LC_ALL nl_NL.UTF-8
-ENV JAVA_TOOL_OPTIONS -Dfile.encoding=UTF8 -Duser.language=nl -Duser.country=NL \
-    -Dlog4j2.formatMsgNoLookups=true -Djava.security.egd=file:/dev/./urandom
-ENV TZ Europe/Amsterdam
+FROM $SOURCE
 
-COPY ${jar} "app.jar"
-COPY initclient.sh /initclient.sh
-RUN chmod a+rx /initclient.sh && apk add --no-cache tzdata
+COPY jar/target/dossiers.jar app.jar
+COPY docker/initclient.sh /initclient.sh
+
+RUN chmod a+rx /initclient.sh
 
 EXPOSE 8080
 

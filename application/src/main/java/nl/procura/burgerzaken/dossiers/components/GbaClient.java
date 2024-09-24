@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2023 - 2024 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -19,6 +19,8 @@
 
 package nl.procura.burgerzaken.dossiers.components;
 
+import static nl.procura.gba.web.rest.v2.GbaRestDataImportResourceV2.ADD;
+import static nl.procura.gba.web.rest.v2.GbaRestDataImportResourceV2.BASE_DATAIMPORT_URI;
 import static nl.procura.gba.web.rest.v2.GbaRestVerhuizingResourceV2.BASE_VERHUIZING_URI;
 import static nl.procura.gba.web.rest.v2.GbaRestVerhuizingResourceV2.UPDATE_INWONING_URI;
 import static nl.procura.gba.web.rest.v2.GbaRestZaakResourceV2.BASE_ZAKEN_URI;
@@ -45,11 +47,19 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import nl.procura.burgerzaken.dossiers.model.error.ApiErrorType;
 import nl.procura.burgerzaken.dossiers.model.error.ApiException;
+import nl.procura.gba.web.rest.v2.GbaRestDataImportResourceV2;
 import nl.procura.gba.web.rest.v2.GbaRestDocumentV2;
 import nl.procura.gba.web.rest.v2.GbaRestVerhuizingResourceV2;
 import nl.procura.gba.web.rest.v2.GbaRestZaakResourceV2;
 import nl.procura.gba.web.rest.v2.model.base.GbaRestAntwoord;
-import nl.procura.gba.web.rest.v2.model.zaken.*;
+import nl.procura.gba.web.rest.v2.model.dataimport.GbaRestDataImport;
+import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakDocumentToevoegenVraag;
+import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakDocumentenZoekenAntwoord;
+import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakStatusUpdateVraag;
+import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakToevoegenVraag;
+import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakUpdateVraag;
+import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakZoekenAntwoord;
+import nl.procura.gba.web.rest.v2.model.zaken.GbaRestZaakZoekenVraag;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaak;
 import nl.procura.gba.web.rest.v2.model.zaken.base.GbaRestZaakDocument;
 
@@ -81,6 +91,9 @@ public class GbaClient {
   private static final ParameterizedTypeReference<GbaRestAntwoord<GbaRestZaakDocumentenZoekenAntwoord>> ZAAK_DOCUMENT_ZOEKEN_TYPE = new ParameterizedTypeReference<>() {
   };
 
+  private static final ParameterizedTypeReference<GbaRestAntwoord<GbaRestDataImport>> DATAIMPORT_TYPE = new ParameterizedTypeReference<>() {
+  };
+
   @Builder
   public GbaClient(GbaClientConfig config) {
     this.config = config;
@@ -106,6 +119,12 @@ public class GbaClient {
     return request -> handleError(
         post(BASE_VERHUIZING_URI + UPDATE_INWONING_URI,
             request, ZAAK_ZOEKEN_TYPE));
+  }
+
+  public GbaRestDataImportResourceV2 dataImport() {
+    return request -> handleError(
+        post(BASE_DATAIMPORT_URI + ADD,
+            request, DATAIMPORT_TYPE));
   }
 
   public GbaRestZaakResourceV2 zaken() {

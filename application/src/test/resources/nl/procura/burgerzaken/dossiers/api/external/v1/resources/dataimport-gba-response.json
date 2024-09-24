@@ -1,0 +1,64 @@
+{
+  "inhoud": {
+    "name": "Inschrijvers via Internet",
+    "type": "first_registrants_2022",
+    "records": [
+      {
+        "values": {
+          "Voornamen": {
+            "value": "Pietje",
+            "remark": null
+          },
+          "Achternaam": {
+            "value": "Puk",
+            "remark": null
+          },
+          "Geboortedatum": {
+            "value": "111",
+            "remark": "De geboortedatum heeft geen geldig formaat"
+          }
+        },
+        "documents": [],
+        "remarks": [
+          "De geboortedatum heeft geen geldig formaat"
+        ]
+      },
+      {
+        "values": {
+          "Voornamen": {
+            "value": "Donald",
+            "remark": null
+          },
+          "Achternaam": {
+            "value": "Duck",
+            "remark": null
+          },
+          "Geboortedatum": {
+            "value": "20130201",
+            "remark": null
+          }
+        },
+        "documents": [],
+        "remarks": []
+      }
+    ],
+    "remarks": [
+      "Veld 'Leeftijd' is onbekend",
+      "Veld 'Voorvoegsel' ontbreekt",
+      "Veld 'Geslacht' ontbreekt",
+      "Veld 'Geboorteplaats' ontbreekt",
+      "Veld 'Geboorteland' ontbreekt",
+      "Veld 'Straatnaam' ontbreekt",
+      "Veld 'Huisnummer' ontbreekt",
+      "Veld 'Huisletter' ontbreekt",
+      "Veld 'Toevoeging' ontbreekt",
+      "Veld 'Postcode' ontbreekt",
+      "Veld 'Woonplaats' ontbreekt",
+      "Veld 'Nationaliteit' ontbreekt",
+      "Veld 'E-mail' ontbreekt",
+      "1 van de 2 regels bevatten fouten"
+    ]
+  },
+  "succes": true,
+  "foutmelding": null
+}

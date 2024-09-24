@@ -113,6 +113,12 @@ include::dossier/document/get_document.adoc[]
 
 include::task/search/index.adoc[]
 
+=== Data import
+
+Import CSV type of data used in other cases
+
+include::dataimport/add/index.adoc[]
+
 === Relatives
 
 Information about the relatives.

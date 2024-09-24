@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2023 - 2024 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -19,7 +19,11 @@
 
 package nl.procura.burgerzaken.dossiers;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.not;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -71,6 +75,7 @@ public class ApiOpenDocsTest {
         "addIntraMunicipalRelocation", "findIntraMunicipalRelocation", "addIntraMunicipalRelocationConsent",
         "findRelatives",
         "findRelocationRelatives",
+        "addDataimport",
         "findBirth", "addBirth", "getNameSelection", "getFamilySituation", "getAcknowledgement",
         "addDocumentToDossier", "getDocumentsOfDossier", "getDossierDocument",
         "findCommitment", "addCommitment", "updateCommitment", "cancelCommitment",

@@ -1,0 +1,96 @@
+{
+  "name": "Inschrijvers via Internet",
+  "type": "first_registrants_2022",
+  "records": [
+    {
+      "values": {
+        "voornamen": {
+          "value": "Pietje",
+          "remark": ""
+        },
+        "achternaam": {
+          "value": "Puk",
+          "remark": ""
+        },
+        "geboortedatum": {
+          "value": "111",
+          "remark": ""
+        },
+        "leeftijd": {
+          "value": "11",
+          "remark": ""
+        }
+      },
+      "remarks": [],
+      "documents": [
+        {
+          "document": {
+            "id": null,
+            "titel": "My Title",
+            "bestandsnaam": "test.txt",
+            "vertrouwelijkheid": null,
+            "pad": null,
+            "invoerDatum": null,
+            "invoerTijd": null,
+            "invoerGebruiker": null
+          },
+          "inhoud": "U0dWc2JHOE5DbGR2Y214aw=="
+        },
+        {
+          "document": {
+            "id": null,
+            "titel": "My Title2",
+            "bestandsnaam": "test2.txt",
+            "vertrouwelijkheid": null,
+            "pad": null,
+            "invoerDatum": null,
+            "invoerTijd": null,
+            "invoerGebruiker": null
+          },
+          "inhoud": "U0dWc2JHOE5DbGR2Y214aw=="
+        }
+      ]
+    },
+    {
+      "values": {
+        "voornamen": {
+          "value": "Donald",
+          "remark": ""
+        },
+        "achternaam": {
+          "value": "Duck",
+          "remark": ""
+        },
+        "geboortedatum": {
+          "value": "01-02-2013",
+          "remark": ""
+        },
+        "leeftijd": {
+          "value": "10",
+          "remark": ""
+        }
+      },
+      "remarks": [],
+      "documents": []
+    },
+    {
+      "values": {
+        "voornamen": {
+          "value": "Dagobert",
+          "remark": ""
+        },
+        "achternaam": {
+          "value": "Duck",
+          "remark": ""
+        },
+        "geboortedatum": {
+          "value": "19700405",
+          "remark": ""
+        }
+      },
+      "remarks": [],
+      "documents": []
+    }
+  ],
+  "remarks": null
+}

@@ -43,6 +43,12 @@ build/
 target/
 .settings/
 
+# Maven release plugin #
+########################
+pom.xml.release*
+release.properties
+pom.xml.versionsBackup
+
 # OS junk #
 ###########
 .DS_Store*

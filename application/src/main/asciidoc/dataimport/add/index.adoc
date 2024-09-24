@@ -1,0 +1,20 @@
+[[add_dataimport]]
+==== Add new
+
+This is an example of add a data import record
+
+[[add_dataimport_success]]
+===== Successful call
+
+When making a successfull call to this API endpoint, the following request parameters and body can be expected.
+The field 'type' should contain a specific value which determine the required values.
+
+[[add_dataimport_request]]
+====== Request
+
+include::{snippets}/add_dataimport/http-request.adoc[]
+
+[[add_dataimport_response]]
+====== Response
+
+include::{snippets}/add_dataimport/http-response.adoc[]
