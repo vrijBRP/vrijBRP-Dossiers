@@ -19,7 +19,7 @@
 
 package nl.procura.burgerzaken.dossiers.service;
 
-import nl.procura.burgerzaken.dossiers.model.extract.Extract;
+import nl.procura.burgerzaken.dossiers.model.nameuse.NameUse;
 
-public interface NameUseService extends DossierTypeService<Extract> {
+public interface NameUseService extends DossierTypeService<NameUse> {
 }

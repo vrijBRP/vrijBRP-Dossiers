@@ -19,25 +19,12 @@
 
 package nl.procura.burgerzaken.dossiers.service;
 
-import org.springframework.stereotype.Service;
+import java.util.Optional;
 
-import nl.procura.burgerzaken.dossiers.model.nameuse.NameUse;
+import nl.procura.burgerzaken.dossiers.model.namechoice.NameChoice;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 
-@Service
-public class RemoteNameUseService implements NameUseService {
+public interface NameChoiceService extends DossierTypeService<NameChoice> {
 
-  @Override
-  public NameUse add(NameUse dossier) {
-    throw new UnsupportedOperationException("Not yet implemented");
-  }
-
-  @Override
-  public NameUse update(NameUse dossier) {
-    throw new UnsupportedOperationException("Not yet implemented");
-  }
-
-  @Override
-  public NameUse findByCaseNumber(String caseNumber) {
-    throw new UnsupportedOperationException("Not yet implemented");
-  }
+  Optional<NameChoice> findByMotherAndFather(Bsn bsnMother, Bsn bsnFather);
 }

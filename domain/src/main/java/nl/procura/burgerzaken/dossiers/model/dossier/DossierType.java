@@ -37,10 +37,13 @@ public enum DossierType {
   CONFIDENTIALITY("confidentiality", "Confidentiality"),
   EXTRACT("extract", "Extract"),
   NAMEUSE("nameuse", "Name Use"),
+  NAMECHOICE("namechoice", "Name choice"),
   COMMITMENT("commitment", "Commitment"),
   DEATH_IN_MUNICIPALITY("death_in_municipality", "Death in municipality"),
   DISCOVERED_BODY("discovered_body", "Discovered body"),
-  ACKNOWLEDGEMENT("acknowledgement", "Acknowledgement");
+  ACKNOWLEDGEMENT("acknowledgement", "Acknowledgement"),
+  WITHHOLDING_MISSING_DOCUMENT("withholding_missing_document", "Withholding or missing document"),
+  TRAVEL_DOCUMENT("travel_document", "Travel document");
 
   private final String code;
   private final String description;

@@ -33,7 +33,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import nl.procura.burgerzaken.dossiers.api.external.v1.birth.ApiBirth;
 import nl.procura.burgerzaken.dossiers.api.external.v1.birth.ApiUnbornAcknowledgement;
@@ -51,23 +57,18 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 
 @Tag(name = "Birth",
     description = "Actions related to births")
 @RestController
 @RequestMapping("/api/v1/births")
+@RequiredArgsConstructor
 public class BirthResourceV1 {
 
-  private final BirthService           service;
+  private final BirthService birthService;
   private final ClientService          clientService;
   private final AcknowledgementService acknowledgementService;
-
-  public BirthResourceV1(BirthService service, ClientService clientService,
-      AcknowledgementService acknowledgementService) {
-    this.service = service;
-    this.clientService = clientService;
-    this.acknowledgementService = acknowledgementService;
-  }
 
   @Operation(
       operationId = "findBirth",
@@ -81,7 +82,7 @@ public class BirthResourceV1 {
       @ApiResponse(responseCode = "404", ref = NOT_FOUND)
   })
   public ApiBirth find(@PathVariable String dossierId) {
-    return ApiBirth.of(service.findByCaseNumber(dossierId));
+    return ApiBirth.of(birthService.findByCaseNumber(dossierId));
   }
 
   @Operation(
@@ -99,7 +100,7 @@ public class BirthResourceV1 {
   public ResponseEntity<ApiBirth> add(
       @Valid @RequestBody ApiBirth birth,
       @Parameter(hidden = true) @AuthenticationPrincipal Jwt jwt) {
-    Birth newDossier = service.add(birth.createNew(clientService.getById(jwt.getSubject())));
+    Birth newDossier = birthService.add(birth.createNew(clientService.getById(jwt.getSubject())));
     return new ResponseEntity<>(ApiBirth.of(newDossier), HttpStatus.CREATED);
   }
 
@@ -122,7 +123,7 @@ public class BirthResourceV1 {
       @RequestParam("bsnMother") String bsnMother,
       @RequestParam("bsnFatherOrDuoMother") String bsnFatherDuoMother) {
     return ApiNameSelectionInfoResponse
-        .of(service.getNameSelectionInfo(new Bsn(bsnMother), new Bsn(bsnFatherDuoMother)));
+        .of(birthService.getNameSelectionInfo(new Bsn(bsnMother), new Bsn(bsnFatherDuoMother)));
   }
 
   @Operation(
@@ -143,7 +144,7 @@ public class BirthResourceV1 {
   public ApiFamilySituationInfoResponse getFamilySituation(
       @RequestParam("birthDate") @DateTimeFormat(iso = DATE) LocalDate birthDate,
       @RequestParam("bsnMother") String bsnMother) {
-    return ApiFamilySituationInfoResponse.of(service.getFamilySituationInfo(birthDate, new Bsn(bsnMother)));
+    return ApiFamilySituationInfoResponse.of(birthService.getFamilySituationInfo(birthDate, new Bsn(bsnMother)));
   }
 
   @Operation(

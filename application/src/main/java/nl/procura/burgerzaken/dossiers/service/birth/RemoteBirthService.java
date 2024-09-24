@@ -42,7 +42,9 @@ import nl.procura.burgerzaken.dossiers.model.birth.FamilySituationInfo;
 import nl.procura.burgerzaken.dossiers.model.birth.NameSelectionInfo;
 import nl.procura.burgerzaken.dossiers.model.error.ApiErrorType;
 import nl.procura.burgerzaken.dossiers.model.error.ApiException;
+import nl.procura.burgerzaken.dossiers.model.namechoice.NameChoice;
 import nl.procura.burgerzaken.dossiers.service.BirthService;
+import nl.procura.burgerzaken.dossiers.service.NameChoiceService;
 import nl.procura.burgerzaken.dossiers.service.ProcuraWsService;
 import nl.procura.burgerzaken.gba.core.enums.GBACat;
 import nl.procura.burgerzaken.gba.core.enums.GBAElem;
@@ -56,6 +58,7 @@ public class RemoteBirthService implements BirthService {
 
   private final GbaClient             client;
   private final ProcuraWsService      personWsService;
+  private final NameChoiceService     nameChoiceService;
   private final GbaRestBirthConverter converter;
 
   public static final String REASON_IS_DECEASED = "O";
@@ -63,9 +66,11 @@ public class RemoteBirthService implements BirthService {
 
   public RemoteBirthService(GbaClient client,
       ProcuraWsService personWsService,
+      NameChoiceService nameChoiceService,
       GbaRestBirthConverter converter) {
     this.client = client;
     this.personWsService = personWsService;
+    this.nameChoiceService = nameChoiceService;
     this.converter = converter;
   }
 
@@ -96,7 +101,8 @@ public class RemoteBirthService implements BirthService {
     GbaWsPersonList father = getRegistered(bsnFather, "father / duomother");
     return getFirstMatchingChild(mother, father)
         .map(this::toNameSelectionInfo)
-        .orElseGet(NameSelectionInfo::new);
+        .orElseGet(() -> getNameSelectionCase(bsnMother, bsnFather)
+            .orElse(new NameSelectionInfo()));
   }
 
   @Override
@@ -171,6 +177,22 @@ public class RemoteBirthService implements BirthService {
             .stream()
             .anyMatch(Predicate.isEqual(child)))
         .findFirst();
+  }
+
+  private Optional<NameSelectionInfo> getNameSelectionCase(Bsn bsnMother, Bsn bsnFather) {
+    return nameChoiceService.findByMotherAndFather(bsnMother, bsnFather)
+        .map(this::toNameSelectionInfo);
+  }
+
+  private NameSelectionInfo toNameSelectionInfo(NameChoice nameChoice) {
+    if (nameChoice.getNameSelection() != null) {
+      NameSelectionInfo info = new NameSelectionInfo();
+      info.setPrefix(nameChoice.getNameSelection().getPrefix());
+      info.setLastname(nameChoice.getNameSelection().getLastName());
+      info.setTitle(nameChoice.getNameSelection().getTitle());
+      return info;
+    }
+    return null;
   }
 
   private GbaWsPersonList getRegistered(Bsn bsn, String personType) {

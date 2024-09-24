@@ -144,7 +144,7 @@ public final class GbaRestConverter {
   }
 
   public static Optional<Person> toPerson(HeeftBsn personWithBsn, PersonRole personType) {
-    if (personWithBsn != null) {
+    if (personWithBsn != null && personWithBsn.getBsn() != null) {
       Person person = new Person(personType);
       person.setBsn(new Bsn(personWithBsn.getBsn()));
       return Optional.of(person);

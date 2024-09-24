@@ -56,6 +56,7 @@ public class RemoteDossierService implements DossierService {
   private final ConfidentialityService  confidentialityService;
   private final ExtractService          extractService;
   private final NameUseService          nameUseService;
+  private final NameChoiceService       nameChoiceService;
   private final EmigrationService       emigrationService;
   private final ResettlementService     resettlementService;
 
@@ -67,6 +68,7 @@ public class RemoteDossierService implements DossierService {
       ConfidentialityService confidentialityService,
       ExtractService extractService,
       NameUseService nameUseService,
+      NameChoiceService nameChoiceService,
       EmigrationService emigrationService,
       ResettlementService resettlementService) {
 
@@ -78,6 +80,7 @@ public class RemoteDossierService implements DossierService {
     this.confidentialityService = confidentialityService;
     this.extractService = extractService;
     this.nameUseService = nameUseService;
+    this.nameChoiceService = nameChoiceService;
     this.emigrationService = emigrationService;
     this.resettlementService = resettlementService;
   }
@@ -113,6 +116,8 @@ public class RemoteDossierService implements DossierService {
       case EXTRACT:
         return (T) extractService;
       case NAMEUSE:
+        return (T) nameUseService;
+      case NAMECHOICE:
         return (T) nameUseService;
       case EMIGRATION:
         return (T) emigrationService;

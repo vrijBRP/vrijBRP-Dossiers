@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.procura.burgerzaken</groupId>
   <artifactId>dossiers</artifactId>
-  <version>1.0.18</version>
+  <version>1.0.19-SNAPSHOT</version>
   <name>VrijBRP Dossiers</name>
   <packaging>pom</packaging>
 
@@ -11,9 +11,10 @@
     <java.version>11</java.version>
     <maven.compiler.release>${java.version}</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring-boot-version>2.7.2</spring-boot-version>
+    <spring-boot-version>2.7.11</spring-boot-version>
     <org.springdoc.version>1.6.9</org.springdoc.version>
-    <gba-rest.version>1.30.0</gba-rest.version>
+    <gba-rest.version>1.30.7-SNAPSHOT</gba-rest.version>
+    <vrijbrp-libs.version>1.0.6</vrijbrp-libs.version>
     <commons-io.version>2.11.0</commons-io.version>
     <commons-lang3.version>3.12.0</commons-lang3.version>
     <lombok.version>1.18.24</lombok.version>
@@ -34,7 +35,7 @@
   <scm>
     <developerConnection>scm:git:https://gitlab.simgroep.nl/vrijbrp/dossiers.git
     </developerConnection>
-    <tag>1.0.18</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <modules>
@@ -110,7 +111,7 @@
       <dependency>
         <groupId>nl.vrijbrp</groupId>
         <artifactId>gba-commons</artifactId>
-        <version>1.0.5</version>
+        <version>${vrijbrp-libs.version}</version>
       </dependency>
 
       <dependency>

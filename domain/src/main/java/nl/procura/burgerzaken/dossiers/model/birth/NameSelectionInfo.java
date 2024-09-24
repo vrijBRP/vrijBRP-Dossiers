@@ -19,6 +19,8 @@
 
 package nl.procura.burgerzaken.dossiers.model.birth;
 
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+
 import nl.procura.burgerzaken.dossiers.model.base.TitlePredicateType;
 
 import lombok.Data;
@@ -32,4 +34,12 @@ public class NameSelectionInfo {
   private String             lastname;
   private String             prefix;
   private TitlePredicateType title;
+
+  public void setLastname(String lastname) {
+    this.lastname = defaultIfBlank(lastname, null);
+  }
+
+  public void setPrefix(String prefix) {
+    this.prefix = defaultIfBlank(prefix, null);
+  }
 }

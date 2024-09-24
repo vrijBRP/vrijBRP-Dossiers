@@ -17,27 +17,26 @@
  * beperkingen op grond van de licentie.
  */
 
-package nl.procura.burgerzaken.dossiers.service;
+package nl.procura.burgerzaken.dossiers.model.namechoice;
 
-import org.springframework.stereotype.Service;
+import nl.procura.burgerzaken.dossiers.model.base.NameSelection;
+import nl.procura.burgerzaken.dossiers.model.dossier.Dossier;
 
-import nl.procura.burgerzaken.dossiers.model.nameuse.NameUse;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-@Service
-public class RemoteNameUseService implements NameUseService {
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class NameChoice {
 
-  @Override
-  public NameUse add(NameUse dossier) {
-    throw new UnsupportedOperationException("Not yet implemented");
-  }
+  @EqualsAndHashCode.Include
+  private Dossier dossier;
 
-  @Override
-  public NameUse update(NameUse dossier) {
-    throw new UnsupportedOperationException("Not yet implemented");
-  }
+  private NameSelection nameSelection;
 
-  @Override
-  public NameUse findByCaseNumber(String caseNumber) {
-    throw new UnsupportedOperationException("Not yet implemented");
+  public NameChoice(Dossier dossier) {
+    this.dossier = dossier;
   }
 }

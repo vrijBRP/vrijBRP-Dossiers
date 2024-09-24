@@ -21,7 +21,12 @@ package nl.procura.burgerzaken.dossiers.api.external.v1.resources;
 
 import static java.util.Collections.singletonList;
 import static nl.procura.burgerzaken.dossiers.util.BsnUtils.toBsnString;
-import static nl.procura.burgerzaken.gba.numbers.Bsn.*;
+import static nl.procura.burgerzaken.gba.numbers.Bsn.TEST_BSN_3;
+import static nl.procura.burgerzaken.gba.numbers.Bsn.TEST_BSN_4;
+import static nl.procura.burgerzaken.gba.numbers.Bsn.TEST_BSN_6;
+import static nl.procura.burgerzaken.gba.numbers.Bsn.TEST_BSN_7;
+import static nl.procura.burgerzaken.gba.numbers.Bsn.TEST_BSN_8;
+import static nl.procura.burgerzaken.gba.numbers.Bsn.TEST_BSN_9;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.BDDMockito.given;
@@ -29,6 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -39,10 +45,15 @@ import nl.procura.burgerzaken.dossiers.PersonList;
 import nl.procura.burgerzaken.dossiers.api.external.v1.base.ApiTitlePredicateType;
 import nl.procura.burgerzaken.dossiers.api.external.v1.birth.info.ApiFamilySituationInfoResponse;
 import nl.procura.burgerzaken.dossiers.api.external.v1.birth.info.ApiNameSelectionInfoResponse;
+import nl.procura.burgerzaken.dossiers.model.base.NameSelection;
+import nl.procura.burgerzaken.dossiers.model.base.TitlePredicateType;
+import nl.procura.burgerzaken.dossiers.model.namechoice.NameChoice;
+import nl.procura.burgerzaken.dossiers.service.NameChoiceService;
 import nl.procura.burgerzaken.dossiers.service.ProcuraWsService;
 import nl.procura.burgerzaken.gba.core.enums.GBACat;
 import nl.procura.burgerzaken.gba.core.enums.GBAElem;
 import nl.procura.burgerzaken.gba.core.enums.GBARecStatus;
+import nl.procura.burgerzaken.gba.numbers.Bsn;
 import nl.procura.gbaws.web.rest.v2.personlists.GbaWsPersonList;
 
 import lombok.SneakyThrows;
@@ -70,6 +81,9 @@ class BirthInfoResourceV1Test extends BaseResourceTest {
 
   @MockBean
   private ProcuraWsService procuraWsService;
+
+  @MockBean
+  private NameChoiceService nameChoiceService;
 
   @Test
   public void mustMatchChildrenWithPartner1ByName() throws IOException {
@@ -131,6 +145,9 @@ class BirthInfoResourceV1Test extends BaseResourceTest {
   public void mustNotMatchChildrenWithNeighbour() {
     setupData(MOTHER_BSN, getMother());
     setupData(NEIGHBOUR_BSN, getNeighbour());
+    // no name choice found
+    given(nameChoiceService.findByMotherAndFather(new Bsn(MOTHER_BSN), new Bsn(NEIGHBOUR_BSN)))
+        .willReturn(Optional.empty());
 
     ApiNameSelectionInfoResponse response = newMockTest()
         .queryParam(PARAM_BSN_MOTHER, MOTHER_BSN)
@@ -141,6 +158,30 @@ class BirthInfoResourceV1Test extends BaseResourceTest {
 
     assertEquals(false, response.getJointChildren());
     assertNull(response.getNameSelection());
+  }
+
+  @Test
+  @SneakyThrows
+  public void mustReturnNamechoiceWithCase() {
+    setupData(MOTHER_BSN, getMother());
+    setupData(NEIGHBOUR_BSN, getNeighbour());
+    // Returns namechoice
+    NameChoice nameChoice = new NameChoice();
+    nameChoice.setNameSelection(new NameSelection("Vries", "de", TitlePredicateType.B));
+    given(nameChoiceService.findByMotherAndFather(new Bsn(MOTHER_BSN), new Bsn(NEIGHBOUR_BSN)))
+        .willReturn(Optional.of(nameChoice));
+
+    ApiNameSelectionInfoResponse response = newMockTest()
+        .queryParam(PARAM_BSN_MOTHER, MOTHER_BSN)
+        .queryParam(PARAM_BSN_FATHER_OR_DUO_MOTHER, NEIGHBOUR_BSN)
+        .get(URI_NAME_SELECTION)
+        .status(status().isOk())
+        .toClass(ApiNameSelectionInfoResponse.class);
+
+    assertEquals(false, response.getJointChildren());
+    assertEquals("Vries", response.getNameSelection().getLastname());
+    assertEquals("de", response.getNameSelection().getPrefix());
+    assertEquals(ApiTitlePredicateType.B, response.getNameSelection().getTitlePredicate());
   }
 
   @Test
