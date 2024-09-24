@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.procura.burgerzaken</groupId>
   <artifactId>dossiers</artifactId>
-  <version>1.0.17</version>
+  <version>1.0.18</version>
   <name>VrijBRP Dossiers</name>
   <packaging>pom</packaging>
 
@@ -34,7 +34,7 @@
   <scm>
     <developerConnection>scm:git:https://gitlab.simgroep.nl/vrijbrp/dossiers.git
     </developerConnection>
-    <tag>1.0.17</tag>
+    <tag>1.0.18</tag>
   </scm>
 
   <modules>
