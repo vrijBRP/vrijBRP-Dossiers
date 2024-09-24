@@ -4,7 +4,7 @@
     <parent>
         <groupId>nl.procura.burgerzaken</groupId>
         <artifactId>dossiers</artifactId>
-        <version>1.0.15</version>
+        <version>1.0.16</version>
     </parent>
 
     <groupId>nl.procura.burgerzaken.dossiers</groupId>

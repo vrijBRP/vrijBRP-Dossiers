@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 - 2022 Procura B.V.
+ * Copyright 2022 - 2023 Procura B.V.
  *
  * In licentie gegeven krachtens de EUPL, versie 1.2
  * U mag dit werk niet gebruiken, behalve onder de voorwaarden van de licentie.
@@ -32,7 +32,7 @@ public enum DeclarationType {
   HEAD_OF_AN_INSTITUTION("H", "Head of an institution"),
   REGISTERED("I", "Registered"),
   ADULT_CHILD_LIVING_WITH_PARENTS("K", "Adult child living with parents"),
-  ADULT_AUTHORIZED_REPRESENTATIVE("Adult authorized representative", "M"),
+  ADULT_AUTHORIZED_REPRESENTATIVE("M", "Adult authorized representative"),
   PARTNER("P", "Partner"),
   PARENT_LIVING_WITH_ADULT_CHILD("O", "Parent living with adult child");
 
